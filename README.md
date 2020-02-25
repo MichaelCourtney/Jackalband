@@ -1,3 +1,8 @@
+# Jackalband 0.1.0
+
+Rework Blows
+Change Weapon Weights
+
 # Angband 4.2.0
 
 
