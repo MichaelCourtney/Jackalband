@@ -641,7 +641,7 @@ name:& Main Gauche~
 type:sword
 graphics:|:W
 level:3
-weight:30
+weight:15
 cost:45
 alloc:20:3 to 100
 attack:1d5:0:0
@@ -652,7 +652,7 @@ name:& Rapier~
 type:sword
 graphics:|:W
 level:5
-weight:40
+weight:20
 cost:70
 alloc:20:5 to 100
 attack:1d6:0:0
@@ -663,7 +663,7 @@ name:& Short Sword~
 type:sword
 graphics:|:W
 level:5
-weight:80
+weight:40
 cost:90
 alloc:20:5 to 100
 attack:1d7:0:0
@@ -674,7 +674,7 @@ name:& Cutlass~
 type:sword
 graphics:|:W
 level:5
-weight:110
+weight:55
 cost:120
 alloc:20:5 to 100
 attack:1d8:0:0
@@ -686,7 +686,7 @@ name:& Tulwar~
 type:sword
 graphics:|:W
 level:5
-weight:100
+weight:50
 cost:170
 alloc:20:5 to 100
 attack:2d4:0:0
@@ -697,7 +697,7 @@ name:& Scimitar~
 type:sword
 graphics:|:W
 level:10
-weight:150
+weight:75
 cost:300
 alloc:20:10 to 100
 attack:4d2:0:0
@@ -708,7 +708,7 @@ name:& Long Sword~
 type:sword
 graphics:|:W
 level:10
-weight:130
+weight:65
 cost:300
 alloc:20:10 to 100
 attack:2d5:0:0
@@ -720,7 +720,7 @@ name:& Broad Sword~
 type:sword
 graphics:|:W
 level:10
-weight:150
+weight:75
 cost:300
 alloc:20:10 to 100
 attack:2d5:0:0
@@ -731,7 +731,7 @@ name:& Bastard Sword~
 type:sword
 graphics:|:W
 level:15
-weight:140
+weight:70
 cost:400
 alloc:20:15 to 100
 attack:3d4:0:0
@@ -743,7 +743,7 @@ name:& Katana~
 type:sword
 graphics:|:W
 level:20
-weight:120
+weight:60
 cost:600
 alloc:20:20 to 100
 attack:3d5:0:0
@@ -755,7 +755,7 @@ name:& Zweihander~
 type:sword
 graphics:|:W
 level:30
-weight:200
+weight:100
 cost:700
 alloc:20:30 to 100
 attack:3d6:0:0
@@ -766,7 +766,7 @@ name:& Executioner's Sword~
 type:sword
 graphics:|:r
 level:40
-weight:260
+weight:130
 cost:850
 alloc:20:40 to 100
 attack:4d5:0:0
@@ -777,7 +777,7 @@ name:& Blade~ of Chaos
 type:sword
 graphics:|:v
 level:70
-weight:180
+weight:90
 cost:4000
 alloc:10:70 to 100
 attack:6d5:0:0
@@ -794,7 +794,7 @@ name:& Whip~
 type:hafted
 graphics:\:D
 level:3
-weight:30
+weight:15
 cost:30
 alloc:20:3 to 100
 attack:1d3:0:0
@@ -806,7 +806,7 @@ name:& Ball-and-Chain~
 type:hafted
 graphics:\:D
 level:20
-weight:150
+weight:75
 cost:200
 alloc:20:20 to 100
 attack:2d4:0:0
@@ -817,7 +817,7 @@ name:& Morning Star~
 type:hafted
 graphics:\:D
 level:10
-weight:150
+weight:75
 cost:396
 alloc:20:10 to 100
 attack:2d6:0:0
@@ -829,7 +829,7 @@ name:& Flail~
 type:hafted
 graphics:\:D
 level:10
-weight:150
+weight:75
 cost:353
 alloc:20:10 to 100
 attack:2d6:0:0
@@ -841,7 +841,7 @@ name:& Two-Handed Great Flail~
 type:hafted
 graphics:\:y
 level:45
-weight:280
+weight:140
 cost:590
 alloc:20:45 to 100
 attack:3d6:0:0
@@ -856,7 +856,7 @@ name:& Mace~
 type:hafted
 graphics:\:D
 level:5
-weight:120
+weight:60
 cost:130
 alloc:20:5 to 100
 attack:2d4:0:0
@@ -867,7 +867,7 @@ name:& Lead-Filled Mace~
 type:hafted
 graphics:\:D
 level:15
-weight:180
+weight:90
 cost:502
 alloc:20:15 to 100
 attack:4d3:0:0
@@ -879,7 +879,7 @@ name:& Quarterstaff~
 type:hafted
 graphics:\:U
 level:10
-weight:150
+weight:75
 cost:200
 alloc:20:10 to 100
 attack:1d9:0:0
@@ -891,7 +891,7 @@ name:& Throwing Hammer~
 type:hafted
 graphics:\:D
 level:40
-weight:55
+weight:30
 cost:250
 alloc:10:40 to 100
 attack:2d4:0:0
@@ -903,7 +903,7 @@ name:& War Hammer~
 type:hafted
 graphics:\:D
 level:5
-weight:120
+weight:60
 cost:225
 alloc:20:5 to 100
 attack:3d3:0:0
@@ -914,7 +914,7 @@ name:& Maul~
 type:hafted
 graphics:\:D
 level:5
-weight:200
+weight:100
 cost:130
 alloc:20:5 to 100
 attack:4d4:0:0
@@ -925,7 +925,7 @@ name:& Great Hammer~
 type:hafted
 graphics:\:D
 level:5
-weight:180
+weight:90
 cost:500
 alloc:20:20 to 100
 attack:8d1:0:0
@@ -936,7 +936,7 @@ name:& Mace~ of Disruption
 type:hafted
 graphics:\:v
 level:80
-weight:400
+weight:200
 cost:4300
 alloc:10:80 to 100
 attack:5d8:0:0
@@ -953,7 +953,7 @@ name:& Spear~
 type:polearm
 graphics:/:s
 level:5
-weight:50
+weight:25
 cost:36
 alloc:20:5 to 100
 attack:1d6:0:0
@@ -966,7 +966,7 @@ name:& Awl-Pike~
 type:polearm
 graphics:/:s
 level:10
-weight:160
+weight:80
 cost:340
 alloc:20:10 to 100
 attack:1d8:0:0
@@ -979,7 +979,7 @@ name:& Trident~
 type:polearm
 graphics:/:y
 level:5
-weight:70
+weight:35
 cost:120
 alloc:20:5 to 100
 attack:1d10:0:0
@@ -990,7 +990,7 @@ name:& Halberd~
 type:polearm
 graphics:/:s
 level:25
-weight:190
+weight:95
 cost:430
 alloc:20:25 to 100
 attack:3d5:0:0
@@ -1003,7 +1003,7 @@ name:& Pike~
 type:polearm
 graphics:/:s
 level:15
-weight:160
+weight:80
 cost:358
 alloc:20:15 to 100
 attack:2d5:0:0
@@ -1018,7 +1018,7 @@ name:& Throwing Axe~
 type:polearm
 graphics:/:s
 level:25
-weight:40
+weight:20
 cost:150
 alloc:10:25 to 100
 attack:2d3:0:0
@@ -1031,7 +1031,7 @@ name:& Beaked Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:180
+weight:90
 cost:408
 alloc:20:15 to 100
 attack:2d6:0:0
@@ -1042,7 +1042,7 @@ name:& Broad Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:160
+weight:80
 cost:304
 alloc:20:15 to 100
 attack:2d6:0:0
@@ -1053,7 +1053,7 @@ name:& Battle Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:170
+weight:85
 cost:334
 alloc:20:15 to 100
 attack:2d8:0:0
@@ -1064,7 +1064,7 @@ name:& Lochaber Axe~
 type:polearm
 graphics:/:D
 level:45
-weight:250
+weight:125
 cost:750
 alloc:20:45 to 100
 attack:3d8:0:0
@@ -1075,7 +1075,7 @@ name:& Great Axe~
 type:polearm
 graphics:/:s
 level:40
-weight:230
+weight:115
 cost:500
 alloc:20:40 to 100
 attack:4d4:0:0
@@ -1090,7 +1090,7 @@ name:& Scythe~
 type:polearm
 graphics:/:s
 level:45
-weight:250
+weight:125
 cost:800
 alloc:20:45 to 100
 attack:5d3:0:0
@@ -1102,7 +1102,7 @@ name:& Glaive~
 type:polearm
 graphics:/:s
 level:20
-weight:190
+weight:95
 cost:363
 alloc:20:20 to 100
 attack:2d6:0:0
@@ -1114,7 +1114,7 @@ name:& Lance~
 type:polearm
 graphics:/:s
 level:10
-weight:300
+weight:150
 cost:230
 alloc:20:10 to 100
 attack:2d8:0:0
@@ -1125,7 +1125,7 @@ name:& Scythe~ of Slicing
 type:polearm
 graphics:/:r
 level:60
-weight:250
+weight:125
 cost:3500
 alloc:10:60 to 100
 attack:8d4:0:0
@@ -1137,7 +1137,7 @@ name:& Lucerne Hammer~
 type:polearm
 graphics:/:B
 level:10
-weight:120
+weight:60
 cost:376
 alloc:20:10 to 100
 attack:2d5:0:0
@@ -1329,7 +1329,7 @@ name:& Shovel~
 type:digger
 graphics:\:s
 level:1
-weight:60
+weight:30
 cost:10
 alloc:20:5 to 100
 attack:1d2:0:0
@@ -1341,7 +1341,7 @@ name:& Pick~
 type:digger
 graphics:\:g
 level:30
-weight:180
+weight:90
 cost:300
 alloc:20:30 to 100
 attack:1d3:0:0
@@ -1354,7 +1354,7 @@ name:& Mattock~
 type:digger
 graphics:\:D
 level:50
-weight:250
+weight:125
 cost:700
 alloc:20:50 to 100
 attack:1d8:0:0

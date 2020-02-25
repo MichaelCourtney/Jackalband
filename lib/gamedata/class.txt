@@ -122,15 +122,15 @@ skill-throw:55:45
 skill-dig:0:0
 hitdie:9
 max-attacks:6
-min-weight:30
-strength-multiplier:5
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:potion:Berserk Strength:1:1
-equip:sword:Dagger:1:1
+equip:sword:Short Sword:1:1
 equip:soft armour:Soft Leather Armour:1:1
 equip:scroll:Word of Recall:1:1
-player-flags:BRAVERY_30 | NO_MANA | SHIELD_BASH
+player-flags:BRAVERY_30 | NO_MANA | SHIELD_BASH | EXTRA_BLOW
 title:Rookie
 title:Soldier
 title:Swordsman
@@ -158,11 +158,11 @@ skill-throw:20:15
 skill-dig:0:0
 hitdie:0
 max-attacks:4
-min-weight:40
-strength-multiplier:2
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
-equip:sword:Rapier:1:1
+equip:sword:Dagger:1:1
 equip:scroll:Word of Recall:1:1
 player-flags:ZERO_FAIL | BEAM | CHOOSE_SPELLS
 title:Novice
@@ -433,8 +433,8 @@ skill-throw:40:30
 skill-dig:0:0
 hitdie:2
 max-attacks:4
-min-weight:35
-strength-multiplier:3
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:hafted:Whip:1:1
 equip:light:Wooden Torch:1:3
@@ -667,8 +667,8 @@ skill-throw:35:20
 skill-dig:0:0
 hitdie:2
 max-attacks:4
-min-weight:35
-strength-multiplier:3
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:hafted:Mace:1:1
@@ -936,10 +936,10 @@ skill-throw:20:15
 skill-dig:0:0
 hitdie:2
 max-attacks:4
-min-weight:35
-strength-multiplier:3
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
-equip:sword:Main Gauche:1:1
+equip:sword:Dagger:1:1
 equip:scroll:Word of Recall:1:1
 player-flags:ZERO_FAIL | CHOOSE_SPELLS | UNLIGHT | EVIL
 title:Acolyte
@@ -1191,11 +1191,11 @@ skill-throw:50:30
 skill-dig:0:0
 hitdie:6
 max-attacks:5
-min-weight:30
-strength-multiplier:5
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
-equip:sword:Main Gauche:1:1
+equip:sword:Short Sword:1:1
 equip:scroll:Protection from Evil:1:1
 equip:scroll:Word of Recall:1:1
 equip:prayer book:[Novice's Handbook]:1:1
@@ -1352,8 +1352,8 @@ skill-throw:72:45
 skill-dig:0:0
 hitdie:4
 max-attacks:5
-min-weight:20
-strength-multiplier:4
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:sword:Dagger:1:1
@@ -1456,11 +1456,11 @@ skill-throw:66:30
 skill-dig:0:0
 hitdie:5
 max-attacks:5
-min-weight:35
-strength-multiplier:4
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
-equip:sword:Main Gauche:1:1
+equip:sword:Dagger:1:1
 equip:bow:Short Bow:1:1
 equip:arrow:Arrow:15:20
 equip:scroll:Word of Recall:1:1
@@ -1562,8 +1562,8 @@ skill-throw:50:30
 skill-dig:0:0
 hitdie:10
 max-attacks:5
-min-weight:100
-strength-multiplier:5
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:sword:Cutlass:1:1

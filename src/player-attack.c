@@ -300,8 +300,8 @@ static int critical_melee(const struct player *p,
 		int dam, u32b *msg_type)
 {
 	int debuff_to_hit = is_debuffed(monster) ? DEBUFF_CRITICAL_HIT : 0;
-	int power = weight + randint1(650);
-	int chance = weight + (p->state.to_h + plus + debuff_to_hit) * 5
+	int power = weight * 2 + randint1(650);
+	int chance = weight * 2 + (p->state.to_h + plus + debuff_to_hit) * 5
 		+ p->lev * 3;
 	int new_dam = dam;
 
@@ -703,7 +703,7 @@ static bool py_attack_real(struct player *p, struct loc grid, bool *fear)
 		}
 
 		/* Splash damage and earthquakes */
-		splash = (weight * dmg) / 100;
+		splash = (weight * 2 * dmg) / 100;
 		if (player_of_has(p, OF_IMPACT) && dmg > 50) {
 			do_quake = true;
 			equip_learn_flag(p, OF_IMPACT);
