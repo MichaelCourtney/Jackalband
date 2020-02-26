@@ -246,7 +246,7 @@ static int project_player_handler_LIGHT(project_player_handler_context_t *contex
 	(void)player_inc_timed(player, TMD_BLIND, 2 + randint1(5), true, true);
 
 	/* Confusion for strong unresisted light */
-	if (context->dam) > 300 {
+	if (context->dam > 300) {
 		msg("You are dazzled!");
 		(void)player_inc_timed(player, TMD_CONFUSED,
 							   2 + randint1(context->dam / 100), true, true);
