@@ -2657,14 +2657,16 @@ static CGImageRef create_angband_image(NSString *path)
 
         /* Draw the source image flipped, since the view is flipped */
         CGContextRef ctx = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(decodedImage), CGImageGetBytesPerRow(decodedImage), CGImageGetColorSpace(decodedImage), contextBitmapInfo);
-        CGContextSetBlendMode(ctx, kCGBlendModeCopy);
-        CGContextTranslateCTM(ctx, 0.0, height);
-        CGContextScaleCTM(ctx, 1.0, -1.0);
-        CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), decodedImage);
-        result = CGBitmapContextCreateImage(ctx);
+        if (ctx) {
+	    CGContextSetBlendMode(ctx, kCGBlendModeCopy);
+	    CGContextTranslateCTM(ctx, 0.0, height);
+	    CGContextScaleCTM(ctx, 1.0, -1.0);
+	    CGContextDrawImage(
+		ctx, CGRectMake(0, 0, width, height), decodedImage);
+	    result = CGBitmapContextCreateImage(ctx);
+	    CFRelease(ctx);
+	}
 
-        /* Done with these things */
-        CFRelease(ctx);
         CGImageRelease(decodedImage);
     }
     return result;
@@ -2705,12 +2707,23 @@ static errr Term_xtra_cocoa_react(void)
 		    [NSString stringWithFormat:@"%s/%s", new_mode->path, new_mode->file];
 		pict_image = create_angband_image(img_path);
 
-		/*
-		 * If we failed to create the image, set the new desired mode
-		 * to NULL.
-		 */
-		if (! pict_image)
+		/* If we failed to create the image, revert to ASCII. */
+		if (! pict_image) {
 		    new_mode = NULL;
+		    if (tile_width != 1 || tile_height != 1) {
+			tile_width = 1;
+			tile_height = 1;
+			tile_multipliers_changed = 1;
+		    }
+		    [[NSUserDefaults angbandDefaults]
+			setInteger:GRAPHICS_NONE forKey:@"GraphicsID"];
+		    [[NSUserDefaults angbandDefaults] synchronize];
+
+		    NSAlert *alert = [[NSAlert alloc] init];
+		    alert.messageText = @"Failed to Load Tile Set";
+		    alert.informativeText = @"Could not load the tile set.  Switched back to ASCII.";
+		    [alert runModal];
+		}
 	    }
 
 	    /* Record what we did */
