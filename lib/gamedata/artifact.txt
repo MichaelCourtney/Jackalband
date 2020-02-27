@@ -165,7 +165,7 @@ level:20
 weight:12
 cost:100000
 alloc:2:60 to 100
-attack:2d7:18:16
+attack:2d8:18:16
 armor:0:5
 flags:FREE_ACT | SUST_DEX
 values:DEX[4] | RES_ACID[1] | RES_DARK[1]
@@ -183,7 +183,7 @@ level:1
 weight:12
 cost:12000
 alloc:40:1 to 50
-attack:1d4:9:12
+attack:1d5:9:12
 armor:0:10
 values:RES_FIRE[1]
 brand:FIRE_3
@@ -197,7 +197,7 @@ level:1
 weight:12
 cost:11000
 alloc:40:1 to 50
-attack:1d4:9:12
+attack:1d5:9:12
 armor:0:10
 values:RES_COLD[1]
 brand:COLD_3
@@ -211,7 +211,7 @@ level:1
 weight:12
 cost:13000
 alloc:40:1 to 50
-attack:1d4:9:12
+attack:1d5:9:12
 armor:0:10
 values:RES_ELEC[1]
 brand:ELEC_3
@@ -225,7 +225,7 @@ level:5
 weight:12
 cost:15000
 alloc:5:5 to 75
-attack:2d4:14:13
+attack:2d5:14:13
 armor:0:0
 values:RES_POIS[1] | RES_DISEN[1]
 slay:ORC_3
@@ -242,7 +242,7 @@ level:10
 weight:12
 cost:40000
 alloc:2:10 to 80
-attack:3d4:16:14
+attack:3d5:16:14
 armor:0:0
 flags:SEE_INVIS | SLOW_DIGEST | REGEN
 values:DEX[2] | RES_COLD[1]
@@ -258,7 +258,7 @@ level:18
 weight:15
 cost:50000
 alloc:3:18 to 100
-attack:2d5:12:14
+attack:2d6:12:14
 armor:0:0
 flags:PROT_FEAR
 values:RES_FIRE[3] | RES_ACID[1]
@@ -275,7 +275,7 @@ level:15
 weight:15
 cost:20000
 alloc:3:15 to 65
-attack:2d6:12:15
+attack:2d7:12:15
 armor:0:0
 flags:FREE_ACT | SEE_INVIS
 values:INT[3] | DEX[3]
@@ -291,7 +291,7 @@ level:1
 weight:20
 cost:15000
 alloc:38:5 to 50
-attack:1d12:12:19
+attack:1d13:12:19
 armor:0:0
 values:LIGHT[1] | RES_COLD[1] | RES_LIGHT[1]
 brand:COLD_3
@@ -304,7 +304,7 @@ level:15
 weight:20
 cost:25000
 alloc:10:15 to 80
-attack:2d6:16:12
+attack:2d7:16:12
 armor:0:0
 values:BLOWS[1] | STR[2] | DEX[2] | CON[2]
 slay:DRAGON_3
@@ -321,7 +321,7 @@ level:20
 weight:35
 cost:100000
 alloc:6:20 to 100
-attack:1d7:7:8
+attack:1d8:7:8
 armor:0:0
 flags:PROT_FEAR | FREE_ACT | SEE_INVIS
 values:SPEED[3] | BLOWS[2] | STR[1] | DEX[1] | CON[1] | LIGHT[1] | RES_LIGHT[1]
@@ -340,7 +340,7 @@ level:20
 weight:40
 cost:15000
 alloc:12:20 to 80
-attack:1d7:13:11
+attack:1d8:13:11
 armor:0:0
 flags:SLOW_DIGEST | REGEN
 values:BLOWS[2]
@@ -355,7 +355,7 @@ level:20
 weight:55
 cost:28000
 alloc:12:20 to 65
-attack:1d8:10:11
+attack:1d9:10:11
 armor:0:50
 flags:FEATHER | SEE_INVIS | REGEN | FREE_ACT
 values:DEX[4] | STEALTH[2]
@@ -370,7 +370,7 @@ level:20
 weight:65
 cost:30000
 alloc:7:20 to 80
-attack:4d2:9:11
+attack:4d3:9:11
 armor:0:0
 flags:SEE_INVIS
 values:DEX[2] | BLOWS[2]
@@ -386,7 +386,7 @@ level:20
 weight:65
 cost:300000
 alloc:1:20 to 127
-attack:4d5:22:25
+attack:4d6:22:25
 armor:0:0
 flags:PROT_FEAR | BLESSED | FREE_ACT | SEE_INVIS | SLOW_DIGEST | REGEN
 values:SPEED[10] | LIGHT[1] | RES_COLD[1] | RES_LIGHT[1]
@@ -408,7 +408,7 @@ level:20
 weight:65
 cost:80000
 alloc:3:20 to 127
-attack:3d5:10:15
+attack:3d6:10:15
 armor:0:10
 flags:PROT_FEAR | FREE_ACT | BLESSED | SUST_STR | SUST_DEX | SEE_INVIS
 values:STR[4] | DEX[4] | RES_FIRE[1] | RES_DISEN[1]
@@ -429,7 +429,7 @@ level:20
 weight:65
 cost:40000
 alloc:3:20 to 127
-attack:2d5:10:12
+attack:2d6:10:12
 armor:0:0
 flags:AGGRAVATE | FREE_ACT | SEE_INVIS
 values:SPEED[3] | STR[2] | CON[2] | BLOWS[1] | LIGHT[1] | 
@@ -446,7 +446,7 @@ level:1
 weight:65
 cost:30000
 alloc:50:10 to 50
-attack:2d5:12:12
+attack:2d6:12:12
 armor:0:0
 flags:FEATHER | SEE_INVIS
 values:DEX[2] | STEALTH[2]
@@ -461,7 +461,7 @@ level:20
 weight:75
 cost:50000
 alloc:2:20 to 100
-attack:3d5:20:12
+attack:3d6:20:12
 armor:0:0
 flags:FREE_ACT | FEATHER | SLOW_DIGEST
 values:DEX[4] | RES_COLD[1]
@@ -479,7 +479,7 @@ level:20
 weight:75
 cost:40000
 alloc:5:20 to 80
-attack:2d5:10:15
+attack:2d6:10:15
 armor:0:0
 flags:BLESSED | SLOW_DIGEST
 values:SEARCH[1] | LIGHT[1] | RES_FIRE[1] | RES_LIGHT[1]
@@ -496,7 +496,7 @@ level:20
 weight:75
 cost:45000
 alloc:3:20 to 100
-attack:2d5:12:16
+attack:2d6:12:16
 armor:0:0
 flags:BLESSED | PROT_BLIND | SLOW_DIGEST
 values:SEARCH[1] | LIGHT[1] | RES_ELEC[1]
@@ -514,7 +514,7 @@ level:20
 weight:75
 cost:40000
 alloc:5:20 to 80
-attack:2d5:10:15
+attack:2d6:10:15
 armor:0:0
 flags:BLESSED | SLOW_DIGEST
 values:SEARCH[1] | LIGHT[1] | RES_COLD[1] | RES_DARK[1]
@@ -531,7 +531,7 @@ level:30
 weight:70
 cost:100000
 alloc:7:30 to 127
-attack:3d7:0:20
+attack:3d8:0:20
 armor:0:0
 # F:DRAIN_HP | 
 flags:AGGRAVATE
@@ -551,7 +551,7 @@ level:30
 weight:70
 cost:120000
 alloc:3:30 to 127
-attack:4d4:12:16
+attack:4d5:12:16
 armor:0:0
 flags:PROT_FEAR
 values:STR[4] | STEALTH[2] | RES_NETHER[1] | RES_DARK[1] | RES_COLD[1]
@@ -569,7 +569,7 @@ level:30
 weight:25
 cost:40000
 alloc:4:30 to 100
-attack:6d6:10:10
+attack:6d7:10:10
 armor:0:0
 flags:SUST_DEX
 values:SPEED[5] | DEX[5] | BLOWS[1]
@@ -583,7 +583,7 @@ level:30
 weight:100
 cost:100000
 alloc:3:30 to 100
-attack:3d6:13:17
+attack:3d7:13:17
 armor:0:0
 flags:FREE_ACT | SLOW_DIGEST | REGEN
 values:STR[2] | RES_FIRE[1] | RES_POIS[1]
@@ -600,7 +600,7 @@ level:30
 weight:120
 cost:200000
 alloc:1:30 to 127
-attack:3d8:19:21
+attack:3d9:19:21
 armor:0:0
 # F:DRAIN_MANA | 
 flags:FREE_ACT | SEE_INVIS | AGGRAVATE
@@ -624,7 +624,7 @@ level:30
 weight:125
 cost:10000
 alloc:7:30 to 100
-attack:3d6:-15:-15
+attack:3d7:-15:-15
 armor:0:-10
 # F:DRAIN_HP | DRAIN_MANA | 
 flags: SEE_INVIS | HOLD_LIFE | AGGRAVATE | DRAIN_EXP
@@ -642,7 +642,7 @@ level:40
 weight:130
 cost:100000
 alloc:4:40 to 127
-attack:4d6:18:19
+attack:4d7:18:19
 armor:0:0
 flags:SEE_INVIS
 slay:DRAGON_3
@@ -661,7 +661,7 @@ level:70
 weight:90
 cost:200000
 alloc:4:70 to 127
-attack:4d7:18:28
+attack:4d8:18:28
 armor:0:-50
 # F:DRAIN_HP | 
 flags:FREE_ACT | SEE_INVIS | TELEPATHY | AGGRAVATE
@@ -685,7 +685,7 @@ level:60
 weight:45
 cost:25000
 alloc:4:60 to 127
-attack:6d3:13:15
+attack:6d4:13:15
 armor:0:0
 # F:DRAIN_HP | 
 flags:AGGRAVATE
@@ -707,7 +707,7 @@ level:65
 weight:65
 cost:60000
 alloc:2:65 to 127
-attack:4d4:13:17
+attack:4d5:13:17
 armor:0:10
 flags:HOLD_LIFE
 values:STR[4] | WIS[4] | LIGHT[1] | RES_FIRE[1] | RES_ELEC[1] | RES_NETHER[1]
@@ -724,7 +724,7 @@ level:20
 weight:75
 cost:30000
 alloc:3:20 to 75
-attack:2d6:8:22
+attack:2d7:8:22
 armor:0:0
 flags:SEE_INVIS
 values:STR[4] | RES_NEXUS[1]
@@ -741,7 +741,7 @@ level:20
 weight:75
 cost:35000
 alloc:7:20 to 100
-attack:2d6:15:17
+attack:2d7:15:17
 armor:0:2
 values:RES_FIRE[3]
 brand:FIRE_3
@@ -756,7 +756,7 @@ level:20
 weight:75
 cost:55000
 alloc:12:20 to 65
-attack:3d6:16:12
+attack:3d7:16:12
 armor:0:0
 flags:PROT_CONF
 act:CONFUSE2
@@ -773,7 +773,7 @@ level:45
 weight:150
 cost:160000
 alloc:3:45 to 127
-attack:3d9:5:18
+attack:3d10:5:18
 armor:0:0
 flags:PROT_FEAR | 
 values:STR[4] | CON[3] | RES_ELEC[1] | RES_FIRE[1] | RES_DARK[1]
@@ -792,7 +792,7 @@ level:20
 weight:100
 cost:50000
 alloc:7:20 to 100
-attack:3d6:12:12
+attack:3d7:12:12
 armor:0:0
 values:RES_ELEC[3]
 brand:ELEC_3
@@ -809,7 +809,7 @@ level:20
 weight:75
 cost:70000
 alloc:5:20 to 80
-attack:1d9:10:20
+attack:1d10:10:20
 armor:0:0
 values:INT[4] | RES_FIRE[1] | RES_POIS[1]
 brand:FIRE_3
@@ -823,7 +823,7 @@ level:20
 weight:75
 cost:20000
 alloc:5:20 to 100
-attack:1d9:13:15
+attack:1d10:13:15
 armor:0:0
 flags:SEE_INVIS
 values:INT[4] | WIS[4] | LIGHT[1] | RES_LIGHT[1]
@@ -839,7 +839,7 @@ level:30
 weight:75
 cost:130000
 alloc:1:30 to 100
-attack:2d9:10:13
+attack:2d10:10:13
 armor:0:0
 flags:HOLD_LIFE | SEE_INVIS
 values:INT[4] | WIS[4] | RES_FIRE[1] | RES_NETHER[1]
@@ -861,7 +861,7 @@ level:40
 weight:60
 cost:250000
 alloc:1:40 to 127
-attack:18d1:19:21
+attack:18d2:19:21
 armor:0:5
 # F:DRAIN_MANA | 
 flags:PROT_FEAR | FREE_ACT | SEE_INVIS
@@ -882,7 +882,7 @@ level:80
 weight:200
 cost:400000
 alloc:3:80 to 127
-attack:7d8:18:18
+attack:7d9:18:18
 armor:0:0
 # F:DRAIN_MANA | 
 flags:AGGRAVATE
@@ -908,7 +908,7 @@ level:15
 weight:25
 cost:140000
 alloc:2:15 to 100
-attack:3d6:15:25
+attack:3d7:15:25
 armor:0:5
 flags:PROT_FEAR | FREE_ACT | SLOW_DIGEST | BLESSED
 values:DEX[4] | WIS[2] | RES_COLD[1]
@@ -928,7 +928,7 @@ level:15
 weight:25
 cost:60000
 alloc:2:15 to 127
-attack:4d6:15:15
+attack:4d7:15:15
 armor:0:0
 # F:DRAIN_MANA | 
 flags:FEATHER | SEE_INVIS | BLESSED | 
@@ -947,7 +947,7 @@ level:15
 weight:25
 cost:30000
 alloc:8:15 to 65
-attack:1d7:11:13
+attack:1d8:11:13
 armor:0:0
 flags:BLESSED | SEE_INVIS
 values:STEALTH[3] | SPEED[3] | RES_COLD[1]
@@ -964,7 +964,7 @@ level:65
 weight:100
 cost:100000
 alloc:2:65 to 127
-attack:4d6:-12:20
+attack:4d7:-12:20
 armor:0:0 
 # F:DRAIN_MANA | DRAIN_HP | 
 flags:DRAIN_EXP | AGGRAVATE | PROT_BLIND
@@ -980,7 +980,7 @@ level:15
 weight:35
 cost:90000
 alloc:3:15 to 100
-attack:3d10:16:18
+attack:3d11:16:18
 armor:0:0 
 flags:SEE_INVIS | BLESSED | 
 values:STR[2] | DEX[2] | RES_LIGHT[1] | RES_DARK[1]
@@ -997,7 +997,7 @@ level:30
 weight:35
 cost:120000
 alloc:1:30 to 127
-attack:4d10:15:19
+attack:4d11:15:19
 armor:0:0
 flags:FREE_ACT | HOLD_LIFE | SEE_INVIS | SLOW_DIGEST | REGEN | BLESSED
 values:DEX[4] | RES_ACID[3] | RES_NETHER[1]
@@ -1015,7 +1015,7 @@ level:20
 weight:70
 cost:22000
 alloc:12:25 to 80
-attack:3d7:16:12
+attack:3d8:16:12
 armor:0:0
 flags:BLESSED | FEATHER | SEE_INVIS
 values:STR[3] | WIS[3] | RES_FIRE[1] | RES_SOUND[1]
@@ -1031,7 +1031,7 @@ level:20
 weight:80
 cost:32000
 alloc:7:20 to 80
-attack:1d15:10:12
+attack:1d16:10:12
 armor:0:10
 flags:SUST_INT | SLOW_DIGEST
 values:STR[3] | INT[3] | SPEED[2] | RES_FIRE[1] | RES_COLD[1]
@@ -1049,7 +1049,7 @@ level:20
 weight:90
 cost:40000
 alloc:7:20 to 100
-attack:2d6:8:10
+attack:2d7:8:10
 armor:0:0
 flags:TELEPATHY | SLOW_DIGEST
 values:WIS[3] | CON[3]
@@ -1065,7 +1065,7 @@ level:20
 weight:90
 cost:90000
 alloc:7:20 to 100
-attack:3d6:12:15
+attack:3d7:12:15
 armor:0:0
 # F:DRAIN_MANA | 
 act:BERSERKER
@@ -1088,7 +1088,7 @@ level:20
 weight:80
 cost:50000
 alloc:12:20 to 75
-attack:2d6:13:19
+attack:2d7:13:19
 armor:0:0
 flags:SEE_INVIS
 values:CON[3]
@@ -1105,7 +1105,7 @@ level:30
 weight:85
 cost:90000
 alloc:7:30 to 100
-attack:3d8:8:11
+attack:3d9:8:11
 armor:0:5
 flags:FREE_ACT | PROT_BLIND | FEATHER | SEE_INVIS | REGEN
 values:STR[3] | CON[3] | STEALTH[1] | RES_ACID[1] | RES_ELEC[1] | RES_FIRE[1]
@@ -1122,7 +1122,7 @@ level:30
 weight:85
 cost:21000
 alloc:7:30 to 100
-attack:2d8:14:13
+attack:2d9:14:13
 armor:0:0
 act:CURE_SERIOUS
 time:3+d3
@@ -1138,7 +1138,7 @@ level:30
 weight:120
 cost:30000
 alloc:12:30 to 100
-attack:3d10:12:17
+attack:3d11:12:17
 armor:0:0
 values:RES_ACID[1] | RES_ELEC[1] | RES_FIRE[1] | RES_COLD[1]
 slay:EVIL_2
@@ -1154,7 +1154,7 @@ level:30
 weight:115
 cost:150000
 alloc:1:40 to 127
-attack:4d4:10:20
+attack:4d5:10:20
 armor:0:15
 flags:FREE_ACT | PROT_FEAR
 values:TUNNEL[5] | STR[3] | CON[3] | STEALTH[-1]
@@ -1175,7 +1175,7 @@ level:30
 weight:115
 cost:200000
 alloc:1:40 to 127
-attack:5d4:15:18
+attack:5d5:15:18
 armor:0:8
 flags:PROT_FEAR | FREE_ACT | SEE_INVIS | BLESSED
 values:STR[2] | INT[2] | WIS[2] | DEX[2] | CON[2] | RES_COLD[3]
@@ -1196,7 +1196,7 @@ level:40
 weight:90
 cost:18000
 alloc:12:45 to 100
-attack:5d3:18:12
+attack:5d4:18:12
 armor:0:30
 flags:FREE_ACT | SEE_INVIS
 act:RECALL
@@ -1214,7 +1214,7 @@ level:30
 weight:150
 cost:50000
 alloc:4:30 to 127
-attack:6d9:0:30
+attack:6d10:0:30
 armor:0:0
 desc:The massive cleaver that crowns this glaive glows blood-red and black;
 desc: fell spells of annihilation swirl and dance as you swing death's myrmidon
@@ -1226,7 +1226,7 @@ level:20
 weight:180
 cost:55000
 alloc:4:20 to 100
-attack:2d17:3:21
+attack:2d18:3:21
 armor:0:0
 flags:PROT_FEAR | SEE_INVIS
 values:STR[2] | DEX[2] | SPEED[2]
@@ -1243,7 +1243,7 @@ level:20
 weight:60
 cost:30000
 alloc:7:20 to 100
-attack:4d4:10:11
+attack:4d5:10:11
 armor:0:8
 flags:BLESSED | REGEN
 act:DRAIN_LIFE1
