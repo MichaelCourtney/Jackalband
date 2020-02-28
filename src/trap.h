@@ -103,6 +103,7 @@ bool trap_check_hit(int power);
 void hit_trap(struct loc grid, int delayed);
 bool square_player_trap_allowed(struct chunk *c, struct loc grid);
 void place_trap(struct chunk *c, struct loc grid, int t_idx, int trap_level);
+void place_trap_jb(struct chunk *c, struct loc grid);
 void square_free_trap(struct chunk *c, struct loc grid);
 void wipe_trap_list(struct chunk *c);
 bool square_remove_all_traps(struct chunk *c, struct loc grid);

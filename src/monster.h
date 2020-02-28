@@ -60,6 +60,7 @@ enum monster_flag_type {
 	RFT_VULN_I,		/* vulnerabilities with a corresponding resistance */
 	RFT_RES,		/* elemental resistances */
 	RFT_PROT,		/* immunity from status effects */
+	RFT_PLACE,		/* monster placement flags */
 
 	RFT_MAX
 };

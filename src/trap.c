@@ -284,6 +284,41 @@ void place_trap(struct chunk *c, struct loc grid, int t_idx, int trap_level)
 	square_light_spot(c, grid);
 }
 
+
+/**
+ * Place occassional monster near trap.
+ * \param c current chunk
+ * \param grid location
+ */
+void place_trap_jb(struct chunk *c, struct loc grid)
+{
+/* Only Place Trap Setters */
+mon_restrict("Trap Setters", c->depth, true);
+
+/* Try up to 11 spots looking for empty space */
+		int i;
+		
+		for (i = 0; i < 11; ++i) {
+			struct loc near;
+
+			/* Pick a random location */
+			find_nearby_grid(c, &near, grid, 2, 3);
+
+			/* Require empty space */
+			if (!square_isempty(c, near)) continue;
+
+			/* Place the monsters */
+			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+			
+			/* Placement accomplished */
+			break;
+		}
+		
+/* Remove our restrictions. */
+(void) mon_restrict(NULL, c->depth, false);
+}
+
+
 /**
  * Free memory for all traps on a grid
  */

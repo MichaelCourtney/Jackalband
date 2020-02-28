@@ -88,4 +88,7 @@ RF(NO_CONF,		RFT_PROT,		"confused")
 RF(NO_SLEEP,	RFT_PROT,		"slept")
 RF(NO_HOLD,		RFT_PROT,		"held")
 RF(NO_SLOW,		RFT_PROT,		"slowed")
+RF(PL_TRAP,     RFT_PLACE,		"")
+RF(PL_RUBBLE,   RFT_PLACE,      "")
+RF(PL_STAIR,    RFT_PLACE,      "")
 /* end flags */

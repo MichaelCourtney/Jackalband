@@ -27,12 +27,14 @@ enum
 
 enum
 {
-	TYP_RUBBLE,	/*!< Rubble */
-	TYP_TRAP,	/*!< Trap */
-	TYP_GOLD,	/*!< Gold */
-	TYP_OBJECT,	/*!< Object */
-	TYP_GOOD,	/*!< Good object */
-	TYP_GREAT	/*!< Great object */
+	TYP_RUBBLE, 	/*!< Rubble */
+	TYP_RUBBLE_JB,	/*!< Rubble + Possible Monster */
+	TYP_TRAP,		/*!< Trap */
+	TYP_TRAP_JB,	/*!< Trap + Possible Monster/Object */
+	TYP_GOLD,		/*!< Gold */
+	TYP_OBJECT,		/*!< Object */
+	TYP_GOOD,		/*!< Good object */
+	TYP_GREAT		/*!< Great object */
 };
 
 /**
@@ -258,6 +260,7 @@ struct chunk *hard_centre_gen(struct player *p, int min_height, int min_width);
 struct chunk *lair_gen(struct player *p, int min_height, int min_width);
 struct chunk *gauntlet_gen(struct player *p, int min_height, int min_width);
 struct chunk *arena_gen(struct player *p, int min_height, int min_width);
+struct chunk *basic_small_gen(struct player *p, int min_height, int min_width);
 
 /* gen-chunk.c */
 struct chunk *chunk_write(struct chunk *c);
@@ -288,6 +291,7 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v);
 
 bool build_staircase(struct chunk *c, struct loc centre, int rating);
 bool build_simple(struct chunk *c, struct loc centre, int rating);
+bool build_small(struct chunk *c, struct loc centre, int rating);
 bool build_circular(struct chunk *c, struct loc centre, int rating);
 bool build_overlap(struct chunk *c, struct loc centre, int rating);
 bool build_crossed(struct chunk *c, struct loc centre, int rating);

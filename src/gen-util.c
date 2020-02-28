@@ -375,6 +375,40 @@ static void place_rubble(struct chunk *c, struct loc grid)
 
 
 /**
+ * Place occassional monster near rubble.
+ * \param c current chunk
+ * \param grid location
+ */
+static void place_rubble_jb(struct chunk *c, struct loc grid)
+{
+/* Only Place Rubble Critters */
+mon_restrict("Rubble Critters", c->depth, true);
+
+/* Try up to 11 spots looking for empty space */
+		int i;
+		
+		for (i = 0; i < 11; ++i) {
+			struct loc near;
+
+			/* Pick a random location */
+			find_nearby_grid(c, &near, grid, 2, 3);
+
+			/* Require empty space */
+			if (!square_isempty(c, near)) continue;
+
+			/* Place the monsters */
+			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+			
+			/* Placement accomplished */
+			break;
+		}
+		
+/* Remove our restrictions. */
+(void) mon_restrict(NULL, c->depth, false);
+}
+
+
+/**
  * Place stairs (of the requested type 'feat' if allowed) at a given location.
  * \param c current chunk
  * \param grid location
@@ -617,7 +651,9 @@ bool alloc_object(struct chunk *c, int set, int typ, int depth, byte origin)
     /* Place something */
     switch (typ) {
     case TYP_RUBBLE: place_rubble(c, grid); break;
+	case TYP_RUBBLE_JB: place_rubble(c, grid); place_rubble_jb(c, grid); break;
     case TYP_TRAP: place_trap(c, grid, -1, depth); break;
+	case TYP_TRAP_JB: place_trap(c, grid, -1, depth); place_trap_jb(c, grid); break;
     case TYP_GOLD: place_gold(c, grid, depth, origin); break;
     case TYP_OBJECT: place_object(c, grid, depth, false, false, origin, 0);
 		break;
