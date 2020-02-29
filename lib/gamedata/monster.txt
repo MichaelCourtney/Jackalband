@@ -654,6 +654,7 @@ rarity:1
 experience:5
 blow:HIT:HURT:1d5
 flags:DROP_60
+flags:PL_TRAP
 desc:It is a squat and ugly humanoid figure with a canine face.
 
 name:white worm mass
@@ -862,6 +863,7 @@ blow:TOUCH:EAT_GOLD
 flags:MALE | EVIL
 flags:DROP_40
 flags:OPEN_DOOR | TAKE_ITEM
+flags:PL_TRAP
 drop:scroll:Phase Door:35:1:3
 friends-base:20:1d3:person
 friends-base:40:1d3:person
@@ -1038,6 +1040,7 @@ rarity:1
 experience:4
 blow:HIT:HURT:1d5
 flags:DROP_60
+flags:PL_TRAP
 desc:A small humanoid figure.
 
 name:Grip, Farmer Maggot's Dog

@@ -388,3 +388,18 @@ room:3
 alloc:1:40
 mon-base:elemental
 mon-base:vortex
+
+name:Rubble Critters
+room:3
+alloc:8:30
+flags-req:PL_RUBBLE
+
+name:Stair Guardians
+room:3
+alloc:8:30
+flags-req:PL_STAIR
+
+name:Trap Setters
+room:3
+alloc:8:30
+flags-req:PL_TRAP

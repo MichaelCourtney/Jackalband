@@ -291,10 +291,15 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v);
 
 bool build_staircase(struct chunk *c, struct loc centre, int rating);
 bool build_simple(struct chunk *c, struct loc centre, int rating);
+bool build_simple_lit(struct chunk *c, struct loc centre, int rating);
+bool build_simple_dark(struct chunk *c, struct loc centre, int rating);
+bool build_simple_sil(struct chunk *c, struct loc centre, int rating);
 bool build_small(struct chunk *c, struct loc centre, int rating);
 bool build_circular(struct chunk *c, struct loc centre, int rating);
 bool build_overlap(struct chunk *c, struct loc centre, int rating);
 bool build_crossed(struct chunk *c, struct loc centre, int rating);
+bool build_crossed_sil(struct chunk *c, struct loc centre, int rating);
+bool build_crossed_all(struct chunk *c, struct loc centre, int rating);
 bool build_large(struct chunk *c, struct loc centre, int rating);
 bool mon_pit_hook(struct monster_race *race);
 void set_pit_type(int depth, int type);

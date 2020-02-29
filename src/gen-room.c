@@ -1716,6 +1716,175 @@ bool build_simple(struct chunk *c, struct loc centre, int rating)
 
 
 /**
+ * Builds a sil sized rectangular room.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_simple_sil(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x, y1, x1, y2, x2;
+	int light = false;
+
+	/* Pick a room size */
+	int height = 1 + randint1(3) + randint1(3);
+	int width = 2 + randint1(4) + randint1(5);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Pick a room size */
+	y1 = centre.y - height / 2;
+	x1 = centre.x - width / 2;
+	y2 = y1 + height - 1;
+	x2 = x1 + width - 1;
+
+	/* Occasional light */
+	if ((c->depth < randint1(19)) || (c->depth < randint1(19))) light = true; 
+
+	/* Generate new room */
+	generate_room(c, y1-1, x1-1, y2+1, x2+1, light);
+
+	/* Generate outer walls and inner floors */
+	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+
+	if (one_in_(20)) {
+		/* Sometimes make a pillar room */
+		for (y = y1; y <= y2; y += 2)
+			for (x = x1; x <= x2; x += 2)
+				set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+
+	} else if (one_in_(10)) {
+		/* Sometimes make a pillar-lined room */
+		for (y = y1; y <= y2; y += 2) {
+			for (x = x1; x <= x2; x += 2) {
+				if ((x == x1+1) || (x == x2-1) || (y == y1+1) || (y == y2-1)) {
+					set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+				}
+			}
+		}
+	}
+	return true;
+}
+
+
+/**
+ * Builds a normal lit rectangular room.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_simple_lit(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x, y1, x1, y2, x2;
+	int light = true;
+
+	/* Pick a room size */
+	int height = 1 + randint1(4) + randint1(3);
+	int width = 1 + randint1(11) + randint1(11);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Pick a room size */
+	y1 = centre.y - height / 2;
+	x1 = centre.x - width / 2;
+	y2 = y1 + height - 1;
+	x2 = x1 + width - 1;
+
+	/* Generate new room */
+	generate_room(c, y1-1, x1-1, y2+1, x2+1, light);
+
+	/* Generate outer walls and inner floors */
+	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+
+	if (one_in_(20)) {
+		/* Sometimes make a pillar room */
+		for (y = y1; y <= y2; y += 2)
+			for (x = x1; x <= x2; x += 2)
+				set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+
+	} else if (one_in_(50)) {
+		/* Sometimes make a ragged-edge room */
+		for (y = y1 + 2; y <= y2 - 2; y += 2) {
+			set_marked_granite(c, loc(x1, y), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(x2, y), SQUARE_WALL_INNER);
+		}
+
+		for (x = x1 + 2; x <= x2 - 2; x += 2) {
+			set_marked_granite(c, loc(x, y1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(x, y2), SQUARE_WALL_INNER);
+		}
+	}
+	return true;
+}
+
+
+/**
+ * Builds a normal rectangular room.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_simple_dark(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x, y1, x1, y2, x2;
+	int light = false;
+
+	/* Pick a room size */
+	int height = 1 + randint1(4) + randint1(3);
+	int width = 1 + randint1(11) + randint1(11);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Pick a room size */
+	y1 = centre.y - height / 2;
+	x1 = centre.x - width / 2;
+	y2 = y1 + height - 1;
+	x2 = x1 + width - 1;
+
+	/* Generate new room */
+	generate_room(c, y1-1, x1-1, y2+1, x2+1, light);
+
+	/* Generate outer walls and inner floors */
+	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+
+	if (one_in_(20)) {
+		/* Sometimes make a pillar room */
+		for (y = y1; y <= y2; y += 2)
+			for (x = x1; x <= x2; x += 2)
+				set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+
+	} else if (one_in_(50)) {
+		/* Sometimes make a ragged-edge room */
+		for (y = y1 + 2; y <= y2 - 2; y += 2) {
+			set_marked_granite(c, loc(x1, y), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(x2, y), SQUARE_WALL_INNER);
+		}
+
+		for (x = x1 + 2; x <= x2 - 2; x += 2) {
+			set_marked_granite(c, loc(x, y1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(x, y2), SQUARE_WALL_INNER);
+		}
+	}
+	return true;
+}
+
+
+/**
  * Builds a small rectangular room.
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()
@@ -1751,25 +1920,6 @@ bool build_small(struct chunk *c, struct loc centre, int rating)
 	/* Generate outer walls and inner floors */
 	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
 	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
-
-	if (one_in_(20)) {
-		/* Sometimes make a pillar room */
-		for (y = y1; y <= y2; y += 2)
-			for (x = x1; x <= x2; x += 2)
-				set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
-
-	} else if (one_in_(50)) {
-		/* Sometimes make a ragged-edge room */
-		for (y = y1 + 2; y <= y2 - 2; y += 2) {
-			set_marked_granite(c, loc(x1, y), SQUARE_WALL_INNER);
-			set_marked_granite(c, loc(x2, y), SQUARE_WALL_INNER);
-		}
-
-		for (x = x1 + 2; x <= x2 - 2; x += 2) {
-			set_marked_granite(c, loc(x, y1), SQUARE_WALL_INNER);
-			set_marked_granite(c, loc(x, y2), SQUARE_WALL_INNER);
-		}
-	}
 	return true;
 }
 
@@ -1907,7 +2057,7 @@ bool build_crossed(struct chunk *c, struct loc centre, int rating)
 			return (false);
 	}
 
-	/* locate room (b) */
+	/* locate room (a) */
 	y1a = centre.y - dy;
 	x1a = centre.x - wx;
 	y2a = centre.y + dy;
@@ -2005,6 +2155,353 @@ bool build_crossed(struct chunk *c, struct loc centre, int rating)
 		}
 
 		break;
+	}
+	}
+
+	return true;
+}
+
+
+/**
+ * Builds a Sil sized cross-shaped room.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ *
+ * Room "a" runs north/south, and Room "b" runs east/east 
+ * So a "central pillar" would run from x1a,y1b to x2a,y2b.
+ *
+ * Note that currently, the "center" is always 3x3, but I think that the code
+ * below will work for 5x5 (and perhaps even for unsymetric values like 4x3 or
+ * 5x3 or 3x4 or 3x5).
+ */
+bool build_crossed_sil(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x;
+	int height, width;
+
+	int y1a, x1a, y2a, x2a;
+	int y1b, x1b, y2b, x2b;
+
+	int dy, dx, wy, wx;
+
+	int light = false;
+
+	/* Occasional light */
+	if (c->depth < randint1(20)) light = true;
+
+	/* Pick inner dimension */
+	wy = 1;
+	wx = rand_range(1, 2);
+
+	/* Pick outer dimension */
+	dy = rand_range(3, 6);
+	dx = rand_range(5, 7);
+
+	/* Determine extents of room (a) */
+	y1a = dy;
+	x1a = wx;
+	y2a = dy;
+	x2a = wx;
+
+	/* Determine extents of room (b) */
+	y1b = wy;
+	x1b = dx;
+	y2b = wy;
+	x2b = dx;
+
+	/* Calculate height and width */
+	height = MAX(y1a + y2a + 1, y1b + y2b + 1);
+	width = MAX(x1a + x2a + 1, x1b + x2b + 1);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* locate room (a) */
+	y1a = centre.y - dy;
+	x1a = centre.x - wx;
+	y2a = centre.y + dy;
+	x2a = centre.x + wx;
+
+	/* locate room (b) */
+	y1b = centre.y - wy;
+	x1b = centre.x - dx;
+	y2b = centre.y + wy;
+	x2b = centre.x + dx;
+
+	/* Generate new room (a) */
+	generate_room(c, y1a - 1, x1a - 1, y2a + 1, x2a + 1, light);
+
+	/* Generate new room (b) */
+	generate_room(c, y1b - 1, x1b - 1, y2b + 1, x2b + 1, light);
+
+	/* Generate outer walls (a) */
+	draw_rectangle(c, y1a - 1, x1a - 1, y2a + 1, x2a + 1, 
+				   FEAT_GRANITE, SQUARE_WALL_OUTER);
+
+	/* Generate outer walls (b) */
+	draw_rectangle(c, y1b - 1, x1b - 1, y2b + 1, x2b + 1, 
+				   FEAT_GRANITE, SQUARE_WALL_OUTER);
+
+	/* Generate inner floors (a) */
+	fill_rectangle(c, y1a, x1a, y2a, x2a, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Generate inner floors (b) */
+	fill_rectangle(c, y1b, x1b, y2b, x2b, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Special features */
+	switch (randint1(7)) {
+		/* Chest */
+	case 1: {
+		if ((wx == 2) || (dy == 6)) {
+			for (y = y1a + 1; y <= y2a; y += 2)
+				{
+					for (x = x1a + 1; x <= x2a; x += 2)
+					{
+						set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+					}
+				}
+				place_object(c, loc(centre.x, centre.y), c->depth, false,
+							 false, ORIGIN_SPECIAL, TV_CHEST);
+			}
+			break ;
+	}
+
+		/* Occasionally put a "plus" in the center */
+	case 2: {
+		if (wx == 1) {
+			generate_plus(c, y1b, x1a, y2b, x2a, FEAT_GRANITE, SQUARE_WALL_INNER);
+		}
+
+		break;
+	}
+
+	/* Empty Diamond */
+	case 3: {
+		if (wx == 1) {
+			set_marked_granite(c, loc(centre.x - 1, centre.y - 1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x - 1, centre.y + 1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x + 1, centre.y - 1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x + 1, centre.y + 1), SQUARE_WALL_INNER);
+			}
+			break;
+	}
+	/* Hollowed Cross */
+	case 4: {
+		if (wx == 1) {
+			set_marked_granite(c, loc(centre.x - 1, centre.y), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x + 1, centre.y), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x, centre.y - 1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x, centre.y + 1), SQUARE_WALL_INNER);
+			}
+			break;
+	}
+	default: {
+	break ;
+	}
+	}
+
+	return true;
+}
+
+
+/**
+ * Builds a cross-shaped room in both V & Sil size & styles.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ *
+ * Room "a" runs north/south, and Room "b" runs east/east 
+ * So a "central pillar" would run from x1a,y1b to x2a,y2b.
+ *
+ * Note that currently, the "center" is always 3x3, but I think that the code
+ * below will work for 5x5 (and perhaps even for unsymetric values like 4x3 or
+ * 5x3 or 3x4 or 3x5).
+ */
+bool build_crossed_all(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x;
+	int height, width;
+
+	int y1a, x1a, y2a, x2a;
+	int y1b, x1b, y2b, x2b;
+
+	int dy, dx, wy, wx;
+
+	int light = false;
+
+	/* Occasional light */
+	if (one_in_(2)) {
+		if (c->depth <= randint1(25)) light = true;
+	} else {
+		if (c->depth < randint1(20)) light = true;
+	}
+
+	/* Pick inner dimension */
+	wy = 1;
+	wx = rand_range(1, 2);
+
+	/* Pick outer dimension */
+	dy = rand_range(3, 6);
+	dx = rand_range(3, 11);
+
+	/* Determine extents of room (a) */
+	y1a = dy;
+	x1a = wx;
+	y2a = dy;
+	x2a = wx;
+
+	/* Determine extents of room (b) */
+	y1b = wy;
+	x1b = dx;
+	y2b = wy;
+	x2b = dx;
+
+	/* Calculate height and width */
+	height = MAX(y1a + y2a + 1, y1b + y2b + 1);
+	width = MAX(x1a + x2a + 1, x1b + x2b + 1);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* locate room (a) */
+	y1a = centre.y - dy;
+	x1a = centre.x - wx;
+	y2a = centre.y + dy;
+	x2a = centre.x + wx;
+
+	/* locate room (b) */
+	y1b = centre.y - wy;
+	x1b = centre.x - dx;
+	y2b = centre.y + wy;
+	x2b = centre.x + dx;
+
+	/* Generate new room (a) */
+	generate_room(c, y1a - 1, x1a - 1, y2a + 1, x2a + 1, light);
+
+	/* Generate new room (b) */
+	generate_room(c, y1b - 1, x1b - 1, y2b + 1, x2b + 1, light);
+
+	/* Generate outer walls (a) */
+	draw_rectangle(c, y1a - 1, x1a - 1, y2a + 1, x2a + 1, 
+				   FEAT_GRANITE, SQUARE_WALL_OUTER);
+
+	/* Generate outer walls (b) */
+	draw_rectangle(c, y1b - 1, x1b - 1, y2b + 1, x2b + 1, 
+				   FEAT_GRANITE, SQUARE_WALL_OUTER);
+
+	/* Generate inner floors (a) */
+	fill_rectangle(c, y1a, x1a, y2a, x2a, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Generate inner floors (b) */
+	fill_rectangle(c, y1b, x1b, y2b, x2b, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Special features */
+	switch (randint1(4)) {
+		/* Nothing */
+	case 1: break;
+
+		/* Large solid middle pillar */
+	case 2: {
+		fill_rectangle(c, y1b, x1a, y2b, x2a, FEAT_GRANITE, SQUARE_WALL_INNER);
+		break;
+	}
+
+		/* Inner treasure vault */
+	case 3: {
+		/* Generate a small inner vault */
+		draw_rectangle(c, y1b, x1a, y2b, x2a, FEAT_GRANITE, SQUARE_WALL_INNER);
+
+		/* Open the inner vault with a secret door */
+		generate_hole(c, y1b, x1a, y2b, x2a, FEAT_SECRET);
+
+		/* Place a treasure in the vault */
+		place_object(c, centre, c->depth, false, false, ORIGIN_SPECIAL, 0);
+
+		/* Let's guard the treasure well */
+		vault_monsters(c, centre, c->depth + 2, randint0(2) + 3);
+
+		/* Traps naturally */
+		vault_traps(c, centre, 4, 4, randint0(3) + 2);
+
+		break;
+	}
+
+		/* Something else */
+	case 4: {
+		if (one_in_(3)) {
+			/* Occasionally pinch the center shut */
+
+			/* Pinch the east/west sides */
+			for (y = y1b; y <= y2b; y++) {
+				if (y == centre.y) continue;
+				set_marked_granite(c, loc(x1a - 1, y), SQUARE_WALL_INNER);
+				set_marked_granite(c, loc(x2a + 1, y), SQUARE_WALL_INNER);
+			}
+
+			/* Pinch the north/south sides */
+			for (x = x1a; x <= x2a; x++) {
+				if (x == centre.x) continue;
+				set_marked_granite(c, loc(x, y1b - 1), SQUARE_WALL_INNER);
+				set_marked_granite(c, loc(x, y2b + 1), SQUARE_WALL_INNER);
+			}
+
+			/* Open sides with doors */
+			if (one_in_(3))
+				generate_open(c, y1b - 1, x1a - 1, y2b + 1, x2a + 1,
+							  FEAT_CLOSED);
+
+		} else if (one_in_(3)) {
+			/* Occasionally put a "plus" in the center */
+			generate_plus(c, y1b, x1a, y2b, x2a, 
+						  FEAT_GRANITE, SQUARE_WALL_INNER);
+
+		} else if (one_in_(3)) {
+			/* Occasionally put a "pillar" in the center */
+			set_marked_granite(c, centre, SQUARE_WALL_INNER);
+		}
+
+		break;
+	}
+	case 5: {
+		for (y = y1a + 1; y <= y2a; y += 2)
+			{
+				for (x = x1a + 1; x <= x2a; x += 2)
+				{
+					set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+				}
+			}
+			place_object(c, loc(centre.x, centre.y), c->depth, false,
+							 false, ORIGIN_SPECIAL, TV_CHEST);
+		break ;
+	}
+
+	/* Put a "plus" in the center */
+	case 6: {
+		generate_plus(c, y1b, x1a, y2b, x2a, FEAT_GRANITE, SQUARE_WALL_INNER);
+	break;
+	}
+	/* Empty Diamond */
+	case 7: {
+		set_marked_granite(c, loc(centre.x - 1, centre.y - 1), SQUARE_WALL_INNER);
+		set_marked_granite(c, loc(centre.x - 1, centre.y + 1), SQUARE_WALL_INNER);
+		set_marked_granite(c, loc(centre.x + 1, centre.y - 1), SQUARE_WALL_INNER);
+		set_marked_granite(c, loc(centre.x + 1, centre.y + 1), SQUARE_WALL_INNER);
+		break;
+	}
+	/* Hollowed Cross */
+	case 8: {
+			set_marked_granite(c, loc(centre.x - 1, centre.y), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x + 1, centre.y), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x, centre.y - 1), SQUARE_WALL_INNER);
+			set_marked_granite(c, loc(centre.x, centre.y + 1), SQUARE_WALL_INNER);
+			break;
 	}
 	}
 
