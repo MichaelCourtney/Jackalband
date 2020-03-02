@@ -1242,9 +1242,9 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v)
 				else
 					square_set_feat(c, grid, FEAT_TREE2);
 				break;
+			}
 				/* Dune */
 			case '(': square_set_feat(c, grid, FEAT_DUNE); break;
-			}
 			}
 
 			/* Part of a vault */
