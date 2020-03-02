@@ -1613,7 +1613,7 @@ bool build_staircase(struct chunk *c, struct loc centre, int rating)
 }
 
 /**
- * Build a circular room (interior radius 4-7).
+ * Build a circular room (interior radius 4-8).
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()
  * \return success
@@ -1621,7 +1621,7 @@ bool build_staircase(struct chunk *c, struct loc centre, int rating)
 bool build_circular(struct chunk *c, struct loc centre, int rating)
 {
 	/* Pick a room size */
-	int radius = 2 + randint1(2) + randint1(3);
+	int radius = 2 + randint1(3) + randint1(3);
 
 	/* Occasional light */
 	bool light = c->depth <= randint1(25) ? true : false;
@@ -1688,7 +1688,8 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 				SQUARE_NONE, light);
 
 	/* Generate inner terrain */
-	radius -= randint1(3);
+	int j = radius - 2;
+	radius -= randint1(j);
 	int i = c->depth + randint0(20);
 	
 	if ((i < 8) || ((i > 21) && (i < 24)) || (i = 42)) {
