@@ -1233,9 +1233,18 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v)
 			}
 				/* Lava */
 			case '`': square_set_feat(c, grid, FEAT_LAVA); break;
-				/* Included to allow simple inclusion of FA vaults */
-			case '/': /*square_set_feat(c, grid, FEAT_WATER)*/; break;
-			case ';': /*square_set_feat(c, grid, FEAT_TREE)*/; break;
+				/* Water */
+			case '/': square_set_feat(c, grid, FEAT_WATER); break;
+				/* Trees */
+			case ';': {
+				if (one_in_(2))
+					square_set_feat(c, grid, FEAT_TREE);
+				else
+					square_set_feat(c, grid, FEAT_TREE2);
+				break;
+				/* Dune */
+			case '(': square_set_feat(c, grid, FEAT_DUNE); break;
+			}
 			}
 
 			/* Part of a vault */
