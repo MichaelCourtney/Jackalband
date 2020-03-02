@@ -432,7 +432,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:5 to 100
+alloc:10:4 to 100
 pile:70:1d4
 power:10
 effect:CURE:BLIND
@@ -447,7 +447,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:5 to 40
+alloc:10:4 to 40
 pile:70:1d4
 power:7
 effect:HEAL_HP
@@ -482,7 +482,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:5 to 40
+alloc:10:4 to 40
 pile:70:1d4
 power:8
 effect:RESTORE_MANA
@@ -501,7 +501,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:5 to 100
+alloc:10:4 to 100
 pile:70:1d4
 power:7
 effect:TIMED_INC:IMAGE
@@ -521,7 +521,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:5 to 40
+alloc:10:4 to 40
 pile:70:1d4
 power:5
 effect:TIMED_SET:TERROR
@@ -623,15 +623,208 @@ desc:It makes you very stealthy for a short while.
 
 ##### Weapons #####
 
+### UMoria Extras ###
+
+name:& Misericorde~
+type:sword
+graphics:|:W
+level:0
+weight:12
+cost:30
+alloc:5:0 to 10
+attack:1d3:0:0
+armor:0:0
+
+name:& Stiletto~
+type:sword
+graphics:|:W
+level:0
+weight:10
+cost:30
+alloc:5:0 to 10
+attack:1d2:0:0
+armor:0:0
+
+name:& Bodkin~
+type:sword
+graphics:|:W
+level:1
+weight:14
+cost:30
+alloc:5:1 to 11
+attack:1d4:0:0
+armor:0:0
+
+name:& Broken Dagger~
+type:sword
+graphics:|:W
+level:0
+weight:15
+cost:5
+alloc:1:0 to 5
+attack:1d1:-2:-2
+armor:0:0
+
+name:& Backsword~
+type:sword
+graphics:|:W
+level:7
+weight:65
+cost:150
+alloc:5:7 to 17
+attack:1d10:0:0
+armor:0:0
+
+name:& Bilbo~
+type:sword
+graphics:|:W
+level:4
+weight:45
+cost:60
+alloc:5:4 to 14
+attack:1d7:0:0
+armor:0:0
+
+name:& Baselard~
+type:sword
+graphics:|:W
+level:5
+weight:65
+cost:80
+alloc:5:5 to 15
+attack:1d8:0:0
+armor:0:0
+
+name:& Claymore~
+type:sword
+graphics:|:W
+level:30
+weight:130
+cost:775
+alloc:5:30 to 40
+attack:3d7:0:0
+armor:0:0
+
+name:& Espadon~
+type:sword
+graphics:|:W
+level:35
+weight:110
+cost:665
+alloc:5:35 to 45
+attack:3d7:0:0
+armor:0:0
+
+name:& Flamberge~
+type:sword
+graphics:|:W
+level:45
+weight:150
+cost:1000
+alloc:5:45 to 50
+attack:4d6:0:0
+armor:0:0
+
+name:& Foil~
+type:sword
+graphics:|:W
+level:2
+weight:20
+cost:35
+alloc:5:2 to 12
+attack:1d6:0:0
+armor:0:0
+
+name:& No-Dachi~
+type:sword
+graphics:|:W
+level:45
+weight:130
+cost:675
+alloc:5:45 to 50
+attack:4d5:0:0
+armor:0:0
+
+name:& Small Sword~
+type:sword
+graphics:|:W
+level:5
+weight:40
+cost:48
+alloc:5:5 to 15
+attack:1d7:0:0
+armor:0:0
+
+name:& Broken Sword~
+type:sword
+graphics:|:W
+level:0
+weight:45
+cost:10
+alloc:1:0 to 5
+attack:1d1:-2:-2
+armor:0:0
+
+name:& Cat-o'-Nine-Tails~
+type:hafted
+graphics:\:D
+level:3
+weight:25
+cost:14
+alloc:1:3 to 8
+attack:1d5:0:0
+armor:0:0
+
+name:& Wooden Club~
+type:hafted
+graphics:\:D
+level:0
+weight:65
+cost:10
+alloc:5:0 to 10
+attack:1d4:0:0
+armor:0:0
+
+name:& Fauchard~
+type:polearm
+graphics:/:s
+level:17
+weight:100
+cost:326
+alloc:5:17 to 27
+attack:1d11:0:0
+armor:0:0
+
+name:& Javelin~
+type:polearm
+graphics:/:s
+level:4
+weight:20
+cost:18
+alloc:5:4 to 14
+attack:1d5:0:0
+armor:0:0
+flags:THROWING
+
+name:& Balestarius~
+type:polearm
+graphics:/:s
+level:30
+weight:110
+cost:500
+alloc:5:30 to 40
+attack:2d9:0:0
+armor:0:0
+
 ### Swords ###
 
 name:& Dagger~
 type:sword
 graphics:|:W
 level:0
-weight:12
+weight:15
 cost:30
-alloc:20:0 to 100
+alloc:30:0 to 100
 attack:1d5:0:0
 armor:0:0
 flags:THROWING
@@ -641,9 +834,9 @@ name:& Main Gauche~
 type:sword
 graphics:|:W
 level:3
-weight:15
+weight:20
 cost:45
-alloc:20:3 to 100
+alloc:10:3 to 100
 attack:1d6:0:0
 armor:0:0
 desc:A short thrusting blade with a large guard, primarily used in duels.
@@ -652,9 +845,9 @@ name:& Rapier~
 type:sword
 graphics:|:W
 level:5
-weight:20
+weight:25
 cost:70
-alloc:20:5 to 100
+alloc:10:4 to 100
 attack:1d7:0:0
 armor:0:0
 desc:A long, thin thrusting blade, mainly used in duels.
@@ -663,9 +856,9 @@ name:& Short Sword~
 type:sword
 graphics:|:W
 level:5
-weight:40
+weight:45
 cost:90
-alloc:20:5 to 100
+alloc:30:4 to 100
 attack:1d8:0:0
 armor:0:0
 desc:A short thrusting sword.
@@ -674,9 +867,9 @@ name:& Cutlass~
 type:sword
 graphics:|:W
 level:5
-weight:55
+weight:70
 cost:120
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d9:0:0
 armor:0:0
 desc:A thicker and slightly longer dagger, the cutlass is a slashing sword.  It
@@ -686,9 +879,9 @@ name:& Tulwar~
 type:sword
 graphics:|:W
 level:5
-weight:50
+weight:65
 cost:170
-alloc:20:5 to 100
+alloc:10:4 to 100
 attack:2d5:0:0
 armor:0:0
 desc:A wider-bladed cousin of the shamshir, with less of a curve.
@@ -697,9 +890,9 @@ name:& Scimitar~
 type:sword
 graphics:|:W
 level:10
-weight:75
+weight:90
 cost:300
-alloc:20:10 to 100
+alloc:30:10 to 100
 attack:4d3:0:0
 armor:0:0
 desc:A long sabre with an extreme curve to the blade.
@@ -708,9 +901,9 @@ name:& Long Sword~
 type:sword
 graphics:|:W
 level:10
-weight:65
+weight:80
 cost:300
-alloc:20:10 to 100
+alloc:30:10 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A long, straight, two-edged blade, with two hand guards projecting out
@@ -720,9 +913,9 @@ name:& Broad Sword~
 type:sword
 graphics:|:W
 level:10
-weight:75
+weight:90
 cost:300
-alloc:20:10 to 100
+alloc:10:10 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A heavy, single-edged sword with a strong grip.
@@ -731,9 +924,9 @@ name:& Bastard Sword~
 type:sword
 graphics:|:W
 level:15
-weight:70
+weight:85
 cost:400
-alloc:20:15 to 100
+alloc:30:15 to 100
 attack:3d5:0:0
 armor:0:0
 desc:Also known as the hand-and-a-half blade.  A larger-than-normal straight-
@@ -743,9 +936,9 @@ name:& Katana~
 type:sword
 graphics:|:W
 level:20
-weight:60
+weight:75
 cost:600
-alloc:20:20 to 100
+alloc:10:20 to 100
 attack:3d6:0:0
 armor:0:0
 desc:A slightly curved long-handled slashing sword with a single-edged
@@ -755,7 +948,7 @@ name:& Zweihander~
 type:sword
 graphics:|:W
 level:30
-weight:100
+weight:130
 cost:700
 alloc:20:30 to 100
 attack:3d7:0:0
@@ -766,7 +959,7 @@ name:& Executioner's Sword~
 type:sword
 graphics:|:r
 level:40
-weight:130
+weight:160
 cost:850
 alloc:20:40 to 100
 attack:4d6:0:0
@@ -777,7 +970,7 @@ name:& Blade~ of Chaos
 type:sword
 graphics:|:v
 level:70
-weight:90
+weight:110
 cost:4000
 alloc:10:70 to 100
 attack:6d6:0:0
@@ -794,7 +987,7 @@ name:& Whip~
 type:hafted
 graphics:\:D
 level:3
-weight:15
+weight:20
 cost:30
 alloc:20:3 to 100
 attack:1d4:0:0
@@ -806,7 +999,7 @@ name:& Ball-and-Chain~
 type:hafted
 graphics:\:D
 level:20
-weight:75
+weight:90
 cost:200
 alloc:20:20 to 100
 attack:2d5:0:0
@@ -817,7 +1010,7 @@ name:& Morning Star~
 type:hafted
 graphics:\:D
 level:10
-weight:75
+weight:90
 cost:396
 alloc:20:10 to 100
 attack:2d7:0:0
@@ -829,7 +1022,7 @@ name:& Flail~
 type:hafted
 graphics:\:D
 level:10
-weight:75
+weight:90
 cost:353
 alloc:20:10 to 100
 attack:2d7:0:0
@@ -841,7 +1034,7 @@ name:& Two-Handed Great Flail~
 type:hafted
 graphics:\:y
 level:45
-weight:140
+weight:170
 cost:590
 alloc:20:45 to 100
 attack:3d7:0:0
@@ -856,9 +1049,9 @@ name:& Mace~
 type:hafted
 graphics:\:D
 level:5
-weight:60
+weight:75
 cost:130
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:2d5:0:0
 armor:0:0
 desc:A war club with an iron head, usually flanged or spiked.
@@ -867,7 +1060,7 @@ name:& Lead-Filled Mace~
 type:hafted
 graphics:\:D
 level:15
-weight:90
+weight:110
 cost:502
 alloc:20:15 to 100
 attack:4d4:0:0
@@ -879,7 +1072,7 @@ name:& Quarterstaff~
 type:hafted
 graphics:\:U
 level:10
-weight:75
+weight:90
 cost:200
 alloc:20:10 to 100
 attack:1d10:0:0
@@ -891,7 +1084,7 @@ name:& Throwing Hammer~
 type:hafted
 graphics:\:D
 level:40
-weight:30
+weight:35
 cost:250
 alloc:10:40 to 100
 attack:2d4:0:0
@@ -903,7 +1096,7 @@ name:& War Hammer~
 type:hafted
 graphics:\:D
 level:5
-weight:60
+weight:75
 cost:225
 alloc:20:5 to 100
 attack:3d4:0:0
@@ -914,7 +1107,7 @@ name:& Maul~
 type:hafted
 graphics:\:D
 level:5
-weight:100
+weight:130
 cost:130
 alloc:20:5 to 100
 attack:4d5:0:0
@@ -925,7 +1118,7 @@ name:& Great Hammer~
 type:hafted
 graphics:\:D
 level:5
-weight:90
+weight:110
 cost:500
 alloc:20:20 to 100
 attack:8d2:0:0
@@ -936,7 +1129,7 @@ name:& Mace~ of Disruption
 type:hafted
 graphics:\:v
 level:80
-weight:200
+weight:250
 cost:4300
 alloc:10:80 to 100
 attack:5d9:0:0
@@ -953,9 +1146,9 @@ name:& Spear~
 type:polearm
 graphics:/:s
 level:5
-weight:25
+weight:30
 cost:36
-alloc:20:5 to 100
+alloc:30:4 to 100
 attack:1d7:0:0
 armor:0:0
 flags:THROWING
@@ -966,9 +1159,9 @@ name:& Awl-Pike~
 type:polearm
 graphics:/:s
 level:10
-weight:80
+weight:95
 cost:340
-alloc:20:10 to 100
+alloc:10:10 to 100
 attack:1d11:0:0
 armor:0:0
 desc:A more robust version of the basic polearm, with a double-edged knife
@@ -979,9 +1172,9 @@ name:& Trident~
 type:polearm
 graphics:/:y
 level:5
-weight:35
+weight:40
 cost:120
-alloc:20:5 to 100
+alloc:10:4 to 100
 attack:1d9:0:0
 armor:0:0
 desc:A three-pronged spear, originally for catching fish.
@@ -990,9 +1183,9 @@ name:& Halberd~
 type:polearm
 graphics:/:s
 level:25
-weight:95
+weight:120
 cost:430
-alloc:20:25 to 100
+alloc:30:25 to 100
 attack:3d6:0:0
 armor:0:0
 desc:The most successful of the polearms, the halberd has a long haft mounted
@@ -1003,9 +1196,9 @@ name:& Pike~
 type:polearm
 graphics:/:s
 level:15
-weight:80
+weight:100
 cost:358
-alloc:20:15 to 100
+alloc:30:15 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A fifteen foot spear, requiring two hands to wield, principally used in
@@ -1018,7 +1211,7 @@ name:& Throwing Axe~
 type:polearm
 graphics:/:s
 level:25
-weight:20
+weight:25
 cost:150
 alloc:10:25 to 100
 attack:2d3:0:0
@@ -1031,9 +1224,9 @@ name:& Beaked Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:90
+weight:110
 cost:408
-alloc:20:15 to 100
+alloc:10:15 to 100
 attack:2d7:0:0
 armor:0:0
 desc:A narrow axe head opposed by a crow's beak for penetrating armour.
@@ -1042,9 +1235,9 @@ name:& Broad Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:80
+weight:95
 cost:304
-alloc:20:15 to 100
+alloc:10:15 to 100
 attack:2d7:0:0
 armor:0:0
 desc:A simple, single-bladed war axe capable of chopping though limbs or armour.
@@ -1053,9 +1246,9 @@ name:& Battle Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:85
+weight:100
 cost:334
-alloc:20:15 to 100
+alloc:40:15 to 100
 attack:2d9:0:0
 armor:0:0
 desc:A double-bladed axe.  Very popular among Dwarves.
@@ -1064,9 +1257,9 @@ name:& Lochaber Axe~
 type:polearm
 graphics:/:D
 level:45
-weight:125
+weight:150
 cost:750
-alloc:20:45 to 100
+alloc:10:45 to 100
 attack:3d9:0:0
 armor:0:0
 desc:A long shaft with a long narrow blade.
@@ -1075,9 +1268,9 @@ name:& Great Axe~
 type:polearm
 graphics:/:s
 level:40
-weight:115
+weight:140
 cost:500
-alloc:20:40 to 100
+alloc:30:40 to 100
 attack:4d5:0:0
 armor:0:0
 desc:An enormous two-handed battle axe, carried by Dwarven champions, who
@@ -1090,9 +1283,9 @@ name:& Scythe~
 type:polearm
 graphics:/:s
 level:45
-weight:125
+weight:150
 cost:800
-alloc:20:45 to 100
+alloc:10:45 to 100
 attack:5d4:0:0
 armor:0:0
 desc:The long crescent blade stands out from the handle of this
@@ -1102,9 +1295,9 @@ name:& Glaive~
 type:polearm
 graphics:/:s
 level:20
-weight:95
+weight:120
 cost:363
-alloc:20:20 to 100
+alloc:30:20 to 100
 attack:2d7:0:0
 armor:0:0
 desc:A reinforced wooden pole eight feet long, topped by a massive knife blade
@@ -1114,7 +1307,7 @@ name:& Lance~
 type:polearm
 graphics:/:s
 level:10
-weight:150
+weight:190
 cost:230
 alloc:20:10 to 100
 attack:2d9:0:0
@@ -1125,7 +1318,7 @@ name:& Scythe~ of Slicing
 type:polearm
 graphics:/:r
 level:60
-weight:125
+weight:150
 cost:3500
 alloc:10:60 to 100
 attack:8d5:0:0
@@ -1137,9 +1330,9 @@ name:& Lucerne Hammer~
 type:polearm
 graphics:/:B
 level:10
-weight:60
+weight:75
 cost:376
-alloc:20:10 to 100
+alloc:10:10 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A long pole with a three- or four-pronged head balanced by a long spike.
@@ -1329,9 +1522,9 @@ name:& Shovel~
 type:digger
 graphics:\:s
 level:1
-weight:30
+weight:40
 cost:10
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d2:0:0
 armor:0:0
 flags:DIG_1
@@ -1341,7 +1534,7 @@ name:& Pick~
 type:digger
 graphics:\:g
 level:30
-weight:90
+weight:100
 cost:300
 alloc:20:30 to 100
 attack:1d3:0:0
@@ -1354,7 +1547,7 @@ name:& Mattock~
 type:digger
 graphics:\:D
 level:50
-weight:125
+weight:150
 cost:700
 alloc:20:50 to 100
 attack:1d8:0:0
@@ -1397,7 +1590,7 @@ graphics:]:U
 level:5
 weight:35
 cost:12
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:4:0
 flags:IGNORE_FIRE
@@ -1559,7 +1752,7 @@ graphics:(:U
 level:10
 weight:100
 cost:100
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d1:-1:0
 armor:12:0
 desc:A cuirass of pliable leather studded with metal rivets.
@@ -1949,7 +2142,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_STR | 
-values:STR[1+M5]
+values:STR[M6]
 
 name:Intelligence
 type:ring
@@ -1959,7 +2152,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_INT | 
-values:INT[1+M5]
+values:INT[M6]
 
 name:Dexterity
 type:ring
@@ -1969,7 +2162,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_DEX | 
-values:DEX[1+M5]
+values:DEX[M6]
 
 name:Constitution
 type:ring
@@ -1979,7 +2172,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_CON | 
-values:CON[1+M5]
+values:CON[M6]
 
 name:Speed
 type:ring
@@ -2535,7 +2728,7 @@ graphics:?:w
 level:5
 weight:5
 cost:65
-alloc:50:5 to 100
+alloc:50:4 to 100
 pile:70:1d3
 power:10
 effect:MAP_AREA
@@ -2573,7 +2766,7 @@ graphics:?:w
 level:1
 weight:5
 cost:200
-alloc:50:5 to 100
+alloc:50:4 to 100
 pile:70:1d4
 power:6
 effect:IDENTIFY
@@ -2759,7 +2952,7 @@ graphics:?:w
 level:5
 weight:5
 cost:10
-alloc:60:5 to 100
+alloc:60:4 to 100
 pile:100:2d3
 power:7
 effect:NOURISH:INC_TO
@@ -2784,7 +2977,7 @@ graphics:?:w
 level:5
 weight:5
 cost:125
-alloc:50:5 to 100
+alloc:50:4 to 100
 pile:35:2d3
 power:15
 effect:RECALL
@@ -2884,7 +3077,7 @@ graphics:?:w
 level:5
 weight:5
 cost:30
-alloc:16:5 to 60
+alloc:16:4 to 60
 pile:25:2
 power:8
 effect:TIMED_INC:ATT_CONF
@@ -2918,7 +3111,7 @@ graphics:?:w
 level:5
 weight:5
 cost:0
-alloc:10:5 to 70
+alloc:10:4 to 70
 pile:70:1d3
 power:0
 msg:There is a high pitched humming noise.
@@ -3099,7 +3292,7 @@ graphics:!:d
 level:3
 weight:4
 cost:70
-alloc:80:5 to 40
+alloc:80:4 to 40
 pile:80:2d3
 power:6
 effect:HEAL_HP
@@ -3353,7 +3546,7 @@ graphics:!:d
 level:1
 weight:4
 cost:75
-alloc:40:1 to 100
+alloc:40:4 to 100
 pile:25:2
 power:10
 effect:TIMED_INC:FAST:0:5
@@ -3693,7 +3886,7 @@ graphics:-:d
 level:5
 weight:10
 cost:400
-alloc:20:5 to 60
+alloc:20:4 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d8
@@ -3770,7 +3963,7 @@ graphics:-:d
 level:5
 weight:10
 cost:500
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:0:0
 charges:2+d6
@@ -3784,7 +3977,7 @@ graphics:-:d
 level:5
 weight:10
 cost:500
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:0:0
 charges:2+d6
@@ -3798,7 +3991,7 @@ graphics:-:d
 level:5
 weight:10
 cost:500
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:0:0
 charges:2+d6
@@ -3812,7 +4005,7 @@ graphics:-:d
 level:5
 weight:10
 cost:500
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:0:0
 charges:2+d6
@@ -4206,7 +4399,7 @@ graphics:_:d
 level:5
 weight:50
 cost:200
-alloc:30:5 to 100 
+alloc:30:4 to 100 
 attack:1d2:0:0
 armor:0:0
 charges:8+d15
@@ -4268,7 +4461,7 @@ graphics:_:d
 level:5
 weight:50
 cost:350
-alloc:30:5 to 100
+alloc:30:4 to 100
 attack:1d2:0:0
 armor:0:0
 charges:6+d5
@@ -4383,7 +4576,7 @@ graphics:_:d
 level:5
 weight:50
 cost:250
-alloc:30:5 to 80
+alloc:30:4 to 80
 attack:1d2:0:0
 armor:0:0
 charges:8+d20
@@ -4866,7 +5059,7 @@ graphics:~:s
 level:5
 weight:250
 cost:20
-alloc:5:5 to 100
+alloc:5:4 to 100
 attack:2d3:0:0
 armor:0:0
 

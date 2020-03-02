@@ -77,7 +77,20 @@ static void alloc_init_objects(void) {
 			int rarity = kind->alloc_prob;
 
 			/* Save the probability in the standard table */
-			if ((lev < min) || (lev > max)) rarity = 0;
+			/* Jackalband allocates 1/10, 1/5 & 1/2 within 3 of the depth range - MC*/
+			if ((lev < (min - 3)) || (lev > (max + 3))) {
+				rarity = 0;
+			}
+			else if ((lev < (min - 2)) || (lev > (max + 2))) {
+				rarity /= 10;
+			}
+			else if ((lev < (min - 1)) || (lev > (max + 1))) {
+				rarity /= 5;
+			}
+			else if ((lev < (min)) || (lev > (max))) {
+				rarity /= 2;
+			}
+			
 			obj_total[lev] += rarity;
 			obj_alloc[(lev * k_max) + item] = rarity;
 
@@ -896,8 +909,10 @@ int apply_magic(struct object *obj, int lev, bool allow_artifacts, bool good,
 	 * This change is meant to go in conjunction with the changes
 	 * to ego item allocation levels. (-fizzix)
 	 */
-	int good_chance = (33 + lev);
-	int great_chance = 30;
+	 
+	 /* Changed, stingy early on but should end up same as V 4.2 by dlvl 25 - MC */
+	int good_chance = MIN((33 + lev), ((2 * lev) + 8));
+	int great_chance = MIN(30, lev + 5);
 
 	/* Roll for "good" */
 	if (good || (randint0(100) < good_chance)) {
