@@ -1838,7 +1838,7 @@ bool build_simple_lit(struct chunk *c, struct loc centre, int rating)
 
 
 /**
- * Builds a normal rectangular room.
+ * Builds a normal dark rectangular room.
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()
  * \return success
@@ -1901,7 +1901,7 @@ bool build_simple_dark(struct chunk *c, struct loc centre, int rating)
  */
 bool build_small(struct chunk *c, struct loc centre, int rating)
 {
-	int y, x, y1, x1, y2, x2;
+	int y1, x1, y2, x2;
 	int light = false;
 
 	/* Pick a room size */

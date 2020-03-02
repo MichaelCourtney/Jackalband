@@ -19,7 +19,9 @@
 #include "angband.h"
 #include "cave.h"
 #include "effects.h"
+#include "generate.h"
 #include "init.h"
+#include "mon-make.h"
 #include "mon-util.h"
 #include "obj-knowledge.h"
 #include "player-attack.h"
@@ -295,14 +297,14 @@ void place_trap_jb(struct chunk *c, struct loc grid)
 /* Only Place Trap Setters */
 mon_restrict("Trap Setters", c->depth, true);
 
-/* Try up to 11 spots looking for empty space */
+/* Try up to 20 spots looking for empty space */
 		int i;
 		
-		for (i = 0; i < 11; ++i) {
+		for (i = 0; i < 20; ++i) {
 			struct loc near;
 
 			/* Pick a random location */
-			find_nearby_grid(c, &near, grid, 2, 3);
+			find_nearby_grid(c, &near, grid, 2, 2);
 
 			/* Require empty space */
 			if (!square_isempty(c, near)) continue;
