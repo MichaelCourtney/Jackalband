@@ -88,8 +88,9 @@ room:simple room:0:11:33:1:0:1:5
 room:Interesting room:0:44:55:0:0:1:14
 room:large room:0:11:33:3:0:1:28
 room:Sil crossed room:0:11:33:1:0:1:32
-room:All crossed room:0:11:33:1:0:1:37
+room:All crossed room:0:11:33:3:0:1:37
 room:crossed room:0:11:33:3:0:1:42
+room:terrain room:0:22:22:1:0:1:49
 room:circular room:0:22:22:1:0:1:56
 room:overlap room:0:11:33:1:0:1:70
 room:room template:1:11:33:1:0:1:95

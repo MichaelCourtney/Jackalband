@@ -1662,6 +1662,76 @@ bool build_circular(struct chunk *c, struct loc centre, int rating)
 
 
 /**
+ * Build a circular terrain room (interior radius 6-8).
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
+{
+	/* Pick a room size */
+	int radius = 4 + randint1(2) + randint1(2);
+
+	/* Occasional light */
+	bool light = c->depth <= randint1(30) ? true : false;
+
+	/* Find and reserve lots of space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, 2 * radius + 10, 2 * radius + 10))
+			return (false);
+	}
+
+	/* Generate outer walls and inner floors */
+	fill_circle(c, centre.y, centre.x, radius + 1, 1, FEAT_GRANITE, 
+				SQUARE_WALL_OUTER, light);
+	fill_circle(c, centre.y, centre.x, radius, 0, FEAT_FLOOR,
+				SQUARE_NONE, light);
+
+	/* Generate inner terrain */
+	radius -= randint1(3);
+	int i = c->depth + randint0(20);
+	
+	if ((i < 8) || ((i > 21) && (i < 24)) || (i = 42)) {
+			/* lowland trees */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE, 
+						SQUARE_NONE, light);
+						
+	} else if ((i < 11) || ((i > 23) && (i < 27)) || (i = 43)) {
+			/* highland trees */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE2, 
+						SQUARE_NONE, light);
+						
+	} else if ((i < 16) || ((i > 26) && (i < 37)) || ((i > 43) && (i < 52))) {
+			/* water */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_WATER, 
+						SQUARE_NONE, light);
+						
+	} else if ((i = 16) || (i = 37) || (i = 52)) {
+			/* sand dunes */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_DUNE, 
+						SQUARE_NONE, light);
+						
+	} else if ((i < 19) || ((i > 37) && (i < 40)) || ((i > 52) && (i < 56))) {
+			/* passable rubble */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_PASS_RUBBLE, 
+						SQUARE_NONE, light);
+						
+	} else if ((i < 21) || (i = 40) || ((i > 55) && (i < 59))) {
+			/* rubble */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_RUBBLE, 
+						SQUARE_NONE, light);
+						
+	} else if ((i = 21) || (i = 41) || (i > 58)) {
+			/* lava */
+			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_LAVA, 
+						SQUARE_NONE, light);
+	}
+
+	return true;
+}
+
+
+/**
  * Builds a normal rectangular room.
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()
@@ -2298,7 +2368,7 @@ bool build_crossed_sil(struct chunk *c, struct loc centre, int rating)
 			}
 			break;
 	}
-	/* Hollowed Cross */
+	/* Gap Cross */
 	case 4: {
 		if (wx == 1) {
 			set_marked_granite(c, loc(centre.x - 1, centre.y), SQUARE_WALL_INNER);
