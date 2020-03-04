@@ -173,7 +173,7 @@ graphics:~:U
 level:3
 weight:50
 cost:35
-alloc:70:5 to 100
+alloc:70:4 to 100
 attack:1d1:0:0
 armor:0:0
 flags:TAKES_FUEL | EASY_KNOW | LIGHT_3 | IGNORE_FIRE
@@ -301,7 +301,7 @@ graphics:,:W
 level:0
 weight:10
 cost:3
-alloc:30:10 to 50
+alloc:30:8 to 50
 pile:50:1d3
 power:0
 msg:That tastes good.
@@ -378,7 +378,7 @@ graphics:,:w
 level:0
 weight:2
 cost:100
-alloc:20:10 to 50
+alloc:20:8 to 50
 power:0
 msg:You feel your heart warm.
 effect:NOURISH:INC_BY
@@ -536,7 +536,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:10 to 40
+alloc:10:8 to 40
 pile:70:1d4
 power:5
 effect:TIMED_SET:STONESKIN
@@ -562,7 +562,7 @@ graphics:,:d
 level:0
 weight:1
 cost:20
-alloc:10:10 to 40
+alloc:10:8 to 40
 pile:70:1d4
 power:5
 effect:RESTORE_MANA
@@ -816,6 +816,250 @@ alloc:5:30 to 40
 attack:2d9:0:0
 armor:0:0
 
+### ZVariants Extras ###
+
+name:& Tanto~
+type:sword
+graphics:|:W
+level:3
+weight:20
+cost:30
+alloc:1:3 to 8
+attack:1d6:0:0
+armor:0:0
+
+name:& Sabre~
+type:sword
+graphics:|:W
+level:5
+weight:30
+cost:3=50
+alloc:1:5 to 10
+attack:1d7:0:0
+armor:0:0
+desc:A light, somewhat curved blade that can be used to thrust or slash; familiar
+desc: to horseman and duelists alike.
+
+name:& Wakizashi~
+type:sword
+graphics:|:W
+level:15
+weight:50
+cost:210
+alloc:1:15 to 20
+attack:2d4:0:0
+armor:0:0
+
+name:& Ninjato~
+type:sword
+graphics:|:s
+level:15
+weight:65
+cost:265
+alloc:1:15 to 20
+attack:1d9:0:0
+armor:0:0
+
+name:& Falchion~
+type:sword
+graphics:|:W
+level:40
+weight:150
+cost:500
+alloc:1:40 to 45
+attack:4d5:0:0
+armor:0:0
+
+name:& Hatchet~
+type:polearm
+graphics:/:s
+level:10
+weight:35
+cost:120
+alloc:1:10 to 15
+attack:1d7:0:0
+armor:0:0
+
+name:& Sickle~
+type:polearm
+graphics:/:s
+level:10
+weight:40
+cost:110
+alloc:1:10 to 15
+attack:2d3:0:0
+armor:0:0
+
+name:& Broad Spear~
+type:polearm
+graphics:/:s
+level:14
+weight:65
+cost:240
+alloc:1:14 to 19
+attack:1d10:0:0
+armor:0:0
+
+name:& Naginata~
+type:polearm
+graphics:/:s
+level:25
+weight:90
+cost:110
+alloc:1:25 to 30
+attack:2d7:0:0
+armor:0:0
+
+name:& Lajatang~
+type:polearm
+graphics:/:s
+level:25
+weight:100
+cost:330
+alloc:1:25 to 30
+attack:2d8:0:0
+armor:0:0
+
+name:& Guisarme~
+type:polearm
+graphics:/:s
+level:21
+weight:95
+cost:320
+alloc:1:21 to 26
+attack:2d7:0:0
+armor:0:0
+
+name:& Trifurcate Spear~
+type:polearm
+graphics:/:o
+level:35
+weight:85
+cost:400
+alloc:1:35 to 40
+attack:2d10:0:0
+armor:0:0
+
+name:& Heavy Lance~
+type:polearm
+graphics:/:s
+level:43
+weight:250
+cost:700
+alloc:1:43 to 48
+attack:4d10:0:0
+armor:0:0
+
+name:& Jo Staff~
+type:hafted
+graphics:\:U
+level:11
+weight:40
+cost:200
+alloc:1:10 to 15
+attack:1d7:0:0
+armor:0:0
+
+name:& Three Piece Rod~
+type:hafted
+graphics:\:u
+level:20
+weight:75
+cost:350
+alloc:1:20 to 25
+attack:4d2:0:0
+armor:0:0
+
+name:& Bo Staff~
+type:hafted
+graphics:\:U
+level:20
+weight:95
+cost:310
+alloc:1:20 to 25
+attack:1d11:0:0
+armor:0:0
+
+name:& Tetsubo~
+type:hafted
+graphics:\:U
+level:25
+weight:120
+cost:570
+alloc:1:25 to 30
+attack:2d8:0:0
+armor:0:0
+
+name:& Stick~
+type:hafted
+graphics:\:y
+level:1
+weight:111
+cost:200
+#alloc:0:10 to 15
+attack:1d11:0:0
+armor:0:0
+
+
+### Sil Extras ###
+
+name:& Greatsword~
+type:sword
+graphics:|:W
+level:30
+weight:120
+cost:700
+alloc:20:13 to 100
+attack:3d7:0:0
+armor:0:0
+desc:A sword designed for two hands.
+
+name:& Mithril Long Sword~
+type:sword
+graphics:|:B
+level:50
+weight:50
+cost:5000
+alloc:1:10 to 100
+attack:2d6:0:0
+armor:0:0
+desc:A long, straight, two-edged blade, with two hand guards projecting out
+desc: from the hilt to form a perfect cross.
+
+name:& Mithril Greatsword~
+type:sword
+graphics:|:B
+level:50
+weight:80
+cost:5000
+alloc:1:10 to 100
+attack:3d7:0:0
+armor:0:0
+desc:A sword designed for two hands.
+
+name:& Great Spear~
+type:polearm
+graphics:/:u
+level:10
+weight:100
+cost:230
+alloc:20:13 to 100
+attack:1d13:0:0
+armor:0:0
+desc:A massive, tapered spear used primarily from horseback.
+
+name:& Sceptre~
+type:hafted
+graphics:\:D
+level:6
+weight:50
+cost:130
+alloc:1:10 to 20
+attack:2d3:0:0
+armor:0:0
+
+
+
 ### Swords ###
 
 name:& Dagger~
@@ -892,7 +1136,7 @@ graphics:|:W
 level:10
 weight:90
 cost:300
-alloc:30:10 to 100
+alloc:30:8 to 100
 attack:4d3:0:0
 armor:0:0
 desc:A long sabre with an extreme curve to the blade.
@@ -903,7 +1147,7 @@ graphics:|:W
 level:10
 weight:80
 cost:300
-alloc:30:10 to 100
+alloc:30:8 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A long, straight, two-edged blade, with two hand guards projecting out
@@ -915,7 +1159,7 @@ graphics:|:W
 level:10
 weight:90
 cost:300
-alloc:10:10 to 100
+alloc:10:8 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A heavy, single-edged sword with a strong grip.
@@ -950,10 +1194,22 @@ graphics:|:W
 level:30
 weight:130
 cost:700
-alloc:20:30 to 100
+alloc:1:30 to 100
 attack:3d7:0:0
 armor:0:0
 desc:A sword designed for two hands.
+
+name:& Zoohandler~
+type:sword
+graphics:|:W
+level:30
+weight:150
+cost:700
+alloc:1:30 to 100
+attack:3d8:0:0
+armor:0:0
+slay:ANIMAL_2
+desc:A sword designed for ants.
 
 name:& Executioner's Sword~
 type:sword
@@ -1001,7 +1257,7 @@ graphics:\:D
 level:20
 weight:90
 cost:200
-alloc:20:20 to 100
+alloc:10:20 to 100
 attack:2d5:0:0
 armor:0:0
 desc:A weighty iron ball, suspended by a chain from a sturdy oaken handle.
@@ -1012,7 +1268,7 @@ graphics:\:D
 level:10
 weight:90
 cost:396
-alloc:20:10 to 100
+alloc:10:8 to 100
 attack:2d7:0:0
 armor:0:0
 desc:A sturdy wooden pole connected by a chain to a ball of steel, which often
@@ -1024,7 +1280,7 @@ graphics:\:D
 level:10
 weight:90
 cost:353
-alloc:20:10 to 100
+alloc:10:8 to 100
 attack:2d7:0:0
 armor:0:0
 desc:Two heavy bars of wood connected by a short link of chain, capable of
@@ -1051,7 +1307,7 @@ graphics:\:D
 level:5
 weight:75
 cost:130
-alloc:20:4 to 100
+alloc:30:4 to 100
 attack:2d5:0:0
 armor:0:0
 desc:A war club with an iron head, usually flanged or spiked.
@@ -1074,7 +1330,7 @@ graphics:\:U
 level:10
 weight:90
 cost:200
-alloc:20:10 to 100
+alloc:30:8 to 100
 attack:1d10:0:0
 armor:0:0
 desc:Six feet of oak which can be wielded in both hands to give a drubbing or
@@ -1098,7 +1354,7 @@ graphics:\:D
 level:5
 weight:75
 cost:225
-alloc:20:5 to 100
+alloc:30:4 to 100
 attack:3d4:0:0
 armor:0:0
 desc:A mallet with a tapered head and a long handle.
@@ -1161,7 +1417,7 @@ graphics:/:s
 level:10
 weight:95
 cost:340
-alloc:10:10 to 100
+alloc:10:8 to 100
 attack:1d11:0:0
 armor:0:0
 desc:A more robust version of the basic polearm, with a double-edged knife
@@ -1309,7 +1565,7 @@ graphics:/:s
 level:10
 weight:190
 cost:230
-alloc:20:10 to 100
+alloc:1:8 to 100
 attack:2d9:0:0
 armor:0:0
 desc:A massive, tapered spear used primarily from horseback.
@@ -1332,7 +1588,7 @@ graphics:/:B
 level:10
 weight:75
 cost:376
-alloc:10:10 to 100
+alloc:10:8 to 100
 attack:2d6:0:0
 armor:0:0
 desc:A long pole with a three- or four-pronged head balanced by a long spike.
@@ -1369,7 +1625,7 @@ graphics:}:U
 level:10
 weight:40
 cost:120
-alloc:20:10 to 100
+alloc:20:8 to 100
 flags:SHOOTS_ARROWS
 pval:3
 desc:As tall as a man, the longbow can drive an arrow through the
@@ -1655,7 +1911,7 @@ graphics:]:s
 level:10
 weight:25
 cost:30
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d1:0:0
 armor:3:0
 desc:A pot-helm of steel that protects the skull.
@@ -1763,7 +2019,7 @@ graphics:(:U
 level:5
 weight:120
 cost:150
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d2:-1:0
 armor:16:0
 desc:A boiled leather cuirass and shoulder plates.
@@ -1997,7 +2253,7 @@ graphics:]:s
 level:0
 weight:25
 cost:45
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d1:0:0
 armor:3:0
 desc:A set of gloves that completely covers the hand and wrist in steel plating.
@@ -2085,7 +2341,7 @@ graphics:):U
 level:15
 weight:90
 cost:200
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d3:0:0
 armor:8:0
 desc:A large oval shield made of layered wooden strips with a thick leather
@@ -2232,7 +2488,7 @@ graphics:=:d
 level:10
 weight:2
 cost:250
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:IGNORE_COLD | IGNORE_FIRE | EASY_KNOW
 values:RES_FIRE[1] | RES_COLD[1]
 
@@ -2360,7 +2616,7 @@ graphics:=:d
 level:10
 weight:2
 cost:500
-alloc:50:10 to 40
+alloc:50:8 to 40
 attack:0d0:0:0
 armor:0:5+d5M10
 desc:It increases your armor class.
@@ -2374,7 +2630,7 @@ graphics:=:d
 level:5
 weight:2
 cost:1000
-alloc:20:10 to 50
+alloc:20:8 to 50
 flags:EASY_KNOW
 curse:teleportation:100
 values:SPEED[2]
@@ -2385,7 +2641,7 @@ graphics:=:d
 level:0
 weight:2
 cost:200
-alloc:30:10 to 50
+alloc:30:8 to 50
 attack:0d0:2+d3:2+d3
 armor:0:-8+4d3
 
@@ -2395,7 +2651,7 @@ graphics:=:d
 level:0
 weight:2
 cost:700
-alloc:20:10 to 50
+alloc:20:8 to 50
 flags:IMPAIR_HP | EASY_KNOW
 power:6
 effect:HEAL_HP
@@ -2421,7 +2677,7 @@ graphics:=:d
 level:30
 weight:2
 cost:100
-alloc:50:10 to 50
+alloc:50:8 to 50
 attack:0d0:0:-3d5
 armor:0:0
 values:DEX[d4] | STEALTH[d4]
@@ -2432,7 +2688,7 @@ graphics:=:d
 level:0
 weight:2
 cost:100
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:PROT_FEAR | EASY_KNOW
 values:STEALTH[-2]
 
@@ -2444,7 +2700,7 @@ graphics:=:d
 level:5
 weight:2
 cost:250
-alloc:30:10 to 50
+alloc:30:8 to 50
 flags:SLOW_DIGEST | EASY_KNOW
 
 name:Feather Falling
@@ -2453,7 +2709,7 @@ graphics:=:d
 level:5
 weight:2
 cost:200
-alloc:20:10 to 50
+alloc:20:8 to 50
 flags:FEATHER | EASY_KNOW
 
 name:Free Action
@@ -2480,7 +2736,7 @@ graphics:=:d
 level:0
 weight:2
 cost:800
-alloc:20:10 to 50
+alloc:20:8 to 50
 values:TUNNEL[2+d3]
 power:6
 effect:LINE:KILL_WALL
@@ -2511,7 +2767,7 @@ graphics:":d
 level:10
 weight:3
 cost:300
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:IGNORE_ELEC | EASY_KNOW
 values:RES_ELEC[1]
 
@@ -2521,7 +2777,7 @@ graphics:":d
 level:10
 weight:3
 cost:300
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:IGNORE_ACID | EASY_KNOW
 values:RES_ACID[1]
 
@@ -2622,7 +2878,7 @@ graphics:":d
 level:10
 weight:3
 cost:200
-alloc:30:10 to 70
+alloc:30:8 to 70
 values:INFRA[1+M5]
 
 name:Searching
@@ -2631,7 +2887,7 @@ graphics:":d
 level:15
 weight:3
 cost:600
-alloc:20:10 to 40
+alloc:20:8 to 40
 values:SEARCH[d5M5]
 
 ### Powers ###
@@ -2642,7 +2898,7 @@ graphics:":d
 level:10
 weight:3
 cost:10
-alloc:20:10 to 40
+alloc:20:8 to 40
 flags:EASY_KNOW
 curse:teleportation:100
 
@@ -2661,7 +2917,7 @@ graphics:":d
 level:10
 weight:3
 cost:0
-alloc:20:10 to 40
+alloc:20:8 to 40
 flags:EASY_KNOW
 
 
@@ -2841,7 +3097,7 @@ graphics:?:w
 level:10
 weight:5
 cost:100
-alloc:16:10 to 100
+alloc:16:8 to 100
 pile:25:2
 power:8
 effect:REMOVE_CURSE
@@ -3000,7 +3256,7 @@ graphics:?:w
 level:10
 weight:5
 cost:50
-alloc:40:10 to 60
+alloc:40:8 to 60
 pile:25:2d3
 power:6
 effect:TOUCH:KILL_DOOR
@@ -3037,7 +3293,7 @@ graphics:?:w
 level:10
 weight:5
 cost:40
-alloc:40:10 to 70
+alloc:40:8 to 70
 pile:25:2
 power:7
 effect:TIMED_INC:BLESSED
@@ -3160,7 +3416,7 @@ graphics:?:w
 level:10
 weight:5
 cost:0
-alloc:10:10 to 70
+alloc:10:8 to 70
 pile:70:1d3
 power:0
 msg:You hear a low-pitched whistling sound.
@@ -3752,7 +4008,7 @@ graphics:!:d
 level:10
 weight:4
 cost:0
-alloc:10:10 to 15
+alloc:10:8 to 15
 pile:25:2
 power:0
 effect:RANDOM
@@ -4019,7 +4275,7 @@ graphics:-:d
 level:10
 weight:10
 cost:500
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d1:0:0
 armor:0:0
 charges:3+d5
@@ -4051,7 +4307,7 @@ graphics:-:d
 level:10
 weight:10
 cost:300
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -4280,7 +4536,7 @@ graphics:_:d
 level:10
 weight:50
 cost:0
-alloc:10:10 to 100
+alloc:10:8 to 100
 attack:1d2:0:0
 armor:0:0
 charges:2d3
@@ -4294,7 +4550,7 @@ graphics:_:d
 level:10
 weight:50
 cost:0
-alloc:10:10 to 40
+alloc:10:8 to 40
 attack:1d2:0:0
 armor:0:0
 charges:8+d8
@@ -4353,7 +4609,7 @@ graphics:_:d
 level:10
 weight:50
 cost:800
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d2:0:0
 armor:0:0
 charges:3+d3
@@ -4367,7 +4623,7 @@ graphics:_:d
 level:10
 weight:50
 cost:800
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d2:0:0
 armor:0:0
 charges:4+d4
@@ -4381,7 +4637,7 @@ graphics:_:d
 level:10
 weight:50
 cost:700
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d2:0:0
 armor:0:0
 charges:6+d5
@@ -4444,7 +4700,7 @@ graphics:_:d
 level:25
 weight:50
 cost:500
-alloc:30:10 to 100
+alloc:30:8 to 100
 attack:1d2:0:0
 armor:0:0
 charges:4+d3
@@ -4882,7 +5138,7 @@ graphics:-:d
 level:65
 weight:15
 cost:1000
-alloc:20:10 to 80
+alloc:20:8 to 80
 attack:1d1:0:0
 armor:0:0
 power:9
@@ -4982,7 +5238,7 @@ graphics:-:d
 level:35
 weight:15
 cost:2100
-alloc:10:10 to 100
+alloc:10:8 to 100
 attack:1d1:0:0
 armor:0:0
 power:7
