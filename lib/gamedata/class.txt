@@ -120,7 +120,7 @@ skill-melee:70:45
 skill-shoot:55:45
 skill-throw:55:45
 skill-dig:0:0
-hitdie:9
+hitdie:7
 max-attacks:6
 min-weight:10
 strength-multiplier:1
@@ -1189,7 +1189,7 @@ skill-melee:65:40
 skill-shoot:50:30
 skill-throw:50:30
 skill-dig:0:0
-hitdie:6
+hitdie:5
 max-attacks:5
 min-weight:10
 strength-multiplier:1
@@ -1443,7 +1443,7 @@ desc:  This spell may have no effect when the forced descent option is set.
 
 ############### RANGER ###############
 name:Ranger
-stats:0:0:2:1:-1
+stats:0:0:2:1:0
 skill-disarm-phys:35:14
 skill-disarm-magic:25:9
 skill-device:23:8
@@ -1454,7 +1454,7 @@ skill-melee:60:40
 skill-shoot:72:45
 skill-throw:66:30
 skill-dig:0:0
-hitdie:5
+hitdie:4
 max-attacks:5
 min-weight:10
 strength-multiplier:1
@@ -1560,7 +1560,7 @@ skill-melee:60:40
 skill-shoot:50:30
 skill-throw:50:30
 skill-dig:0:0
-hitdie:10
+hitdie:8
 max-attacks:5
 min-weight:10
 strength-multiplier:1

@@ -530,7 +530,7 @@ void display_player_stat_info(void)
 			put_str(stat_names[i], row+i, col);
 
 		/* Indicate natural maximum */
-		if (player->stat_max[i] == 18+100)
+		if (player->stat_max[i] == 18+80)
 			put_str("!", row+i, col+3);
 
 		/* Internal "natural" maximum value */

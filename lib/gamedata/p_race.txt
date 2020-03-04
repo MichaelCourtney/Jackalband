@@ -126,10 +126,10 @@ obj-flags:SUST_DEX
 values:RES_LIGHT[1]
 
 name:Hobbit
-stats:-2:2:1:3:2
-skill-disarm-phys:15
-skill-disarm-magic:15
-skill-device:15
+stats:-2:2:1:3:1
+skill-disarm-phys:10
+skill-disarm-magic:10
+skill-device:10
 skill-save:15
 skill-stealth:4
 skill-search:6
@@ -148,7 +148,7 @@ obj-flags:HOLD_LIFE
 player-flags:KNOW_MUSHROOM
 
 name:Gnome
-stats:-1:2:0:2:1
+stats:-1:2:0:2:0
 skill-disarm-phys:10
 skill-disarm-magic:10
 skill-device:20
@@ -181,7 +181,7 @@ skill-melee:15
 skill-shoot:0
 skill-throw:0
 skill-dig:40
-hitdie:11
+hitdie:10
 exp:120
 infravision:5
 history:16
@@ -224,7 +224,7 @@ skill-melee:20
 skill-shoot:-10
 skill-throw:-10
 skill-dig:0
-hitdie:12
+hitdie:11
 exp:120
 infravision:3
 history:21
@@ -277,7 +277,7 @@ obj-flags:SEE_INVIS
 values:RES_LIGHT[1]
 
 name:Kobold
-stats:-1:-1:0:2:2
+stats:-1:-1:0:2:1
 skill-disarm-phys:10
 skill-disarm-magic:10
 skill-device:5
