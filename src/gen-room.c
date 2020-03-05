@@ -1245,6 +1245,10 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v)
 			}
 				/* Dune */
 			case '(': square_set_feat(c, grid, FEAT_DUNE); break;
+				/* Furniture */
+			case ')': square_set_feat(c, grid, FEAT_FORGE); break;
+				/* Chasm - Place Water for now */
+			case '[': square_set_feat(c, grid, FEAT_WATER); break;
 			}
 
 			/* Part of a vault */

@@ -259,6 +259,7 @@ extern int FEAT_GRASS;
 extern int FEAT_ROAD;
 extern int FEAT_VOID;
 extern int FEAT_DUNE;
+extern int FEAT_FORGE;
 
 
 /* Current level */

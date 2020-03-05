@@ -68,6 +68,7 @@ int FEAT_GRASS;
 int FEAT_ROAD;
 int FEAT_VOID;
 int FEAT_DUNE;
+int FEAT_FORGE;
 
 /**
  * Global array for looping through the "keypad directions".
@@ -363,8 +364,9 @@ FEAT_LESS_NORTH = lookup_feat("easy path north");
 	FEAT_TREE2 = lookup_feat("highland trees");
 	FEAT_GRASS = lookup_feat("grass");
 	FEAT_ROAD = lookup_feat("road");
-	FEAT_VOID = lookup_feat("empty space");
+	FEAT_VOID = lookup_feat("chasm");
 	FEAT_DUNE = lookup_feat("sand dune");
+	FEAT_FORGE = lookup_feat("forge");
 }
 
 /**

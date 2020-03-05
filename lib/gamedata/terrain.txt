@@ -378,14 +378,14 @@ flags:TORCH
 desc:An open road.  Can be walked across by anything, and can
 desc:hold traps or items.  Does not break line of sight.
 
-name:empty space
+name:chasm
 graphics: :D
 priority:2
 flags:LOS | PROJECT | PASSABLE | FALL 
 desc:Empty space - only flying creatures can pass across without falling.  All 
 desc:spells and missiles can pass through.
-walk-msg:It's a cliff! Really step off it?
-run-msg:You have come to a cliff.  Step off it?
+walk-msg:It's a chasm! Really step into it?
+run-msg:You have come to a chasm.  Step into it?
 hurt-msg:You fall into darkness!
 die-msg:falling off a precipice
 
@@ -396,3 +396,13 @@ flags:PASSABLE | OBJECT | EASY
 desc:Ends LOS, stops missiles, bolts, and beams, and reduces the radius of ball 
 desc:spells.  
 
+name:forge
+graphics:0:s
+priority:10
+flags:LOS | PROJECT | PASSABLE | INTERESTING
+info:0:5
+desc:Doors may be locked; getting through them may not be easy.  Your 
+desc:disarming skill makes all the difference to your ability to handle locks, 
+desc:but you can also take a pickaxe to them, or blast them open 
+desc:with magic.  Monsters are also slowed down by doors; you can earn yourself 
+desc:valuable time by locking them.
