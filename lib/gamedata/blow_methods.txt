@@ -194,3 +194,11 @@ act:asks if {target} {has} seen his dogs
 act:mumbles something about mushrooms
 desc:moan
 
+name:PECK
+cut:1
+stun:1
+miss:1
+phys:1
+msg:MON_HIT
+act:pecks {target}
+desc:hit

@@ -321,6 +321,11 @@ flags:HURT_FIRE | NO_FEAR | NO_CONF | NO_SLEEP
 flags:PL_RUBBLE
 desc:Mushroom
 
+name:light
+glyph:*
+pain:2
+desc:Light
+
 # Female serpent-like monsters
 name:naga
 glyph:n

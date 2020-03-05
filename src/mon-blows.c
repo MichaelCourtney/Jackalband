@@ -430,6 +430,10 @@ static void melee_effect_timed(melee_effect_handler_context_t *context,
 				mon_tmd_effect = MON_TMD_HOLD;
 				break;
 			}
+			case TMD_SLOW: {
+				mon_tmd_effect = MON_TMD_SLOW;
+				break;
+			}
 			case TMD_BLIND: {
 				mon_tmd_effect = MON_TMD_STUN;
 				break;
@@ -1068,6 +1072,15 @@ static void melee_effect_handler_BLACK_BREATH(melee_effect_handler_context_t *co
 }
 
 /**
+ * Melee effect handler: Slow the player.
+ */
+static void melee_effect_handler_SLOW(melee_effect_handler_context_t *context)
+{
+	melee_effect_timed(context, TMD_SLOW, 3 + randint1(context->rlev),
+					   OF_FREE_ACT, true, "You resist the effects!");
+}
+
+/**
  * ------------------------------------------------------------------------
  * Monster blow melee handler selection
  * ------------------------------------------------------------------------ */
@@ -1107,6 +1120,7 @@ melee_effect_handler_f melee_handler_for_blow_effect(const char *name)
 		{ "EXP_80", melee_effect_handler_EXP_80 },
 		{ "HALLU", melee_effect_handler_HALLU },
 		{ "BLACK_BREATH", melee_effect_handler_BLACK_BREATH },
+		{ "SLOW", melee_effect_handler_SLOW },
 		{ NULL, NULL },
 	};
 	const struct effect_handler_s *current = effect_handlers;

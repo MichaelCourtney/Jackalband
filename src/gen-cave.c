@@ -3122,14 +3122,14 @@ struct chunk *basic_small_gen(struct player *p, int min_height, int min_width) {
     /* Put some rubble in corridors */
     alloc_objects(c, SET_CORR, TYP_RUBBLE, randint1(k), c->depth, 0);
 
-    /* Place some traps in the dungeon, reduce frequency by factor of 5 */
-    alloc_objects(c, SET_CORR, TYP_TRAP, randint1(k)/5, c->depth, 0);
+    /* Place some traps in the dungeon, reduce frequency by factor of 10 */
+    alloc_objects(c, SET_CORR, TYP_TRAP, randint1(k)/10, c->depth, 0);
 
     /* Determine the character location */
     new_player_spot(c, p);
 
     /* Pick a base number of monsters */
-    i = z_info->level_monster_min + randint1(8) + k;
+    i = ((z_info->level_monster_min + randint1(8) + k) * (c->depth + 1)) / (c->depth + 2);
 
 	/* Remove all monster restrictions. */
 	mon_restrict(NULL, c->depth, true);
@@ -3139,15 +3139,25 @@ struct chunk *basic_small_gen(struct player *p, int min_height, int min_width) {
 		pick_and_place_distant_monster(c, p, 0, true, c->depth);
 
     /* Put some objects in rooms */
-    alloc_objects(c, SET_ROOM, TYP_OBJECT, Rand_normal(z_info->room_item_av, 3),
+    if (c->depth > 4) {
+		alloc_objects(c, SET_ROOM, TYP_OBJECT, Rand_normal(z_info->room_item_av, 3),
 				  c->depth, ORIGIN_FLOOR);
-
+	} else {
+		alloc_objects(c, SET_ROOM, TYP_OBJECT, Rand_normal(z_info->room_item_av, 2),
+				  c->depth, ORIGIN_FLOOR);
+	}
     /* Put some objects/gold in the dungeon */
-    alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal(z_info->both_item_av, 3),
+    if (c->depth > 4) {
+		alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal(z_info->both_item_av, 3),
 				  c->depth, ORIGIN_FLOOR);
-    alloc_objects(c, SET_BOTH, TYP_GOLD, Rand_normal(z_info->both_gold_av, 3),
+		alloc_objects(c, SET_BOTH, TYP_GOLD, Rand_normal(z_info->both_gold_av, 3),
 				  c->depth, ORIGIN_FLOOR);
-
+	} else {
+		alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal(z_info->both_item_av, 2),
+				  c->depth, ORIGIN_FLOOR);
+		alloc_objects(c, SET_BOTH, TYP_GOLD, Rand_normal(z_info->both_gold_av, 2),
+				  c->depth, ORIGIN_FLOOR);
+	}
     return c;
 }
 

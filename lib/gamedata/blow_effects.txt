@@ -289,3 +289,13 @@ eval:10
 desc:inflict Black Breath
 lore-color-base:Light Red
 lash-type:TIME
+
+name:SLOW
+power:0
+eval:40
+desc:slow
+lore-color-base:Orange
+lore-color-resist:Light Green
+effect-type:flag
+resist:FREE_ACT
+lash-type:INERTIA

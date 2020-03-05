@@ -4069,7 +4069,7 @@ graphics:-:d
 level:3
 weight:10
 cost:200
-alloc:20:3 to 60
+alloc:20:5 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -4142,7 +4142,7 @@ graphics:-:d
 level:5
 weight:10
 cost:400
-alloc:20:4 to 60
+alloc:20:5 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d8
@@ -4275,7 +4275,7 @@ graphics:-:d
 level:10
 weight:10
 cost:500
-alloc:20:8 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:0:0
 charges:3+d5
@@ -4292,7 +4292,7 @@ graphics:-:d
 level:3
 weight:10
 cost:200
-alloc:20:3 to 60
+alloc:20:5 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -4336,7 +4336,7 @@ graphics:-:d
 level:3
 weight:10
 cost:100
-alloc:20:3 to 60
+alloc:20:4 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -4350,7 +4350,7 @@ graphics:-:d
 level:15
 weight:10
 cost:0
-alloc:20:15 to 100
+alloc:20:4 to 100
 attack:1d1:0:0
 armor:0:0
 charges:3+d5
@@ -4391,7 +4391,7 @@ graphics:-:d
 level:3
 weight:10
 cost:250
-alloc:20:3 to 60
+alloc:20:4 to 60
 attack:1d1:0:0
 armor:0:0
 charges:8+d15
@@ -4501,7 +4501,7 @@ graphics:-:d
 level:3
 weight:10
 cost:0
-alloc:10:3 to 40
+alloc:10:4 to 40
 attack:1d1:0:0
 armor:0:0
 charges:8+d20
@@ -4515,7 +4515,7 @@ graphics:-:d
 level:3
 weight:10
 cost:0
-alloc:10:3 to 40
+alloc:10:4 to 40
 attack:1d1:0:0
 armor:0:0
 charges:8+d20
