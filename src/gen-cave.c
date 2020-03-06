@@ -3120,10 +3120,10 @@ struct chunk *basic_small_gen(struct player *p, int min_height, int min_width) {
     k = MAX(MIN(c->depth / 3, 10), 2);
 
     /* Put some rubble in corridors */
-    alloc_objects(c, SET_CORR, TYP_RUBBLE, randint1(k), c->depth, 0);
+    alloc_objects(c, SET_CORR, TYP_RUBBLE_JB, randint1(k), c->depth, 0);
 
     /* Place some traps in the dungeon, reduce frequency by factor of 10 */
-    alloc_objects(c, SET_CORR, TYP_TRAP, randint1(k)/10, c->depth, 0);
+    alloc_objects(c, SET_CORR, TYP_TRAP_JB, randint1(k)/10, c->depth, 0);
 
     /* Determine the character location */
     new_player_spot(c, p);
