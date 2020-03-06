@@ -799,7 +799,7 @@ const struct cave_profile *choose_profile(struct player *p)
 	} else if ((p->depth >= 10) && (p->depth < 40) && one_in_(40)) {
 		profile = find_cave_profile("moria");
 	} else if (p->depth > 50) {
-		int pick = randint0(200);
+		int pick = randint0(100);
 		pick += 100;
 		size_t i;
 		for (i = 0; i < z_info->profile_max; i++) {
@@ -807,7 +807,7 @@ const struct cave_profile *choose_profile(struct player *p)
 			if (profile->cutoff >= pick) break;
 		}
 	} else {
-		int pick = randint0(200);
+		int pick = randint0(100);
 		pick += 2 * p->depth;
 		size_t i;
 		for (i = 0; i < z_info->profile_max; i++) {
