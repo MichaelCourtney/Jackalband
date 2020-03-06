@@ -33,7 +33,7 @@
 #    : - rubble
 #    ` - lava
 #    & - treasure or trap
-#    + - secret door
+#    + - secret door (1 in 4) or visible door
 #    ^ - trap
 #    < - upstair
 #    > - downstair

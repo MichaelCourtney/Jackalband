@@ -237,6 +237,62 @@ static void fill_yrange(struct chunk *c, int x, int y1, int y2, int feat,
 }
 
 /**
+ * Fill a horizontal range with the given feature/info mixed with open floor.
+ * \param c the current chunk
+ * \param y inclusive room boundaries
+ * \param x1 inclusive room boundaries
+ * \param x2 inclusive range boundaries
+ * \param feat the terrain feature
+ * \param flag the SQUARE_* flag we are marking with
+ * \param light lit or not
+ */
+static void fill_xrange_mix(struct chunk *c, int y, int x1, int x2, int feat, 
+						int flag, bool light)
+{
+	int x;
+	for (x = x1; x <= x2; x++) {
+		struct loc grid = loc(x, y);
+		if one_in_(2) {
+			square_set_feat(c, grid, feat);
+		} else {
+			square_set_feat(c, grid, FEAT_FLOOR);
+		}
+		sqinfo_on(square(c, grid).info, SQUARE_ROOM);
+		if (flag) sqinfo_on(square(c, grid).info, flag);
+		if (light)
+			sqinfo_on(square(c, grid).info, SQUARE_GLOW);
+	}
+}
+
+/**
+ * Fill a vertical range with the given feature/info mixed with open floor.
+ * \param c the current chunk
+ * \param x inclusive room boundaries
+ * \param y1 inclusive room boundaries
+ * \param y2 inclusive range boundaries
+ * \param feat the terrain feature
+ * \param flag the SQUARE_* flag we are marking with
+ * \param light lit or not
+ */
+static void fill_yrange_mix(struct chunk *c, int x, int y1, int y2, int feat, 
+						int flag, bool light)
+{
+	int y;
+	for (y = y1; y <= y2; y++) {
+		struct loc grid = loc(x, y);
+		if one_in_(2) {
+			square_set_feat(c, grid, feat);
+		} else {
+			square_set_feat(c, grid, FEAT_FLOOR);
+		}
+		sqinfo_on(square(c, grid).info, SQUARE_ROOM);
+		if (flag) sqinfo_on(square(c, grid).info, flag);
+		if (light)
+			sqinfo_on(square(c, grid).info, SQUARE_GLOW);
+	}
+}
+
+/**
  * Fill a circle with the given feature/info.
  * \param c the current chunk
  * \param y0 the circle centre
@@ -263,6 +319,37 @@ static void fill_circle(struct chunk *c, int y0, int x0, int radius, int border,
 		fill_xrange(c, y0 + i, x0 - k - b, x0 + k + b, feat, flag, light);
 		fill_yrange(c, x0 - i, y0 - k - b, y0 + k + b, feat, flag, light);
 		fill_yrange(c, x0 + i, y0 - k - b, y0 + k + b, feat, flag, light);
+		last = k;
+	}
+}
+
+/**
+ * Fill a circle with the given feature/info mixed with open floor.
+ * \param c the current chunk
+ * \param y0 the circle centre
+ * \param x0 the circle centre
+ * \param radius the circle radius
+ * \param border the width of the circle border
+ * \param feat the terrain feature
+ * \param flag the SQUARE_* flag we are marking with
+ * \param light lit or not
+ */
+static void fill_circle_mix(struct chunk *c, int y0, int x0, int radius, int border,
+						int feat, int flag, bool light)
+{
+	int i, last = 0;
+	int r2 = radius * radius;
+	for(i = 0; i <= radius; i++) {
+		double j = sqrt(r2 - (i * i));
+		int k = (int)(j + 0.5);
+
+		int b = border;
+		if (border && last > k) b++;
+		
+		fill_xrange_mix(c, y0 - i, x0 - k - b, x0 + k + b, feat, flag, light);
+		fill_xrange_mix(c, y0 + i, x0 - k - b, x0 + k + b, feat, flag, light);
+		fill_yrange_mix(c, x0 - i, y0 - k - b, y0 + k + b, feat, flag, light);
+		fill_yrange_mix(c, x0 + i, y0 - k - b, y0 + k + b, feat, flag, light);
 		last = k;
 	}
 }
@@ -1204,7 +1291,14 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v)
 				break;
 			}
 				/* Secret door */
-			case '+': place_secret_door(c, grid); break;
+			case '+': {
+				if one_in_(4) {
+					place_secret_door(c, grid);
+				} else {
+					place_closed_door(c, grid);
+				}
+					break;
+			}
 				/* Trap */
 			case '^': if (one_in_(4)) place_trap(c, grid, -1, c->depth); break;
 				/* Treasure or a trap */
@@ -1704,7 +1798,7 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 			if one_in_(5) {
 				/* garden path */
 				generate_plus(c, centre.y - radius, centre.x - radius, 
-				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_NONE);
+				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_ROOM);
 			} else if one_in_(5) {
 				/* inner lake */
 				fill_circle(c, centre.y, centre.x, k, 0, FEAT_WATER, 
@@ -1721,7 +1815,7 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 			if one_in_(5) {
 				/* garden path */
 				generate_plus(c, centre.y - radius, centre.x - radius, 
-				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_NONE);
+				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_ROOM);
 			} else if one_in_(5) {
 				/* inner lake */
 				fill_circle(c, centre.y, centre.x, k, 0, FEAT_WATER, 
@@ -1758,12 +1852,12 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 						
 	} else if ((i < 19) || ((i > 37) && (i < 40)) || ((i > 52) && (i < 56))) {
 			/* passable rubble */
-			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_PASS_RUBBLE, 
+			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_PASS_RUBBLE, 
 						SQUARE_NONE, light);
 						
 	} else if ((i < 21) || (i = 40) || ((i > 55) && (i < 59))) {
 			/* rubble */
-			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_RUBBLE, 
+			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_RUBBLE, 
 						SQUARE_NONE, light);
 						
 	} else if ((i = 21) || (i = 41) || (i > 58)) {
