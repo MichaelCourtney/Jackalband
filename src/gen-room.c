@@ -1694,23 +1694,63 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 	/* Generate inner terrain */
 	int j = radius - 2;
 	radius -= randint1(j);
+	int k = randint1(radius-1);
 	int i = c->depth + randint0(20);
 	
 	if ((i < 8) || ((i > 21) && (i < 24)) || (i = 42)) {
 			/* lowland trees */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE, 
 						SQUARE_NONE, light);
-						
+			if one_in_(5) {
+				/* garden path */
+				generate_plus(c, centre.y - radius, centre.x - radius, 
+				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_NONE);
+			} else if one_in_(5) {
+				/* inner lake */
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_WATER, 
+						SQUARE_NONE, light);
+			} else if one_in_(5) {
+				/* inner glade */
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_GRASS, 
+						SQUARE_NONE, light);
+			}						
 	} else if ((i < 11) || ((i > 23) && (i < 27)) || (i = 43)) {
 			/* highland trees */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE2, 
 						SQUARE_NONE, light);
+			if one_in_(5) {
+				/* garden path */
+				generate_plus(c, centre.y - radius, centre.x - radius, 
+				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_NONE);
+			} else if one_in_(5) {
+				/* inner lake */
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_WATER, 
+						SQUARE_NONE, light);
+			} else if one_in_(5) {
+				/* inner glade */
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_GRASS, 
+						SQUARE_NONE, light);
+			}
 						
 	} else if ((i < 16) || ((i > 26) && (i < 37)) || ((i > 43) && (i < 52))) {
 			/* water */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_WATER, 
 						SQUARE_NONE, light);
-						
+			if one_in_(10) {
+				/* inner lowland trees */
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_TREE, 
+						SQUARE_NONE, light);
+			} else if one_in_(10) {
+				/* inner highland trees */
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_TREE2, 
+						SQUARE_NONE, light);
+			} else if one_in_(20) {
+				/* inner lava lake */
+				fill_circle(c, centre.y, centre.x, k + 1, 0, FEAT_PASS_RUBBLE, 
+						SQUARE_NONE, light);
+				fill_circle(c, centre.y, centre.x, k, 0, FEAT_LAVA, 
+						SQUARE_NONE, light);
+			}
 	} else if ((i = 16) || (i = 37) || (i = 52)) {
 			/* sand dunes */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_DUNE, 

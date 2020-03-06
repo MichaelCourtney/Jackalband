@@ -733,9 +733,8 @@ rarity:2
 experience:1
 blow:BITE:HURT:1d1
 flags:GROUP_AI
-flags:PL_CORE
-friends:100:2d7:Same
 flags:PL_CORE | PL_JB
+friends:100:2d7:Same
 desc:It is a yapping snarling dog, dangerous when in a pack.
 
 name:soldier ant
@@ -841,7 +840,7 @@ desc:It is about eight feet long with silver scales.
 
 name:scavenger
 base:humanoid
-color:l
+color:m
 speed:110
 hit-points:12
 hearing:10
