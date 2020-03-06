@@ -1791,7 +1791,7 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 	int k = randint1(radius-1);
 	int i = c->depth + randint0(20);
 	
-	if ((i < 8) || ((i > 21) && (i < 24)) || (i = 42)) {
+	if ((i < 8) || ((i > 21) && (i < 24)) || (i == 42)) {
 			/* lowland trees */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE, 
 						SQUARE_NONE, light);
@@ -1808,7 +1808,7 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 				fill_circle(c, centre.y, centre.x, k, 0, FEAT_GRASS, 
 						SQUARE_NONE, light);
 			}						
-	} else if ((i < 11) || ((i > 23) && (i < 27)) || (i = 43)) {
+	} else if ((i < 11) || ((i > 23) && (i < 27)) || (i == 43)) {
 			/* highland trees */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE2, 
 						SQUARE_NONE, light);
@@ -1845,7 +1845,7 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 				fill_circle(c, centre.y, centre.x, k, 0, FEAT_LAVA, 
 						SQUARE_NONE, light);
 			}
-	} else if ((i = 16) || (i = 37) || (i = 52)) {
+	} else if ((i == 16) || (i == 37) || (i == 52)) {
 			/* sand dunes */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_DUNE, 
 						SQUARE_NONE, light);
@@ -1855,12 +1855,12 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_PASS_RUBBLE, 
 						SQUARE_NONE, light);
 						
-	} else if ((i < 21) || (i = 40) || ((i > 55) && (i < 59))) {
+	} else if ((i < 21) || (i == 40) || ((i > 55) && (i < 59))) {
 			/* rubble */
 			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_RUBBLE, 
 						SQUARE_NONE, light);
 						
-	} else if ((i = 21) || (i = 41) || (i > 58)) {
+	} else if ((i == 21) || (i == 41) || (i > 58)) {
 			/* lava */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_LAVA, 
 						SQUARE_NONE, light);
