@@ -716,6 +716,58 @@ bool make_fake_artifact(struct object *obj, const struct artifact *artifact)
 /*** Apply magic to an item ***/
 
 /**
+ * Occasionally change weapon weight by up to 20%.
+ */
+static void adjust_weapon_weight(struct object *obj, int power)
+{
+	int i = MAX(10, (100 / (power + 1)));
+	if one_in_(i) {
+		int j = randint0(20) + randint0(20);
+		obj->weight *= 100;
+		obj->weight /= 80 + j;
+		if (( j > 20 ) && (one_in_(3))) {
+			obj->ds += 1;
+		} else if (( j < 20 ) && (one_in_(5)) && (obj->ds > 1)) {
+			obj->ds -= 1;
+		}
+	}
+}
+
+/**
+ * Adjust weapon damage & accuracy based on weight.
+ */
+static void adjust_magic_weapon(struct object *obj)
+{
+	int i = obj->weight / 10;
+	int j = MAX(10, 20-i);
+	
+	/* Feed damage into accuracy (or on rare occassion damage dice) */
+	if (obj->to_d > 2 * i) {
+		while ((obj->to_d > 2 * i) && (!one_in_(3))) {
+			if ((obj->to_d > (obj->dd * obj->ds)) && (one_in_(j))) {
+				obj->to_d -= obj->dd * obj->ds / 2;
+				if one_in_(2) {
+					obj->dd += 1;
+				} else {
+					obj->ds +=1;
+				}
+			} else {
+				obj->to_d -= 1;
+				obj->to_h += 2;
+			}
+		}
+	}
+	
+	/* Feed accuracy into damage */
+	if (obj->to_h > j) {
+		while ((obj->to_h > j) && (one_in_(2))) {
+			obj->to_h -= 2;
+			obj->to_d += 1;
+		}
+	}
+}
+
+/**
  * Apply magic to a weapon.
  */
 static void apply_magic_weapon(struct object *obj, int level, int power)
@@ -952,7 +1004,9 @@ int apply_magic(struct object *obj, int lev, bool allow_artifacts, bool good,
 
 	/* Apply magic */
 	if (tval_is_weapon(obj)) {
+		adjust_weapon_weight(obj, power);
 		apply_magic_weapon(obj, lev, power);
+		adjust_magic_weapon(obj);
 	} else if (tval_is_armor(obj)) {
 		apply_magic_armour(obj, lev, power);
 	} else if (tval_is_ring(obj)) {
