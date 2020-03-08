@@ -291,6 +291,7 @@ bool build_vault(struct chunk *c, struct loc centre, struct vault *v);
 
 bool build_staircase(struct chunk *c, struct loc centre, int rating);
 bool build_simple(struct chunk *c, struct loc centre, int rating);
+bool build_square_garden(struct chunk *c, struct loc centre, int rating);
 bool build_simple_lit(struct chunk *c, struct loc centre, int rating);
 bool build_simple_dark(struct chunk *c, struct loc centre, int rating);
 bool build_simple_sil(struct chunk *c, struct loc centre, int rating);

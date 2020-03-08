@@ -12,6 +12,7 @@
 /* name						rows	cols	builder */
 ROOM("staircase room",		0,		0,		staircase)
 ROOM("simple room",			0,		0,		simple)
+ROOM("square garden",		0,		0,		square_garden)
 ROOM("lit room",			0,		0,		simple_lit)
 ROOM("dark room",			0,		0,		simple_dark)
 ROOM("Sil room",			0,		0,		simple_sil)

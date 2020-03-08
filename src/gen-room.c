@@ -237,7 +237,7 @@ static void fill_yrange(struct chunk *c, int x, int y1, int y2, int feat,
 }
 
 /**
- * Fill a horizontal range with the given feature/info mixed with open floor.
+ * Fill a horizontal range with the given feature/info 50% of the time.
  * \param c the current chunk
  * \param y inclusive room boundaries
  * \param x1 inclusive room boundaries
@@ -254,8 +254,6 @@ static void fill_xrange_mix(struct chunk *c, int y, int x1, int x2, int feat,
 		struct loc grid = loc(x, y);
 		if one_in_(2) {
 			square_set_feat(c, grid, feat);
-		} else {
-			square_set_feat(c, grid, FEAT_FLOOR);
 		}
 		sqinfo_on(square(c, grid).info, SQUARE_ROOM);
 		if (flag) sqinfo_on(square(c, grid).info, flag);
@@ -265,7 +263,7 @@ static void fill_xrange_mix(struct chunk *c, int y, int x1, int x2, int feat,
 }
 
 /**
- * Fill a vertical range with the given feature/info mixed with open floor.
+ * Fill a vertical range with the given feature/info 50% of the time.
  * \param c the current chunk
  * \param x inclusive room boundaries
  * \param y1 inclusive room boundaries
@@ -282,8 +280,6 @@ static void fill_yrange_mix(struct chunk *c, int x, int y1, int y2, int feat,
 		struct loc grid = loc(x, y);
 		if one_in_(2) {
 			square_set_feat(c, grid, feat);
-		} else {
-			square_set_feat(c, grid, FEAT_FLOOR);
 		}
 		sqinfo_on(square(c, grid).info, SQUARE_ROOM);
 		if (flag) sqinfo_on(square(c, grid).info, flag);
@@ -324,7 +320,7 @@ static void fill_circle(struct chunk *c, int y0, int x0, int radius, int border,
 }
 
 /**
- * Fill a circle with the given feature/info mixed with open floor.
+ * 50/50 chance of placing a feature on squares inside a circle.
  * \param c the current chunk
  * \param y0 the circle centre
  * \param x0 the circle centre
@@ -1809,23 +1805,9 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 						SQUARE_NONE, light);
 			}						
 	} else if ((i < 11) || ((i > 23) && (i < 27)) || (i == 43)) {
-			/* highland trees */
-			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE2, 
+			/* scattered highland trees */
+			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_TREE2, 
 						SQUARE_NONE, light);
-			if one_in_(5) {
-				/* garden path */
-				generate_plus(c, centre.y - radius, centre.x - radius, 
-				centre.y + radius, centre.x + radius, FEAT_ROAD, SQUARE_ROOM);
-			} else if one_in_(5) {
-				/* inner lake */
-				fill_circle(c, centre.y, centre.x, k, 0, FEAT_WATER, 
-						SQUARE_NONE, light);
-			} else if one_in_(5) {
-				/* inner glade */
-				fill_circle(c, centre.y, centre.x, k, 0, FEAT_GRASS, 
-						SQUARE_NONE, light);
-			}
-						
 	} else if ((i < 16) || ((i > 26) && (i < 37)) || ((i > 43) && (i < 52))) {
 			/* water */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_WATER, 
@@ -1932,7 +1914,73 @@ bool build_simple(struct chunk *c, struct loc centre, int rating)
 	return true;
 }
 
+/* This needs work getting centred, sometimes pieces are 1 square off - MC */
+/**
+ * Builds either a tree or water garden (rectangle with cross path & centre circle).
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_square_garden(struct chunk *c, struct loc centre, int rating)
+{
+	int y1, x1, y2, x2;
+	int light = false;
 
+	/* Pick a room size */
+	int height = 8 + randint1(3) + randint1(3);
+	int width = 8 + randint1(3) + randint1(3);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Pick a room size */
+	y1 = centre.y - height / 2;
+	x1 = centre.x - width / 2;
+	y2 = y1 + height - 1;
+	x2 = x1 + width - 1;
+
+	/* Occasional light */
+	if (c->depth > randint1(50)) {
+		if (c->depth <= randint1(36)) light = true;
+	} else {
+		if (c->depth <= randint1(20)) light = true;
+	}
+
+	/* Generate new room */
+	generate_room(c, y1-1, x1-1, y2+1, x2+1, light);
+
+	/* Generate outer walls, "Solid" at first */
+	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
+	generate_mark(c, y1-1, x1-1, y2+1, x2+1, SQUARE_WALL_SOLID);
+	
+	/* Mark the entrances for the tunneling function */
+	struct loc grid;
+	grid.y = y1-1; grid.x = centre.x; sqinfo_off(square(c, grid).info, SQUARE_WALL_SOLID);
+	grid.y = y2+1; grid.x = centre.x; sqinfo_off(square(c, grid).info, SQUARE_WALL_SOLID);
+	grid.y = centre.y; grid.x = x1-1; sqinfo_off(square(c, grid).info, SQUARE_WALL_SOLID);
+	grid.y = centre.y; grid.x = x2+1; sqinfo_off(square(c, grid).info, SQUARE_WALL_SOLID);
+	
+	/* Fill inner floor with terrain */
+	if (one_in_(2)) {
+		/* tree garden */
+		fill_rectangle(c, y1, x1, y2, x2, FEAT_TREE, SQUARE_NONE);
+		fill_circle(c, centre.y, centre.x, 2, 0, FEAT_GRASS, 
+						SQUARE_NONE, light);
+		generate_plus(c, y1, x1, y2, x2, FEAT_ROAD, SQUARE_NONE);
+
+	} else {
+		/* pond garden */
+		fill_rectangle(c, y1, x1, y2, x2, FEAT_WATER, SQUARE_NONE);
+		fill_circle(c, centre.y, centre.x, 2, 0, FEAT_GRASS, 
+						SQUARE_NONE, light);
+		generate_plus(c, y1, x1, y2, x2, FEAT_ROAD, SQUARE_NONE);
+
+	}
+	return true;
+}
 /**
  * Builds a sil sized rectangular room.
  * \param c the chunk the room is being built in
