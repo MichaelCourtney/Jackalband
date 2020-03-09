@@ -2472,7 +2472,7 @@ flags:SUST_STR | SUST_INT | SUST_WIS | EASY_KNOW
 
 ### Resistance rings ###
 
-name:Resist Poison
+name:Venom's End
 type:ring
 graphics:=:d
 level:40
@@ -2749,7 +2749,7 @@ time:15+2d10
 
 ### Stat boosts ###
 
-name:Wisdom
+name:Grace
 type:amulet
 graphics:":d
 level:30
