@@ -136,7 +136,7 @@ void flavor_reset_fixed(void)
  * For the most part, flavors are assigned randomly each game.
  *
  * Initialize descriptions for the "colored" objects, including:
- * Rings, Amulets, Staffs, Wands, Rods, Mushrooms, Potions, Scrolls.
+ * Rings, Amulets, Staffs, Wands, Rods, Mushrooms, Herbs, Potions, Scrolls.
  *
  * Scroll titles are always between 6 and 14 letters long.  This is
  * ensured because every title is composed of whole words, where every
@@ -185,6 +185,7 @@ void flavor_init(void)
 	flavor_assign_random(TV_WAND);
 	flavor_assign_random(TV_ROD);
 	flavor_assign_random(TV_MUSHROOM);
+	flavor_assign_random(TV_HERB);
 	flavor_assign_random(TV_POTION);
 
 	/* Scrolls (random titles, always white) */

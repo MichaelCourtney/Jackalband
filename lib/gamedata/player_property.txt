@@ -37,14 +37,19 @@ desc:You easily recognize mushrooms.
 type:player
 code:KNOW_ZAPPER
 name:Device Lore
-desc:You easily recognize magic devices.
+desc:You easily recognize and use magic devices.
 
 type:player
 code:SEE_ORE
 name:Miner
 desc:You can sense ore in the walls.
 
-## Racial player flags
+## Class player flags
+
+type:player
+code:KNOW_HERB
+name:Herb Lore
+desc:You easily recognize herbs.
 
 type:player
 code:FAST_SHOT

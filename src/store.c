@@ -706,6 +706,7 @@ static void mass_produce(struct object *obj)
 		/* Food, Flasks, and Lights */
 		case TV_FOOD:
 		case TV_MUSHROOM:
+		case TV_HERB:
 		case TV_FLASK:
 		case TV_LIGHT:
 		{
@@ -1512,6 +1513,7 @@ int find_inven(const struct object *obj)
 			/* Food and Potions and Scrolls */
 			case TV_FOOD:
 			case TV_MUSHROOM:
+			case TV_HERB:
 			case TV_POTION:
 			case TV_SCROLL:
 			{

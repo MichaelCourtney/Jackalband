@@ -7292,7 +7292,7 @@ desc: unsuspecting adventurers within reach of its venomous claws.
 mimic:ring:Speed
 mimic:ring:Slaying
 mimic:ring:Constitution
-mimic:ring:Resist Poison
+mimic:ring:Venom's End
 mimic:ring:Free Action
 mimic:ring:See Invisible
 

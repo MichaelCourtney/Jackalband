@@ -813,6 +813,7 @@ static int object_value_base(const struct object *obj)
 	{
 		case TV_FOOD:
 		case TV_MUSHROOM:
+		case TV_HERB:
 			return 5;
 		case TV_POTION:
 		case TV_SCROLL:

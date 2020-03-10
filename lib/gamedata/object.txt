@@ -432,7 +432,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:4 to 100
+alloc:10:20 to 100
 pile:70:1d4
 power:10
 effect:CURE:BLIND
@@ -447,7 +447,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:4 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:7
 effect:HEAL_HP
@@ -482,7 +482,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:4 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:8
 effect:RESTORE_MANA
@@ -501,7 +501,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:4 to 100
+alloc:10:20 to 100
 pile:70:1d4
 power:7
 effect:TIMED_INC:IMAGE
@@ -521,7 +521,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:4 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:5
 effect:TIMED_SET:TERROR
@@ -536,11 +536,13 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:8 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:5
 effect:TIMED_SET:STONESKIN
 dice:50+7d7
+effect:TIMED_INC:OPP_POIS
+dice:50+1d10
 effect:NOURISH:INC_BY
 dice:5
 desc:Its poison turns your skin to stone, albeit briefly.
@@ -562,7 +564,7 @@ graphics:,:d
 level:0
 weight:1
 cost:20
-alloc:10:8 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:5
 effect:RESTORE_MANA
@@ -579,7 +581,7 @@ graphics:,:d
 level:0
 weight:1
 cost:100
-alloc:1:15 to 100
+alloc:1:20 to 100
 pile:70:1d4
 power:5
 effect:TIMED_INC:SPRINT
@@ -594,7 +596,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:1:15 to 100
+alloc:1:20 to 100
 pile:70:1d4
 power:5
 msg:Your stomach heaves.
@@ -619,6 +621,151 @@ dice:5
 effect:TIMED_INC:STEALTH
 dice:10+d10
 desc:It makes you very stealthy for a short while.
+
+##### Herbs #####
+
+name:Rage
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:50
+alloc:10:3 to 20
+pile:70:1d4
+power:9
+effect:CURE:AFRAID
+effect:TIMED_INC:SHERO
+dice:25+1d25
+effect:NOURISH:INC_BY
+dice:5
+
+name:Sustenance
+type:mushroom
+graphics:,:d
+level:0
+weight:1
+cost:10
+alloc:10:5 to 20
+pile:70:1d4
+power:1
+effect:NOURISH:INC_TO
+dice:60
+
+name:Terror
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:60
+alloc:10:3 to 20
+pile:70:1d4
+power:5
+effect:TIMED_SET:TERROR
+dice:25+5d5
+effect:NOURISH:INC_BY
+dice:5
+desc:It induces fear and a burst of speed.
+
+name:Healing
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:150
+alloc:10:7 to 20
+pile:70:1d4
+power:7
+effect:HEAL_HP
+dice:30
+effect:CURE:CUT
+effect:NOURISH:INC_BY
+dice:5
+
+name:Restoration
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:200
+alloc:25:5 to 20
+pile:13:1d3
+power:15
+effect:RESTORE_STAT:STR
+effect:RESTORE_STAT:INT
+effect:RESTORE_STAT:WIS
+effect:RESTORE_STAT:DEX
+effect:RESTORE_STAT:CON
+effect:NOURISH:INC_BY
+dice:5
+
+name:Emptiness
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:1:4 to 20
+pile:70:1d4
+power:5
+msg:Your stomach heaves.
+effect:NOURISH:SET_TO
+dice:5
+desc:It makes you very hungry.
+
+name:Visions
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:10
+alloc:10:8 to 20
+pile:70:1d4
+power:7
+effect:TIMED_INC:IMAGE
+dice:25+5d5
+effect:CURE:BLIND
+effect:NOURISH:INC_BY
+dice:5
+
+name:Entrancement
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:1:8 to 20
+pile:70:1d4
+power:0
+effect:TIMED_INC:PARALYZED
+dice:5+1d5
+effect:NOURISH:INC_BY
+dice:5
+
+name:Weakness
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:5:8 to 20
+pile:70:1d4
+power:5
+effect:NOURISH:INC_BY
+dice:5
+effect:DRAIN_STAT:STR
+
+name:Sickness
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:5:8 to 20
+pile:70:1d4
+power:5
+effect:NOURISH:INC_BY
+dice:5
+effect:DRAIN_STAT:CON
 
 
 ##### Weapons #####
