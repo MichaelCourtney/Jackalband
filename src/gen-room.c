@@ -289,6 +289,70 @@ static void fill_yrange_mix(struct chunk *c, int x, int y1, int y2, int feat,
 }
 
 /**
+ * Fill clear squares within a horizontal range with the given feature/info.
+ * Turns room walls within -/+ 1 of range solid.
+ * \param c the current chunk
+ * \param y inclusive room boundaries
+ * \param x1 inclusive room boundaries
+ * \param x2 inclusive range boundaries
+ * \param feat the terrain feature
+ * \param flag the SQUARE_* flag we are marking with
+ * \param light lit or not
+ */
+static void fill_xrange_wallsafe(struct chunk *c, int y, int x1, int x2, int feat, 
+						int flag, bool light)
+{
+	int x;
+	for (x = x1; x <= x2; x++) {
+		struct loc grid = loc(x, y);
+		if (!square_isgranite(c, grid)) {
+			square_set_feat(c, grid, feat);
+			if (flag) sqinfo_on(square(c, grid).info, flag);
+			if (light)
+				sqinfo_on(square(c, grid).info, SQUARE_GLOW);
+		}
+	}
+	for (x = x1 - 1; x <= x2 + 1; x++) {
+		struct loc grid = loc(x,y);
+		if (square_iswall_outer(c, grid)) {
+				set_marked_granite(c, grid, SQUARE_WALL_SOLID);
+		}
+	}
+}
+
+/**
+ * Fill clear squares within a vertical range with the given feature/info.
+  * Turns room walls within -/+ 1 of range solid.
+ * \param c the current chunk
+ * \param x inclusive room boundaries
+ * \param y1 inclusive room boundaries
+ * \param y2 inclusive range boundaries
+ * \param feat the terrain feature
+ * \param flag the SQUARE_* flag we are marking with
+ * \param light lit or not
+ */
+static void fill_yrange_wallsafe(struct chunk *c, int x, int y1, int y2, int feat, 
+						int flag, bool light)
+{
+	int y;
+	for (y = y1; y <= y2; y++) {
+		struct loc grid = loc(x, y);
+		if (!square_isgranite(c, grid)) {
+			square_set_feat(c, grid, feat);
+			if (flag) sqinfo_on(square(c, grid).info, flag);
+			if (light)
+				sqinfo_on(square(c, grid).info, SQUARE_GLOW);
+		}
+	}
+	for (y = y1 - 1; y <= y2 + 1; y++) {
+		struct loc grid = loc(x,y);
+		if (square_iswall_outer(c, grid)) {
+				set_marked_granite(c, grid, SQUARE_WALL_SOLID);
+		}
+	}
+}
+
+/**
  * Fill a circle with the given feature/info.
  * \param c the current chunk
  * \param y0 the circle centre
@@ -346,6 +410,38 @@ static void fill_circle_mix(struct chunk *c, int y0, int x0, int radius, int bor
 		fill_xrange_mix(c, y0 + i, x0 - k - b, x0 + k + b, feat, flag, light);
 		fill_yrange_mix(c, x0 - i, y0 - k - b, y0 + k + b, feat, flag, light);
 		fill_yrange_mix(c, x0 + i, y0 - k - b, y0 + k + b, feat, flag, light);
+		last = k;
+	}
+}
+
+/**
+ * Fill the parts of a circle with the given feature/info that are not walls.
+ * Turns any parts of a room wall touched by the circle solid.
+ * \param c the current chunk
+ * \param y0 the circle centre
+ * \param x0 the circle centre
+ * \param radius the circle radius
+ * \param border the width of the circle border
+ * \param feat the terrain feature
+ * \param flag the SQUARE_* flag we are marking with
+ * \param light lit or not
+ */
+static void fill_circle_wallsafe(struct chunk *c, int y0, int x0, int radius, int border,
+						int feat, int flag, bool light)
+{
+	int i, last = 0;
+	int r2 = radius * radius;
+	for(i = 0; i <= radius; i++) {
+		double j = sqrt(r2 - (i * i));
+		int k = (int)(j + 0.5);
+
+		int b = border;
+		if (border && last > k) b++;
+		
+		fill_xrange_wallsafe(c, y0 - i, x0 - k - b, x0 + k + b, feat, flag, light);
+		fill_xrange_wallsafe(c, y0 + i, x0 - k - b, x0 + k + b, feat, flag, light);
+		fill_yrange_wallsafe(c, x0 - i, y0 - k - b, y0 + k + b, feat, flag, light);
+		fill_yrange_wallsafe(c, x0 + i, y0 - k - b, y0 + k + b, feat, flag, light);
 		last = k;
 	}
 }
@@ -2261,6 +2357,143 @@ bool build_overlap(struct chunk *c, struct loc centre, int rating)
 	/* Generate inner floors (b) */
 	fill_rectangle(c, y1b, x1b, y2b, x2b, FEAT_FLOOR, SQUARE_NONE);
 
+	return true;
+}
+
+
+/**
+ * Builds a bridge in an overlapping rectangular room.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_bridge(struct chunk *c, struct loc centre, int rating)
+{
+	int y1a, x1a, y2a, x2a;
+	int y1b, x1b, y2b, x2b;
+	int height, width;
+	
+	int o;
+	int count = 0;
+
+	int light = false;
+
+	/* Occasional light */
+	if (c->depth <= randint1(25)) light = true;
+
+	/* orientation of rooms */
+	o = randint1(2);
+	
+	/* Determine extents of room (a) */
+	y1a = 1;
+	x1a = 1;
+	y2a = 1;
+	x2a = 1;
+	if (o == 1) {
+		y1a += 3 + randint1(2);
+		x1a += 3 + randint1(7);
+	} else {
+		y2a += 3 + randint1(2);
+		x1a += 3 + randint1(7);
+	}
+	
+	/* Determine extents of room (b) */
+	y1b = 1;
+	x1b = 1;
+	y2b = 1;
+	x2b = 1;
+	if (o == 1) {
+		y2b += 3 + randint1(2);
+		x2b += 3 + randint1(7);
+	} else {
+		y1b += 3 + randint1(2);
+		x2b += 3 + randint1(7);
+	}
+	
+	/* Calculate height and width */
+	height = 2 * MAX(MAX(y1a, y2a), MAX(y1b, y2b)) + 1;
+	width = 2 * MAX(MAX(x1a, x2a), MAX(x1b, x2b)) + 1;
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* locate room (a) */
+	y1a = centre.y - y1a;
+	x1a = centre.x - x1a;
+	y2a = centre.y + y2a;
+	x2a = centre.x + x2a;
+
+	/* locate room (b) */
+	y1b = centre.y - y1b;
+	x1b = centre.x - x1b;
+	y2b = centre.y + y2b;
+	x2b = centre.x + x2b;
+	
+	/* locate start of bridge */
+	int x3 = 0;
+	int y3 = 0;
+	if (o == 1) {
+		x3 = centre.x - 3;
+		y3 = centre.y - 2;
+	} else {
+		x3 = centre.x - 3;
+		y3 = centre.y + 2;
+	}
+	
+	/* Generate new room (a) */
+	generate_room(c, y1a-1, x1a-1, y2a+1, x2a+1, light);
+
+	/* Generate new room (b) */
+	generate_room(c, y1b-1, x1b-1, y2b+1, x2b+1, light);
+
+	/* Generate outer walls (a) */
+	draw_rectangle(c, y1a-1, x1a-1, y2a+1, x2a+1, 
+				   FEAT_GRANITE, SQUARE_WALL_OUTER);
+
+	/* Generate outer walls (b) */
+	draw_rectangle(c, y1b-1, x1b-1, y2b+1, x2b+1, 
+				   FEAT_GRANITE, SQUARE_WALL_OUTER);
+
+	/* Generate inner floors (a) */
+	fill_rectangle(c, y1a, x1a, y2a, x2a, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Generate inner floors (b) */
+	fill_rectangle(c, y1b, x1b, y2b, x2b, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Generate a lake of lava or water */
+	if (c->depth >= randint1(75)) {
+		fill_circle_wallsafe(c, centre.y, centre.x, 4, 0, FEAT_LAVA, 
+						SQUARE_NONE, light);
+	} else {
+		fill_circle_wallsafe(c, centre.y, centre.x, 4, 0, FEAT_WATER, 
+						SQUARE_NONE, light);
+	}
+	
+	/* Bridge */	
+	if (o == 1) {
+		while (count < 6) {
+			struct loc grid = loc(x3, y3);
+			square_set_feat(c, grid, FEAT_ROAD);
+			x3 += 1;
+			grid = loc(x3, y3);
+			square_set_feat(c, grid, FEAT_ROAD);
+			y3 += 1;
+			count +=1;
+			}
+	} else {
+		while (count < 6) {
+			struct loc grid = loc(x3, y3);
+			square_set_feat(c, grid, FEAT_ROAD);
+			x3 += 1;
+			grid = loc(x3, y3);
+			square_set_feat(c, grid, FEAT_ROAD);
+			y3 -= 1;
+			count +=1;
+			}
+	}
 	return true;
 }
 
