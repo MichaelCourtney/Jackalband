@@ -308,6 +308,7 @@ bool mon_pit_hook(struct monster_race *race);
 void set_pit_type(int depth, int type);
 bool build_nest(struct chunk *c, struct loc centre, int rating);
 bool build_pit(struct chunk *c, struct loc centre, int rating);
+bool build_pit_mini(struct chunk *c, struct loc centre, int rating);
 bool build_template(struct chunk *c, struct loc centre, int rating);
 bool build_interesting(struct chunk *c, struct loc centre, int rating);
 bool build_lesser_vault(struct chunk *c, struct loc centre, int rating);

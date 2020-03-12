@@ -3588,6 +3588,277 @@ bool build_pit(struct chunk *c, struct loc centre, int rating)
 }
 
 /**
+ * Build a smaller monster pit
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ *
+ * Monster pits are laid-out similarly to monster nests.
+ *
+ * The available monster pits are specified in edit/pit.txt.
+ *
+ * The inside room in a monster pit appears as shown below, where the
+ * actual monsters in each location depend on the type of the pit
+ *
+ * Smaller pits crop the outside monsters - MC
+ *
+ *   #############
+ *   #11000000011#
+ *   #01234543210#
+ *   #01236763210#
+ *   #01234543210#
+ *   #11000000011#
+ *   #############
+ *
+ * Note that the monsters in the pit are chosen by using get_mon_num() to
+ * request 16 "appropriate" monsters, sorting them by level, and using the
+ * "even" entries in this sorted list for the contents of the pit.
+ *
+ * Note the use of get_mon_num_prep() to prepare the monster allocation
+ * table in such a way as to optimize the selection of appropriate non-unique
+ * monsters for the pit.
+ *
+ * The get_mon_num() function can fail, in which case the pit will be empty,
+ * and will not effect the level rating.
+ *
+ * Like monster nests, monster pits will never contain unique monsters.
+ */
+bool build_pit_mini(struct chunk *c, struct loc centre, int rating)
+{
+	struct monster_race *what[16];
+	int i, j, y, x, y1, x1, y2, x2;
+	bool empty = false;
+	int light = false;
+	int alloc_obj;
+	int height = 9;
+	int width = 15;
+	int group_index = 0;
+	struct monster_group_info info = {0, 0};
+
+	/* Miniturize the dimensions */
+	/* Halve if below full pit size cutoff (dlvl 5) */
+	if (c->depth < 5) {
+		height = 7;
+		width  = 10;
+	}
+	
+	/* Randomly reduce by depth factor, also effects loot & monster depth */
+	int k = MIN(6, 1 + (c->depth / 4));
+	height -= randint0(2);
+	width -= randint1(8 - k);
+	
+	/* Enforce minimum dimensions */
+	if (height < 7) height = 7;
+	if (width < 7) width = 7;
+	
+	/* Enforce odd dimensions */
+	if (height == 8) height = 9;
+	if ((width / 2) * 2 == width) width += 1;
+		
+	/* Calculate shrinkage for monster placement */
+	int h = (9 - height) / 2;
+	int w = (15 - width) / 2;
+	
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Large room */
+	y1 = centre.y - height / 2;
+	y2 = centre.y + height / 2;
+	x1 = centre.x - width / 2;
+	x2 = centre.x + width / 2;
+
+	/* Generate new room, outer walls and inner floor */
+	generate_room(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, light);
+	draw_rectangle(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, FEAT_GRANITE,
+				   SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Advance to the center room */
+	y1 = y1 + 2;
+	y2 = y2 - 2;
+	x1 = x1 + 2;
+	x2 = x2 - 2;
+
+	/* Generate inner walls, and open with a secret door */
+	draw_rectangle(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, FEAT_GRANITE,
+				   SQUARE_WALL_INNER);
+	generate_hole(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, FEAT_CLOSED);
+
+	/* Decide on the pit type */
+	set_pit_type(c->depth, 1);
+
+	/* Chance of objects on the floor */
+	alloc_obj = dun->pit_type->obj_rarity;
+	
+	/* Prepare allocation table */
+	get_mon_num_prep(mon_pit_hook);
+
+	/* Pick some monster types */
+	for (i = 0; i < 16; i++) {
+		/* Get a (hard) monster type */
+		what[i] = get_mon_num(c->depth + 3 + ((k * 3) / 2));
+
+		/* Notice failure */
+		if (!what[i]) empty = true;
+	}
+
+	/* Prepare allocation table */
+	get_mon_num_prep(NULL);
+
+	/* Oops */
+	if (empty)
+		return false;
+
+	ROOM_LOG("Monster pit (%s)", dun->pit_type->name);
+
+	/* Sort the entries XXX XXX XXX */
+	for (i = 0; i < 16 - 1; i++) {
+		/* Sort the entries */
+		for (j = 0; j < 16 - 1; j++) {
+			int i1 = j;
+			int i2 = j + 1;
+
+			int p1 = what[i1]->level;
+			int p2 = what[i2]->level;
+
+			/* Bubble */
+			if (p1 > p2) {
+				struct monster_race *tmp = what[i1];
+				what[i1] = what[i2];
+				what[i2] = tmp;
+			}
+		}
+	}
+
+	/* Select every other entry */
+	for (i = 0; i < 8; i++)
+		what[i] = what[i * 2];
+
+	/* Increase the level rating */
+	c->mon_rating += (3 + dun->pit_type->ave / 20);
+
+	/* Get a group ID */
+	group_index = monster_group_index_new(c);
+
+	/* Center monster */
+	info.index = group_index;
+	info.role = MON_GROUP_LEADER;
+	place_new_monster(c, centre, what[7], false, false, info, ORIGIN_DROP_PIT);
+
+	/* Remaining monsters are servants */
+	info.role = MON_GROUP_SERVANT;
+
+	/* Top and bottom rows (middle) */
+	if (h == 0) {
+		int w1 = MAX(0, w - 2);
+		for (x = centre.x - 3 + w1; x <= centre.x + 3 - w1; x++) {
+			place_new_monster(c, loc(x, centre.y - 2 + h), what[0], false, false, info,
+								ORIGIN_DROP_PIT);
+			place_new_monster(c, loc(x, centre.y + 2 - h), what[0], false, false, info,
+								ORIGIN_DROP_PIT);
+	}
+	}
+    
+	/* Corners */
+	if ((w == 0) && (h == 0)) {
+		for (x = centre.x - 5; x <= centre.x - 4; x++) {
+			place_new_monster(c, loc(x, centre.y - 2), what[1], false, false, info,
+								ORIGIN_DROP_PIT);
+			place_new_monster(c, loc(x, centre.y + 2), what[1], false, false, info,
+								ORIGIN_DROP_PIT);
+		}
+    
+		for (x = centre.x + 4; x <= centre.x + 5; x++) {
+			place_new_monster(c, loc(x, centre.y - 2), what[1], false, false, info,
+								ORIGIN_DROP_PIT);
+			place_new_monster(c, loc(x, centre.y + 2), what[1], false, false, info,
+								ORIGIN_DROP_PIT);
+		}
+    } else if ((w == 1) && (h == 0)) {
+		place_new_monster(c, loc(centre.x - 4, centre.y - 2), what[1], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x - 4, centre.y + 2), what[1], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x + 4, centre.y - 2), what[1], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x + 4, centre.y + 2), what[1], false, false, info,
+							ORIGIN_DROP_PIT);
+	}
+	/* Corners */
+
+	/* Middle columns */
+		for (y = centre.y - 1; y <= centre.y + 1; y++) {
+		if (w == 0) {
+		place_new_monster(c, loc(centre.x - 5, y), what[0], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x + 5, y), what[0], false, false, info,
+							ORIGIN_DROP_PIT);
+		}
+			
+		if (w < 2) {
+		place_new_monster(c, loc(centre.x - 4, y), what[1], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x + 4, y), what[1], false, false, info,
+							ORIGIN_DROP_PIT);
+		}
+			
+		if (w < 3) {
+		place_new_monster(c, loc(centre.x - 3, y), what[2], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x + 3, y), what[2], false, false, info,
+							ORIGIN_DROP_PIT);
+		}
+			
+		if (w < 4) {
+		place_new_monster(c, loc(centre.x - 2, y), what[3], false, false, info,
+							ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(centre.x + 2, y), what[3], false, false, info,
+							ORIGIN_DROP_PIT);
+		}
+		}
+	
+	/* Corners around the middle monster */
+	place_new_monster(c, loc(centre.x - 1, centre.y - 1), what[4], false, false,
+					  info, ORIGIN_DROP_PIT);
+	place_new_monster(c, loc(centre.x + 1, centre.y - 1), what[4], false, false,
+					  info, ORIGIN_DROP_PIT);
+	place_new_monster(c, loc(centre.x - 1, centre.y + 1), what[4], false, false,
+					  info, ORIGIN_DROP_PIT);
+	place_new_monster(c, loc(centre.x + 1, centre.y + 1), what[4], false, false,
+					  info, ORIGIN_DROP_PIT);
+
+	/* Above/Below the center monster */
+	for (x = centre.x - 1; x <= centre.x + 1; x++) {
+		place_new_monster(c, loc(x, centre.y + 1), what[5], false, false, info,
+						  ORIGIN_DROP_PIT);
+		place_new_monster(c, loc(x, centre.y - 1), what[5], false, false, info,
+						  ORIGIN_DROP_PIT);
+	}
+
+	/* Next to the center monster */
+	place_new_monster(c, loc(centre.x + 1, centre.y), what[6], false, false,
+					  info, ORIGIN_DROP_PIT);
+	place_new_monster(c, loc(centre.x - 1, centre.y), what[6], false, false,
+					  info, ORIGIN_DROP_PIT);
+
+	/* Place some objects */
+	for (y = centre.y - 2 + h; y <= centre.y + 2 - h; y++) {
+		for (x = centre.x - 9 + w; x <= centre.x + 9 - w; x++) {
+			/* Occasionally place an item, making it good 1/3 of the time */
+			if ((randint0(100) < alloc_obj) && (randint0(5) < k))
+				place_object(c, loc(x, y), c->depth + 10, one_in_(3), false,
+							 ORIGIN_PIT, 0);
+		}
+	}
+
+	return true;
+}
+
+/**
  * Build a template room
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()
