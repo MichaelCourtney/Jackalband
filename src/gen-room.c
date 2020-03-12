@@ -237,7 +237,7 @@ static void fill_yrange(struct chunk *c, int x, int y1, int y2, int feat,
 }
 
 /**
- * Fill a horizontal range with the given feature/info 50% of the time.
+ * One in ratio chance of filling a horizontal range with the given feature/info.
  * \param c the current chunk
  * \param y inclusive room boundaries
  * \param x1 inclusive room boundaries
@@ -245,14 +245,15 @@ static void fill_yrange(struct chunk *c, int x, int y1, int y2, int feat,
  * \param feat the terrain feature
  * \param flag the SQUARE_* flag we are marking with
  * \param light lit or not
+ * \param ratio the odds of placing terrain
  */
 static void fill_xrange_mix(struct chunk *c, int y, int x1, int x2, int feat, 
-						int flag, bool light)
+						int flag, bool light, int ratio)
 {
 	int x;
 	for (x = x1; x <= x2; x++) {
 		struct loc grid = loc(x, y);
-		if one_in_(2) {
+		if one_in_(ratio) {
 			square_set_feat(c, grid, feat);
 		}
 		sqinfo_on(square(c, grid).info, SQUARE_ROOM);
@@ -263,22 +264,23 @@ static void fill_xrange_mix(struct chunk *c, int y, int x1, int x2, int feat,
 }
 
 /**
- * Fill a vertical range with the given feature/info 50% of the time.
+ * One in ratio chance of filling a vertical range with the given feature/info.
  * \param c the current chunk
  * \param x inclusive room boundaries
  * \param y1 inclusive room boundaries
  * \param y2 inclusive range boundaries
  * \param feat the terrain feature
  * \param flag the SQUARE_* flag we are marking with
+ * \param ratio the odds of placing terrain
  * \param light lit or not
  */
 static void fill_yrange_mix(struct chunk *c, int x, int y1, int y2, int feat, 
-						int flag, bool light)
+						int flag, bool light, int ratio)
 {
 	int y;
 	for (y = y1; y <= y2; y++) {
 		struct loc grid = loc(x, y);
-		if one_in_(2) {
+		if one_in_(ratio) {
 			square_set_feat(c, grid, feat);
 		}
 		sqinfo_on(square(c, grid).info, SQUARE_ROOM);
@@ -384,7 +386,7 @@ static void fill_circle(struct chunk *c, int y0, int x0, int radius, int border,
 }
 
 /**
- * 50/50 chance of placing a feature on squares inside a circle.
+ * 1 in ratio chance of placing a feature on squares within a circle.
  * \param c the current chunk
  * \param y0 the circle centre
  * \param x0 the circle centre
@@ -393,9 +395,10 @@ static void fill_circle(struct chunk *c, int y0, int x0, int radius, int border,
  * \param feat the terrain feature
  * \param flag the SQUARE_* flag we are marking with
  * \param light lit or not
+ * \param ratio the odds of placing terrain
  */
 static void fill_circle_mix(struct chunk *c, int y0, int x0, int radius, int border,
-						int feat, int flag, bool light)
+						int feat, int flag, bool light, int ratio)
 {
 	int i, last = 0;
 	int r2 = radius * radius;
@@ -406,10 +409,10 @@ static void fill_circle_mix(struct chunk *c, int y0, int x0, int radius, int bor
 		int b = border;
 		if (border && last > k) b++;
 		
-		fill_xrange_mix(c, y0 - i, x0 - k - b, x0 + k + b, feat, flag, light);
-		fill_xrange_mix(c, y0 + i, x0 - k - b, x0 + k + b, feat, flag, light);
-		fill_yrange_mix(c, x0 - i, y0 - k - b, y0 + k + b, feat, flag, light);
-		fill_yrange_mix(c, x0 + i, y0 - k - b, y0 + k + b, feat, flag, light);
+		fill_xrange_mix(c, y0 - i, x0 - k - b, x0 + k + b, feat, flag, light, ratio);
+		fill_xrange_mix(c, y0 + i, x0 - k - b, x0 + k + b, feat, flag, light, ratio);
+		fill_yrange_mix(c, x0 - i, y0 - k - b, y0 + k + b, feat, flag, light, ratio);
+		fill_yrange_mix(c, x0 + i, y0 - k - b, y0 + k + b, feat, flag, light, ratio);
 		last = k;
 	}
 }
@@ -1883,7 +1886,7 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 	int k = randint1(radius-1);
 	int i = c->depth + randint0(20);
 	
-	if ((i < 8) || ((i > 21) && (i < 24)) || (i == 42)) {
+	if ((i < 8) || ((i > 20) && (i < 23)) || (i == 42)) {
 			/* lowland trees */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_TREE, 
 						SQUARE_NONE, light);
@@ -1900,10 +1903,10 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 				fill_circle(c, centre.y, centre.x, k, 0, FEAT_GRASS, 
 						SQUARE_NONE, light);
 			}						
-	} else if ((i < 11) || ((i > 23) && (i < 27)) || (i == 43)) {
+	} else if ((i < 11) || ((i > 22) && (i < 27)) || (i == 43)) {
 			/* scattered highland trees */
 			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_TREE2, 
-						SQUARE_NONE, light);
+						SQUARE_NONE, light, 3);
 	} else if ((i < 16) || ((i > 26) && (i < 37)) || ((i > 43) && (i < 52))) {
 			/* water */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_WATER, 
@@ -1931,14 +1934,14 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 	} else if ((i < 19) || ((i > 37) && (i < 40)) || ((i > 52) && (i < 56))) {
 			/* passable rubble */
 			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_PASS_RUBBLE, 
-						SQUARE_NONE, light);
+						SQUARE_NONE, light, 3);
 						
 	} else if ((i < 21) || (i == 40) || ((i > 55) && (i < 59))) {
 			/* rubble */
 			fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_RUBBLE, 
-						SQUARE_NONE, light);
+						SQUARE_NONE, light, 3);
 						
-	} else if ((i == 21) || (i == 41) || (i > 58)) {
+	} else if ((i == 41) || (i > 58)) {
 			/* lava */
 			fill_circle(c, centre.y, centre.x, radius, 0, FEAT_LAVA, 
 						SQUARE_NONE, light);
@@ -2471,7 +2474,7 @@ bool build_bridge(struct chunk *c, struct loc centre, int rating)
 	fill_rectangle(c, y1b, x1b, y2b, x2b, FEAT_FLOOR, SQUARE_NONE);
 
 	/* Generate a lake of lava or water */
-	if (c->depth >= randint1(75)) {
+	if (c->depth >= 10 + randint0(60)) {
 		fill_circle_wallsafe(c, centre.y, centre.x, 4, 0, FEAT_LAVA, 
 						SQUARE_NONE, light);
 	} else {
@@ -3346,6 +3349,128 @@ bool build_nest(struct chunk *c, struct loc centre, int rating)
 	c->mon_rating += (size_vary + dun->pit_type->ave / 20);
 
 	/* Place some monsters */
+	for (grid.y = y1; grid.y <= y2; grid.y++) {
+		for (grid.x = x1; grid.x <= x2; grid.x++) {
+			/* Figure out what monster is being used, and place that monster */
+			struct monster_race *race = what[randint0(64)];
+			place_new_monster(c, grid, race, false, false, info,
+							  ORIGIN_DROP_PIT);
+
+			/* Occasionally place an item, making it good 1/3 of the time */
+			if (randint0(100) < alloc_obj) 
+				place_object(c, grid, c->depth + 10, one_in_(3), false,
+							 ORIGIN_PIT, 0);
+		}
+	}
+
+	return true;
+}
+
+/**
+ * Build a circular monster nest with terrain
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ *
+ * A terrain monster nest consists of a circular moat around a room containing
+ * monsters of a given type with terrain.
+ *
+ * The monsters are chosen from a set of 64 randomly selected monster races,
+ * to allow the nest creation to fail instead of having "holes".
+ *
+ * Note the use of the "get_mon_num_prep()" function to prepare the
+ * "monster allocation table" in such a way as to optimize the selection
+ * of "appropriate" non-unique monsters for the nest.
+ *
+ * The available monster nests are specified in edit/pit.txt.
+ *
+ * Note that get_mon_num() function can fail, in which case the nest will be
+ * empty, and will not affect the level rating.
+ *
+ * Monster nests will never contain unique monsters.
+ */
+bool build_nest_terrain(struct chunk *c, struct loc centre, int rating)
+{
+	struct loc grid;
+	int y1, x1, y2, x2;
+	int i;
+	int alloc_obj;
+	struct monster_race *what[64];
+	bool empty = false;
+	int light = false;
+	int size_vary = randint0(2);
+	int radius = 7 + 2 * size_vary;
+	struct monster_group_info info = {0, 0};
+	
+	/* Find and reserve lots of space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, 2 * radius + 10, 2 * radius + 10))
+			return (false);
+	}
+
+	/* Large room */
+	/* Generate outer walls and inner floors */
+	fill_circle(c, centre.y, centre.x, radius + 1, 1, FEAT_GRANITE,
+				SQUARE_WALL_OUTER, light);
+	fill_circle(c, centre.y, centre.x, radius, 0, FEAT_FLOOR,
+				SQUARE_NONE, light);
+
+	/* Advance to the center room */
+	radius -= 4;
+	
+	/* Generate inner walls and inner floors */
+	fill_circle(c, centre.y, centre.x, radius + 2, 0, FEAT_GRANITE,
+				SQUARE_WALL_INNER, light);
+	fill_circle(c, centre.y, centre.x, radius + 1, 0, FEAT_GRANITE,
+				SQUARE_WALL_INNER, light);
+	fill_circle(c, centre.y, centre.x, radius, 0, FEAT_FLOOR,
+				SQUARE_NONE, light);
+
+	/* Open the inner room with a secret door */
+	generate_hole(c, centre.y - radius - 2, centre.x - radius - 2,
+				centre.y + radius + 2, centre.x + radius + 2, FEAT_CLOSED);
+				
+	/* Fill 1/4 of nest with terrain - just rubble for now */
+	fill_circle_mix(c, centre.y, centre.x, radius, 0, FEAT_PASS_RUBBLE,
+						SQUARE_NONE, light, 4);
+	
+	/* Below is still to be done, just changed enough to get it to compile and gen - MC */
+	/* Decide on the pit type */
+	set_pit_type(c->depth, 2);
+
+	/* Chance of objects on the floor */
+	alloc_obj = dun->pit_type->obj_rarity;
+	
+	/* Prepare allocation table */
+	get_mon_num_prep(mon_pit_hook);
+
+	/* Pick some monster types */
+	for (i = 0; i < 64; i++) {
+		/* Get a (hard) monster type */
+		what[i] = get_mon_num(c->depth + 10);
+
+		/* Notice failure */
+		if (!what[i]) empty = true;
+	}
+
+	/* Prepare allocation table */
+	get_mon_num_prep(NULL);
+
+	/* Oops */
+	if (empty) return false;
+
+	/* Describe */
+	ROOM_LOG("Monster nest (%s)", dun->pit_type->name);
+
+	/* Increase the level rating */
+	c->mon_rating += (size_vary + dun->pit_type->ave / 20);
+
+	/* Place some monsters */
+	y1 = centre.y - radius;
+	y2 = centre.y + radius;
+	x1 = centre.x - radius;
+	x2 = centre.x + radius;
+	
 	for (grid.y = y1; grid.y <= y2; grid.y++) {
 		for (grid.x = x1; grid.x <= x2; grid.x++) {
 			/* Figure out what monster is being used, and place that monster */
