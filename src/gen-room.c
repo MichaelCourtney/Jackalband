@@ -2010,7 +2010,6 @@ bool build_simple(struct chunk *c, struct loc centre, int rating)
 	return true;
 }
 
-/* This needs work getting centred, sometimes pieces are 1 square off - MC */
 /**
  * Builds either a tree or water garden (rectangle with cross path & centre circle).
  * \param c the chunk the room is being built in
@@ -2025,6 +2024,14 @@ bool build_square_garden(struct chunk *c, struct loc centre, int rating)
 	/* Pick a room size */
 	int height = 8 + randint1(3) + randint1(3);
 	int width = 8 + randint1(3) + randint1(3);
+	
+	/* Enforce odd dimensions to keep things centred */
+	if ((height / 2) * 2 == height) {
+		height += 1;
+	}
+	if ((width / 2) * 2 == width) {
+		width += 1;
+	}
 
 	/* Find and reserve some space in the dungeon.  Get center of room. */
 	if ((centre.y >= c->height) || (centre.x >= c->width)) {
