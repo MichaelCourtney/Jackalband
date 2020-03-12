@@ -346,6 +346,7 @@ void place_closed_door(struct chunk *c, struct loc grid);
 void place_random_door(struct chunk *c, struct loc grid);
 void place_random_stairs(struct chunk *c, struct loc grid);
 void alloc_stairs(struct chunk *c, int feat, int num);
+void alloc_stairs_guard(struct chunk *c, int feat, int num);
 void vault_objects(struct chunk *c, struct loc grid, int depth, int num);
 void vault_traps(struct chunk *c, struct loc grid, int yd, int xd, int num);
 void vault_monsters(struct chunk *c, struct loc grid, int depth, int num);

@@ -3108,12 +3108,12 @@ struct chunk *basic_small_gen(struct player *p, int min_height, int min_width) {
 
     /* Place 3 or 4 down stairs near some walls */
 	if (!OPT(p, birth_levels_persist) || !chunk_find_adjacent(p, false)) {
-		alloc_stairs(c, FEAT_MORE, rand_range(3, 4));
+		alloc_stairs_guard(c, FEAT_MORE, rand_range(3, 4));
 	}
 
     /* Place 1 or 2 up stairs near some walls */
 	if (!OPT(p, birth_levels_persist) || !chunk_find_adjacent(p, true)) {
-		alloc_stairs(c, FEAT_LESS, rand_range(1, 2));
+		alloc_stairs_guard(c, FEAT_LESS, rand_range(1, 2));
 	}
 
     /* General amount of rubble, traps and monsters */
@@ -3165,7 +3165,7 @@ struct chunk *basic_small_gen(struct player *p, int min_height, int min_width) {
 /* ------------------ JELLY PIT ---------------- */
 
 /**
- * Generate a jelly pit level - a cavern level with the contents of a jelly pit spread
+ * Generate a jelly pit level - a cavern level with part of the contents of a jelly pit spread
  * through out it.
  * \param p is the player
  * \return a pointer to the generated chunk
@@ -3200,10 +3200,10 @@ struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width) {
     draw_rectangle(c, 0, 0, h - 1, w - 1, FEAT_PERM, SQUARE_NONE);
 
 	/* Place 2-3 down stairs near some walls */
-	alloc_stairs(c, FEAT_MORE, rand_range(1, 3));
+	alloc_stairs_guard(c, FEAT_MORE, rand_range(1, 3));
 
 	/* Place 1-2 up stairs near some walls */
-	alloc_stairs(c, FEAT_LESS, rand_range(1, 2));
+	alloc_stairs_guard(c, FEAT_LESS, rand_range(1, 2));
 
 	/* General some rubble, traps and monsters */
 	k = MAX(MIN(c->depth / 3, 10), 2);
@@ -3212,10 +3212,10 @@ struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width) {
 	k = MAX((4 * k * (h * w)) / (z_info->dungeon_hgt * z_info->dungeon_wid), 6);
 
 	/* Put some rubble in corridors */
-	alloc_objects(c, SET_BOTH, TYP_RUBBLE, randint1(k), c->depth, 0);
+	alloc_objects(c, SET_BOTH, TYP_RUBBLE_JB, randint1(k), c->depth, 0);
 
 	/* Place some traps in the dungeon, */
-	alloc_objects(c, SET_CORR, TYP_TRAP, randint1(k), c->depth, 0);
+	alloc_objects(c, SET_CORR, TYP_TRAP_JB, randint1(k), c->depth, 0);
 
 	/* Determine the character location */
 	new_player_spot(c, p);
@@ -3225,13 +3225,29 @@ struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width) {
 		pick_and_place_distant_monster(c, p, 0, true, c->depth);
 
 	/* Put some jellies in the dungeon */
+	if (!one_in_(3)) {
 	mon_restrict("Jelly", c->depth, true);
-	j = randint1(55);
-    for (i = j; i > 0; i--)
+	} else {
+	mon_restrict("random", c->depth, true);
+	}
+	
+	j = MAX(1, (randint0(55) / ((c->depth / 15) + 1)));
+    
+	for (i = j; i > 0; i--)
 		pick_and_place_distant_monster(c, p, 0, true, c->depth);
 
 	/* Remove our restrictions. */
 	(void) mon_restrict(NULL, c->depth, false);
+	
+	/* Some extra items from our pit */
+	for (i = j; i > 0; i--)
+		if (one_in_(20)) {
+			if (one_in_(3)) {
+			alloc_object(c, SET_BOTH, TYP_GOOD, c->depth, ORIGIN_CAVERN);
+			} else {
+			alloc_object(c, SET_BOTH, TYP_OBJECT, c->depth, ORIGIN_CAVERN);
+			}
+		}
 	
 	/* Put some objects/gold in the dungeon */
 	alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal(k, 2), c->depth + 5,
@@ -3241,11 +3257,5 @@ struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width) {
 	alloc_objects(c, SET_BOTH, TYP_GOOD, randint0(k / 4), c->depth,
 				  ORIGIN_CAVERN);
 				  
-	/* Some extra items from our pit */
-	for (i = j; i > 0; i--)
-		if (one_in_(20)) {
-			alloc_object(c, SET_BOTH, TYP_OBJECT, c->depth, ORIGIN_CAVERN);
-		}
-
 	return c;
 }

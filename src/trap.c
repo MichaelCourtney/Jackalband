@@ -288,36 +288,72 @@ void place_trap(struct chunk *c, struct loc grid, int t_idx, int trap_level)
 
 
 /**
- * Place occassional monster near trap.
+ * Place occassional monster and/or item near trap.
  * \param c current chunk
  * \param grid location
  */
 void place_trap_jb(struct chunk *c, struct loc grid)
 {
-/* Only Place Trap Setters */
-mon_restrict("Trap Setters", c->depth, true);
-
-/* Try up to 20 spots looking for empty space */
+	int k = 0;
+	if (c->depth <= 25) {
+		k = 2 * (25 - c->depth);
+	} else {
+		k = 2 * (c->depth - 25);
+	}
+	
+	if ((one_in_(5)) && (randint0(50) > k)) {
+		
 		int i;
 		
-		for (i = 0; i < 20; ++i) {
-			struct loc near;
+		/* Sometimes place a monster */
+		if (one_in_(2)) {
+		
+			/* Try up to 20 spots looking for empty space */
+			for (i = 0; i < 20; ++i) {
+				struct loc near;
 
-			/* Pick a random location */
-			find_nearby_grid(c, &near, grid, 2, 2);
+				/* Pick a random location */
+				find_nearby_grid(c, &near, grid, 3, 3);
 
-			/* Require empty space */
-			if (!square_isempty(c, near)) continue;
-
-			/* Place the monsters */
-			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+				/* Require empty space */
+				if (!square_isempty(c, near)) continue;
 			
-			/* Placement accomplished */
-			break;
+				/* Only Place Trap Setters */
+				mon_restrict("Trap Setters", c->depth, true);
+
+				/* Place the monster */
+				pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+			
+				/* Remove our restrictions. */
+				(void) mon_restrict(NULL, c->depth, false);
+		
+				/* Placement accomplished */
+				break;
+			}
 		}
 		
-/* Remove our restrictions. */
-(void) mon_restrict(NULL, c->depth, false);
+		/* Sometimes place an object */
+		if (one_in_(2)) {
+		
+			/* Try up to 20 spots looking for empty space */
+			for (i = 0; i < 20; ++i) {
+				struct loc near;
+
+				/* Pick a random location */
+				find_nearby_grid(c, &near, grid, 2, 2);
+
+				/* Require empty space */
+				if (!square_isempty(c, near)) continue;
+			
+				/* Place the object */
+				place_object(c, near, c->depth, one_in_(2) ? true : false, false, 
+								ORIGIN_FLOOR, 0);
+								
+				/* Placement accomplished */
+				break;
+			}
+		}
+	}
 }
 
 

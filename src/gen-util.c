@@ -381,30 +381,33 @@ static void place_rubble(struct chunk *c, struct loc grid)
  */
 static void place_rubble_jb(struct chunk *c, struct loc grid)
 {
-/* Only Place Rubble Critters */
-mon_restrict("Rubble Critters", c->depth, true);
+	if ((one_in_(5)) && (randint0(50) > c->depth)) {
+		
+		/* Only Place Rubble Critters */
+		mon_restrict("Rubble Critters", c->depth, true);
 
-/* Try up to 20 spots looking for empty space */
+		/* Try up to 20 spots looking for empty space */
 		int i;
 		
 		for (i = 0; i < 20; ++i) {
 			struct loc near;
 
 			/* Pick a random location */
-			find_nearby_grid(c, &near, grid, 2, 2);
+			find_nearby_grid(c, &near, grid, 3, 3);
 
 			/* Require empty space */
 			if (!square_isempty(c, near)) continue;
 
-			/* Place the monsters */
+			/* Place the monster */
 			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
 			
 			/* Placement accomplished */
 			break;
 		}
 		
-/* Remove our restrictions. */
-(void) mon_restrict(NULL, c->depth, false);
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+	}
 }
 
 
@@ -594,6 +597,71 @@ void alloc_stairs(struct chunk *c, int feat, int num)
 	}
 }
 
+/**
+ * Place some staircases near walls sometimes with a guard.
+ * \param c the current chunk
+ * \param feat the stair terrain type
+ * \param num number of staircases to place
+ * \param walls number of walls to surround the stairs (negotiable)
+ */
+ void alloc_stairs_guard(struct chunk *c, int feat, int num)
+ {
+	/* Place the stairs */
+	int i;
+	struct loc grid;
+
+    /* Place "num" stairs */
+    for (i = 0; i < num; i++) {
+		bool done = false;
+		int walls = 3;
+
+		/* Place some stairs */
+		for (done = false; !done; ) {
+			int j;
+
+			/* Try several times, then decrease "walls" */
+			for (j = 0; !done && j <= 100; j++) {
+				find_empty(c, &grid);
+
+				if (square_num_walls_adjacent(c, grid) < walls) continue;
+
+				place_stairs(c, grid, feat);
+				done = true;
+			}
+
+			/* Require fewer walls */
+			if (walls) walls--;
+		}
+	}
+	
+	/* Sometimes place a guard */
+	if ((one_in_(5)) && (randint0(50) < c->depth)) {
+		
+		/* Only Place Stair Guardians */
+		mon_restrict("Stair Guardians", c->depth, true);
+
+		/* Try up to 20 spots looking for empty space */
+		for (i = 0; i < 20; ++i) {
+			struct loc near;
+
+			/* Pick a random location */
+			find_nearby_grid(c, &near, grid, 3, 3);
+
+			/* Require empty space */
+			if (!square_isempty(c, near)) continue;
+
+			/* Place the monster */
+			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+			
+			/* Placement accomplished */
+			break;
+		}
+		
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+	}
+
+}
 
 /**
  * Allocates 'num' random entities in the dungeon.
