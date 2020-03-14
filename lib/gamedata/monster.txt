@@ -661,7 +661,7 @@ depth:1
 rarity:2
 experience:5
 blow:HIT:HURT:1d5
-flags:DROP_60
+flags:DROP_40
 flags:PL_TRAP
 flags:PL_CORE | PL_JB | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is a squat and ugly humanoid figure with a canine face.
@@ -851,7 +851,7 @@ depth:1
 rarity:1
 experience:8
 blow:HIT:HURT:1d8
-flags:DROP_60
+flags:DROP_40
 flags:PL_JB
 desc:It is a squat and ugly humanoid figure scavenging on the outskirts of civilization.
 
@@ -1118,7 +1118,7 @@ depth:2
 rarity:1
 experience:5
 blow:HIT:HURT:1d8
-flags:DROP_60
+flags:DROP_40
 desc:It is a small, dog-headed humanoid.
 
 name:shrieker mushroom patch
@@ -1190,7 +1190,7 @@ experience:6
 blow:HIT:HURT:1d7
 blow:HIT:HURT:1d7
 flags:MALE
-flags:DROP_60
+flags:DROP_40
 flags:OPEN_DOOR
 friends-base:20:1d3:person
 friends-base:40:1d3:person
@@ -1212,10 +1212,10 @@ experience:6
 blow:HIT:HURT:1d6
 blow:TOUCH:EAT_GOLD
 flags:MALE | EVIL
-flags:DROP_40
+flags:DROP_20
 flags:OPEN_DOOR | TAKE_ITEM
 flags:PL_TRAP
-drop:scroll:Phase Door:35:1:3
+drop:scroll:Phase Door:30:1:2
 friends-base:20:1d3:person
 friends-base:40:1d3:person
 friends-base:80:1d3:person
@@ -1236,7 +1236,7 @@ rarity:1
 experience:6
 blow:HIT:HURT:1d5
 flags:MALE
-flags:DROP_40
+flags:DROP_20
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
 spell-freq:12
@@ -1262,7 +1262,7 @@ rarity:1
 experience:6
 blow:HIT:HURT:1d4
 flags:MALE
-flags:DROP_40
+flags:DROP_20
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
 spell-freq:12
@@ -1390,7 +1390,7 @@ depth:2
 rarity:1
 experience:4
 blow:HIT:HURT:1d5
-flags:DROP_60
+flags:DROP_40
 flags:PL_TRAP
 desc:A small humanoid figure.
 
@@ -1531,7 +1531,7 @@ depth:3
 rarity:2
 experience:4
 blow:CRAWL:ACID:1d3
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25 | RAND_50
 flags:IM_ACID | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
 desc:It's green and it's oozing.
@@ -1548,7 +1548,7 @@ depth:3
 rarity:1
 experience:8
 blow:TOUCH:TERRIFY
-flags:DROP_40 | DROP_60
+flags:DROP_20 | DROP_40
 flags:RAND_25 | RAND_50 | TAKE_ITEM
 flags:HURT_LIGHT
 spell-freq:15
@@ -1600,7 +1600,7 @@ depth:3
 rarity:1
 experience:20
 blow:CRUSH:HURT:1d8
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25
 desc:A large black serpent's body with a female torso.
 
@@ -1675,7 +1675,7 @@ experience:4
 blow:HIT:HURT:1d4
 blow:TOUCH:EAT_GOLD
 flags:MALE | EVIL
-flags:DROP_60
+flags:DROP_40
 flags:TAKE_ITEM
 desc:A short little guy, in bedraggled clothes.  He appears to be looking for a
 desc: good tavern.
@@ -1794,7 +1794,7 @@ depth:3
 rarity:1
 experience:15
 blow:HIT:HURT:1d8
-flags:DROP_40
+flags:DROP_20
 spell-freq:5
 spells:WOUND | CONF | HEAL | MISSILE
 drop-base:magic book:5:1:1
@@ -1835,7 +1835,7 @@ experience:18
 blow:HIT:HURT:1d5
 blow:HIT:HURT:1d5
 flags:MALE
-flags:DROP_60
+flags:DROP_40
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
 innate-freq:3
@@ -1864,7 +1864,7 @@ experience:18
 blow:HIT:HURT:1d7
 blow:HIT:HURT:1d7
 flags:MALE
-flags:DROP_60
+flags:DROP_40
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
 spell-freq:9
@@ -1999,7 +1999,7 @@ depth:4
 rarity:1
 experience:20
 blow:HIT:HURT:1d9
-flags:DROP_40
+flags:DROP_20
 innate-freq:2
 spells:ARROW
 friends-base:30:1d2:kobold
@@ -2059,7 +2059,7 @@ rarity:1
 experience:30
 blow:CRUSH:HURT:1d8
 blow:SPIT:ACID:2d6
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25 | TAKE_ITEM
 flags:IM_ACID
 desc:A large green serpent with a female's torso.  Her green skin glistens with
@@ -2077,7 +2077,7 @@ depth:5
 rarity:1
 experience:7
 blow:CRAWL:COLD:1d4
-flags:DROP_40
+flags:DROP_20
 flags:RAND_25 | RAND_50
 flags:IM_COLD | NO_CONF | NO_SLEEP
 desc:It's blue and it's oozing.
@@ -2094,7 +2094,7 @@ depth:5
 rarity:1
 experience:15
 blow:TOUCH:EAT_FOOD:1d1
-flags:DROP_40 | DROP_60
+flags:DROP_20 | DROP_40
 flags:RAND_25 | RAND_50
 flags-off:IM_COLD
 desc:It is a very ugly green ghost with a voracious appetite.
@@ -2129,7 +2129,7 @@ depth:5
 rarity:1
 experience:25
 blow:HIT:HURT:1d10
-flags:DROP_60
+flags:DROP_40
 friends-base:50:1d2:kobold
 friends-base:30:1d2:kobold
 desc:It is a man-sized figure with the all too recognizable face of a kobold.
@@ -2353,7 +2353,7 @@ depth:6
 rarity:1
 experience:15
 blow:HIT:HURT:1d8
-flags:DROP_20
+flags:DROP_10
 flags:HURT_LIGHT
 innate-freq:15
 spells:ARROW
@@ -2451,7 +2451,7 @@ depth:7
 rarity:1
 experience:20
 blow:HIT:HURT:1d8
-flags:DROP_20
+flags:DROP_10
 flags:HURT_LIGHT
 innate-freq:13
 spells:ARROW
@@ -2508,7 +2508,7 @@ rarity:2
 experience:40
 blow:CRUSH:HURT:1d10
 blow:BITE:LOSE_STR:1d4
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25 | TAKE_ITEM
 desc:A large red snake with a woman's torso.
 
@@ -2593,7 +2593,7 @@ rarity:2
 experience:18
 blow:HIT:HURT:2d2
 blow:TOUCH:LOSE_WIS
-flags:DROP_40 | DROP_60
+flags:DROP_20 | DROP_40
 flags:RAND_50 | TAKE_ITEM
 spell-freq:15
 spells:DRAIN_MANA | TPORT
@@ -2614,7 +2614,7 @@ experience:25
 blow:HIT:HURT:1d6
 blow:HIT:HURT:1d6
 flags:MALE | EVIL
-flags:DROP_60
+flags:DROP_40
 flags:FORCE_SLEEP
 spell-freq:10
 spells:CONF | DARKNESS
@@ -2724,7 +2724,7 @@ sleepiness:10
 depth:8
 rarity:1
 experience:11
-flags:DROP_40 | FRIGHTENED | NEVER_BLOW
+flags:DROP_20 | FRIGHTENED | NEVER_BLOW
 innate-freq:9
 spells:SHRIEK
 desc:It is a strange small humanoid in a constant state of extreme terror.
@@ -2811,7 +2811,7 @@ depth:8
 rarity:1
 experience:25
 blow:HIT:HURT:1d8
-flags:DROP_20
+flags:DROP_10
 flags:HURT_LIGHT
 innate-freq:12
 spells:ARROW
@@ -2831,7 +2831,7 @@ experience:26
 blow:HIT:HURT:2d4
 blow:HIT:HURT:2d4
 flags:MALE | EVIL
-flags:DROP_1
+flags:DROP_60
 flags:OPEN_DOOR | TAKE_ITEM
 innate-freq:8
 spells:SHOT | WHIP
@@ -2941,7 +2941,7 @@ rarity:1
 experience:30
 blow:HIT:HURT:1d6
 blow:HIT:HURT:1d6
-flags:DROP_60
+flags:DROP_20
 flags:HURT_LIGHT
 flags:FORCE_SLEEP
 drop-base:magic book:5:1:1
@@ -2964,7 +2964,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ELEC
 innate-freq:12
@@ -2986,7 +2986,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_COLD
 innate-freq:12
@@ -3008,7 +3008,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_POIS
 innate-freq:12
@@ -3030,7 +3030,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ACID
 innate-freq:12
@@ -3052,7 +3052,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_FIRE
 innate-freq:12
@@ -3130,7 +3130,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR | NO_STUN
 innate-freq:12
 spells:BR_SOUN

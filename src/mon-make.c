@@ -656,6 +656,7 @@ int mon_create_drop_count(const struct monster_race *race, bool maximize)
 	static const int drop_2_max = 3;
 
 	if (maximize) {
+		if (rf_has(race->flags, RF_DROP_10)) number++;
 		if (rf_has(race->flags, RF_DROP_20)) number++;
 		if (rf_has(race->flags, RF_DROP_40)) number++;
 		if (rf_has(race->flags, RF_DROP_60)) number++;
@@ -664,6 +665,7 @@ int mon_create_drop_count(const struct monster_race *race, bool maximize)
 		if (rf_has(race->flags, RF_DROP_2)) number += drop_2_max;
 		if (rf_has(race->flags, RF_DROP_1)) number++;
 	} else {
+		if (rf_has(race->flags, RF_DROP_10) && randint0(100) < 10) number++;
 		if (rf_has(race->flags, RF_DROP_20) && randint0(100) < 20) number++;
 		if (rf_has(race->flags, RF_DROP_40) && randint0(100) < 40) number++;
 		if (rf_has(race->flags, RF_DROP_60) && randint0(100) < 60) number++;
