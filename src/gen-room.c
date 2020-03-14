@@ -4011,6 +4011,18 @@ bool build_interesting(struct chunk *c, struct loc centre, int rating)
 
 
 /**
+ * Build a least vault.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_least_vault(struct chunk *c, struct loc centre, int rating)
+{
+	return build_vault_type(c, centre, "Least vault");
+}
+
+
+/**
  * Build a lesser vault.
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()

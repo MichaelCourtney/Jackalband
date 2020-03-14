@@ -4653,3 +4653,2092 @@ D:%.1.##.[23#
 D:%...#32o3##
 D:%%%%#######
 
+
+### "Least Vaults" (Interesting Rooms) from Sil -- maximum size 44x22 ###
+
+name:Sil Tiny Room
+type:Least vault
+rating:0
+rows:4
+columns:4
+min-depth:0
+max-depth:20
+D:%%%%
+D:%.1%
+D:%..%
+D:%%%%
+
+name:Sil Small Square Pillar
+type:Least vault
+rating:0
+rows:5
+columns:5
+min-depth:1
+max-depth:20
+D:%%%%%
+D:%...%
+D:%.#.%
+D:%...%
+D:%%%%%
+
+name:Sil Small Square Forge
+type:Least vault
+rating:0
+rows:5
+columns:5
+min-depth:1
+max-depth:20
+D:%%%%%
+D:%...%
+D:%.).%
+D:%...%
+D:%%%%%
+
+name:Sil Small Round
+type:Least vault
+rating:0
+rows:6
+columns:6
+min-depth:1
+max-depth:20
+D: %%%% 
+D:%%..%%
+D:%....%
+D:%..1.%
+D:%%..%%
+D: %%%% 
+
+name:Sil Diamond 1
+type:Least vault
+rating:0
+rows:7
+columns:7
+min-depth:4
+max-depth:20
+D:  #%#  
+D: ##.## 
+D:##...##
+D:%..#..%
+D:##...##
+D: ##.## 
+D:  #%#  
+
+
+name:Sil Diamond 2
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:5
+max-depth:20
+D:   #%#   
+D:  ##.##  
+D: ##...## 
+D:##.....##
+D:%...1...%
+D:##.....##
+D: ##...## 
+D:  ##.##  
+D:   #%#   
+
+
+name:Sil Diamond 3
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:6
+max-depth:20
+D:    #%#    
+D:   ##.##   
+D:  ##...##  
+D: ##.....## 
+D:##...#...##
+D:%...#1#...%
+D:##...#...##
+D: ##.....## 
+D:  ##...##  
+D:   ##.##   
+D:    #%#    
+
+
+name:Sil Diamond Forge
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:6
+max-depth:20
+D:    #%#    
+D:   ##.##   
+D:  ##...##  
+D: ##...2.## 
+D:##...#...##
+D:%...#)#...%
+D:##...#...##
+D: ##.....## 
+D:  ##...##  
+D:   ##.##   
+D:    #%#    
+
+
+name:Sil Diamond 4
+type:Least vault
+rating:0
+rows:13
+columns:13
+min-depth:6
+max-depth:20
+D:     #%#     
+D:    ##.##    
+D:   ##...##   
+D:  ##..#..##  
+D: ##..###..## 
+D:##..#####..##
+D:%..#######..%
+D:##..#####..##
+D: ##..###..## 
+D:  ##..#..##  
+D:   ##...##   
+D:    ##.##    
+D:     #%#     
+
+
+name:Sil Hexagon
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:2
+max-depth:20
+D:   #%%%%%#   
+D:  ##.....##  
+D: ##.......## 
+D:##...1.....##
+D:%...........%
+D:##.........##
+D: ##.......## 
+D:  ##.....##  
+D:   #%%%%%#   
+
+
+name:Sil Hexagon Forge
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:2
+max-depth:20
+D:   #%%%%%#   
+D:  ##.....##  
+D: ##.......## 
+D:##...1.....##
+D:%.....).....%
+D:##.........##
+D: ##.....2.## 
+D:  ##.....##  
+D:   #%%%%%#   
+
+
+name:Sil Hexagon 3
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:3
+max-depth:20
+D:   #%%%%%#   
+D:  ##.....##  
+D: ##..###..## 
+D:##..#####..##
+D:%..#######..%
+D:##..#####..##
+D: ##..###..## 
+D:  ##.....##  
+D:   #%%%%%#   
+
+
+name:Sil Hexagon 4
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:4
+max-depth:20
+D:   #%%%%%#   
+D:  ##.....##  
+D: ##..#+#..## 
+D:##..##.##..##
+D:%..##.~.##..%
+D:##..##.##..##
+D: ##..###..## 
+D:  ##.....##  
+D:   #%%%%%#   
+
+
+name:Sil T
+type:Least vault
+rating:0
+rows:9
+columns:17
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%%%%%%%
+D:%...............%
+D:%.......1.......%
+D:%...............%
+D:%%%%%%.....%%%%%%
+D:     %.....%     
+D:     %.....%     
+D:     %.....%     
+D:     %%%%%%%     
+
+name:Sil T 2
+type:Least vault
+rating:0
+rows:9
+columns:17
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%%%%%%%
+D:%...............%
+D:%.......1.......%
+D:%...............%
+D:##+###.....%%%%%%
+D:#.3..#.....%     
+D:#..2.#.....%     
+D:#....#.....%     
+D:######%%%%%%     
+
+name:Sil Thin Cross
+type:Least vault
+rating:0
+rows:12
+columns:18
+min-depth:8
+max-depth:20
+D:      %%%%%%      
+D:      %....%      
+D:      %....%      
+D:      %....%      
+D:%%%%%%%....%%%%%%%
+D:%.......1........%
+D:%.1......1.......%
+D:%%%%%%%....%%%%%%%
+D:      %....%      
+D:      %....%      
+D:      %....%      
+D:      %%%%%%      
+
+name:Sil Collapsed Cross
+type:Least vault
+rating:0
+rows:12
+columns:18
+min-depth:12
+max-depth:20
+D:      %%%%%%      
+D:      %....%      
+D:      %..#.%      
+D:      %....%      
+D:%%%%%%%:...%%%%%%%
+D:%.....:..1....:1.%
+D:%...:#..1...:....%
+D:%%%%%%%.:..%%%%%%%
+D:      %....%      
+D:      %...:%      
+D:      %....%      
+D:      %%%%%%      
+
+
+name:Sil Corridor Cross
+type:Least vault
+rating:0
+rows:12
+columns:17
+min-depth:2
+max-depth:20
+D:     #%%%%%#     
+D:     %.....%     
+D:     %.1...%     
+D:     %.....%     
+D:#%%%%###+###%%%%#
+D:%..........2....%
+D:%...............%
+D:#%%%%###+###%%%%#
+D:     %.....%     
+D:     %.....%     
+D:     %...1.%     
+D:     #%%%%%#     
+
+name:Sil Hourglass
+type:Least vault
+rating:0
+rows:11
+columns:9
+min-depth:3
+max-depth:20
+D:%%%%%%%%%
+D:%.......%
+D:%..1....%
+D:##.....##
+D: ##...## 
+D:  ##.##  
+D: ##...## 
+D:##.1...##
+D:%....1..%
+D:%.......%
+D:%%%%%%%%%
+
+name:Silq Sunlight Shaft
+type:Least vault
+rating:0
+rows:8
+columns:8
+min-depth:1
+max-depth:20
+D:  #%%#  
+D: ##..## 
+D:##.b..##
+D:%..;;:.%
+D:%.:;;..%
+D:##..b.##
+D: ##..## 
+D:  #%%#  
+
+name:Silq Golden Door
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:1
+max-depth:20
+D:%%%%%%%%%
+D:%.......%
+D:%.##+##.%
+D:%.#:;:#.%
+D:%.+.2.+.%
+D:%.#...#.%
+D:%.##+##.%
+D:%.......%
+D:%%%%%%%%%
+
+name:Silq Small Sunlight Shaft
+type:Least vault
+rating:0
+rows:5
+columns:7
+min-depth:1
+max-depth:20
+D:###%###
+D:#.....#
+D:#.:;:.#
+D:#.....#
+D:###%###
+
+name:Silq Fallen Treasure
+type:Least vault
+rating:0
+rows:5
+columns:5
+min-depth:1
+max-depth:20
+D:%%%%%
+D:%:.:%
+D:%;3;%
+D:%:;:%
+D:%%%%%
+
+name:Silq Collapsed Corner
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:1
+max-depth:20
+D:%%%%#####
+D:%....:;;#
+D:%.....s;#
+D:%......:#
+D:%.......#
+D:%.......%
+D:%.......%
+D:%.......%
+D:%%%%%%%%%
+
+name:Silq Sunlight with Chasm
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:1
+max-depth:20
+D:%%%%#####
+D:%...:;[[#
+D:%....;;[#
+D:%....:;;#
+D:%......:#
+D:%.......%
+D:%.......%
+D:%.......%
+D:%%%%%%%%%
+
+name:Silq Slave Pit 1
+type:Least vault
+rating:0
+rows:13
+columns:13
+min-depth:2
+max-depth:20
+D:#####%%%#####
+D:#h.h#...#h.h#
+D:#.....o.....#
+D:#h....[....h#
+D:##.........##
+D:%...o...o...%
+D:%...........%
+D:%...o...o...%
+D:##.........##
+D:#h....[....h#
+D:#.....o.....#
+D:#h.h#...#h.h#
+D:#####%%%#####
+
+name:Silq Slave Pit 2
+type:Least vault
+rating:0
+rows:13
+columns:13
+min-depth:2
+max-depth:20
+D:#####%%%#####
+D:#h.[.....[.h#
+D:##.........##
+D:#h.###+###.h#
+D:##.#o...o#.##
+D:%..###+###..%
+D:%..#o...o#..%
+D:%..###+###..%
+D:##.#o...o#.##
+D:#h.###+###.h#
+D:##.........##
+D:#h.[.....[.h#
+D:#####%%%#####
+
+name:Silq Slave Pit 3
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:2
+max-depth:20
+D:%%#########%%
+D:%.#hh.[.hh#.%
+D:%.#h..o..h#.%
+D:%.####+####.%
+D:%.+o.....o+.%
+D:%.####+####.%
+D:%.#h..o..h#.%
+D:%.#hh.[.hh#.%
+D:%%#########%%
+
+name:Silq Slave Mine
+type:Least vault
+rating:0
+rows:9
+columns:12
+min-depth:2
+max-depth:20
+D:#######%%%%%
+D:#:::###....%
+D:#:h.##:h.#.%
+D:#::..h::.:.#
+D:#h:..#:.o..#
+D:#...o####..%
+D:%..:::#.##.#
+D:%..........#
+D:%%%%%%######
+
+name:Sil Maze
+type:Least vault
+rating:0
+rows:9
+columns:15
+min-depth:5
+max-depth:20
+D:%%%%%%%%%%%%%%%
+D:%.......#.....%
+D:%.#.###.#.#.#.%
+D:%.#..2#...#.#.%
+D:%.#########.#.%
+D:%..1#.......#.%
+D:%####.####.##.%
+D:%.......#1.#1.%
+D:%%%%%%%%%%%%%%%
+
+name:Sil Maze 2
+type:Least vault
+rating:0
+rows:10
+columns:17
+min-depth:5
+max-depth:20 
+D:%%%%%%%%%%%%%%%%%
+D:%......#....#...%
+D:%#####...##.###.%
+D:%#...#.####.....%
+D:%..#.#..32#####.%
+D:%.######23#...#.%
+D:%..#...####.#.#.%
+D:%.##.#...#..#.#.%
+D:%....#.#...##...%
+D:%%%%%%%%%%%%%%%%%
+
+name:Sil Maze 3
+type:Least vault
+rating:0
+rows:7
+columns:8
+min-depth:5
+max-depth:20
+D:%%%%%%%%
+D:%.#1...%
+D:%.###.#%
+D:%...#..%
+D:%.#.##.%
+D:%1#....%
+D:%%%%%%%%
+
+name:Sil Maze 4
+type:Least vault
+rating:0
+rows:7
+columns:8
+min-depth:5
+max-depth:20
+D:%%%%%%%%
+D:%1..#1.%
+D:%##.##.%
+D:%...#..%
+D:%.###.#%
+D:%......%
+D:%%%%%%%%
+
+name:Sil Cross Maze
+type:Least vault
+rating:0
+rows:14
+columns:17
+min-depth:5
+max-depth:20
+D:    %%%%%%%%%    
+D:    %...#...%    
+D:    %.#.#.#.%    
+D:    %.#.#.#.%    
+D:%%%%%.#...#.%%%%%
+D:%1#...#####.#...%
+D:%.#1#...#.....#.%
+D:%.#####.#.#####.%
+D:%.....#.#.#.....%
+D:%%%%%...#.#1%%%%%
+D:    %.#.#.##%    
+D:    %.###.#.%    
+D:    %..1#...%    
+D:    %%%%%%%%%    
+
+name:Sil Large Round Maze
+type:Least vault
+rating:0
+rows:12
+columns:20
+min-depth:10
+max-depth:20
+D:       %%%%%%       
+D:    #%#......#%#    
+D:  ##....#.##....##  
+D: #...####..##.#.#.# 
+D:%..#.#.######.###..%
+D:%.##....#32##...##.%
+D:#######.#23.###.##.%
+D:%..#....###.....#..%
+D: #...####.#####...# 
+D:  ##....#.##..#.##  
+D:    #%#......###    
+D:       %%%%%%       
+
+name:Sil Large Round Maze 2
+type:Least vault
+rating:0
+rows:12
+columns:20
+min-depth:10
+max-depth:20
+D:       %%%#%%       
+D:    #%#...#..#%#    
+D:  ##....####....##  
+D: #...#.##2#..##...# 
+D:%..###.##.#.#####..%
+D:%.##1#.#....#...##.%
+D:%.##...#3####.#....%
+D:%..#.#1###....###..%
+D: #1#.####..####1#.# 
+D:  ##....#.##....##  
+D:    #%#......#%#    
+D:       %%%%%%       
+
+name:Sil Forge Maze
+type:Least vault
+rating:0
+rows:10
+columns:16
+min-depth:10
+max-depth:20
+D:%%%%%%%%%%%%%%%%
+D:%#...........#.%
+D:%..####.####.#.%
+D:%###....#1.#.#.%
+D:%....##.##.#.#.%
+D:%.##.#2).#.#...%
+D:%..####.##.###.%
+D:%#....###...#..%
+D:%..##.....#...#%
+D:%%%%%%%%%%%%%%%%
+
+name:Sil Labyrinth
+type:Least vault
+rating:0
+rows:9
+columns:11
+min-depth:5
+max-depth:20
+D:%%%%%%%%%%%
+D:%...#.#...%
+D:%.#.#.#.#.%
+D:%.#..1..#.%
+D:%1#######1%
+D:%.#..1..#.%
+D:%.#.#.#.#.%
+D:%...#.#...%
+D:%%%%%%%%%%%
+
+name:Sil Labyrith with Door
+type:Least vault
+rating:0
+rows:11
+columns:12
+min-depth:5
+max-depth:20
+D:%%%%%%%%%%%%
+D:%.#.#..#.#.%
+D:%1#......#1%
+D:%.#.####.#.%
+D:%...+..#...%
+D:#.###21###.#
+D:%...#..+...%
+D:%.#.####.#.%
+D:%1#......#1%
+D:%.#.#..#.#.%
+D:%%%%%%%%%%%%
+
+name:Sil Courtyard Rooms
+type:Least vault
+rating:0
+rows:11
+columns:23
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%%%%%%%%%%%%%
+D:%....#.#...1...#......%
+D:%.1..#.#.......#..1...%
+D:%....#.#######+#......%
+D:%###+#.........#......%
+D:%..............######+%
+D:%#####............#...%
+D:%....+...####+##..+...%
+D:%.1..#...#.....#..#..1%
+D:%....#...#.1...#..#...%
+D:%%%%%%%%%%%%%%%%%%%%%%%
+
+name:Sil Courtyard Rooms 2
+type:Least vault
+rating:0
+rows:11
+columns:23
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%%%%%%%%%%%%%
+D:%....#..#.1.#.#3+.#...%
+D:%..2.#..#...#.###.#...%
+D:%....+..##+##.....#.1.%
+D:%#####............#...%
+D:%...+.............#...%
+D:%...#....####+#...+...%
+D:%####.####....#.#+####%
+D:%.1.+.+..#..1.#.#.....%
+D:%...#.#..#....#.#.....%
+D:%%%%%%%%%%%%%%%%%%%%%%%
+
+name:Sil Courtyard Rooms 3
+type:Least vault
+rating:0
+rows:12
+columns:19
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%%%%%%%%%
+D:%...#.#..1.#......%
+D:%...#.#....#...1..%
+D:%.1.#.####+#..2...%
+D:%...+......+......%
+D:%...#......#######%
+D:%######...........%
+D:%.....+......#####%
+D:%..1..#......+....%
+D:%.....#...#+##..).%
+D:%.....#...#.1#....%
+D:%%%%%%%%%%%%%%%%%%%
+
+name:Sil Courtyard Rooms 4
+type:Least vault
+rating:0
+rows:12
+columns:20
+min-depth:3
+max-depth:20
+D:             %%%%%%%
+D:%%%%%%%%%%%%%%.....%
+D:%.....#...#.1#.....%
+D:%..1..#...#..#..1..%
+D:%.....+...#+##+####%
+D:%%#####............%
+D: %...+.........####%
+D: %...######+##.+...%
+D: %.1.#...#...#.#.1.%
+D: %...+..3#.1.#.#...%
+D: %%%%%%%%%...%%%%%%%
+D:         %%%%%      
+
+name:Sil Hallway Rooms
+type:Least vault
+rating:0
+rows:10
+columns:23
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%%%%%%%%%%%%%
+D:%.......+.+.....#.....%
+D:%.###+###.#####.+.23..%
+D:%.#.....#.#...#.#.....%
+D:%.#.1...#.+...#+######%
+D:%.#######.#12.#.......%
+D:%.#.....#.#...#..1....%
+D:%.#..11.#.#####.......%
+D:%.+.....#.....+.......%
+D:%%%%%%%%%%%%%%%%%%%%%%%
+
+name:Sil Hallway Rooms 2
+type:Least vault
+rating:0
+rows:15
+columns:23
+min-depth:3
+max-depth:20
+D:            ###########
+D:            #.........#
+D:            #.#######.#
+D:            #.#..2..#.#
+D:            #.+...3.#.#
+D:%%%%%%%%%%%%#########+#
+D:%.......+.+.....#.....%
+D:%.###+###.#####.+.23..%
+D:%.#.....#.#...#.#.....%
+D:%.#.1...#.+...#+######%
+D:%.#######.#12.#.......%
+D:%.#.....#.#...#..1....%
+D:%.#..11.#.#####.......%
+D:%.+.....#.....+.......%
+D:%%%%%%%%%%%%%%%%%%%%%%%
+
+name:Sil Swirl
+type:Least vault
+rating:0
+rows:11
+columns:17
+min-depth:3
+max-depth:20
+D:%%%%%%%%%#%%%%%%%
+D:%........#......%
+D:%....1...#......%
+D:%........#..32..%
+D:########+#......%
+D:%......+.+......%
+D:%......#+########
+D:%..11..#........%
+D:%......#...2....%
+D:%......#........%
+D:%%%%%%%#%%%%%%%%%
+
+name:Sil Window
+type:Least vault
+rating:0
+rows:11
+columns:15
+min-depth:1
+max-depth:20
+D:%%%%%%#%#%%%%%%
+D:%.....+.#.....%
+D:%..1..#.#.....%
+D:%.....#.#.....%
+D:#######.#####+#
+D:%.............%
+D:#+#####.#######
+D:%.....#.#1....%
+D:%..2..#.#.....%
+D:%.....#.+.....%
+D:%%%%%%#%#%%%%%%
+
+name:Sil Five Rooms
+type:Least vault
+rating:0
+rows:13
+columns:13
+min-depth:1
+max-depth:20
+D:%%%%%%#%%%%%%
+D:$.....#.....%
+D:$..2..+...1.%
+D:$.....#.....%
+D:$...#####...%
+D:$...+.2.+...%
+D:#####.3.#####
+D:$...+.2.+...%
+D:$...#####...%
+D:$....1#.....%
+D:$.1...+...3.%
+D:$.....#.....%
+D:%%%%%%#%%%%%%
+
+name:Sil Cells 1
+type:Least vault
+rating:0
+rows:7
+columns:9
+min-depth:5
+max-depth:20
+D:#########
+D:#s#1#2#1#
+D:#+#+#+#+#
+D:%.......%
+D:%.......%
+D:%.......%
+D:%%%%%%%%%
+
+name:Sil Cells 2
+type:Least vault
+rating:0
+rows:7
+columns:9
+min-depth:3
+max-depth:20
+D:#########
+D:#s#2#1#2#
+D:#+#+#+#+#
+D:%.......%
+D:#+#+#+#+#
+D:#1#.#s#1#
+D:#########
+
+name:Sil Cells 3
+type:Least vault
+rating:0
+rows:9
+columns:11
+min-depth:12
+max-depth:20
+D:%%%%%%%%%%%
+D:%.........%
+D:%.#+#+#+#.%
+D:%.#1#2#.#.%
+D:%.#######.%
+D:%.#s#1#2#.%
+D:%.#+#+#+#.%
+D:%.........%
+D:%%%%%%%%%%%
+
+name:Sil The starving yard
+type:Least vault
+rating:0
+rows:13
+columns:13
+min-depth:13
+max-depth:20
+D:  ###   ###  
+D:  #s#   #1#  
+D:  #+##%##+#  
+D:###.......###
+D:#p+.#####.+.#
+D:###.+1#s+.###
+D:#.+.#####.+s#
+D:###.+2#1+.###
+D:#s+.#####.+.#
+D:###.......###
+D:  #+##%##+#  
+D:  #1#   #2#  
+D:  ###   ###  
+
+name:Sil Panopticon
+type:Least vault
+rating:0
+rows:7
+columns:9
+min-depth:14
+max-depth:20
+D: ###%### 
+D: #2#.#s# 
+D:###^.^###
+D:#2^.g.^o#
+D:###^.^###
+D: #3#.#2# 
+D: ###%### 
+
+name:Sil Kennels
+type:Least vault
+rating:0
+rows:7
+columns:10
+min-depth:4
+max-depth:20
+D:####%%####
+D:#CC#..#CC#
+D:#C.+..+.C#
+D:####..####
+D:#C.+..+.C#
+D:#CC#..#CC#
+D:####%%####
+
+name:Sil Archers
+type:Least vault
+rating:0
+rows:10
+columns:11
+min-depth:5
+max-depth:20
+D:   #####   
+D:   #3o3#   
+D:#####.#####
+D:#o.......o#
+D:#.###.###.#
+D:#o.......o#
+D:#.###.###.#
+D:#o.......o#
+D:#####.#####
+D:    #%#    
+
+name:Sil Diamond Centre 1
+type:Least vault
+rating:0
+rows:9
+columns:11
+min-depth:1
+max-depth:20
+D:  #%%%%%#  
+D: ##....1## 
+D:##...#...##
+D:%...#.#...%
+D:%..#.2.#..%
+D:%...#.#...%
+D:##...#...##
+D: ##.....## 
+D:  #%%%%%#  
+
+name:Sil Round
+type:Least vault
+rating:0
+rows:8
+columns:13
+min-depth:1
+max-depth:20
+D:    %%%%%    
+D:  ##.....##  
+D: #.........# 
+D:%.....1.....%
+D:%.....1.....%
+D: #.........# 
+D:  ##.....##  
+D:    %%%%%    
+
+name:Sil Small Round Forge
+type:Least vault
+rating:0
+rows:7
+columns:7
+min-depth:1
+max-depth:20
+D: %%%%% 
+D:%%...%%
+D:%.....%
+D:%..)..%
+D:%...2.%
+D:%%...%%
+D: %%%%% 
+
+name:Sil Cross Forge
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:1
+max-depth:20
+D:  %%%%%  
+D:  %...%  
+D:%%%...%%%
+D:%.....2.%
+D:%...)...%
+D:%.......%
+D:%%%...%%%
+D:  %...%  
+D:  %%%%%  
+
+name:Sil Large Round
+type:Least vault
+rating:0
+rows:12
+columns:18
+min-depth:8
+max-depth:20
+D:      %%%%%%      
+D:    ##......##    
+D:  ##..........##  
+D: #......##......# 
+D:%......#..#......%
+D:%.....#.32.#.....%
+D:%.....#.23.#.....%
+D:%......#..#......%
+D: #......##......# 
+D:  ##..........##  
+D:    ##......##    
+D:      %%%%%%      
+
+name:Sil Large Round 2
+type:Least vault
+rating:0
+rows:13
+columns:17
+min-depth:9
+max-depth:20
+D:      %%%%%      
+D:    %#.....#%    
+D:  %#.........#%  
+D: #......#......# 
+D:%....#..2..#....%
+D:%...............%
+D:%...#2..~..2#...%
+D:%...............%
+D:%....#..2..#....%
+D: #......#......# 
+D:  %#.........#%  
+D:    %#.....#%    
+D:      %%%%%      
+
+name:Sil Large Round 3
+type:Least vault
+rating:0
+rows:13
+columns:17
+min-depth:10
+max-depth:20
+D:      %%%%%      
+D:    %#.....#%    
+D:  %#.........#%  
+D: #......#......# 
+D:%....#.....#....%
+D:%......^^^......%
+D:%...#..^2^..#...%
+D:%......^^^......%
+D:%....#.....#....%
+D: #......#......# 
+D:  %#.........#%  
+D:    %#.....#%    
+D:      %%%%%      
+
+name:Sil Keep
+type:Least vault
+rating:0
+rows:9
+columns:19
+min-depth:5
+max-depth:20
+D:%%%%#%%%%%%%%%#%%%%
+D:%...#.........#...%
+D:%...#...323...#...%
+D:%...#.........#...%
+D:%...#####+#####...%
+D:%.................%
+D:%.................%
+D:%.................%
+D:%%%%%%%%%%%%%%%%%%%
+
+name:Sil Keep 2
+type:Least vault
+rating:0
+rows:9
+columns:19
+min-depth:5
+max-depth:20
+D:%%%%#%%%%%%%%%#%%%%
+D:%...#.........#...%
+D:%...+...323...#...%
+D:%...#.........#...%
+D:%...###########...%
+D:%.................%
+D:%...1.............%
+D:%.................%
+D:%%%%%%%%%%%%%%%%%%%
+
+name:Sil Collapsed Keep
+type:Least vault
+rating:0
+rows:9
+columns:19
+min-depth:8
+max-depth:20
+D:%%%%######::###%%%%
+D:%...#.3..3....#...%
+D:%...#.:.2.2:###...%
+D:%.1.:.....3...#..:%
+D:%...:#######:##...%
+D:%......#........1.%
+D:%.:..........:....%
+D:%...#.............%
+D:%%%%%%%%%%%%%%%%%%%
+
+name:Sil Winding
+type:Least vault
+rating:0
+rows:10
+columns:15
+min-depth:3
+max-depth:20
+D:%%%%%%%%%######
+D:%.............#
+D:%.......2.....#
+D:#############+#
+D:%........2....%
+D:%....3........%
+D:#+#############
+D:#.......2.....%
+D:#.............%
+D:#######%%%%%%%%
+
+name:Sil Hall
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:1
+max-depth:20
+D:######%######
+D:#..2........#
+D:#...........#
+D:#.#.#.#.#.#.#
+D:%...........%
+D:#.#.#.#.#.#.#
+D:#........1..#
+D:#...........#
+D:######%######
+
+name:Sil Hall 2
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:1
+max-depth:20
+D:#%%%%%%%%%%%#
+D:#...........#
+D:#.#.#2#.#.#.#
+D:#...........#
+D:%.........3.%
+D:#.2.........#
+D:#.#.#.#.#.#.#
+D:#....2......#
+D:#%%%%%%%%%%%#
+
+name:Sil Hall 3
+type:Least vault
+rating:0
+rows:9
+columns:11
+min-depth:3
+max-depth:20
+D:%%%%%%%%%%%
+D:%.#.#.#1#.%
+D:%.#.#.#.#.%
+D:%.........%
+D:%..1......%
+D:%......1..%
+D:%.#.#.#.#.%
+D:%.#.#1#.#.%
+D:%%%%%%%%%%%
+
+name:Sil Densely Pillared Hall
+type:Least vault
+rating:0
+rows:7
+columns:7
+min-depth:5
+max-depth:20
+D:%%%%%%%
+D:%.#.#1%
+D:%#.#.#%
+D:%.#3#.%
+D:%#.#.#%
+D:%.#.#.%
+D:%%%%%%%
+
+name:Sil Densely Pillared Hall 2
+type:Least vault
+rating:0
+rows:7
+columns:7
+min-depth:5
+max-depth:20
+D:##%#%##
+D:##1#.##
+D:%.#.#.%
+D:##.#.##
+D:%.#.#1%
+D:##.#.##
+D:##%#%##
+
+name:Sil Brackets Column
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:8
+max-depth:20
+D:%%%%%%%%%
+D:%.......%
+D:%.##.##.%
+D:%.#2.2#.%
+D:%...#...%
+D:%.#2.2#.%
+D:%.##.##.%
+D:%.......%
+D:%%%%%%%%%
+
+name:Sil Brackets Chest
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:8
+max-depth:20
+D:%%%%%%%%%
+D:%.......%
+D:%.##^##.%
+D:%.#2.2#.%
+D:%.^.~.^.%
+D:%.#2.2#.%
+D:%.##^##.%
+D:%.......%
+D:%%%%%%%%%
+
+name:Sil Brackets Forge
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:5
+max-depth:20
+D:%%%%%%%%%
+D:%.......%
+D:%.##.##.%
+D:%.#2.2#.%
+D:%...)...%
+D:%.#2.2#.%
+D:%.##.##.%
+D:%.......%
+D:%%%%%%%%%
+
+name:Sil Secret Chamber
+type:Least vault
+rating:0
+rows:7
+columns:4
+min-depth:3
+max-depth:20
+D:%%%%
+D:%..%
+D:%..%
+D:##+#
+D:#..#
+D:#3.#
+D:####
+
+name:Sil Ringway
+type:Least vault
+rating:0
+rows:10
+columns:12
+min-depth:2
+max-depth:20
+D:%%%%%%%%%%%%
+D:%...1......%
+D:%..........%
+D:%..######..%
+D:%..######..%
+D:%..######..%
+D:%..######..%
+D:%......1...%
+D:%..........%
+D:%%%%%%%%%%%%
+
+name:Sil Ringway 2
+type:Least vault
+rating:0
+rows:10
+columns:12
+min-depth:5
+max-depth:20
+D:%%%%%%%%%%%%
+D:%..........%
+D:%......1...%
+D:%..######..%
+D:%.1#.3.2+..%
+D:%..#....#..%
+D:%..######..%
+D:%..........%
+D:%...1......%
+D:%%%%%%%%%%%%
+
+name:Sil Ringway 3
+type:Least vault
+rating:0
+rows:10
+columns:12
+min-depth:7
+max-depth:20
+D:%%%%%%%%%%%%
+D:%...1......%
+D:%..........%
+D:%..#+####..%
+D:%..#2#3##..%
+D:%..#2#^##..%
+D:%.1###+##..%
+D:%......2...%
+D:%..........%
+D:%%%%%%%%%%%%
+
+name:Sil Ringway 4
+type:Least vault
+rating:0
+rows:10
+columns:12
+min-depth:10
+max-depth:20
+D:%%%%%%%%%%%%
+D:%....1.....%
+D:%..........%
+D:%..######..%
+D:%..#.3.2#..%
+D:%..#312.#..%
+D:%..######.1%
+D:%...1......%
+D:%..........%
+D:%%%%%%%%%%%%
+
+name:Sil Spider Cave
+type:Least vault
+rating:0
+rows:10
+columns:13
+min-depth:8
+max-depth:20
+D:########%%%%%
+D:######......%
+D:#s##s#.####.%
+D:#.#..#.#s##.%
+D:#........##.%
+D:%.S.........%
+D:#....#..###.%
+D:#.#..#..ss#.%
+D:#s##s#S..3#.%
+D:###########%%
+
+name:Sil Spider Cave 2
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:8
+max-depth:20
+D:%%%%%%%%%
+D:%.......%
+D:%..S....%
+D:#..#....#
+D:#.###.###
+D:#.s#s...#
+D:#######.#
+D:#3ss...s#
+D:#########
+
+name:Sil Chi
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:7
+max-depth:20
+D:%%%# #%%%
+D:%1.#%#.1%
+D:%.......%
+D:##.....##
+D: %..3..% 
+D:##.....##
+D:%.......%
+D:%1.#%#.1%
+D:%%%# #%%%
+
+name:Sil Chi 2
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:9
+max-depth:20
+D:%%%%# #%%%%
+D:%...# #...%
+D:%...#%#...%
+D:%.........%
+D:###.2.1.###
+D:%3#..3..%  
+D:#+#.1.1.###
+D:%.........%
+D:%...#%#.2.%
+D:%...# #...%
+D:%%%%# #%%%%
+
+name:Sil Special Cross
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:13
+max-depth:20
+D:  #%%%%%#  
+D:  %.....%  
+D:#%#.#.#.#%#
+D:%...#.#...%
+D:%.###.###.%
+D:%....3....%
+D:%.###.###.%
+D:%..2#.#...%
+D:#%#.#.#.#%#
+D:  %.....%  
+D:  #%%%%%#  
+
+name:Sil Special Cross 2
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:13
+max-depth:20
+D:  #%%%%%#  
+D:  %.....%  
+D:#%#.#.#.#%#
+D:%...#.#.2.%
+D:%.###.###.%
+D:%....)....%
+D:%.###.###.%
+D:%...#.#...%
+D:#%#.#.#.#%#
+D:  %.....%  
+D:  #%%%%%#  
+
+name:Sil Special Cross 3
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:13
+max-depth:20
+D:  #%%%%%#  
+D:  %.....%  
+D:#%#.###.#%#
+D:%...#2#2..%
+D:%.###3###.%
+D:%.#23332#.%
+D:%.###3###.%
+D:%..2#2#...%
+D:#%#.###.#%#
+D:  %.....%  
+D:  #%%%%%#  
+
+name:Sil Hidden Oval Treasure
+type:Least vault
+rating:0
+rows:11
+columns:13
+min-depth:9
+max-depth:20
+D:  #%%%%%%%#  
+D: ##...+...## 
+D:##...###...##
+D:%.1.##.##...%
+D:%..##3.2##1.%
+D:%..#..3..#..%
+D:%..##2.3##..%
+D:%...##.##...%
+D:##.1.###...##
+D: ##...+...## 
+D:  #%%%%%%%#  
+
+name:Sil Alcoved Forge
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:9
+max-depth:20
+D:#%%%%####
+D:#....+.1#
+D:#....####
+D:%.......#
+D:%..2..).#
+D:%.......#
+D:#....####
+D:#....+.1#
+D:#%%%%####
+
+name:Sil Circular Thing
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:7
+max-depth:20
+D:   #%%%#   
+D: #%#.2.#%# 
+D:##.......##
+D:%..##+##..%
+D:#+##...##+#
+D:%2#3.2.1#.%
+D:#+##...##+#
+D:%..##+##..%
+D:##.......##
+D: #%#.2.#%# 
+D:   #%%%#   
+
+name:Sil Cave In
+type:Least vault
+rating:0
+rows:9
+columns:19
+min-depth:12
+max-depth:20
+D:   #%%##%%%%%%#%%%%
+D:  ##....#..:.....:%
+D:###:..##.2....:.1.%
+D:%.2:....#....##...%
+D:%...:#.....#3...:##
+D:%.#...........:...%
+D:%.....1.##::#....:%
+D:##..#...#32.:..#..%
+D: #%%%%%%#:#:#%%%%%%
+
+name:Sil Gauntlet
+type:Least vault
+rating:0
+rows:10
+columns:11
+min-depth:7
+max-depth:20
+D:#####%#####
+D:#2.#.1#..2#
+D:#....##...#
+D:#.#####.#.#
+D:#.1#.3.##.#
+D:#.##.2.#3.#
+D:#.#.#####.#
+D:#...##....#
+D:#1..#1.#.2#
+D:#####%#####
+
+
+####### Dragons
+
+name:Sil Dragons Lair
+type:Least vault
+rating:0
+rows:9
+columns:6
+min-depth:12
+max-depth:20
+D: #####
+D:##3.3#
+D:#3..3#
+D:#.d.##
+D:#.3## 
+D:#.##  
+D:#s.## 
+D:##..# 
+D: #%%# 
+
+name:Sil Dragons Lair 2
+type:Least vault
+rating:0
+rows:5
+columns:11
+min-depth:13
+max-depth:20
+D:%%%%%%#####
+D:%.....#..3#
+D:%.....+.d.#
+D:%.....#..3#
+D:%%%%%%#####
+
+
+####### Barrows
+
+name:Sil Barrow 1
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:8
+max-depth:20
+D: %%%%%%% 
+D:%%.....%%
+D:%..###..%
+D:%.##.##.%
+D:%.+.W3#.%
+D:%.##.##.%
+D:%..###..%
+D:%%.....%%
+D: %%%%%%% 
+
+name:Sil Barrow 2
+type:Least vault
+rating:0
+rows:9
+columns:7
+min-depth:9
+max-depth:20
+D: ##%## 
+D: #...# 
+D: #...# 
+D:###.###
+D:#W.~.W#
+D:###.###
+D: #...# 
+D: #...# 
+D: ##%## 
+
+name:Sil Barrow 3
+type:Least vault
+rating:0
+rows:10
+columns:7
+min-depth:9
+max-depth:20
+D:#######
+D:#3#3#3#
+D:#W#W#W#
+D:#.....#
+D:##...##
+D:##+#+##
+D:%.....%
+D:%.....%
+D:%.....%
+D:%%%%%%%
+
+name:Sil Barrow 4
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:10
+max-depth:20
+D:  ##%##  
+D: ##...## 
+D:##W...W##
+D:#.......#
+D:%...~...%
+D:#.......#
+D:##W...W##
+D: ##...## 
+D:  ##%##  
+
+name:Sil Barrow Chasm
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:10
+max-depth:20
+D:  #%%%#  
+D: ##...## 
+D:##..W..##
+D:%...3...%
+D:#[[[[[[[#
+D:%...3...%
+D:##..W..##
+D: ##...## 
+D:  #%%%#  
+
+
+####### Chasms
+
+name:Sil A Path Between
+type:Least vault
+rating:0
+rows:9
+columns:7
+min-depth:2
+max-depth:20
+D:%%%%%%%
+D:%.1...%
+D:#..[[.%
+D:[[[[..%
+D:#.....#
+D:%.[[[[[
+D:%.....#
+D:%...1.%
+D:%%%%%%%
+
+name:Sil A Trapped Foe
+type:Least vault
+rating:0
+rows:9
+columns:12
+min-depth:6
+max-depth:20
+D:  ########  
+D:  #......#  
+D:  #.>..2.###
+D: ##...[[[[[#
+D:##[[[[[[.###
+D:#[[[[....%  
+D:###......%  
+D:  %......%  
+D:  %%%%%%%%  
+
+name:Sil Hidden Lair
+type:Least vault
+rating:0
+rows:6
+columns:9
+min-depth:11
+max-depth:20
+D:%%%%#####
+D:%...#d..#
+D:%...#...#
+D:%...##[##
+D:%.....[# 
+D:%%%%#### 
+
+name:Sil Wide Chasm
+type:Least vault
+rating:0
+rows:10
+columns:13
+min-depth:7
+max-depth:20
+D:  %%%%%%%%%  
+D:  %.......%  
+D:  %....2..###
+D: ##..1..[[[[#
+D:##[[[[[[[[[[#
+D:#[[[[[[[[[[##
+D:##[[...o..## 
+D: ##..o....%  
+D:  %.o...1.%  
+D:  %%%%%%%%%  
+
+name:Sil Wide Chasm with Pillars
+type:Least vault
+rating:0
+rows:10
+columns:16
+min-depth:8
+max-depth:20
+D:  %%%%%%%%%%%%  
+D:  %..........%  
+D:  %......b...###
+D:###.[[[[[[#[[[[#
+D:#[[[[[#[[[[[[###
+D:#[[[#[[[[[[#[#  
+D:###[[[[[..b..%  
+D:  %....b.....%  
+D:  %..........%  
+D:  %%%%%%%%%%%%  
+
+name:Sil Well
+type:Least vault
+rating:0
+rows:7
+columns:7
+min-depth:1
+max-depth:20
+D: %%%%% 
+D:%%...%%
+D:%.....%
+D:%..[..%
+D:%...1.%
+D:%%...%%
+D: %%%%% 
+
+name:Sil Sink Hole
+type:Least vault
+rating:0
+rows:8
+columns:8
+min-depth:1
+max-depth:20
+D:  %%%%  
+D: #....# 
+D:#..[[..#
+D:%.[[[[2%
+D:%.[[[[.%
+D:#1.[[..#
+D: #....# 
+D:  %%%%  
+
+name:Sil Bridges
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:5
+max-depth:20
+D:####%####
+D:#[[[.[[[#
+D:#[[[.[[[#
+D:#[[...[[#
+D:%...1...%
+D:#[[...[[#
+D:#[[[.[[[#
+D:#[[[.[[[#
+D:####%####
+
+name:Sil Island
+type:Least vault
+rating:0
+rows:10
+columns:14
+min-depth:10
+max-depth:20
+D: %%%%%%%%%%%% 
+D: %..........% 
+D: %...[[[[[[[##
+D:##[[[[[[[[[[[#
+D:#[[[[[.b.[[[[#
+D:#[[[[.3.[[[[##
+D:##[[[[[[[[[[# 
+D: %.[[[[[[...% 
+D: %.b.[...oo.% 
+D: %%%%#%%%%%%% 
+
+name:Sil Dragon Island
+type:Least vault
+rating:0
+rows:12
+columns:16
+min-depth:11
+max-depth:20
+D: %%%%%%%%%%%    
+D:##.........##   
+D:#:[[[[[[[[[[#   
+D:%.[[[[#[[[[[##  
+D:%.[[#####.[[[## 
+D:%.[[#3....[[[[[#
+D:%.[[#d.##.[[[## 
+D:%.[[####..[[[#  
+D:%..[[[[[[[[[##  
+D:%%....[[[...%   
+D: %%.........%   
+D:  %%%%%%%%%%%   
+
+name:Sil Perilous Path
+type:Least vault
+rating:0
+rows:7
+columns:15
+min-depth:4
+max-depth:20
+D:    #######    
+D:%%%%#[[[[[#%%%%
+D:%.1.#[[[[[#...%
+D:%...+..2..+...%
+D:%...#[[[[[#...%
+D:%%%%#[[[[[#%%%%
+D:    #######    
+
+name:Sil Room Bridge
+type:Least vault
+rating:0
+rows:9
+columns:13
+min-depth:3
+max-depth:20
+D:    #####    
+D:%%%##[[[#%%%%
+D:%..[[[[[[...%
+D:%..[[[[[[.2.%
+D:%...........%
+D:%..[[[[[[...%
+D:%..[[[[[[...%
+D:%%%#[[###%%%%
+D:   ####      
+
+name:Sil Cavern Bridge
+type:Least vault
+rating:0
+rows:14
+columns:20
+min-depth:3
+max-depth:20
+D:   %%%%%%%%%%%      
+D:  %%.........%%%    
+D:  %..2.........%    
+D:  %.......1....%    
+D: ##...........######
+D: #[[........[[[[[[[#
+D:##[[[[[[.[[[[[[[[###
+D:#[[[[[[[.[[[[[[[[[# 
+D:#[[[[[[[.[[[[[[[[## 
+D:#[[[[[[[.[[[[[..##  
+D:##[[[.o.....1...%   
+D: #[.o.1....o.o..%   
+D: ##.............%   
+D:  %%%%%%%%%%%%%%%   
+
+name:Sil Chasm Gauntlet
+type:Least vault
+rating:0
+rows:9
+columns:9
+min-depth:6
+max-depth:20
+D:#########
+D:#.oo>o.o#
+D:#[[[[[[[#
+D:%.......%
+D:%...~...%
+D:%.......%
+D:#[[[[[[[#
+D:#o.o<.oo#
+D:#########
+
+name:Sil High Forge
+type:Least vault
+rating:0
+rows:10
+columns:10
+min-depth:5
+max-depth:20
+D:########  
+D:#[[[[[[## 
+D:#[[[[[[[##
+D:#[[[[.[[[#
+D:%....).[[#
+D:%.[[[.[[[#
+D:%.[[[[[[##
+D:%.1[[[[[##
+D:%.....[## 
+D:%%%%%%##  
+
+name:Sil The Edge
+type:Least vault
+rating:0
+rows:8
+columns:10
+min-depth:8
+max-depth:20
+D:%%%%%%%%%%
+D:%1......1%
+D:#[[[[[[[[#
+D:#[[[[[[[[#
+D:#[[[[[[[[#
+D:###[[[[[[#
+D:###[[[####
+D:##########
+
+name:Sil Chasm Maze
+type:Least vault
+rating:0
+rows:14
+columns:17
+min-depth:6
+max-depth:20
+D:    %%%%#%%%%    
+D:    %...[...%    
+D:    %.[...[.%    
+D:    %.[[.[[.%    
+D:%%%%%.[..[..%%%%%
+D:%.....[[[[[.[...%
+D:%.[[[[[oo3[...[[#
+D:%.[1[.[.[[[.[[[2%
+D:%...[.[.........%
+D:%%%%%.[.[[[[%%%%%
+D:    %...[1[.%    
+D:    #[.[[...%    
+D:    %.....[.%    
+D:    %%%%%%#%%    
+
+name:Sil Maze with Chasm
+type:Least vault
+rating:0
+rows:9
+columns:15
+min-depth:9
+max-depth:20
+D:%%%%%%%%%%%%%%%
+D:%.......#.....%
+D:%.#.###.#.#.#.%
+D:%.#..2#...#.#.%
+D:%.#########.#.%
+D:%..1#..[....#.%
+D:%####.####.##.%
+D:%......3#1.#1.%
+D:%%%%%%%%%%%%%%%
+
+name:Sil Stepping Stones
+type:Least vault
+rating:0
+rows:10
+columns:12
+min-depth:13
+max-depth:20
+D: ####%##### 
+D:##[[3.[[[[##
+D:#[[[[[[[[[[#
+D:#[[[[[[.3[[#
+D:%.[[[[[[.[[#
+D:%1[[[.[[[[[#
+D:#[[[[[[b.[.%
+D:#[[3[[[[[[[#
+D:##[.[[[[[[##
+D: ##%####### 
+
+name:Sil Crosshair Islands
+type:Least vault
+rating:0
+rows:11
+columns:11
+min-depth:15
+max-depth:20
+D:   ##%##   
+D:   #[[[#   
+D:   #[3[#   
+D:####[.[####
+D:#[[[[[[[[[#
+D:%[..[[[.b[%
+D:#[[[[[[[[[#
+D:####[3[####
+D:   #[.[#   
+D:   #[[[#   
+D:   ##%##   

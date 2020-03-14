@@ -313,6 +313,7 @@ bool build_pit(struct chunk *c, struct loc centre, int rating);
 bool build_pit_mini(struct chunk *c, struct loc centre, int rating);
 bool build_template(struct chunk *c, struct loc centre, int rating);
 bool build_interesting(struct chunk *c, struct loc centre, int rating);
+bool build_least_vault(struct chunk *c, struct loc centre, int rating);
 bool build_lesser_vault(struct chunk *c, struct loc centre, int rating);
 bool build_medium_vault(struct chunk *c, struct loc centre, int rating);
 bool build_greater_vault(struct chunk *c, struct loc centre, int rating);
