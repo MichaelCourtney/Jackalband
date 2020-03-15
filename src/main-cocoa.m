@@ -1229,11 +1229,6 @@ static int pict_cols = 0;
 static int pict_rows = 0;
 
 /**
- * Value used to signal that we using ASCII, not graphical tiles.
- */ 
-#define GRAF_MODE_NONE 0
-
-/**
  * Requested graphics mode (as a grafID).
  * The current mode is stored in current_graphics_mode.
  */
@@ -1255,12 +1250,26 @@ static BOOL graphics_are_enabled(void)
 }
 
 /**
+ * Like graphics_are_enabled(), but test the requested graphics mode.
+ */
+static BOOL graphics_will_be_enabled(void)
+{
+    if (graf_mode_req == GRAPHICS_NONE) {
+	return NO;
+    }
+
+    graphics_mode *new_mode = get_graphics_mode(graf_mode_req);
+    return new_mode && new_mode->grafID != GRAPHICS_NONE;
+}
+
+/**
  * Hack -- game in progress
  */
 static Boolean game_in_progress = FALSE;
 
 
 #pragma mark Prototypes
+static BOOL redraw_for_tiles_or_term0_font(void);
 static void wakeup_event_loop(void);
 static void hook_plog(const char *str);
 static NSString* get_lib_directory(void);
@@ -1340,8 +1349,7 @@ static bool initialized = FALSE;
 - (BOOL)useLiveResizeOptimization
 {
     /* If we have graphics turned off, text rendering is fast enough that we
-	 * don't need to use a live resize optimization. Note here we are depending
-	 * on current_graphics_mode being NULL when in text mode. */
+	 * don't need to use a live resize optimization. */
     return self->inLiveResize && graphics_are_enabled();
 }
 
@@ -2778,11 +2786,11 @@ static errr Term_xtra_cocoa_react(void)
 
 	/* Handle graphics */
 	int expected_graf_mode = (current_graphics_mode) ?
-	    current_graphics_mode->grafID : GRAF_MODE_NONE;
+	    current_graphics_mode->grafID : GRAPHICS_NONE;
 	if (graf_mode_req != expected_graf_mode)
 	{
 	    graphics_mode *new_mode;
-	    if (graf_mode_req != GRAF_MODE_NONE) {
+	    if (graf_mode_req != GRAPHICS_NONE) {
 		new_mode = get_graphics_mode(graf_mode_req);
 	    } else {
 		new_mode = NULL;
@@ -3557,8 +3565,8 @@ static errr Term_pict_cocoa(int x, int y, int n, const int *ap,
                             const wchar_t *cp, const int *tap,
                             const wchar_t *tcp)
 {
-    /* Paranoia: Bail if we don't have a current graphics mode */
-    if (! current_graphics_mode) return -1;
+    /* Paranoia: Bail if graphics aren't enabled */
+    if (! graphics_are_enabled()) return -1;
 
     AngbandContext* angbandContext = (__bridge AngbandContext*) (Term->data);
 
@@ -3610,6 +3618,25 @@ static errr Term_text_cocoa(int x, int y, int n, int a, const wchar_t *cp)
 
     /* Success */
     return 0;
+}
+
+/**
+ * Handle redrawing for a change to the tile set, tile scaling, or main window
+ * font.  Returns YES if the redrawing was initiated.  Otherwise returns NO.
+ */
+static BOOL redraw_for_tiles_or_term0_font(void)
+{
+    /*
+     * do_cmd_redraw() will always clear, but only provides something
+     * to replace the erased content if a character has been generated.
+     * Therefore, only call it if a character has been generated.
+     */
+    if (character_generated) {
+	do_cmd_redraw();
+	wakeup_event_loop();
+	return YES;
+    }
+    return NO;
 }
 
 /**
@@ -4200,11 +4227,7 @@ static bool cocoa_get_file(const char *suggested_name, char *path, size_t len)
 	[self recomputeDefaultTileMultipliersIfNecessary];
     }
 
-    if (mainTerm == 0 && game_in_progress) {
-	/* Mimics the logic in setGraphicsMode(). */
-	do_cmd_redraw();
-	wakeup_event_loop();
-    } else {
+    if (mainTerm != 0 || ! redraw_for_tiles_or_term0_font()) {
 	[(id)angbandContext requestRedraw];
     }
 }
@@ -4280,8 +4303,7 @@ static bool cocoa_get_file(const char *suggested_name, char *path, size_t len)
 {
     NSInteger hscl, vscl;
 
-    if (graf_mode_req != GRAF_MODE_NONE &&
-	get_graphics_mode(graf_mode_req)->grafID != GRAPHICS_NONE) {
+    if (graphics_will_be_enabled()) {
 	if ([[NSUserDefaults angbandDefaults]
 		boolForKey:AngbandUseDefaultTileMultDefaultsKey]) {
 	    [self computeDefaultTileSetScaling:&hscl vertical:&vscl];
@@ -4446,8 +4468,7 @@ static bool cocoa_get_file(const char *suggested_name, char *path, size_t len)
 
     /* Preferred graphics mode */
     graf_mode_req = [defs integerForKey:@"GraphicsID"];
-    if (graf_mode_req != GRAF_MODE_NONE &&
-        get_graphics_mode(graf_mode_req)->grafID != GRAPHICS_NONE) {
+    if (graphics_will_be_enabled()) {
         tile_width = [defs integerForKey:AngbandTileWidthMultDefaultsKey];
         tile_height = [defs integerForKey:AngbandTileHeightMultDefaultsKey];
     } else {
@@ -4653,14 +4674,7 @@ static bool cocoa_get_file(const char *suggested_name, char *path, size_t len)
     [[NSUserDefaults angbandDefaults] setInteger:graf_mode_req forKey:@"GraphicsID"];
     [self recomputeDefaultTileMultipliersIfNecessary];
 
-    if (game_in_progress)
-    {
-        /* Hack -- Force redraw */
-        do_cmd_redraw();
-
-        /* Wake up the event loop so it notices the change */
-        wakeup_event_loop();
-    }
+    redraw_for_tiles_or_term0_font();
 }
 
 - (void)selectWindow: (id)sender
@@ -4680,7 +4694,7 @@ static bool cocoa_get_file(const char *suggested_name, char *path, size_t len)
  */
 - (void)computeDefaultTileSetScaling:(NSInteger *)pHoriz vertical:(NSInteger *)pVert
 {
-    if (graf_mode_req != GRAF_MODE_NONE) {
+    if (graf_mode_req != GRAPHICS_NONE) {
 	graphics_mode *new_mode = get_graphics_mode(graf_mode_req);
 
 	if (new_mode->grafID != GRAPHICS_NONE) {
@@ -4748,16 +4762,13 @@ static bool cocoa_get_file(const char *suggested_name, char *path, size_t len)
 	setInteger:h forKey:AngbandTileWidthMultDefaultsKey];
     [[NSUserDefaults angbandDefaults]
 	setInteger:v forKey:AngbandTileHeightMultDefaultsKey];
-    if (graphics_are_enabled()) {
+    if (graphics_are_enabled() ||
+	(! character_generated && graphics_will_be_enabled())) {
 	if (tile_width != h || tile_height != v) {
 	    tile_width = h;
 	    tile_height = v;
 	    tile_multipliers_changed = 1;
-	    if (game_in_progress) {
-		/* Mimics the logic in setGraphicsMode(). */
-		do_cmd_redraw();
-		wakeup_event_loop();
-	    }
+	    redraw_for_tiles_or_term0_font();
 	}
     }
 }
