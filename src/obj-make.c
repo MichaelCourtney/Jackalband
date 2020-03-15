@@ -963,8 +963,8 @@ int apply_magic(struct object *obj, int lev, bool allow_artifacts, bool good,
 	 */
 	 
 	 /* Changed, stingy early on but should end up same as V 4.2 by dlvl 25 - MC */
-	int good_chance = MIN((33 + lev), ((2 * lev) + 8));
-	int great_chance = MIN(30, lev + 5);
+	int good_chance = MIN((33 + lev), ((1 + lev) + MAX(0, (lev - 5)) + MAX(0, (lev - 10))));
+	int great_chance = MIN(30, (lev + (lev / 5)));
 
 	/* Roll for "good" */
 	if (good || (randint0(100) < good_chance)) {
