@@ -239,6 +239,8 @@ extern int FEAT_QUARTZ_K;
 /* Walls */
 extern int FEAT_GRANITE;
 extern int FEAT_PERM;
+extern int FEAT_PERM_TOWN;
+extern int FEAT_PERM_TREE;
 
 /* Wilderness paths */
 extern int FEAT_LESS_NORTH;

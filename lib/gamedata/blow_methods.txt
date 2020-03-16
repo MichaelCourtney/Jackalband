@@ -199,6 +199,24 @@ cut:1
 stun:1
 miss:1
 phys:1
-msg:MON_HIT
+msg:MON_PECK
 act:pecks {target}
-desc:hit
+desc:peck
+
+name:PECK!!
+cut:1
+stun:1
+miss:1
+phys:1
+msg:MON_PECK!!
+act:pecks {target}!!
+desc:peck
+
+name:SING
+cut:0
+stun:0
+miss:0
+phys:0
+msg:MON_SING
+act:sings
+desc:sing

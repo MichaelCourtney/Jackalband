@@ -1390,6 +1390,8 @@ struct chunk *cavern_gen(struct player *p, int min_height, int min_width) {
 
 /* ------------------ TOWN ---------------- */
 
+/* Redecorate a bit - MC */
+
 /**
  * Get the bounds of a town lot.
  * @param xroads - the location of the town crossroads
@@ -1638,7 +1640,11 @@ static void build_ruin(struct chunk *c, struct loc xroads, struct loc lot, int l
 		for (y = lot_north; y <= lot_south; y++) {
 			if (x >= west && x <= east && y >= north && y <= south) {
 				if (!randint0(4)) {
-					square_set_feat(c, loc(x,y), FEAT_RUBBLE);
+					if (one_in_(2)) {
+						square_set_feat(c, loc(x,y), FEAT_RUBBLE);
+					} else {
+						square_set_feat(c, loc(x,y), FEAT_WATER);
+					}
 				}
 			} else if (!randint0(3) &&
 					square_isfloor(c, loc(x,y)) &&
@@ -1647,7 +1653,13 @@ static void build_ruin(struct chunk *c, struct loc xroads, struct loc lot, int l
 					(x < lot_east || x == z_info->town_wid-2 || !square_isperm(c, loc(x+1, y))) &&
 					(y > lot_north || y == 2 || !square_isperm(c, loc(x, y-1))) &&
 					(y < lot_south || y == z_info-> town_hgt-2 || !square_isperm(c, loc(x, y+1)))) {
-				square_set_feat(c, loc(x,y), FEAT_PASS_RUBBLE);
+						if (one_in_(4)) {
+							square_set_feat(c, loc(x,y), FEAT_PASS_RUBBLE);
+						} else if (!one_in_(3)) {
+							square_set_feat(c, loc(x,y), FEAT_TREE);
+						} else {
+							square_set_feat(c, loc(x,y), FEAT_TREE2);
+						}
 			}
 		}
 	}
@@ -1662,7 +1674,6 @@ static void town_gen_layout(struct chunk *c, struct player *p)
 {
 	int n, x, y;
 	struct loc grid, pgrid, xroads;
-	int num_lava = 3 + randint0(3);
 	int ruins_percent = 80;
 
 	int max_attempts = 100;
@@ -1678,24 +1689,20 @@ static void town_gen_layout(struct chunk *c, struct player *p)
 	u16b lot_hgt = 4, lot_wid = 6;
 
 	/* Create walls */
-	draw_rectangle(c, 0, 0, c->height - 1, c->width - 1, FEAT_PERM,
+	draw_rectangle(c, 0, 0, c->height - 1, c->width - 1, FEAT_PERM_TOWN,
 				   SQUARE_NONE);
 
 	while (!success) {
 		/* Initialize to ROCK for build_streamer precondition */
 		for (grid.y = 1; grid.y < c->height - 1; grid.y++)
 			for (grid.x = 1; grid.x < c->width - 1; grid.x++) {
-				square_set_feat(c, grid, FEAT_GRANITE);
+				square_set_feat(c, grid, FEAT_PERM_TOWN);
 			}
-
-		/* Make some lava streamers */
-		for (n = 0; n < 3 + num_lava; n++)
-			build_streamer(c, FEAT_LAVA, 0);
 
 		/* Make a town-sized starburst room. */
 		(void) generate_starburst_room(c, 0, 0, c->height - 1, c->width - 1,
 									   false,
-									   FEAT_FLOOR, false);
+									   FEAT_GRASS, false);
 
 		/* Turn off room illumination flag */
 		for (grid.y = 1; grid.y < c->height - 1; grid.y++) {
@@ -1711,16 +1718,6 @@ static void town_gen_layout(struct chunk *c, struct player *p)
 		pgrid.y = 2;
 		while (!square_isfloor(c, pgrid) && (pgrid.y < z_info->town_wid / 4)) pgrid.y++;
 		if (pgrid.y >= z_info->town_wid / 4) continue;
-
-
-		/* no lava next to stairs */
-		for (x = pgrid.x - 1; x <= pgrid.x + 1; x++) {
-			for (y = pgrid.y - 1; y <= pgrid.y + 1; y++) {
-				if (square_isfiery(c, loc(x, y))) {
-					square_set_feat(c, loc(x, y), FEAT_GRANITE);
-				}
-			}
-		}
 
 		xroads.x = pgrid.x;
 		xroads.y = z_info->town_hgt / 2
@@ -1778,14 +1775,14 @@ static void town_gen_layout(struct chunk *c, struct player *p)
 	}
 
 	/* clear the street */
-	square_set_feat(c, loc(pgrid.x, pgrid.y + 1), FEAT_FLOOR);
+	square_set_feat(c, loc(pgrid.x, pgrid.y + 1), FEAT_ROAD);
 	fill_rectangle(c, pgrid.y + 2, pgrid.x - 1,
 				   max_store_y, pgrid.x + 1,
-				   FEAT_FLOOR, SQUARE_NONE);
+				   FEAT_ROAD, SQUARE_NONE);
 
 	fill_rectangle(c, xroads.y, min_store_x,
 			xroads.y + 1, max_store_x,
-			FEAT_FLOOR, SQUARE_NONE);
+			FEAT_ROAD, SQUARE_NONE);
 
 
 	/* Clear previous contents, add down stairs */
