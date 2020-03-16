@@ -1,3 +1,7 @@
+# min_weight, attack_multiply & spell_weight are not used in jb, 
+# min_weight is always=10, attack_multiplier is always=1,
+# armour encumbrance is based on the race/class stealth modifiers - MC
+
 # File: class.txt
 
 

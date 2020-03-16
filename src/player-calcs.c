@@ -225,44 +225,44 @@ static const int adj_int_dis[STAT_RANGE] =
  */
 static const int adj_dex_ta[STAT_RANGE] =
 {
-	-4	/* 3 */,
-	-3	/* 4 */,
-	-2	/* 5 */,
-	-1	/* 6 */,
-	0	/* 7 */,
-	0	/* 8 */,
-	0	/* 9 */,
-	0	/* 10 */,
-	0	/* 11 */,
-	0	/* 12 */,
-	0	/* 13 */,
-	0	/* 14 */,
-	1	/* 15 */,
-	1	/* 16 */,
-	1	/* 17 */,
-	2	/* 18/00-18/09 */,
-	2	/* 18/10-18/19 */,
-	2	/* 18/20-18/29 */,
-	2	/* 18/30-18/39 */,
-	2	/* 18/40-18/49 */,
-	3	/* 18/50-18/59 */,
-	3	/* 18/60-18/69 */,
-	3	/* 18/70-18/79 */,
-	4	/* 18/80-18/89 */,
-	5	/* 18/90-18/99 */,
-	6	/* 18/100-18/109 */,
-	7	/* 18/110-18/119 */,
-	8	/* 18/120-18/129 */,
-	9	/* 18/130-18/139 */,
-	9	/* 18/140-18/149 */,
-	10	/* 18/150-18/159 */,
-	11	/* 18/160-18/169 */,
-	12	/* 18/170-18/179 */,
-	13	/* 18/180-18/189 */,
-	14	/* 18/190-18/199 */,
-	15	/* 18/200-18/209 */,
-	15	/* 18/210-18/219 */,
-	15	/* 18/220+ */
+	0	/* 3 */,
+	1	/* 4 */,
+	1	/* 5 */,
+	2	/* 6 */,
+	2	/* 7 */,
+	3	/* 8 */,
+	3	/* 9 */,
+	4	/* 10 */,
+	4	/* 11 */,
+	5	/* 12 */,
+	5	/* 13 */,
+	6	/* 14 */,
+	6	/* 15 */,
+	7	/* 16 */,
+	7	/* 17 */,
+	8	/* 18/00-18/09 */,
+	9	/* 18/10-18/19 */,
+	10	/* 18/20-18/29 */,
+	11	/* 18/30-18/39 */,
+	12	/* 18/40-18/49 */,
+	13	/* 18/50-18/59 */,
+	14	/* 18/60-18/69 */,
+	15	/* 18/70-18/79 */,
+	16	/* 18/80-18/89 */,
+	17	/* 18/90-18/99 */,
+	18	/* 18/100-18/109 */,
+	19	/* 18/110-18/119 */,
+	20	/* 18/120-18/129 */,
+	21	/* 18/130-18/139 */,
+	22	/* 18/140-18/149 */,
+	23	/* 18/150-18/159 */,
+	24	/* 18/160-18/169 */,
+	25	/* 18/170-18/179 */,
+	26	/* 18/180-18/189 */,
+	27	/* 18/190-18/199 */,
+	28	/* 18/200-18/209 */,
+	29	/* 18/210-18/219 */,
+	30	/* 18/220+ */
 };
 
 /**
@@ -316,56 +316,59 @@ const int adj_str_td[STAT_RANGE] =
  */
 const int adj_dex_th[STAT_RANGE] =
 {
-	-3	/* 3 */,
-	-2	/* 4 */,
-	-2	/* 5 */,
-	-1	/* 6 */,
-	-1	/* 7 */,
-	0	/* 8 */,
+	-6	/* 3 */,
+	-5	/* 4 */,
+	-4	/* 5 */,
+	-3	/* 6 */,
+	-2	/* 7 */,
+	-1	/* 8 */,
 	0	/* 9 */,
 	0	/* 10 */,
-	0	/* 11 */,
-	0	/* 12 */,
-	0	/* 13 */,
-	0	/* 14 */,
-	0	/* 15 */,
-	1	/* 16 */,
-	2	/* 17 */,
-	3	/* 18/00-18/09 */,
-	3	/* 18/10-18/19 */,
-	3	/* 18/20-18/29 */,
-	3	/* 18/30-18/39 */,
-	3	/* 18/40-18/49 */,
-	4	/* 18/50-18/59 */,
-	4	/* 18/60-18/69 */,
-	4	/* 18/70-18/79 */,
-	4	/* 18/80-18/89 */,
-	5	/* 18/90-18/99 */,
-	6	/* 18/100-18/109 */,
-	7	/* 18/110-18/119 */,
-	8	/* 18/120-18/129 */,
-	9	/* 18/130-18/139 */,
-	9	/* 18/140-18/149 */,
-	10	/* 18/150-18/159 */,
-	11	/* 18/160-18/169 */,
-	12	/* 18/170-18/179 */,
-	13	/* 18/180-18/189 */,
-	14	/* 18/190-18/199 */,
-	15	/* 18/200-18/209 */,
-	15	/* 18/210-18/219 */,
-	15	/* 18/220+ */
+	1	/* 11 */,
+	2	/* 12 */,
+	3	/* 13 */,
+	4	/* 14 */,
+	5	/* 15 */,
+	6	/* 16 */,
+	7	/* 17 */,
+	8	/* 18/00-18/09 */,
+	9	/* 18/10-18/19 */,
+	10	/* 18/20-18/29 */,
+	11	/* 18/30-18/39 */,
+	12	/* 18/40-18/49 */,
+	13	/* 18/50-18/59 */,
+	14	/* 18/60-18/69 */,
+	15	/* 18/70-18/79 */,
+	16	/* 18/80-18/89 */,
+	17	/* 18/90-18/99 */,
+	18	/* 18/100-18/109 */,
+	19	/* 18/110-18/119 */,
+	20	/* 18/120-18/129 */,
+	21	/* 18/130-18/139 */,
+	22	/* 18/140-18/149 */,
+	23	/* 18/150-18/159 */,
+	24	/* 18/160-18/169 */,
+	25	/* 18/170-18/179 */,
+	26	/* 18/180-18/189 */,
+	27	/* 18/190-18/199 */,
+	28	/* 18/200-18/209 */,
+	29	/* 18/210-18/219 */,
+	30	/* 18/220+ */
 };
 
+
+/* This has been repurposed in jackalband as an offset
+for armour encumbrance penalties - MC */
 
 /**
  * Stat Table (STR) -- bonus to hit
  */
 static const int adj_str_th[STAT_RANGE] =
 {
-	-3	/* 3 */,
-	-2	/* 4 */,
-	-1	/* 5 */,
-	-1	/* 6 */,
+	0	/* 3 */,
+	0	/* 4 */,
+	0	/* 5 */,
+	0	/* 6 */,
 	0	/* 7 */,
 	0	/* 8 */,
 	0	/* 9 */,
@@ -378,28 +381,28 @@ static const int adj_str_th[STAT_RANGE] =
 	0	/* 16 */,
 	0	/* 17 */,
 	1	/* 18/00-18/09 */,
-	1	/* 18/10-18/19 */,
-	1	/* 18/20-18/29 */,
-	1	/* 18/30-18/39 */,
-	1	/* 18/40-18/49 */,
-	1	/* 18/50-18/59 */,
-	1	/* 18/60-18/69 */,
-	2	/* 18/70-18/79 */,
-	3	/* 18/80-18/89 */,
-	4	/* 18/90-18/99 */,
-	5	/* 18/100-18/109 */,
-	6	/* 18/110-18/119 */,
-	7	/* 18/120-18/129 */,
-	8	/* 18/130-18/139 */,
-	9	/* 18/140-18/149 */,
-	10	/* 18/150-18/159 */,
-	11	/* 18/160-18/169 */,
-	12	/* 18/170-18/179 */,
-	13	/* 18/180-18/189 */,
-	14	/* 18/190-18/199 */,
-	15	/* 18/200-18/209 */,
-	15	/* 18/210-18/219 */,
-	15	/* 18/220+ */
+	2	/* 18/10-18/19 */,
+	3	/* 18/20-18/29 */,
+	4	/* 18/30-18/39 */,
+	5	/* 18/40-18/49 */,
+	6	/* 18/50-18/59 */,
+	7	/* 18/60-18/69 */,
+	8	/* 18/70-18/79 */,
+	10	/* 18/80-18/89 */,
+	13	/* 18/90-18/99 */,
+	16	/* 18/100-18/109 */,
+	18	/* 18/110-18/119 */,
+	20	/* 18/120-18/129 */,
+	22	/* 18/130-18/139 */,
+	24	/* 18/140-18/149 */,
+	26	/* 18/150-18/159 */,
+	28	/* 18/160-18/169 */,
+	30	/* 18/170-18/179 */,
+	32	/* 18/180-18/189 */,
+	34	/* 18/190-18/199 */,
+	36	/* 18/200-18/209 */,
+	38	/* 18/210-18/219 */,
+	40	/* 18/220+ */
 };
 
 
@@ -1404,6 +1407,22 @@ static void calc_spells(struct player *p)
 	}
 }
 
+/**
+ * Calculate armour encumbrance level
+ */
+ 
+static int calc_armour_proficiency(struct player *p, struct player_state *state)
+{
+	int ap, max_wgt;
+	
+	/* Calculate armour proficiency */
+	ap = 7 - (p->race->r_skills[SKILL_STEALTH] + p->class->c_skills[SKILL_STEALTH]);
+	
+	/* Determine the weight allowance */
+	max_wgt = 150 + (50 * ap);
+	
+	return max_wgt;
+}
 
 /**
  * Calculate maximum mana.  You do not need to know any spells.
@@ -1441,8 +1460,7 @@ static void calc_mana(struct player *p, struct player_state *state, bool update)
 	for (i = 0; i < p->body.count; i++) {
 		struct object *obj_local = slot_object(p, i);
 
-		/* Ignore non-armor */
-		if (slot_type_is(i, EQUIP_WEAPON)) continue;
+		/* Ignore non-armor except for the weapon */
 		if (slot_type_is(i, EQUIP_BOW)) continue;
 		if (slot_type_is(i, EQUIP_RING)) continue;
 		if (slot_type_is(i, EQUIP_AMULET)) continue;
@@ -1453,9 +1471,9 @@ static void calc_mana(struct player *p, struct player_state *state, bool update)
 			cur_wgt += obj_local->weight;
 	}
 
-	/* Determine the weight allowance */
-	max_wgt = p->class->magic.spell_weight;
-
+	/* Get the race/class armour proficency value */
+	max_wgt = calc_armour_proficiency(p, state);
+	
 	/* Heavy armor penalizes mana */
 	if (((cur_wgt - max_wgt) / 10) > 0) {
 		/* Encumbered */
@@ -1782,6 +1800,9 @@ void calc_bonuses(struct player *p, struct player_state *state, bool known_only,
 	bitflag f[OF_SIZE];
 	bitflag collect_f[OF_SIZE];
 	bool vuln[ELEM_MAX];
+	
+	int max_wgt;
+	int cur_wgt;
 
 	/* Hack to allow calculating hypothetical blows for extra STR, DEX - NRM */
 	int str_ind = state->stat_ind[STAT_STR];
@@ -1819,7 +1840,7 @@ void calc_bonuses(struct player *p, struct player_state *state, bool known_only,
 
 
 	/* Handle Class/Race Stealth Combinations */
-	if (p->race->r_skills[6] > p->class->c_skills[6]) {
+	if (p->race->r_skills[SKILL_STEALTH] > p->class->c_skills[SKILL_STEALTH]) {
 		state->skills[SKILL_STEALTH] += 1;
 	}
 	
@@ -1925,7 +1946,7 @@ void calc_bonuses(struct player *p, struct player_state *state, bool known_only,
 			}
 		}
 	}
-
+	
 	/* Apply the collected flags */
 	of_union(state->flags, collect_f);
 
@@ -2155,12 +2176,54 @@ void calc_bonuses(struct player *p, struct player_state *state, bool known_only,
 		state->speed = 199;
 
 	/* Apply modifier bonuses (Un-inflate stat bonuses) */
-	state->to_a += adj_dex_ta[state->stat_ind[STAT_DEX]];
 	state->to_d += adj_str_td[state->stat_ind[STAT_STR]];
 	state->to_h += adj_dex_th[state->stat_ind[STAT_DEX]];
-	state->to_h += adj_str_th[state->stat_ind[STAT_STR]];
 
+/* Handle Armour Encumbrance */
+	/* Assume player not encumbered by armor */
+	state->cumber_armor = false;
 
+	/* Weigh the armor */
+	cur_wgt = 0;
+	for (i = 0; i < p->body.count; i++) {
+		struct object *obj_local = slot_object(p, i);
+
+		/* Ignore non-armor except for the weapon */
+		if (slot_type_is(i, EQUIP_BOW)) continue;
+		if (slot_type_is(i, EQUIP_RING)) continue;
+		if (slot_type_is(i, EQUIP_AMULET)) continue;
+		if (slot_type_is(i, EQUIP_LIGHT)) continue;
+
+		/* Add weight */
+		if (obj_local)
+			cur_wgt += obj_local->weight;
+	}
+
+	/* Get the race/class armour proficency value */
+	max_wgt = calc_armour_proficiency(p, state);
+	
+	/* Heavy armor penalizes stealth, accuracy & AC bonus from dex */
+	if (((cur_wgt - max_wgt) / 10) > 0) {
+		/* Encumbered */
+		state->cumber_armor = true;
+
+		/* Reduce stealth */
+		state->skills[SKILL_STEALTH] -= 1;
+		if (((cur_wgt - max_wgt) / 10) > 5) {
+			state->skills[SKILL_STEALTH] -= 1;
+		}
+		
+		/* Reduce accuracy */
+		state->to_h -= MAX(0, ((cur_wgt - max_wgt) / 10) - 
+						adj_str_th[state->stat_ind[STAT_STR]]);
+						
+		/* Reduce dodge bonus */
+		state->to_a += MAX(0, adj_dex_ta[state->stat_ind[STAT_DEX]] - 
+									((cur_wgt - max_wgt) / 10));
+	} else {
+		state->to_a += adj_dex_ta[state->stat_ind[STAT_DEX]];
+	}
+	
 	/* Modify skills */
 	state->skills[SKILL_DISARM_PHYS] += adj_dex_dis[state->stat_ind[STAT_DEX]];
 	state->skills[SKILL_DISARM_MAGIC] += adj_int_dis[state->stat_ind[STAT_INT]];
@@ -2176,8 +2239,8 @@ void calc_bonuses(struct player *p, struct player_state *state, bool known_only,
 	hold = adj_str_hold[state->stat_ind[STAT_STR]];
 	
 		/* Handle Gnome Device Mastery */
-	if (player_has(p, PF_KNOW_ZAPPER) && (adj_int_dev[state->stat_ind[STAT_INT]] > p->class->c_skills[3])) {
-		state->skills[SKILL_DEVICE] += (adj_int_dev[state->stat_ind[STAT_INT]] - p->class->c_skills[3]);
+	if (player_has(p, PF_KNOW_ZAPPER) && (adj_int_dev[state->stat_ind[STAT_INT]] > p->class->c_skills[SKILL_DEVICE])) {
+		state->skills[SKILL_DEVICE] += (adj_int_dev[state->stat_ind[STAT_INT]] - p->class->c_skills[SKILL_DEVICE]);
 		}
 	
 

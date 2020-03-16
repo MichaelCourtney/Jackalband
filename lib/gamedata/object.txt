@@ -2161,7 +2161,7 @@ level:10
 weight:100
 cost:100
 alloc:20:5 to 100
-attack:1d1:-1:0
+attack:1d1:0:0
 armor:12:0
 desc:A cuirass of pliable leather studded with metal rivets.
 
@@ -2172,7 +2172,7 @@ level:5
 weight:120
 cost:150
 alloc:20:5 to 100
-attack:1d2:-1:0
+attack:1d2:0:0
 armor:16:0
 desc:A boiled leather cuirass and shoulder plates.
 
@@ -2183,7 +2183,7 @@ level:15
 weight:140
 cost:370
 alloc:20:15 to 100
-attack:1d1:-1:0
+attack:1d1:0:0
 armor:20:0
 desc:A tunic and skirt sewn with thick, overlapping scales of hardened
 desc: leather.
@@ -2195,7 +2195,7 @@ level:25
 weight:250
 cost:550
 alloc:20:25 to 100
-attack:1d4:-2:0
+attack:1d4:0:0
 armor:38:0
 desc:A heavy shirt of overlapping steel scales backed by leather, with
 desc: matching skirt and sleeves.
@@ -2207,7 +2207,7 @@ level:25
 weight:220
 cost:750
 alloc:20:20 to 100
-attack:1d4:-2:0
+attack:1d4:0:0
 armor:32:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings, well padded
 desc: with leather.
@@ -2219,7 +2219,7 @@ level:30
 weight:270
 cost:900
 alloc:20:35 to 100
-attack:1d4:-2:0
+attack:1d4:0:0
 armor:42:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings,
 desc: strategically reinforced at vital locations with a second layer
@@ -2232,7 +2232,7 @@ level:35
 weight:280
 cost:950
 alloc:20:40 to 100
-attack:1d4:-2:0
+attack:1d4:0:0
 armor:45:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings,
 desc: reinforced around the shoulders with segmented plates of steel,
@@ -2245,7 +2245,7 @@ level:35
 weight:290
 cost:1100
 alloc:20:45 to 100
-attack:1d4:-3:0
+attack:1d4:0:0
 armor:48:0
 desc:A stiff suit of armour composed of small metal plates sewn to an
 desc: inner layer of heavy canvas, and covered with a second layer of
@@ -2258,7 +2258,7 @@ level:45
 weight:260
 cost:1200
 alloc:20:30 to 100
-attack:1d6:-3:0
+attack:1d6:0:0
 armor:40:0
 desc:A steel corselet and vambraces over a skirt and leggings of chain.
 
@@ -2269,7 +2269,7 @@ level:45
 weight:340
 cost:1250
 alloc:20:50 to 100
-attack:1d6:-3:0
+attack:1d6:0:0
 armor:58:0
 desc:This unusual armour is a surprisingly light suit of laced and
 desc: overlapping metal plates.
@@ -2281,7 +2281,7 @@ level:45
 weight:360
 cost:1350
 alloc:15:55 to 100
-attack:2d4:-3:0
+attack:2d4:0:0
 armor:62:0
 desc:A full suit of carefully fitted plates, with hinged joints backed
 desc: by chain, and light padding underneath.
@@ -2293,7 +2293,7 @@ level:50
 weight:380
 cost:1500
 alloc:15:60 to 100
-attack:2d4:-3:0
+attack:2d4:0:0
 armor:66:0
 desc:A full suit of finely fitted metal armour consisting of steel plates
 desc: reinforced ridging.
@@ -2305,7 +2305,7 @@ level:55
 weight:150
 cost:7000
 alloc:10:55 to 100
-attack:1d4:-1:0
+attack:1d4:0:0
 armor:28:0
 flags:IGNORE_ACID
 desc:This wondrous suit of fine-linked chain shimmers as though of pure silver.
@@ -2317,7 +2317,7 @@ level:60
 weight:300
 cost:15000
 alloc:10:65 to 100
-attack:2d4:-3:0
+attack:2d4:0:0
 armor:60:0
 flags:IGNORE_ACID
 desc:A shimmering suit of true-silver, forged long ago by dwarven smiths of
@@ -2330,7 +2330,7 @@ level:75
 weight:420
 cost:20000
 alloc:10:75 to 100
-attack:2d4:-4:0
+attack:2d4:0:0
 armor:80:0
 flags:IGNORE_ACID
 desc:An exquisite suit of nearly impenetrable adamantite.
