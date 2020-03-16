@@ -62,6 +62,37 @@ name:labyrinth
 params:1:0:200:0
 cutoff:-1
 
+## Tiny
+# For actual number of rooms to try for add depth
+name:tiny
+params:1:10:500:1
+tunnel:15:20:18:20:30
+streamer:5:2:1:90:1:60
+cutoff:21
+
+# Unusual rooms (rarity = 1)
+room:Least vault:0:22:44:0:0:1:40
+room:Interesting room:0:44:55:0:0:1:50
+room:Sil crossed room:0:11:33:1:0:1:80
+room:square garden:0:33:33:1:0:1:91
+room:All crossed room:0:11:33:3:0:1:92
+room:crossed room:0:11:33:3:0:1:93
+room:terrain room:0:22:22:1:0:1:94
+room:circular room:0:22:22:1:0:1:95
+room:bridge room:0:11:33:1:0:1:96
+room:overlap room:0:11:33:1:0:1:97
+room:room template:1:11:33:1:0:1:98
+room:room template:2:11:33:10:0:1:99
+room:room template:3:11:33:30:0:1:100
+
+# Normal rooms (rarity = 0)
+room:small room:0:11:22:1:0:0:80
+room:simple room:0:11:33:1:0:0:100
+
+# Staircase rooms - rarity 99 to prevent random occurrence
+# these rooms are specially generated to join persistent levels
+room:staircase room:0:1:1:1:0:99:0
+
 ## Basic Small
 name:basic small
 params:1:25:300:2
@@ -105,6 +136,9 @@ room:room template:3:11:33:30:0:1:100
 # Normal rooms (rarity = 0)
 room:small room:0:11:22:1:0:0:100
 
+# Staircase rooms - rarity 99 to prevent random occurrence
+# these rooms are specially generated to join persistent levels
+room:staircase room:0:1:1:1:0:99:0
 
 ## Modified 2
 name:modified2

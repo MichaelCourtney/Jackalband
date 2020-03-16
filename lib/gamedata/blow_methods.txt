@@ -203,12 +203,12 @@ msg:MON_PECK
 act:pecks {target}
 desc:peck
 
-name:PECK!!
+name:PECK2
 cut:1
 stun:1
 miss:1
 phys:1
-msg:MON_PECK!!
+msg:MON_PECK2
 act:pecks {target}!!
 desc:peck
 

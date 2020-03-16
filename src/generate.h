@@ -261,6 +261,7 @@ struct chunk *lair_gen(struct player *p, int min_height, int min_width);
 struct chunk *gauntlet_gen(struct player *p, int min_height, int min_width);
 struct chunk *arena_gen(struct player *p, int min_height, int min_width);
 struct chunk *basic_small_gen(struct player *p, int min_height, int min_width);
+struct chunk *tiny_gen(struct player *p, int min_height, int min_width);
 struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width);
 
 /* gen-chunk.c */

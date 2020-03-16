@@ -534,7 +534,7 @@ sleepiness:10
 depth:0
 rarity:20
 experience:0
-blow:PECK!!
+blow:PECK2
 flags:RAND_25
 desc:Utterly harmless, except when angry.
 
@@ -549,7 +549,7 @@ sleepiness:10
 depth:0
 rarity:20
 experience:0
-blow:PECK!!
+blow:PECK2
 flags:RAND_25
 desc:Utterly harmless, except when angry.
 
@@ -664,7 +664,7 @@ sleepiness:10
 depth:0
 rarity:5
 experience:0
-blow:PECK!!
+blow:PECK2
 flags:RAND_25 | RAND_50
 desc:Utterly harmless, except when angry.
 
