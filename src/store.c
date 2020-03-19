@@ -704,6 +704,7 @@ static void mass_produce(struct object *obj)
 	switch (obj->tval)
 	{
 		/* Food, Flasks, and Lights */
+		case TV_MISC:
 		case TV_FOOD:
 		case TV_MUSHROOM:
 		case TV_HERB:
@@ -1510,7 +1511,8 @@ int find_inven(const struct object *obj)
 				return 0;
 			}
 
-			/* Food and Potions and Scrolls */
+			/* Junk, Food, Potions and Scrolls */
+			case TV_MISC:
 			case TV_FOOD:
 			case TV_MUSHROOM:
 			case TV_HERB:

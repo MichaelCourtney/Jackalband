@@ -113,6 +113,7 @@ static const grouper group_item[] =
 	{ TV_SCROLL,	"Scrolls" },
 	{ TV_POTION,	"Potions" },
 	{ TV_FOOD,		"Food" },
+	{ TV_MISC,		"Junk" },
 	{ TV_MUSHROOM,	"Mushrooms" },
 	{ TV_HERB,		"Herbs" },
 

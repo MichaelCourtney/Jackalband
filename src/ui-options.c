@@ -1448,6 +1448,7 @@ static tval_desc sval_dependent[] =
 	{ TV_RING,			"Rings" },
 	{ TV_AMULET,		"Amulets" },
 	{ TV_FOOD,			"Food" },
+	{ TV_MISC,			"Junk" },
 	{ TV_MUSHROOM,		"Mushrooms" },
 	{ TV_HERB,			"Herbs" },
 	{ TV_MAGIC_BOOK,	"Magic books" },

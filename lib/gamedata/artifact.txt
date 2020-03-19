@@ -87,6 +87,21 @@
 
 ### Light Sources ###
 
+name:of Gwindor
+base-object:light:Feanorian Lamp
+level:5
+weight:10
+cost:10000
+alloc:1:12 to 127
+attack:1d1:0:0
+armor:0:0
+values:LIGHT[1]
+act:ILLUMINATION
+time:10+d10
+msg:The lantern wells with clear light...
+desc:One of the legendary lamps of the Noldor, burning with a clear blue light. 
+desc:Its light is imperishable, and near it darkness cannot endure.
+
 name:of Galadriel
 base-object:light:Phial
 graphics:~:y
@@ -1479,6 +1494,19 @@ desc: the main host.
 
 ### Helmets and Crowns ###
 
+name:of Sam
+base-object:helm:Hard Leather Cap
+level:20
+weight:15
+cost:15000
+alloc:1:1 to 127
+attack:0d0:1:1
+armor:2:7
+values:STR[-1] | DEX[1] | SPEED[1]
+desc:Sam was brave and trustworthy companion of Frodo.
+desc:With this cap, you feel able to face the dangers
+desc:ahead with a steady hand and a noble heart.
+
 name:of Thranduil
 base-object:helm:Hard Leather Cap
 level:50
@@ -1789,6 +1817,18 @@ desc: nothing else can.
 
 ### Cloaks ###
 
+name:of Merry
+base-object:cloak:Cloak
+level:20
+weight:10
+cost:15000
+alloc:1:5 to 127
+attack:0d0:1:1
+armor:1:7
+values:STR[-1] | DEX[1] | STEALTH[1] | SPEED[1] | SEARCH[1]
+flags:PROT_CONF
+desc:Merry was the most perceptive and intelligent of hobbits.
+
 name:'Colluin'
 base-object:cloak:Cloak
 level:5
@@ -1894,6 +1934,17 @@ desc: walk under my shadow".
 
 
 ### Gloves and Gauntlets ###
+
+name:of Pippin
+base-object:gloves:Set of Leather Gloves
+level:20
+weight:5
+cost:15000
+alloc:1:10 to 127
+attack:0d0:1:1
+armor:1:7
+values:STR[-1] | DEX[1] | SPEED[1]
+desc:'Fool of a Took' ... Ah, but Peregrin was brave if not wise.
 
 name:'Cambeleg'
 base-object:gloves:Set of Leather Gloves

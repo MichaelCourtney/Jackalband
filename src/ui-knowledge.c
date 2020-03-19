@@ -1117,7 +1117,7 @@ static struct
 	{ L"S",        "Scorpions/Spiders" },
 	{ L"s",        "Skeletons/Drujs" },
 	{ L"J",        "Snakes" },
-	{ L"l",        "Trees/Ents" },
+	{ L"l&",       "Trees/Ents/Plants" },
 	{ L"T",        "Trolls" },
 	{ L"V",        "Vampires" },
 	{ L"W",        "Wights/Wraiths" },
@@ -1365,6 +1365,7 @@ static void do_cmd_knowledge_monsters(const char *name, int row)
  */
 static const grouper object_text_order[] =
 {
+	{TV_MISC,			"Junk"			},
 	{TV_RING,			"Ring"			},
 	{TV_AMULET,			"Amulet"		},
 	{TV_POTION,			"Potion"		},

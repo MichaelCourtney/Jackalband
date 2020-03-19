@@ -156,7 +156,76 @@ name:<curse object>
 type:none
 graphics:*:v
 
+##### Junk #####
+
+name:& Iron Spike~
+type:misc
+graphics:~:W
+level:0
+weight:10
+cost:1
+alloc:1:0 to 10
+pile:100:6d7
+attack:1d1:0:0
+
+name:& Empty Bottle~
+type:misc
+graphics:!:w
+level:0
+weight:10
+cost:1
+alloc:1:0 to 10
+pile:100:1d5
+attack:1d1:0:0
+
+name:& Shard~ of Pottery
+type:misc
+graphics:~:r
+level:0
+weight:10
+cost:0
+alloc:1:0 to 10
+pile:100:1d5
+attack:1d1:0:0
+
+name:& Broken Stick~
+type:misc
+graphics:~:U
+level:0
+weight:10
+cost:0
+alloc:1:0 to 10
+attack:1d1:0:0
+
 ##### Lights #####
+
+name:& Lesser Jewel~
+type:light
+graphics:*:B
+level:3
+weight:1
+cost:1000
+alloc:1:3 to 127
+attack:1d1:0:0
+armor:0:0
+flags:NO_FUEL | LIGHT_2 | EASY_KNOW
+desc:An enchanted glowing jewel, akin to a Silmaril, but much less
+desc: powerful.
+desc: You can equip it as a light source with a radius of 1 square.
+desc: It will shine forever.
+
+name:& Feanorian Lamp~
+type:light
+graphics:~:o
+level:15
+weight:10
+cost:1000
+alloc:1:12 to 127
+attack:1d1:0:0
+armor:0:0
+flags:NO_FUEL | EASY_KNOW | LIGHT_3 | IGNORE_FIRE
+desc:An enchanted lamp, shining with the light of lesser jewels.
+desc: It will shine forever.
 
 name:& Wooden Torch~
 type:light

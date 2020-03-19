@@ -812,6 +812,7 @@ static int object_value_base(const struct object *obj)
 	switch (obj->tval)
 	{
 		case TV_FOOD:
+		case TV_MISC:
 		case TV_MUSHROOM:
 		case TV_HERB:
 			return 5;

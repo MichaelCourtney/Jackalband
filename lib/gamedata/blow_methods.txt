@@ -220,3 +220,12 @@ phys:0
 msg:MON_SING
 act:sings
 desc:sing
+
+name:THORN
+cut:1
+stun:0
+miss:0
+phys:1
+msg:MON_THORN
+act:tears at {target}
+desc:slash

@@ -106,6 +106,7 @@ info:2000:10
 alloc:50:1 to 30
 item:light:Wooden Torch
 item:light:Lantern
+item:light:Feanorian Lamp
 values:LIGHT[1]
 min-values:LIGHT[1]
 
@@ -121,6 +122,7 @@ name:of True Sight
 info:6000:10
 alloc:10:20 to 127
 item:light:Lantern
+item:light:Feanorian Lamp
 flags:PROT_BLIND | SEE_INVIS
 
 

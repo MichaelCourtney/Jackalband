@@ -56,6 +56,16 @@ bool tval_is_food_k(const struct object_kind *kind)
 	return kind->tval == TV_FOOD;
 }
 
+bool tval_is_misc(const struct object *obj)
+{
+	return obj->tval == TV_MISC;
+}
+
+bool tval_is_misc_k(const struct object_kind *kind)
+{
+	return kind->tval == TV_MISC;
+}
+
 bool tval_is_mushroom(const struct object *obj)
 {
 	return obj->tval == TV_MUSHROOM;

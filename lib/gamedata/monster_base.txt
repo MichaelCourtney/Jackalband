@@ -441,6 +441,13 @@ flags:CLEAR_WEB | COLD_BLOOD | REGENERATE
 flags:NO_FEAR | NO_CONF | HURT_FIRE | IM_WATER
 desc:Tree/Ent
 
+name:plant
+glyph:&
+pain:2
+flags:COLD_BLOOD
+flags:HURT_FIRE | NO_FEAR | NO_CONF | NO_SLEEP | EMPTY_MIND
+desc:Plant
+
 # Trolls are evil, larger than human-size humanoids. They have strong melee
 # combat, and many are hurt by light.  They fall roughly between ogres and
 # giants in Morgoth's humanoid soldiery.
