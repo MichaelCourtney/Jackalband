@@ -1979,12 +1979,8 @@ bool build_simple(struct chunk *c, struct loc centre, int rating)
 	x2 = x1 + width - 1;
 
 	/* Occasional light */
-	if (c->depth > randint1(50)) {
-		if (c->depth <= randint1(36)) light = true;
-	} else {
-		if (c->depth <= randint1(20)) light = true;
-	}
-
+	if (c->depth > randint1(25)) light = true;
+	
 	/* Generate new room */
 	generate_room(c, y1-1, x1-1, y2+1, x2+1, light);
 
