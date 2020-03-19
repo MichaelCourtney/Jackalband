@@ -1096,7 +1096,7 @@ static struct
 	{ L"G",        "Ghosts" },
 	{ L"OP",       "Giants/Ogres" },
 	{ L"g",        "Golems" },
-	{ L"H",        "Harpies/Hybrids" },
+	{ L"H",        "Harpies/Hybrids/Horrors" },
 	{ L"h",        "Hominids (Elves, Dwarves)" },
 	{ L"M",        "Hydras" },
 	{ L"i",        "Icky Things" },

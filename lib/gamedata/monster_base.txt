@@ -478,6 +478,7 @@ flags:RAND_50 | BASH_DOOR | CLEAR_WEB
 flags:NO_FEAR | NO_CONF | NO_SLEEP | NO_HOLD | IM_POIS
 flags:FORCE_SLEEP
 flags:NONLIVING
+flags:WILD_HP
 desc:Vortex
 
 # Worms are mostly low level slow breeders with crawl attacks for an effect
