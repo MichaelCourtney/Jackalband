@@ -2038,13 +2038,38 @@ desc: vertical blade.  Used as a weapon of war by dwarves.
 
 ##### Boots #####
 
+### Umoria Extras ###
+
+name:& Pair~ of Soft Leather Shoes
+type:boots
+graphics:]:U
+level:0
+weight:15
+cost:4
+alloc:5:2 to 10
+attack:1d1:0:0
+armor:1:0
+
+name:& Pair~ of Hard Leather Boots
+type:boots
+graphics:]:U
+level:6
+weight:25
+cost:10
+alloc:5:6 to 16
+attack:1d1:0:0
+armor:3:0
+desc:These are calf-high boots of flexible leather, laced from heel to calf.
+
+### Core ###
+
 name:& Pair~ of Leather Sandals
 type:boots
 graphics:]:U
 level:0
 weight:15
 cost:4
-alloc:20:1 to 100
+alloc:10:2 to 100
 attack:1d1:0:0
 armor:1:0
 desc:A set of open-topped footgear with soft calfskin lacings and a sturdy 
@@ -2056,7 +2081,7 @@ graphics:]:U
 level:3
 weight:20
 cost:7
-alloc:20:3 to 100
+alloc:30:3 to 100
 attack:1d1:0:0
 armor:2:0
 desc:These are calf-high boots of flexible leather, laced from heel to calf.
@@ -2067,7 +2092,7 @@ graphics:]:U
 level:5
 weight:35
 cost:12
-alloc:20:5 to 100
+alloc:30:5 to 100
 attack:1d1:0:0
 armor:4:0
 flags:IGNORE_FIRE
@@ -2080,7 +2105,7 @@ graphics:]:s
 level:20
 weight:60
 cost:50
-alloc:20:20 to 100
+alloc:10:20 to 100
 attack:1d1:0:0
 armor:7:0
 flags:IGNORE_FIRE
@@ -2114,6 +2139,77 @@ desc:Fine quality elvish slippers, hard-wearing but apparently weightless.
 
 
 ### Headgear ###
+
+### Umoria Extras ###
+
+name:& Soft Leather Cap~
+type:helm
+graphics:]:u
+level:2
+weight:15
+cost:10
+alloc:5:2 to 12
+attack:0d0:0:0
+armor:1:0
+desc:A padded skullcap of boiled leather.
+
+name:& Silver Crown~
+type:crown
+graphics:]:s
+level:44
+weight:20
+cost:750
+alloc:5:44 to 49
+attack:1d1:0:0
+armor:0:0
+flags:IGNORE_ACID
+desc:An elegant silver circlet, with slender spines thrusting upward.
+desc:  It looks like it should be resting over the brow of a king.
+
+### ZVariant Extras ###
+
+name:& Knit Cap~
+type:helm
+graphics:]:b
+level:3
+weight:8
+cost:5
+alloc:1:3 to 8
+attack:0d0:0:0
+armor:0:0
+desc:A soft woolly hat.
+
+name:& Jingasa~
+type:helm
+graphics:]:s
+level:16
+weight:30
+cost:60
+alloc:1:16 to 21
+attack:1d1:0:0
+armor:5:0
+
+name:& Kabuto~
+type:helm
+graphics:]:D
+level:50
+weight:80
+cost:300
+alloc:1:50 to 55
+attack:1d1:0:0
+armor:10:0
+
+name:& Mithril Helm~
+type:helm
+graphics:]:B
+level:50
+weight:50
+cost:1000
+alloc:1:50 to 55
+attack:1d3:0:0
+armor:11:0
+
+### Core ###
 
 name:& Hard Leather Cap~
 type:helm
@@ -2201,6 +2297,122 @@ desc: of gems and jewels; worthy of a High King.
 
 ### Body armours ###
 
+### Umoria Extras ###
+
+name:Hard Studded Leather Armour~
+type:soft armor
+graphics:(:U
+level:7
+weight:130
+cost:300
+alloc:5:7 to 17
+attack:1d2:0:0
+armor:17:0
+
+name:Woven Cord Armour~
+type:soft armor
+graphics:(:U
+level:7
+weight:150
+cost:135
+alloc:5:7 to 17
+attack:0d0:0:0
+armor:16:0
+
+name:Soft Leather Ring Mail~
+type:soft armor
+graphics:(:U
+level:10
+weight:130
+cost:320
+alloc:5:10 to 20
+attack:1d2:0:0
+armor:16:0
+
+name:Hard Leather Ring Mail~
+type:soft armor
+graphics:(:U
+level:12
+weight:150
+cost:460
+alloc:5:12 to 22
+attack:1d3:0:0
+armor:18:0
+
+name:Rusty Chain Mail~
+type:hard armor
+graphics:[:s
+level:26
+weight:220
+cost:0
+alloc:1:26 to 31
+attack:1d4:-5:0
+armor:32:-8
+
+name:Double Chain Mail~
+type:hard armor
+graphics:[:s
+level:28
+weight:260
+cost:850
+alloc:5:28 to 38
+attack:1d4:0:0
+armor:37:0
+
+name:Laminated Armour~
+type:hard armor
+graphics:[:s
+level:38
+weight:275
+cost:1150
+alloc:1:38 to 43
+attack:1d4:0:0
+armor:44:0
+
+### ZVariant Extras ###
+
+name:Splint Mail~
+type:hard armor
+graphics:[:D
+level:35
+weight:250
+cost:1300
+alloc:1:35 to 40
+attack:1d4:0:0
+armor:48:0
+
+name:Do-maru~
+type:hard armor
+graphics:[:s
+level:40
+weight:290
+cost:1250
+alloc:1:40 to 45
+attack:1d4:0:0
+armor:50:0
+
+name:Haramakido~
+type:hard armor
+graphics:[:D
+level:32
+weight:280
+cost:920
+alloc:1:32 to 37
+attack:1d4:0:0
+armor:43:0
+
+name:O-yoroi~
+type:hard armor
+graphics:[:D
+level:45
+weight:320
+cost:1300
+alloc:1:45 to 50
+attack:1d4:0:0
+armor:60:0
+
+### Core ###
+
 name:& Robe~
 type:soft armor
 graphics:(:b
@@ -2218,7 +2430,7 @@ graphics:(:U
 level:3
 weight:80
 cost:20
-alloc:20:4 to 100
+alloc:30:4 to 100
 attack:0d0:0:0
 armor:8:0
 desc:A cuirass of pliable leather, with a thicker leather jack.
@@ -2229,7 +2441,7 @@ graphics:(:U
 level:10
 weight:100
 cost:100
-alloc:20:5 to 100
+alloc:10:5 to 100
 attack:1d1:0:0
 armor:12:0
 desc:A cuirass of pliable leather studded with metal rivets.
@@ -2251,7 +2463,7 @@ graphics:(:U
 level:15
 weight:140
 cost:370
-alloc:20:15 to 100
+alloc:20:10 to 100
 attack:1d1:0:0
 armor:20:0
 desc:A tunic and skirt sewn with thick, overlapping scales of hardened
@@ -2263,7 +2475,7 @@ graphics:[:s
 level:25
 weight:250
 cost:550
-alloc:20:25 to 100
+alloc:10:20 to 100
 attack:1d4:0:0
 armor:38:0
 desc:A heavy shirt of overlapping steel scales backed by leather, with
@@ -2275,7 +2487,7 @@ graphics:[:s
 level:25
 weight:220
 cost:750
-alloc:20:20 to 100
+alloc:30:20 to 100
 attack:1d4:0:0
 armor:32:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings, well padded
@@ -2300,7 +2512,7 @@ graphics:[:s
 level:35
 weight:280
 cost:950
-alloc:20:40 to 100
+alloc:10:40 to 100
 attack:1d4:0:0
 armor:45:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings,
@@ -2313,7 +2525,7 @@ graphics:[:s
 level:35
 weight:290
 cost:1100
-alloc:20:45 to 100
+alloc:30:40 to 100
 attack:1d4:0:0
 armor:48:0
 desc:A stiff suit of armour composed of small metal plates sewn to an
@@ -2326,7 +2538,7 @@ graphics:[:W
 level:45
 weight:260
 cost:1200
-alloc:20:30 to 100
+alloc:10:20 to 100
 attack:1d6:0:0
 armor:40:0
 desc:A steel corselet and vambraces over a skirt and leggings of chain.
@@ -2337,7 +2549,7 @@ graphics:[:W
 level:45
 weight:340
 cost:1250
-alloc:20:50 to 100
+alloc:15:50 to 100
 attack:1d6:0:0
 armor:58:0
 desc:This unusual armour is a surprisingly light suit of laced and
@@ -2349,7 +2561,7 @@ graphics:[:W
 level:45
 weight:360
 cost:1350
-alloc:15:55 to 100
+alloc:30:50 to 100
 attack:2d4:0:0
 armor:62:0
 desc:A full suit of carefully fitted plates, with hinged joints backed
@@ -2361,7 +2573,7 @@ graphics:[:W
 level:50
 weight:380
 cost:1500
-alloc:15:60 to 100
+alloc:10:55 to 100
 attack:2d4:0:0
 armor:66:0
 desc:A full suit of finely fitted metal armour consisting of steel plates
@@ -2373,7 +2585,7 @@ graphics:[:B
 level:55
 weight:150
 cost:7000
-alloc:10:55 to 100
+alloc:15:55 to 100
 attack:1d4:0:0
 armor:28:0
 flags:IGNORE_ACID
