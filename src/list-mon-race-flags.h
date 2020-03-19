@@ -100,4 +100,5 @@ RF(PL_OS,		RFT_PLACE,		"")
 RF(PL_SIL,		RFT_PLACE,		"")
 RF(PL_OLDBAND,	RFT_PLACE,		"")
 RF(PL_FA,		RFT_PLACE,		"")
+RF(PL_GREEK,	RFT_PLACE,		"")
 /* end flags */

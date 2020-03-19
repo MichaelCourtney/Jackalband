@@ -1599,13 +1599,14 @@ smell:20
 armor-class:20
 sleepiness:10
 depth:2
-rarity:1
+rarity:2
 experience:5
 blow:CLAW:HURT:1d1
 blow:CLAW:HURT:1d1
 blow:BITE:HURT:1d2
 flags:FEMALE | EVIL | ANIMAL
 flags:RAND_50
+flags:PL_GREEK
 desc:A flying, screeching bird with a woman's face.
 
 name:blue yeek
@@ -3168,13 +3169,14 @@ smell:20
 armor-class:26
 sleepiness:10
 depth:9
-rarity:1
+rarity:2
 experience:19
 blow:CLAW:HURT:1d2
 blow:CLAW:HURT:1d2
 blow:BITE:HURT:1d3
 flags:FEMALE | EVIL | ANIMAL
 flags:RAND_25
+flags:PL_GREEK
 desc:A woman's face on the body of a vicious black bird.
 
 name:orc shaman
@@ -3773,12 +3775,13 @@ smell:20
 armor-class:21
 sleepiness:40
 depth:11
-rarity:1
+rarity:2
 experience:30
 blow:HIT:HURT:2d5
 blow:BITE:HURT:2d5
 flags:ANIMAL
 flags:BASH_DOOR
+flags:PL_GREEK
 desc:A strange hybrid of eagle and horse.  It looks weird.
 
 name:zombified orc
@@ -5025,12 +5028,13 @@ hearing:20
 armor-class:90
 sleepiness:80
 depth:17
-rarity:2
+rarity:3
 experience:80
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
 flags:DROP_2
 flags:OPEN_DOOR | MOVE_BODY
+flags:PL_GREEK
 spell-freq:11
 spells:SCARE
 desc:A strange reptilian hybrid with two heads, guarding its hoard.
@@ -5546,7 +5550,7 @@ hearing:20
 armor-class:97
 sleepiness:70
 depth:20
-rarity:2
+rarity:3
 experience:350
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -5554,6 +5558,7 @@ blow:BITE:POISON:2d6
 flags:DROP_3
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_POIS
+flags:PL_GREEK
 spell-freq:9
 spells:SCARE
 desc:A 2-headed hydra with an extra head, its mouth dripping venom.
@@ -5662,7 +5667,7 @@ smell:20
 armor-class:22
 sleepiness:30
 depth:20
-rarity:2
+rarity:3
 experience:200
 blow:BUTT:HURT:2d8
 blow:BITE:HURT:2d10
@@ -5670,6 +5675,7 @@ blow:BITE:FIRE:2d6
 flags:BASH_DOOR
 flags:IM_FIRE
 flags:FORCE_SLEEP
+flags:PL_GREEK
 innate-freq:10
 spells:BR_FIRE
 desc:It is a strange concoction of goat, lion and dragon, with the heads of all
@@ -6335,7 +6341,7 @@ hearing:20
 armor-class:105
 sleepiness:60
 depth:24
-rarity:2
+rarity:3
 experience:450
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -6344,6 +6350,7 @@ blow:BITE:FIRE:2d6
 flags:DROP_3
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_POIS | IM_FIRE
+flags:PL_GREEK
 spell-freq:7
 spells:SCARE
 desc:A 3-headed hydra with an extra, smouldering, head.
@@ -7132,7 +7139,7 @@ hearing:20
 armor-class:120
 sleepiness:50
 depth:28
-rarity:2
+rarity:3
 experience:650
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -7142,6 +7149,7 @@ blow:BITE:ACID:2d6
 flags:DROP_4
 flags:MOVE_BODY
 flags:IM_POIS | IM_FIRE | IM_ACID
+flags:PL_GREEK
 spell-freq:5
 spells:SCARE
 desc:A 4-headed hydra with an extra head, steaming with acidic vapor.
@@ -9979,7 +9987,7 @@ hearing:20
 armor-class:135
 sleepiness:35
 depth:39
-rarity:2
+rarity:3
 experience:2000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -9990,6 +9998,7 @@ blow:BITE:BLIND:1d2
 flags:DROP_4
 flags:MOVE_BODY
 flags:IM_POIS | IM_FIRE | IM_ACID
+flags:PL_GREEK
 innate-freq:10
 spell-freq:8
 spells:SCARE
@@ -10123,7 +10132,7 @@ hearing:20
 armor-class:114
 sleepiness:20
 depth:40
-rarity:2
+rarity:3
 experience:3000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -10135,6 +10144,7 @@ blow:BITE:CONFUSE:2d6
 flags:DROP_4
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_POIS | IM_FIRE | IM_ACID | NO_CONF
+flags:PL_GREEK
 innate-freq:8
 spell-freq:6
 spells:SCARE
@@ -10256,7 +10266,7 @@ smell:20
 armor-class:30
 sleepiness:10
 depth:40
-rarity:2
+rarity:3
 experience:2100
 blow:BUTT:HURT:4d6
 blow:BUTT:HURT:4d6
@@ -10264,6 +10274,7 @@ blow:BUTT:HURT:2d6
 blow:BUTT:HURT:2d6
 flags:EVIL
 flags:BASH_DOOR
+flags:PL_GREEK
 desc:It is a cross between a human and a bull.
 
 name:vrock
@@ -10948,7 +10959,7 @@ hearing:20
 armor-class:120
 sleepiness:20
 depth:44
-rarity:2
+rarity:3
 experience:6000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -10961,6 +10972,7 @@ blow:BITE:EXP_10:2d6
 flags:DROP_4
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_FIRE
+flags:PL_GREEK
 innate-freq:7
 spell-freq:5
 spells:SCARE
@@ -12485,7 +12497,7 @@ hearing:20
 armor-class:168
 sleepiness:20
 depth:57
-rarity:2
+rarity:3
 experience:7000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -12500,6 +12512,7 @@ flags:SMART | POWERFUL | REGENERATE
 flags:DROP_3
 flags:OPEN_DOOR | KILL_BODY
 flags:IM_FIRE | IM_POIS | IM_ACID | NO_CONF | NO_SLEEP | NO_HOLD
+flags:PL_GREEK
 innate-freq:4
 spell-freq:9
 spells:SCARE
@@ -14405,6 +14418,7 @@ blow:ENGULF:HALLU:4d10
 flags:FEMALE
 flags:DROP_4 | PASS_WALL
 flags:IM_FIRE | IM_POIS | IM_COLD
+flags:PL_GREEK
 spell-freq:4
 spells:WOUND | SCARE | BRAIN_SMASH
 spells:BLINK | TELE_SELF_TO
