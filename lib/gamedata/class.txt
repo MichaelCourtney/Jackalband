@@ -1573,7 +1573,7 @@ equip:light:Wooden Torch:1:3
 equip:sword:Cutlass:1:1
 equip:scroll:Word of Recall:1:1
 obj-flags:IMPAIR_HP
-player-flags:CHOOSE_SPELLS | SHIELD_BASH | CROWD_FIGHT
+player-flags:CHOOSE_SPELLS | SHIELD_BASH | CROWD_FIGHT | HEAVY_WEAPON
 title:Rat
 title:Bully
 title:Thug

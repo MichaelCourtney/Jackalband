@@ -119,7 +119,12 @@ desc:You gains advantage from fighting many monsters at once.
 type:player
 code:EXTRA_BLOW
 name:Extra Blow
-desc:You gains an extra blow.
+desc:You gain an extra blow.
+
+type:player
+code:HEAVY_WEAPON
+name:Heavy Weapon
+desc:You prefer heavy weapons.
 
 type:object
 code:SUST_STR

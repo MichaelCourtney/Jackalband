@@ -1641,6 +1641,15 @@ int calc_blows(struct player *p, const struct object *obj,
 	/* Enforce a minimum "weight" (tenth pounds) */
 	div = (weight < min_weight) ? min_weight : weight;
 
+	/* Blackguards have heavy weapon preference */
+	if player_has(p, PF_HEAVY_WEAPON) {
+		if (div < 130) {
+			div += (130 - div) / 5;
+		} else {
+			div -= (div - 130) / 5;
+		}
+	}
+	
 	/* Get the strength vs weight */
 	str_index = adj_str_blow[state->stat_ind[STAT_STR]] *
 			p->class->att_multiply / div;
