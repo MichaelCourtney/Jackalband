@@ -416,3 +416,8 @@ room:2
 alloc:1:20
 obj-rarity:5
 flags-req:PL_GREEK
+
+name:Moria monsters
+room:3
+alloc:8:30
+flags-req:PL_MORIA

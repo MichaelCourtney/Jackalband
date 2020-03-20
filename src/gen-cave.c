@@ -3314,3 +3314,224 @@ struct chunk *tiny_gen(struct player *p, int min_height, int min_width) {
     return c;
 }
 
+
+/* ------------------ ONE WAY DOOR ---------------- */
+/**
+ * Builds a classical level themed to Umoria (though smaller)
+ * Generate a new dungeon level.
+ * \param p is the player 
+ * \return a pointer to the generated chunk
+ */
+struct chunk *owd_gen(struct player *p, int min_height, int min_width) {
+    int i, j, k;
+	struct loc grid;
+    int by, bx = 0, tby, tbx, key, rarity, built;
+    int num_rooms, size_percent;
+    int dun_unusual = dun->profile->dun_unusual;
+
+    bool **blocks_tried;
+	struct chunk *c;
+
+	/* No persistent levels of this type for now */
+	if (OPT(p, birth_levels_persist)) return NULL;
+
+    /* This code currently does nothing - see comments below */
+    i = randint1(10) + p->depth / 24;
+    if (is_quest(p->depth)) size_percent = 100;
+    else if (i < 2) size_percent = 75;
+    else if (i < 3) size_percent = 80;
+    else if (i < 4) size_percent = 85;
+    else if (i < 5) size_percent = 90;
+    else if (i < 6) size_percent = 95;
+    else size_percent = 100;
+
+    /* scale the various generation variables */
+    num_rooms = (dun->profile->dun_rooms * size_percent) / 100;
+	dun->block_hgt = dun->profile->block_size;
+	dun->block_wid = dun->profile->block_size;
+	c = cave_new(z_info->dungeon_hgt, ((z_info->dungeon_wid * 3) / 4));
+	c->depth = p->depth;
+    ROOM_LOG("height=%d  width=%d  nrooms=%d", c->height, c->width, num_rooms);
+
+    /* Fill cave area with basic granite */
+    fill_rectangle(c, 0, 0, c->height - 1, c->width - 1, 
+				   FEAT_GRANITE, SQUARE_NONE);
+
+    /* Actual maximum number of rooms on this level */
+    dun->row_blocks = c->height / dun->block_hgt;
+    dun->col_blocks = c->width / dun->block_wid;
+
+    /* Initialize the room table */
+	dun->room_map = mem_zalloc(dun->row_blocks * sizeof(bool*));
+	for (i = 0; i < dun->row_blocks; i++)
+		dun->room_map[i] = mem_zalloc(dun->col_blocks * sizeof(bool));
+
+    /* Initialize the block table */
+    blocks_tried = mem_zalloc(dun->row_blocks * sizeof(bool*));
+
+	for (i = 0; i < dun->row_blocks; i++)
+		blocks_tried[i] = mem_zalloc(dun->col_blocks * sizeof(bool));
+
+    /* No rooms yet, pits or otherwise. */
+    dun->pit_num = 0;
+    dun->cent_n = 0;
+
+    /* Build some rooms.  Note that the theoretical maximum number of rooms
+	 * in this profile is currently 36, so built never reaches num_rooms,
+	 * and room generation is always terminated by having tried all blocks */
+    built = 0;
+    while(built < num_rooms) {
+
+		/* Count the room blocks we haven't tried yet. */
+		j = 0;
+		tby = 0;
+		tbx = 0;
+		for(by = 0; by < dun->row_blocks; by++) {
+			for(bx = 0; bx < dun->col_blocks; bx++) {
+				if (blocks_tried[by][bx]) continue;
+				j++;
+				if (one_in_(j)) {
+					tby = by;
+					tbx = bx;
+				}
+			} 
+		}
+		bx = tbx;
+		by = tby;
+
+		/* If we've tried all blocks we're done. */
+		if (j == 0) break;
+
+		if (blocks_tried[by][bx]) quit_fmt("generation: inconsistent blocks");
+
+		/* Mark that we are trying this block. */
+		blocks_tried[by][bx] = true;
+
+		/* Roll for random key (to be compared against a profile's cutoff) */
+		key = randint0(100);
+
+		/* We generate a rarity number to figure out how exotic to make the
+		 * room. This number has a depth/DUN_UNUSUAL chance of being > 0,
+		 * a depth^2/DUN_UNUSUAL^2 chance of being > 1, up to MAX_RARITY. */
+		i = 0;
+		rarity = 0;
+		while (i == rarity && i < dun->profile->max_rarity) {
+			if (randint0(dun_unusual) < 50 + c->depth / 2) rarity++;
+			i++;
+		}
+
+		/* Once we have a key and a rarity, we iterate through out list of
+		 * room profiles looking for a match (whose cutoff > key and whose
+		 * rarity > this rarity). We try building the room, and if it works
+		 * then we are done with this iteration. We keep going until we find
+		 * a room that we can build successfully or we exhaust the profiles. */
+		for (i = 0; i < dun->profile->n_room_profiles; i++) {
+			struct room_profile profile = dun->profile->room_profiles[i];
+			if (profile.rarity > rarity) continue;
+			if (profile.cutoff <= key) continue;
+			
+			if (room_build(c, by, bx, profile, false)) {
+				built++;
+				break;
+			}
+		}
+    }
+
+	for (i = 0; i < dun->row_blocks; i++){
+		mem_free(blocks_tried[i]);
+		mem_free(dun->room_map[i]);
+	}
+	mem_free(blocks_tried);
+	mem_free(dun->room_map);
+
+    /* Generate permanent walls around the edge of the generated area */
+    draw_rectangle(c, 0, 0, c->height - 1, c->width - 1, 
+				   FEAT_PERM, SQUARE_NONE);
+
+    /* Hack -- Scramble the room order */
+    for (i = 0; i < dun->cent_n; i++) {
+		int pick1 = randint0(dun->cent_n);
+		int pick2 = randint0(dun->cent_n);
+		struct loc tmp = dun->cent[pick1];
+		dun->cent[pick1] = dun->cent[pick2];
+		dun->cent[pick2] = tmp;
+    }
+
+    /* Start with no tunnel doors */
+    dun->door_n = 0;
+
+    /* Hack -- connect the first room to the last room */
+    grid = dun->cent[dun->cent_n - 1];
+
+    /* Connect all the rooms together */
+    for (i = 0; i < dun->cent_n; i++) {
+		/* Connect the room to the previous room */
+		build_tunnel(c, dun->cent[i], grid);
+
+		/* Remember the "previous" room */
+		grid = dun->cent[i];
+    }
+
+    /* Place intersection doors */
+    for (i = 0; i < dun->door_n; i++) {
+		/* Try placing doors */
+		try_door(c, next_grid(dun->door[i], DIR_W));
+		try_door(c, next_grid(dun->door[i], DIR_E));
+		try_door(c, next_grid(dun->door[i], DIR_N));
+		try_door(c, next_grid(dun->door[i], DIR_S));
+    }
+
+    ensure_connectedness(c);
+
+    /* Add some magma streamers */
+    for (i = 0; i < dun->profile->str.mag; i++)
+		build_streamer(c, FEAT_MAGMA, dun->profile->str.mc);
+
+    /* Add some quartz streamers */
+    for (i = 0; i < dun->profile->str.qua; i++)
+		build_streamer(c, FEAT_QUARTZ, dun->profile->str.qc);
+
+    /* Place 3 or 4 down stairs near some walls */
+    alloc_stairs(c, FEAT_MORE, rand_range(3, 4));
+
+    /* Place 1 or 2 up stairs near some walls */
+    alloc_stairs(c, FEAT_LESS, rand_range(1, 2));
+
+    /* General amount of rubble, traps and monsters */
+    k = MAX(MIN(c->depth / 3, 10), 2);
+
+    /* Put some rubble in corridors */
+    alloc_objects(c, SET_CORR, TYP_RUBBLE, randint1(k), c->depth, 0);
+
+    /* Place some traps in the dungeon, reduce frequency by factor of 5 */
+    alloc_objects(c, SET_CORR, TYP_TRAP, randint1(k)/5, c->depth, 0);
+
+    /* Determine the character location */
+    new_player_spot(c, p);
+
+    /* Pick a base number of monsters */
+    i = ((z_info->level_monster_min + randint1(8) + k) * 3) / 4;
+
+    /* OWD levels have a high proportion of moria monsters. */
+	mon_restrict("Moria monsters", c->depth, true);
+
+    /* Put some monsters in the dungeon */
+    for (; i > 0; i--)
+		pick_and_place_distant_monster(c, p, 0, true, c->depth);
+
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+
+    /* Put some objects in rooms */
+    alloc_objects(c, SET_ROOM, TYP_OBJECT, Rand_normal(z_info->room_item_av, 3),
+				  c->depth, ORIGIN_FLOOR);
+
+    /* Put some objects/gold in the dungeon */
+    alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal(z_info->both_item_av, 3),
+				  c->depth, ORIGIN_FLOOR);
+    alloc_objects(c, SET_BOTH, TYP_GOLD, Rand_normal(z_info->both_gold_av, 3),
+				  c->depth, ORIGIN_FLOOR);
+
+    return c;
+}
+

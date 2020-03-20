@@ -95,7 +95,7 @@ name:tiny
 params:1:10:500:1
 tunnel:15:20:18:20:30
 streamer:5:2:1:90:1:60
-cutoff:39
+cutoff:38
 
 # Unusual rooms (rarity = 1)
 room:Least vault:0:22:44:0:0:1:40
@@ -114,6 +114,16 @@ room:room template:3:11:33:30:0:1:100
 
 # Normal rooms (rarity = 0)
 room:small room:0:11:22:1:0:0:80
+room:simple room:0:11:33:1:0:0:100
+
+## One way door
+name:one way door
+params:11:25:200:0
+tunnel:10:30:15:25:50
+streamer:5:2:2:90:1:40
+cutoff:39
+
+# Normal rooms (rarity = 0)
 room:simple room:0:11:33:1:0:0:100
 
 ## FA mountains
