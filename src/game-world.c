@@ -135,7 +135,7 @@ bool is_daytime(void)
  */
 int turn_energy(int speed)
 {
-	return extract_energy[speed] * z_info->move_energy / 100;
+	return ((extract_energy[speed] * z_info->move_energy / 100) + randint0(2) - randint0(1));
 }
 
 /**
