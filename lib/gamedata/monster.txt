@@ -285,7 +285,7 @@ hearing:40
 armor-class:12
 sleepiness:3
 depth:0
-rarity:4
+rarity:10
 experience:0
 blow:MOAN
 blow:MOAN
@@ -686,22 +686,21 @@ flags:PL_SIL
 desc:'... great writhing, tangled brambles sprawled. Some had long stabbing
 desc: thorns, some hooked barbs that rent like knives.'
 
-name:gorcrow
+name:grimhawk
 base:bird
-color:D
-speed:115
+color:u
+speed:120
 hit-points:4
 hearing:20
-armor-class:9
+armor-class:7
 sleepiness:20
 depth:1
 rarity:1
-experience:8
-blow:PECK:BLIND:1d3
-flags:EVIL | RAND_25
+experience:4
+blow:PECK:HURT:1d5
+flags:RAND_50 | TERRITORIAL
 flags:PL_SIL
-desc:A dark creature, related to the crow. It pecks at any exposed flesh,
-desc: especially the face and eyes.
+desc:A hunting bird, beloved of the orcs, with iron barbs on its talons.
 
 name:white icky thing
 base:icky thing
@@ -998,8 +997,8 @@ flags:RAND_25
 flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:A fast-moving pest.
 
-name:crimson icky thing
-base:icky thing
+name:dancing candle flame
+base:light
 color:r
 speed:110
 hit-points:6
@@ -1010,12 +1009,11 @@ depth:1
 rarity:2
 experience:3
 blow:TOUCH:FIRE:1d4
-flags:EMPTY_MIND
-flags:RAND_25
+flags:RAND_25 | RAND_50
 flags:PL_JB
 innate-freq:4
 spells:SPIT
-desc:It is a smallish, burning, icky creature.
+desc:It is an eerie looking light, dancing and spitting flames.
 
 name:mud spirit
 base:elemental
@@ -1189,7 +1187,7 @@ depth:1
 rarity:4
 experience:3
 blow:SPORE:CONFUSE:1d6
-flags:NEVER_MOVE | STUPID | EMPTY_MIND | IM_POIS | NO_CONF | NO_SLEEP | NO_FEAR
+flags:NEVER_MOVE
 flags:PL_ZVARIANT
 spell-freq:2
 spells:BLINK
@@ -1925,29 +1923,6 @@ drop-base:magic book:5:1:1
 flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
 desc:He is leaving behind a trail of dropped spell components.
 
-name:novice archaeologist
-base:humanoid
-color:W
-speed:110
-hit-points:17
-light:2
-hearing:20
-armor-class:10
-sleepiness:5
-depth:2
-rarity:10
-experience:7
-blow:HIT:HURT:1d4
-blow:HIT:HURT:1d4
-flags:DROP_60
-flags:FORCE_SLEEP | TAKE_ITEM
-flags:PL_ZVARIANT
-innate-freq:8
-spells:WHIP
-spell-freq:10
-spells:HEAL
-desc:A young student, out exploring and looking for valuable items.
-
 name:maddened weasel
 base:rodent
 color:U
@@ -1988,6 +1963,24 @@ spells:SCARE | FORGET
 desc:An evil swamp dwelling creature that feeds on the bones
 desc: of those who draw near.
 
+name:madthorn
+base:plant
+color:y
+speed:110
+hit-points:20
+hearing:2
+armor-class:8
+sleepiness:50
+depth:2
+rarity:3
+experience:10
+blow:THORN:CONFUSE:4d3
+flags:NEVER_MOVE | IM_POIS | EVIL
+flags:PL_SIL
+desc:Found most often in the depths of Taur-nu-Fuin,
+desc: it is more feared by travellers than wolves,
+desc: for the poison on its thorns can bring madness.
+
 name:giant centipede exoskeleton
 base:skeleton
 color:w
@@ -2002,6 +1995,82 @@ experience:4
 blow:CRAWL:HURT:1d4
 flags:PL_JB | PL_MORIA
 desc:It is a small animated centipede exoskeleton.
+
+name:ghost spider
+base:spider
+color:u
+speed:120
+hit-points:7
+hearing:8
+armor-class:19
+sleepiness:10
+depth:2
+rarity:2
+experience:10
+innate-freq:6
+spells:WEAVE
+flags:ANIMAL | WEIRD_MIND | INVISIBLE | COLD_BLOOD
+flags:FRIGHTENED | NEVER_BLOW | PASS_WALL
+flags:PL_JB
+friends:20:1d4:Same
+desc:It is a ghostly spider.
+
+name:silver fox
+base:canine
+color:r
+speed:120
+hit-points:8
+hearing:10
+smell:50
+armor-class:5
+sleepiness:10
+depth:2
+rarity:2
+experience:5
+blow:BITE:EAT_LIGHT:1d1
+blow:CLAW:EAT_LIGHT:1d1
+flags:PL_JB
+friends:20:1d2:Same
+desc:Your light flickers as the silver fox glides towards you.
+
+name:glow mold
+base:mold
+color:m
+speed:110
+hit-points:4
+light:2
+hearing:2
+armor-class:2
+sleepiness:0
+depth:2
+rarity:2
+experience:4
+blow:SPORE:HALLU:1d4
+blow:SPORE:HALLU:1d4
+flags:EMPTY_MIND | STUPID
+flags:PL_JB
+desc:A small strange glowing growth.
+
+name:animated torch
+base:golem
+glyph:~
+color:u
+speed:110
+hit-points:10
+light:2
+hearing:6
+armor-class:4
+sleepiness:0
+depth:2
+rarity:3
+experience:2
+blow:HIT:FIRE:1d4
+flags:COLD_BLOOD | FORCE_SLEEP
+flags:BASH_DOOR | CLEAR_WEB | RAND_50
+flags:IM_POIS
+flags:PL_OS
+drop:light:wooden torch:100:1:1
+desc:A torch that somehow seems to have come alive.
 
 ### Dungeon level 3 ###
 
@@ -2038,7 +2107,7 @@ blow:CRAWL:ACID:1d3
 flags:DROP_40
 flags:RAND_25 | RAND_50
 flags:IM_ACID | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It's green and it's oozing.
 
 name:poltergeist
@@ -2050,13 +2119,13 @@ hearing:8
 armor-class:18
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:8
 blow:TOUCH:TERRIFY
 flags:DROP_20 | DROP_40
 flags:RAND_25 | RAND_50 | TAKE_ITEM
 flags:HURT_LIGHT
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:15
 spells:BLINK
 desc:It is a ghastly, ghostly form.
@@ -2071,12 +2140,12 @@ smell:20
 armor-class:7
 sleepiness:15
 depth:3
-rarity:1
+rarity:2
 experience:7
 blow:CRAWL:HURT:1d2
 blow:STING:ELEC:1d2
 flags:RAND_50 | BASH_DOOR
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is about four feet long and carnivorous.
 
 name:giant white louse
@@ -2090,10 +2159,10 @@ smell:20
 armor-class:6
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:1
 blow:BITE:HURT:1d1
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is six inches long.
 
 name:black naga
@@ -2105,12 +2174,12 @@ hearing:16
 armor-class:60
 sleepiness:180
 depth:3
-rarity:1
+rarity:2
 experience:20
 blow:CRUSH:HURT:1d8
 flags:DROP_40
 flags:RAND_25
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:A large black serpent's body with a female torso.
 
 name:spotted mushroom patch
@@ -2123,12 +2192,12 @@ hearing:2
 armor-class:1
 sleepiness:0
 depth:3
-rarity:1
+rarity:2
 experience:3
 blow:SPORE:POISON:2d4
 flags:NEVER_MOVE
 flags:IM_POIS
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:Yum!  It looks quite tasty.
 
 name:silver jelly
@@ -2147,7 +2216,7 @@ blow:TOUCH:EAT_LIGHT:1d3
 blow:TOUCH:EAT_LIGHT:1d3
 flags:NEVER_MOVE
 flags:IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:15
 spells:DRAIN_MANA
 desc:It is a large pile of silver flesh that sucks all light from its
@@ -2163,12 +2232,12 @@ hearing:2
 armor-class:1
 sleepiness:99
 depth:3
-rarity:1
+rarity:2
 experience:12
 blow:TOUCH:POISON:1d3
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:15
 spells:DRAIN_MANA
 desc:It's a large pile of yellow flesh.
@@ -2182,14 +2251,14 @@ hearing:16
 armor-class:9
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:4
 blow:HIT:HURT:1d4
 blow:TOUCH:EAT_GOLD
 flags:MALE | EVIL
 flags:DROP_40
 flags:TAKE_ITEM
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:A short little guy, in bedraggled clothes.  He appears to be looking for a
 desc: good tavern.
 
@@ -2203,10 +2272,10 @@ smell:20
 armor-class:19
 sleepiness:80
 depth:3
-rarity:1
+rarity:2
 experience:7
 blow:BITE:HURT:1d4
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 friends:100:4d4:same
 desc:It is about two feet long and has sharp pincers.
 
@@ -2219,11 +2288,11 @@ hearing:2
 armor-class:12
 sleepiness:99
 depth:3
-rarity:1
+rarity:2
 experience:9
 blow:SPORE:HURT:1d4
 flags:EMPTY_MIND | STUPID
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is a strange yellow growth on the dungeon floor.
 
 name:metallic red centipede
@@ -2236,12 +2305,12 @@ smell:20
 armor-class:10
 sleepiness:20
 depth:3
-rarity:1
+rarity:2
 experience:12
 blow:CRAWL:HURT:1d2
 blow:STING:FIRE:1d2
 flags:RAND_25 | BASH_DOOR
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is about four feet long and carnivorous.
 
 name:yellow worm mass
@@ -2259,7 +2328,7 @@ blow:CRAWL:LOSE_DEX:1d3
 flags:WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | NO_FEAR
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is a large slimy mass of worms.
 
 name:clear worm mass
@@ -2278,6 +2347,7 @@ flags:WEIRD_MIND | INVISIBLE | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | IM_POIS | NO_FEAR
 flags:ATTR_CLEAR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE
 desc:It is a disgusting mass of poisonous worms.
 
 name:radiation eye
@@ -2289,14 +2359,14 @@ hearing:2
 armor-class:7
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:6
 blow:GAZE:LOSE_STR:1d6
 flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:11
-spells:DRAIN_MANA
+spells:DRAIN_MANA | BLINK
 desc:A disembodied eye, crackling with energy.
 
 name:kobold shaman
@@ -2309,10 +2379,11 @@ smell:20
 armor-class:24
 sleepiness:50
 depth:3
-rarity:1
+rarity:2
 experience:15
 blow:HIT:HURT:1d8
 flags:DROP_20
+flags:PL_CORE
 spell-freq:5
 spells:WOUND | CONF | HEAL | MISSILE
 drop-base:magic book:5:1:1
@@ -2354,6 +2425,132 @@ flags:EMPTY_MIND
 flags:OPEN_DOOR | BASH_DOOR
 flags:PL_FA | PL_JB
 desc:It is a small animated petty-dwarf skeleton.
+
+name:huge brown bat
+base:bat
+color:u
+speed:130
+hit-points:7
+hearing:8
+armor-class:12
+sleepiness:40
+depth:3
+rarity:1
+experience:4
+blow:BITE:HURT:1d2
+flags:RAND_50 | RAND_25
+flags:PL_MORIA
+desc:It screeches as it attacks.
+
+name:drooling harpy
+plural:drooling harpies
+base:hybrid
+color:g
+speed:110
+hit-points:9
+hearing:16
+smell:20
+armor-class:22
+sleepiness:10
+depth:3
+rarity:5
+experience:7
+blow:CLAW:HURT:1d1
+blow:CLAW:HURT:1d1
+blow:BITE:HURT:1d2
+blow:DROOL
+flags:FEMALE | EVIL | ANIMAL
+flags:RAND_50
+flags:PL_GREEK
+flags:PL_MORIA
+desc:A flying, drooling bird with a woman's face.
+
+name:gorcrow
+base:bird
+color:D
+speed:120
+hit-points:6
+hearing:20
+armor-class:9
+sleepiness:20
+depth:3
+rarity:3
+experience:8
+blow:PECK:BLIND:1d5
+flags:EVIL | RAND_25
+flags:PL_SIL
+desc:A dark creature, related to the crow. It pecks at any exposed flesh,
+desc: especially the face and eyes.
+
+name:novice archaeologist
+base:humanoid
+color:W
+speed:110
+hit-points:17
+light:2
+hearing:20
+armor-class:10
+sleepiness:5
+depth:3
+rarity:10
+experience:7
+blow:HIT:HURT:1d4
+blow:HIT:HURT:1d4
+flags:DROP_60
+flags:FORCE_SLEEP | TAKE_ITEM
+flags:PL_ZVARIANT
+innate-freq:8
+spells:WHIP
+spell-freq:10
+spells:HEAL
+desc:A young student, out exploring and looking for valuable items.
+
+name:raven
+base:bird
+color:D
+speed:120
+hit-points:12
+hearing:40
+armor-class:12
+sleepiness:0
+depth:3
+rarity:3
+experience:9
+blow:BITE:HURT:1d4
+blow:BITE:HURT:1d4
+flags:PL_ZVARIANT
+desc:Larger than a crow, pitch black.
+
+name:sheep
+plural:sheep
+base:quadruped
+color:W
+speed:110
+hit-points:21
+hearing:20
+armor-class:15
+sleepiness:5
+depth:3
+rarity:10
+experience:1
+blow:BUTT:HURT:1d1
+flags:PL_ZVARIANT
+desc:This creature is gentle and submissive.
+
+name:dwarf python
+base:snake
+color:y
+speed:110
+hit-points:22
+hearing:6
+armor-class:20
+sleepiness:30
+depth:3
+rarity:1
+experience:4
+blow:CRUSH:HURT:1d8
+flags:WEIRD_MIND | RAND_25 | BASH_DOOR
+desc:One of the smaller pythons; it is about ten feet long and quite muscular.
 
 ### Dungeon level 4 ###
 
@@ -2591,7 +2788,7 @@ hit-points:20
 hearing:20
 armor-class:30
 sleepiness:80
-depth:3
+depth:4
 rarity:10
 experience:12
 blow:HIT:HURT:1d5
@@ -2761,7 +2958,7 @@ flags:HURT_LIGHT | IM_DISEN | NO_FEAR
 flags:ATTR_MULTI
 flags:PL_MORIA
 spell-freq:9
-spells:DRAIN_MANA
+spells:DRAIN_MANA | BLINK
 desc:A disembodied eye, crackling with magic.
 
 name:red worm mass
@@ -3084,7 +3281,7 @@ flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
 flags:PL_MORIA
 spell-freq:7
-spells:DRAIN_MANA
+spells:DRAIN_MANA | BLINK
 desc:A disembodied eye, bloodshot and nasty.
 
 name:red naga
@@ -5772,7 +5969,7 @@ flags:EVIL
 flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
 spell-freq:5
-spells:HOLD | TELE_TO
+spells:HOLD | TELE_TO | BLINK
 desc:A huge disembodied eye.  As you stare into the black nothingness of its
 desc: pupil, you feel your will and vitality draining away, and are unable to
 desc: do anything except approach it in horrified fascination.
