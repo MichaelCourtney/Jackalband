@@ -273,6 +273,35 @@ void correct_dir(struct loc *offset, struct loc grid1, struct loc grid2)
 
 
 /**
+ * Go in a semi-random direction from current location to target location.  
+ * Do not actually head away from the target grid.  Always make a turn.
+ */
+void adjust_dir(struct loc *offset, struct loc grid1, struct loc grid2)
+{
+	/* Always turn 90 degrees. */
+	if ((*offset).y == 0) {
+		(*offset).x = 0;
+
+		/* On the y-axis of target - freely choose a side to turn to. */
+		if (grid1.y == grid2.y) {
+			(*offset).y = ((one_in_(2) == 0) ? -1 : 1);
+		} else {
+			/* Never turn away from target. */
+			(*offset).y = ((grid1.y < grid2.y) ? 1 : -1);
+		}
+	} else {
+		(*offset).y = 0;
+
+		/* On the x-axis of target - freely choose a side to turn to. */
+		if (grid1.x == grid2.x) {
+			(*offset).x = ((one_in_(2) == 0) ? -1 : 1);
+		} else {
+			/* Never turn away from target. */
+			(*offset).x = ((grid1.x < grid2.x) ? 1 : -1);
+		}
+	}
+}
+/**
  * Pick a random cardinal direction.
  * \param offset direction offset
  */

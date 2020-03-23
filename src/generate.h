@@ -339,6 +339,7 @@ bool find_empty_range(struct chunk *c, struct loc *grid, struct loc top_left,
 bool find_nearby_grid(struct chunk *c, struct loc *grid, struct loc centre,
 					  int yd, int xd);
 void correct_dir(struct loc *offset, struct loc grid1, struct loc grid2);
+void adjust_dir(struct loc *offset, struct loc grid1, struct loc grid2);
 void rand_dir(struct loc *offset);
 void new_player_spot(struct chunk *c, struct player *p);
 void place_object(struct chunk *c, struct loc grid, int level, bool good,
