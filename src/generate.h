@@ -27,12 +27,14 @@ enum
 
 enum
 {
-	TYP_RUBBLE,	/*!< Rubble */
-	TYP_TRAP,	/*!< Trap */
-	TYP_GOLD,	/*!< Gold */
-	TYP_OBJECT,	/*!< Object */
-	TYP_GOOD,	/*!< Good object */
-	TYP_GREAT	/*!< Great object */
+	TYP_RUBBLE, 	/*!< Rubble */
+	TYP_RUBBLE_JB,	/*!< Rubble + Possible Monster */
+	TYP_TRAP,		/*!< Trap */
+	TYP_TRAP_JB,	/*!< Trap + Possible Monster/Object */
+	TYP_GOLD,		/*!< Gold */
+	TYP_OBJECT,		/*!< Object */
+	TYP_GOOD,		/*!< Good object */
+	TYP_GREAT		/*!< Great object */
 };
 
 /**
@@ -258,6 +260,10 @@ struct chunk *hard_centre_gen(struct player *p, int min_height, int min_width);
 struct chunk *lair_gen(struct player *p, int min_height, int min_width);
 struct chunk *gauntlet_gen(struct player *p, int min_height, int min_width);
 struct chunk *arena_gen(struct player *p, int min_height, int min_width);
+struct chunk *basic_small_gen(struct player *p, int min_height, int min_width);
+struct chunk *tiny_gen(struct player *p, int min_height, int min_width);
+struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width);
+struct chunk *owd_gen(struct player *p, int min_height, int min_width);
 
 /* gen-chunk.c */
 struct chunk *chunk_write(struct chunk *c);
@@ -283,21 +289,33 @@ extern bool generate_starburst_room(struct chunk *c, int y1, int x1, int y2,
 									int x2, bool light, int feat, 
 									bool special_ok);
 
-struct vault *random_vault(int depth, const char *typ);
+struct vault *random_vault(int depth, const char *typ1, const char *typ2);
 bool build_vault(struct chunk *c, struct loc centre, struct vault *v);
 
 bool build_staircase(struct chunk *c, struct loc centre, int rating);
 bool build_simple(struct chunk *c, struct loc centre, int rating);
+bool build_square_garden(struct chunk *c, struct loc centre, int rating);
+bool build_simple_lit(struct chunk *c, struct loc centre, int rating);
+bool build_simple_dark(struct chunk *c, struct loc centre, int rating);
+bool build_simple_sil(struct chunk *c, struct loc centre, int rating);
+bool build_small(struct chunk *c, struct loc centre, int rating);
 bool build_circular(struct chunk *c, struct loc centre, int rating);
+bool build_circular_terrain(struct chunk *c, struct loc centre, int rating);
 bool build_overlap(struct chunk *c, struct loc centre, int rating);
+bool build_bridge(struct chunk *c, struct loc centre, int rating);
 bool build_crossed(struct chunk *c, struct loc centre, int rating);
+bool build_crossed_sil(struct chunk *c, struct loc centre, int rating);
+bool build_crossed_all(struct chunk *c, struct loc centre, int rating);
 bool build_large(struct chunk *c, struct loc centre, int rating);
 bool mon_pit_hook(struct monster_race *race);
 void set_pit_type(int depth, int type);
 bool build_nest(struct chunk *c, struct loc centre, int rating);
+bool build_nest_terrain(struct chunk *c, struct loc centre, int rating);
 bool build_pit(struct chunk *c, struct loc centre, int rating);
+bool build_pit_mini(struct chunk *c, struct loc centre, int rating);
 bool build_template(struct chunk *c, struct loc centre, int rating);
 bool build_interesting(struct chunk *c, struct loc centre, int rating);
+bool build_least_vault(struct chunk *c, struct loc centre, int rating);
 bool build_lesser_vault(struct chunk *c, struct loc centre, int rating);
 bool build_medium_vault(struct chunk *c, struct loc centre, int rating);
 bool build_greater_vault(struct chunk *c, struct loc centre, int rating);
@@ -321,6 +339,7 @@ bool find_empty_range(struct chunk *c, struct loc *grid, struct loc top_left,
 bool find_nearby_grid(struct chunk *c, struct loc *grid, struct loc centre,
 					  int yd, int xd);
 void correct_dir(struct loc *offset, struct loc grid1, struct loc grid2);
+void adjust_dir(struct loc *offset, struct loc grid1, struct loc grid2);
 void rand_dir(struct loc *offset);
 void new_player_spot(struct chunk *c, struct player *p);
 void place_object(struct chunk *c, struct loc grid, int level, bool good,
@@ -331,6 +350,7 @@ void place_closed_door(struct chunk *c, struct loc grid);
 void place_random_door(struct chunk *c, struct loc grid);
 void place_random_stairs(struct chunk *c, struct loc grid);
 void alloc_stairs(struct chunk *c, int feat, int num);
+void alloc_stairs_guard(struct chunk *c, int feat, int num);
 void vault_objects(struct chunk *c, struct loc grid, int depth, int num);
 void vault_traps(struct chunk *c, struct loc grid, int yd, int xd, int num);
 void vault_monsters(struct chunk *c, struct loc grid, int depth, int num);

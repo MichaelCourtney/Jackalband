@@ -1,3 +1,7 @@
+# min_weight, attack_multiply & spell_weight are not used in jb, 
+# min_weight is always=10, attack_multiplier is always=1,
+# armour encumbrance is based on the race/class stealth modifiers - MC
+
 # File: class.txt
 
 
@@ -110,27 +114,27 @@
 ############### WARRIOR ###############
 name:Warrior
 stats:3:-2:-2:2:2
-skill-disarm-phys:25:15
-skill-disarm-magic:20:10
-skill-device:18:7
-skill-save:18:10
-skill-stealth:0:0
+skill-disarm-phys:20:14
+skill-disarm-magic:15:9
+skill-device:13:5
+skill-save:16:8
+skill-stealth:1:0
 skill-search:10:12
-skill-melee:70:45
-skill-shoot:55:45
-skill-throw:55:45
+skill-melee:61:42
+skill-shoot:46:42
+skill-throw:46:42
 skill-dig:0:0
-hitdie:9
+hitdie:7
 max-attacks:6
-min-weight:30
-strength-multiplier:5
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:potion:Berserk Strength:1:1
-equip:sword:Dagger:1:1
+equip:sword:Short Sword:1:1
 equip:soft armour:Soft Leather Armour:1:1
 equip:scroll:Word of Recall:1:1
-player-flags:BRAVERY_30 | NO_MANA | SHIELD_BASH
+player-flags:BRAVERY_30 | NO_MANA | SHIELD_BASH | EXTRA_BLOW
 title:Rookie
 title:Soldier
 title:Swordsman
@@ -146,23 +150,23 @@ title:Lord
 ############### MAGE ###############
 name:Mage
 stats:-3:3:0:0:-2
-skill-disarm-phys:30:10
-skill-disarm-magic:35:12
-skill-device:36:13
-skill-save:30:9
+skill-disarm-phys:25:9
+skill-disarm-magic:30:11
+skill-device:31:11
+skill-save:18:7
 skill-stealth:2:0
 skill-search:10:12
-skill-melee:35:15
-skill-shoot:20:15
-skill-throw:20:15
+skill-melee:26:12
+skill-shoot:11:12
+skill-throw:11:12
 skill-dig:0:0
 hitdie:0
 max-attacks:4
-min-weight:40
-strength-multiplier:2
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
-equip:sword:Rapier:1:1
+equip:sword:Dagger:1:1
 equip:scroll:Word of Recall:1:1
 player-flags:ZERO_FAIL | BEAM | CHOOSE_SPELLS
 title:Novice
@@ -421,25 +425,25 @@ desc: damage to each monster in its area of effect.
 ############### DRUID ###############
 name:Druid
 stats:-2:0:3:-2:0
-skill-disarm-phys:30:10
-skill-disarm-magic:30:10
-skill-device:24:10
-skill-save:30:10
+skill-disarm-phys:25:9
+skill-disarm-magic:25:9
+skill-device:19:8
+skill-save:18:8
 skill-stealth:3:0
 skill-search:12:12
-skill-melee:45:20
-skill-shoot:40:30
-skill-throw:40:30
+skill-melee:36:17
+skill-shoot:31:27
+skill-throw:31:27
 skill-dig:0:0
 hitdie:2
 max-attacks:4
-min-weight:35
-strength-multiplier:3
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:hafted:Whip:1:1
 equip:light:Wooden Torch:1:3
 equip:scroll:Word of Recall:1:1
-player-flags:ZERO_FAIL | CHOOSE_SPELLS | CHARM
+player-flags:ZERO_FAIL | CHOOSE_SPELLS | CHARM | KNOW_MUSHROOM | KNOW_HERB
 title:Wanderer
 title:Tamer
 title:Nurturer
@@ -655,20 +659,20 @@ desc:Spews plasma in a long narrow cone from the player.
 ############### PRIEST ###############
 name:Priest
 stats:-1:-3:3:-1:1
-skill-disarm-phys:25:12
-skill-disarm-magic:25:12
-skill-device:30:10
-skill-save:32:12
+skill-disarm-phys:20:11
+skill-disarm-magic:20:11
+skill-device:25:8
+skill-save:20:10
 skill-stealth:2:0
 skill-search:10:14
-skill-melee:45:20
-skill-shoot:35:20
-skill-throw:35:20
+skill-melee:36:17
+skill-shoot:26:17
+skill-throw:26:17
 skill-dig:0:0
 hitdie:2
 max-attacks:4
-min-weight:35
-strength-multiplier:3
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:hafted:Mace:1:1
@@ -924,22 +928,22 @@ desc: in light doing 100 damage to every light-sensitive creature.
 ############### NECROMANCER ###############
 name:Necromancer
 stats:-3:3:0:0:-2
-skill-disarm-phys:30:10
-skill-disarm-magic:35:12
-skill-device:36:13
-skill-save:30:9
+skill-disarm-phys:25:9
+skill-disarm-magic:30:11
+skill-device:31:11
+skill-save:18:7
 skill-stealth:2:0
 skill-search:10:12
-skill-melee:35:25
-skill-shoot:20:15
-skill-throw:20:15
+skill-melee:26:22
+skill-shoot:11:12
+skill-throw:11:12
 skill-dig:0:0
 hitdie:2
 max-attacks:4
-min-weight:35
-strength-multiplier:3
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
-equip:sword:Main Gauche:1:1
+equip:sword:Dagger:1:1
 equip:scroll:Word of Recall:1:1
 player-flags:ZERO_FAIL | CHOOSE_SPELLS | UNLIGHT | EVIL
 title:Acolyte
@@ -1179,23 +1183,23 @@ desc:Allows you to take control of a monster, and move it instead of yourself.
 ############### PALADIN ###############
 name:Paladin
 stats:1:-3:1:-1:2
-skill-disarm-phys:20:15
-skill-disarm-magic:20:10
-skill-device:24:10
-skill-save:25:11
+skill-disarm-phys:15:14
+skill-disarm-magic:15:9
+skill-device:19:8
+skill-save:13:9
 skill-stealth:0:0
 skill-search:10:12
-skill-melee:65:40
-skill-shoot:50:30
-skill-throw:50:30
+skill-melee:56:37
+skill-shoot:41:27
+skill-throw:41:27
 skill-dig:0:0
-hitdie:6
+hitdie:5
 max-attacks:5
-min-weight:30
-strength-multiplier:5
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
-equip:sword:Main Gauche:1:1
+equip:sword:Short Sword:1:1
 equip:scroll:Protection from Evil:1:1
 equip:scroll:Word of Recall:1:1
 equip:prayer book:[Novice's Handbook]:1:1
@@ -1340,20 +1344,20 @@ desc: winner can emerge.
 ############### ROGUE ###############
 name:Rogue
 stats:0:1:-3:3:-1
-skill-disarm-phys:45:20
-skill-disarm-magic:45:20
-skill-device:32:10
-skill-save:28:10
+skill-disarm-phys:40:19
+skill-disarm-magic:40:19
+skill-device:27:8
+skill-save:6:10
 skill-stealth:3:1
 skill-search:20:16
-skill-melee:35:45
-skill-shoot:66:30
-skill-throw:72:45
+skill-melee:38:40
+skill-shoot:57:27
+skill-throw:63:42
 skill-dig:0:0
 hitdie:4
 max-attacks:5
-min-weight:20
-strength-multiplier:4
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:sword:Dagger:1:1
@@ -1443,29 +1447,29 @@ desc:  This spell may have no effect when the forced descent option is set.
 
 ############### RANGER ###############
 name:Ranger
-stats:0:0:2:1:-1
-skill-disarm-phys:40:15
-skill-disarm-magic:30:10
-skill-device:28:10
-skill-save:32:10
+stats:0:0:2:1:0
+skill-disarm-phys:35:14
+skill-disarm-magic:25:9
+skill-device:23:8
+skill-save:20:8
 skill-stealth:3:0
 skill-search:15:15
-skill-melee:60:40
-skill-shoot:72:45
-skill-throw:66:30
+skill-melee:51:37
+skill-shoot:63:42
+skill-throw:57:27
 skill-dig:0:0
-hitdie:5
+hitdie:4
 max-attacks:5
-min-weight:35
-strength-multiplier:4
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
-equip:sword:Main Gauche:1:1
+equip:sword:Dagger:1:1
 equip:bow:Short Bow:1:1
 equip:arrow:Arrow:15:20
 equip:scroll:Word of Recall:1:1
 equip:nature book:[Lesser Charms]:1:1
-player-flags:FAST_SHOT | CHOOSE_SPELLS
+player-flags:FAST_SHOT | CHOOSE_SPELLS | KNOW_MUSHROOM | KNOW_HERB
 title:Runner
 title:Strider
 title:Scout
@@ -1550,26 +1554,26 @@ desc:Cures all cuts, poison, stunning and black breath.
 ############### BLACKGUARD ###############
 name:Blackguard
 stats:2:0:-3:0:2
-skill-disarm-phys:20:15
-skill-disarm-magic:20:10
-skill-device:24:10
-skill-save:25:11
+skill-disarm-phys:15:14
+skill-disarm-magic:15:9
+skill-device:19:8
+skill-save:13:9
 skill-stealth:-1:-1
 skill-search:10:12
-skill-melee:60:40
-skill-shoot:50:30
-skill-throw:50:30
+skill-melee:51:37
+skill-shoot:41:27
+skill-throw:41:27
 skill-dig:0:0
-hitdie:10
+hitdie:8
 max-attacks:5
-min-weight:100
-strength-multiplier:5
+min-weight:10
+strength-multiplier:1
 equip:food:Ration of Food:1:3
 equip:light:Wooden Torch:1:3
 equip:sword:Cutlass:1:1
 equip:scroll:Word of Recall:1:1
 obj-flags:IMPAIR_HP
-player-flags:CHOOSE_SPELLS | SHIELD_BASH | CROWD_FIGHT
+player-flags:CHOOSE_SPELLS | SHIELD_BASH | CROWD_FIGHT | HEAVY_WEAPON
 title:Rat
 title:Bully
 title:Thug

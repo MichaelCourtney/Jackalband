@@ -273,6 +273,35 @@ void correct_dir(struct loc *offset, struct loc grid1, struct loc grid2)
 
 
 /**
+ * Go in a semi-random direction from current location to target location.  
+ * Do not actually head away from the target grid.  Always make a turn.
+ */
+void adjust_dir(struct loc *offset, struct loc grid1, struct loc grid2)
+{
+	/* Always turn 90 degrees. */
+	if ((*offset).y == 0) {
+		(*offset).x = 0;
+
+		/* On the y-axis of target - freely choose a side to turn to. */
+		if (grid1.y == grid2.y) {
+			(*offset).y = ((one_in_(2) == 0) ? -1 : 1);
+		} else {
+			/* Never turn away from target. */
+			(*offset).y = ((grid1.y < grid2.y) ? 1 : -1);
+		}
+	} else {
+		(*offset).y = 0;
+
+		/* On the x-axis of target - freely choose a side to turn to. */
+		if (grid1.x == grid2.x) {
+			(*offset).x = ((one_in_(2) == 0) ? -1 : 1);
+		} else {
+			/* Never turn away from target. */
+			(*offset).x = ((grid1.x < grid2.x) ? 1 : -1);
+		}
+	}
+}
+/**
  * Pick a random cardinal direction.
  * \param offset direction offset
  */
@@ -371,6 +400,43 @@ void new_player_spot(struct chunk *c, struct player *p)
 static void place_rubble(struct chunk *c, struct loc grid)
 {
    square_set_feat(c, grid, one_in_(2) ? FEAT_RUBBLE : FEAT_PASS_RUBBLE);
+}
+
+
+/**
+ * Place occassional monster near rubble.
+ * \param c current chunk
+ * \param grid location
+ */
+static void place_rubble_jb(struct chunk *c, struct loc grid)
+{
+	if ((one_in_(5)) && (randint0(50) > c->depth)) {
+		
+		/* Only Place Rubble Critters */
+		mon_restrict("Rubble Critters", c->depth, true);
+
+		/* Try up to 20 spots looking for empty space */
+		int i;
+		
+		for (i = 0; i < 20; ++i) {
+			struct loc near;
+
+			/* Pick a random location */
+			find_nearby_grid(c, &near, grid, 3, 3);
+
+			/* Require empty space */
+			if (!square_isempty(c, near)) continue;
+
+			/* Place the monster */
+			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+			
+			/* Placement accomplished */
+			break;
+		}
+		
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+	}
 }
 
 
@@ -560,6 +626,71 @@ void alloc_stairs(struct chunk *c, int feat, int num)
 	}
 }
 
+/**
+ * Place some staircases near walls sometimes with a guard.
+ * \param c the current chunk
+ * \param feat the stair terrain type
+ * \param num number of staircases to place
+ * \param walls number of walls to surround the stairs (negotiable)
+ */
+ void alloc_stairs_guard(struct chunk *c, int feat, int num)
+ {
+	/* Place the stairs */
+	int i;
+	struct loc grid;
+
+    /* Place "num" stairs */
+    for (i = 0; i < num; i++) {
+		bool done = false;
+		int walls = 3;
+
+		/* Place some stairs */
+		for (done = false; !done; ) {
+			int j;
+
+			/* Try several times, then decrease "walls" */
+			for (j = 0; !done && j <= 100; j++) {
+				find_empty(c, &grid);
+
+				if (square_num_walls_adjacent(c, grid) < walls) continue;
+
+				place_stairs(c, grid, feat);
+				done = true;
+			}
+
+			/* Require fewer walls */
+			if (walls) walls--;
+		}
+	}
+	
+	/* Sometimes place a guard */
+	if ((one_in_(5)) && (randint0(50) < c->depth)) {
+		
+		/* Only Place Stair Guardians */
+		mon_restrict("Stair Guardians", c->depth, true);
+
+		/* Try up to 20 spots looking for empty space */
+		for (i = 0; i < 20; ++i) {
+			struct loc near;
+
+			/* Pick a random location */
+			find_nearby_grid(c, &near, grid, 3, 3);
+
+			/* Require empty space */
+			if (!square_isempty(c, near)) continue;
+
+			/* Place the monster */
+			pick_and_place_monster(c, near, c->depth, true, true, ORIGIN_DROP);
+			
+			/* Placement accomplished */
+			break;
+		}
+		
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+	}
+
+}
 
 /**
  * Allocates 'num' random entities in the dungeon.
@@ -617,7 +748,9 @@ bool alloc_object(struct chunk *c, int set, int typ, int depth, byte origin)
     /* Place something */
     switch (typ) {
     case TYP_RUBBLE: place_rubble(c, grid); break;
+	case TYP_RUBBLE_JB: place_rubble(c, grid); place_rubble_jb(c, grid); break;
     case TYP_TRAP: place_trap(c, grid, -1, depth); break;
+	case TYP_TRAP_JB: place_trap(c, grid, -1, depth); place_trap_jb(c, grid); break;
     case TYP_GOLD: place_gold(c, grid, depth, origin); break;
     case TYP_OBJECT: place_object(c, grid, depth, false, false, origin, 0);
 		break;

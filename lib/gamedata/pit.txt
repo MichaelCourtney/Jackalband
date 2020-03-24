@@ -388,3 +388,36 @@ room:3
 alloc:1:40
 mon-base:elemental
 mon-base:vortex
+
+# JB
+
+name:Rubble Critters
+room:3
+alloc:8:30
+flags-req:PL_RUBBLE
+
+name:Stair Guardians
+room:3
+alloc:8:30
+flags-req:PL_STAIR
+
+name:Trap Setters
+room:3
+alloc:8:30
+flags-req:PL_TRAP
+
+name:Core
+room:3
+alloc:8:30
+flags-req:PL_CORE
+
+name:Trojan Horse
+room:2
+alloc:1:20
+obj-rarity:5
+flags-req:PL_GREEK
+
+name:Moria monsters
+room:3
+alloc:8:30
+flags-req:PL_MORIA

@@ -38,6 +38,7 @@ buy:food
 buy:mushroom
 buy:flask
 buy:digger
+buy:herb
 
 # Armoury
 store:2:Armoury
