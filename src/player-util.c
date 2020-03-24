@@ -1012,7 +1012,7 @@ bool player_confuse_dir(struct player *p, int *dp, bool too)
 		return true;
 	}
 	}
-	
+
 	return false;
 }
 
