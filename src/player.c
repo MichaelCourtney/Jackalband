@@ -46,33 +46,33 @@ struct magic_realm *realms;
  */
 const s32b player_exp[PY_MAX_LEVEL] =
 {
-	10,
-	25,
-	45,
-	70,
+	15,
+	37,
+	66,
 	100,
-	140,
+	150,
 	200,
-	280,
-	380,
-	500,
-	650,
-	850,
-	1100,
-	1400,
-	1800,
-	2300,
-	2900,
-	3600,
-	4400,
-	5400,
-	6800,
-	8400,
-	10200,
-	12500,
-	17500,
-	25000,
-	35000L,
+	290,
+	400,
+	550,
+	700,
+	900,
+	1150,
+	1900,
+	1900,
+	2400,
+	3000,
+	3800,
+	4750,
+	5750,
+	7000,
+	8750,
+	10750,
+	13000,
+	15750,
+	26500,
+	28750,
+	38500L,
 	50000L,
 	75000L,
 	100000L,
@@ -145,19 +145,19 @@ bool player_stat_inc(struct player *p, int stat)
 {
 	int v = p->stat_cur[stat];
 
-	if (v >= 18 + 100)
+	if (v >= 18 + 80)
 		return false;
 	if (v < 18) {
 		p->stat_cur[stat]++;
-	} else if (v < 18 + 90) {
-		int gain = (((18 + 100) - v) / 2 + 3) / 2;
+	} else if (v < 18 + 70) {
+		int gain = (((18 + 80) - v) / 2 + 3) / 2;
 		if (gain < 1)
 			gain = 1;
 		p->stat_cur[stat] += randint1(gain) + gain / 2;
-		if (p->stat_cur[stat] > 18 + 99)
-			p->stat_cur[stat] = 18 + 99;
+		if (p->stat_cur[stat] > 18 + 79)
+			p->stat_cur[stat] = 18 + 79;
 	} else {
-		p->stat_cur[stat] = 18 + 100;
+		p->stat_cur[stat] = 18 + 80;
 	}
 
 	if (p->stat_cur[stat] > p->stat_max[stat])

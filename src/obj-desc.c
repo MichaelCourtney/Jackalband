@@ -117,6 +117,7 @@ static const char *obj_desc_get_basename(const struct object *obj, bool aware,
 		case TV_DRAG_ARMOR:
 		case TV_LIGHT:
 		case TV_FOOD:
+		case TV_MISC:
 			return obj->kind->name;
 
 		case TV_AMULET:
@@ -172,6 +173,9 @@ static const char *obj_desc_get_basename(const struct object *obj, bool aware,
 
 		case TV_MUSHROOM:
 			return (show_flavor ? "& # Mushroom~" : "& Mushroom~");
+		
+		case TV_HERB:
+			return (show_flavor ? "& # Herb~" : "& Herb~");
 	}
 
 	return "(nothing)";

@@ -168,7 +168,19 @@ break:100
 # max-stack:10
 flags:EASY_KNOW
 
+name:misc:Junk
+graphics:light umber
+break:100
+# max-stack:10
+flags:EASY_KNOW
+
 name:mushroom:Mushroom~
+graphics:light umber
+break:100
+# max-stack:10
+flags:EASY_KNOW
+
+name:herb:Herb~
 graphics:light umber
 break:100
 # max-stack:10

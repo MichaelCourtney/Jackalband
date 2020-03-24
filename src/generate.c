@@ -791,6 +791,12 @@ const struct cave_profile *choose_profile(struct player *p)
 	/* Make the profile choice */
 	if (p->depth == 0) {
 		profile = find_cave_profile("town");
+	} else if (p->depth == 1) {
+		profile = find_cave_profile("journey");
+	} else if (p->depth == 2) {
+		profile = find_cave_profile("dogs and mushrooms");
+	} else if (p->depth < 5) {
+		profile = find_cave_profile("castle p");
 	} else if (is_quest(p->depth) && !OPT(p, birth_levels_persist)) {
 		/* Quest levels must be normal levels */
 		profile = find_cave_profile("classic");
@@ -798,8 +804,17 @@ const struct cave_profile *choose_profile(struct player *p)
 		profile = find_cave_profile("labyrinth");
 	} else if ((p->depth >= 10) && (p->depth < 40) && one_in_(40)) {
 		profile = find_cave_profile("moria");
+	} else if (p->depth > 50) {
+		int pick = randint0(100);
+		pick += 100;
+		size_t i;
+		for (i = 0; i < z_info->profile_max; i++) {
+			profile = &cave_profiles[i];
+			if (profile->cutoff >= pick) break;
+		}
 	} else {
-		int pick = randint0(200);
+		int pick = randint0(100);
+		pick += 2 * p->depth;
 		size_t i;
 		for (i = 0; i < z_info->profile_max; i++) {
 			profile = &cave_profiles[i];

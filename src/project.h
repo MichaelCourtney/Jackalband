@@ -93,6 +93,7 @@ enum
 	PROJECT_PLAY  = 0x0800,
 	PROJECT_INFO  = 0x1000,
 	PROJECT_SHORT = 0x2000,
+	PROJECT_ROCK  = 0x4000,
 };
 
 /* Display attrs and chars */
