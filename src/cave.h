@@ -239,7 +239,29 @@ extern int FEAT_QUARTZ_K;
 /* Walls */
 extern int FEAT_GRANITE;
 extern int FEAT_PERM;
+extern int FEAT_PERM_TOWN;
+extern int FEAT_PERM_TREE;
+
+/* Wilderness paths */
+extern int FEAT_LESS_NORTH;
+extern int FEAT_MORE_NORTH;
+extern int FEAT_LESS_EAST;
+extern int FEAT_MORE_EAST;
+extern int FEAT_LESS_SOUTH;
+extern int FEAT_MORE_SOUTH;
+extern int FEAT_LESS_WEST;
+extern int FEAT_MORE_WEST;
+
+/* Other terrain */
 extern int FEAT_LAVA;
+extern int FEAT_WATER;
+extern int FEAT_TREE;
+extern int FEAT_TREE2;
+extern int FEAT_GRASS;
+extern int FEAT_ROAD;
+extern int FEAT_VOID;
+extern int FEAT_DUNE;
+extern int FEAT_FORGE;
 
 
 /* Current level */
@@ -278,6 +300,7 @@ bool feat_is_quartz(int feat);
 bool feat_is_granite(int feat);
 bool feat_is_treasure(int feat);
 bool feat_is_wall(int feat);
+bool feat_is_permanent(int feat);
 bool feat_is_floor(int feat);
 bool feat_is_trap_holding(int feat);
 bool feat_is_object_holding(int feat);

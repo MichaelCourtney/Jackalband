@@ -37,14 +37,19 @@ desc:You easily recognize mushrooms.
 type:player
 code:KNOW_ZAPPER
 name:Device Lore
-desc:You easily recognize magic devices.
+desc:You easily recognize and use magic devices.
 
 type:player
 code:SEE_ORE
 name:Miner
 desc:You can sense ore in the walls.
 
-## Racial player flags
+## Class player flags
+
+type:player
+code:KNOW_HERB
+name:Herb Lore
+desc:You easily recognize herbs.
 
 type:player
 code:FAST_SHOT
@@ -110,6 +115,16 @@ type:player
 code:CROWD_FIGHT
 name:Crowd Fighter
 desc:You gains advantage from fighting many monsters at once.
+
+type:player
+code:EXTRA_BLOW
+name:Extra Blow
+desc:You gain an extra blow.
+
+type:player
+code:HEAVY_WEAPON
+name:Heavy Weapon
+desc:You prefer heavy weapons.
 
 type:object
 code:SUST_STR

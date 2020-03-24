@@ -1,3 +1,5 @@
+# Note - jackalband allocates within 3 levels of listed at 1/2, 1/5, 1/10 - MC
+
 # File: object.txt
 #
 # This file is used to initialize the "object kind" information for Angband.
@@ -154,7 +156,103 @@ name:<curse object>
 type:none
 graphics:*:v
 
+##### Junk #####
+
+name:& Iron Spike~
+type:misc
+graphics:~:W
+level:0
+weight:10
+cost:1
+alloc:1:0 to 10
+pile:100:6d7
+attack:1d1:0:0
+
+name:& Empty Bottle~
+type:misc
+graphics:!:w
+level:0
+weight:10
+cost:1
+alloc:1:0 to 9
+pile:100:1d5
+attack:1d1:0:0
+
+name:& Shard~ of Pottery
+type:misc
+graphics:~:r
+level:0
+weight:10
+cost:0
+alloc:1:0 to 8
+pile:100:1d5
+attack:1d1:0:0
+
+name:& Broken Stick~
+type:misc
+graphics:~:U
+level:0
+weight:10
+cost:0
+alloc:1:1 to 9
+attack:1d1:0:0
+
+name:& Broken Skull~
+type:misc
+graphics:~:w
+level:0
+weight:10
+cost:0
+alloc:1:2 to 9
+attack:1d1:0:0
+
+name:& Broken Bone~
+type:misc
+graphics:~:w
+level:0
+weight:10
+cost:0
+alloc:1:1 to 8
+attack:1d1:0:0
+
+name:& Broken Set~ of Teeth
+type:misc
+graphics:~:w
+level:0
+weight:10
+cost:0
+alloc:1:2 to 8
+attack:1d1:0:0
+
 ##### Lights #####
+
+name:& Lesser Jewel~
+type:light
+graphics:*:B
+level:3
+weight:1
+cost:1000
+alloc:1:3 to 127
+attack:1d1:0:0
+armor:0:0
+flags:NO_FUEL | LIGHT_2 | EASY_KNOW
+desc:An enchanted glowing jewel, akin to a Silmaril, but much less
+desc: powerful.
+desc: You can equip it as a light source with a radius of 1 square.
+desc: It will shine forever.
+
+name:& Feanorian Lamp~
+type:light
+graphics:~:o
+level:15
+weight:10
+cost:1000
+alloc:1:12 to 127
+attack:1d1:0:0
+armor:0:0
+flags:NO_FUEL | EASY_KNOW | LIGHT_3 | IGNORE_FIRE
+desc:An enchanted lamp, shining with the light of lesser jewels.
+desc: It will shine forever.
 
 name:& Wooden Torch~
 type:light
@@ -162,7 +260,7 @@ graphics:~:u
 level:1
 weight:22
 cost:2
-alloc:70:1 to 40
+alloc:70:3 to 40
 attack:1d1:0:0
 armor:0:0
 flags:BURNS_OUT | LIGHT_2 | EASY_KNOW
@@ -184,7 +282,7 @@ graphics:!:y
 level:1
 weight:20
 cost:3
-alloc:50:1 to 100
+alloc:50:3 to 100
 attack:1d4:0:0
 armor:0:0
 pval:7500
@@ -204,6 +302,8 @@ graphics:,:U
 level:0
 weight:2
 cost:1
+alloc:1:0 to 10
+pile:50:1d3
 power:0
 effect:NOURISH:INC_BY
 dice:10
@@ -260,7 +360,7 @@ level:0
 weight:8
 cost:3
 alloc:40:0 to 50
-pile:100:1d5
+pile:100:1d4
 power:0
 msg:That tastes good.
 effect:NOURISH:INC_BY
@@ -301,7 +401,7 @@ graphics:,:W
 level:0
 weight:10
 cost:3
-alloc:30:10 to 50
+alloc:30:8 to 50
 pile:50:1d3
 power:0
 msg:That tastes good.
@@ -350,6 +450,7 @@ graphics:,:y
 level:0
 weight:5
 cost:1
+alloc:1:0 to 10
 power:0
 msg:That tastes great!
 effect:NOURISH:INC_BY
@@ -364,6 +465,7 @@ graphics:,:r
 level:0
 weight:10
 cost:2
+alloc:1:0 to 10
 power:0
 msg:That tastes great!  A fine vintage.
 effect:NOURISH:INC_BY
@@ -378,7 +480,7 @@ graphics:,:w
 level:0
 weight:2
 cost:100
-alloc:20:10 to 50
+alloc:20:8 to 50
 power:0
 msg:You feel your heart warm.
 effect:NOURISH:INC_BY
@@ -432,7 +534,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:5 to 100
+alloc:10:20 to 100
 pile:70:1d4
 power:10
 effect:CURE:BLIND
@@ -447,7 +549,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:5 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:7
 effect:HEAL_HP
@@ -482,7 +584,7 @@ graphics:,:d
 level:0
 weight:1
 cost:200
-alloc:10:5 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:8
 effect:RESTORE_MANA
@@ -501,7 +603,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:5 to 100
+alloc:10:20 to 100
 pile:70:1d4
 power:7
 effect:TIMED_INC:IMAGE
@@ -521,7 +623,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:5 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:5
 effect:TIMED_SET:TERROR
@@ -536,10 +638,12 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:10:10 to 40
+alloc:10:4 to 40
 pile:70:1d4
 power:5
 effect:TIMED_SET:STONESKIN
+dice:50+7d7
+effect:TIMED_INC:OPP_POIS
 dice:50+7d7
 effect:NOURISH:INC_BY
 dice:5
@@ -562,7 +666,7 @@ graphics:,:d
 level:0
 weight:1
 cost:20
-alloc:10:10 to 40
+alloc:10:20 to 40
 pile:70:1d4
 power:5
 effect:RESTORE_MANA
@@ -579,7 +683,7 @@ graphics:,:d
 level:0
 weight:1
 cost:100
-alloc:1:15 to 100
+alloc:1:20 to 100
 pile:70:1d4
 power:5
 effect:TIMED_INC:SPRINT
@@ -594,7 +698,7 @@ graphics:,:d
 level:0
 weight:1
 cost:60
-alloc:1:15 to 100
+alloc:1:20 to 100
 pile:70:1d4
 power:5
 msg:Your stomach heaves.
@@ -620,8 +724,589 @@ effect:TIMED_INC:STEALTH
 dice:10+d10
 desc:It makes you very stealthy for a short while.
 
+##### Herbs #####
+
+name:Rage
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:50
+alloc:10:4 to 20
+pile:65:1d3
+power:9
+effect:CURE:AFRAID
+effect:TIMED_INC:SHERO
+dice:25+1d25
+effect:NOURISH:INC_BY
+dice:5
+
+name:Sustenance
+type:mushroom
+graphics:,:d
+level:0
+weight:1
+cost:10
+alloc:10:4 to 20
+pile:65:1d3
+power:1
+effect:NOURISH:INC_TO
+dice:60
+
+name:Terror
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:60
+alloc:10:4 to 20
+pile:65:1d3
+power:5
+effect:TIMED_SET:TERROR
+dice:25+5d5
+effect:NOURISH:INC_BY
+dice:5
+desc:It induces fear and a burst of speed.
+
+name:Healing
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:150
+alloc:10:7 to 20
+pile:65:1d3
+power:7
+effect:HEAL_HP
+dice:30
+effect:CURE:CUT
+effect:NOURISH:INC_BY
+dice:5
+
+name:Restoration
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:200
+alloc:10:5 to 20
+pile:12:1d2
+power:15
+effect:RESTORE_STAT:STR
+effect:RESTORE_STAT:INT
+effect:RESTORE_STAT:WIS
+effect:RESTORE_STAT:DEX
+effect:RESTORE_STAT:CON
+effect:NOURISH:INC_BY
+dice:5
+
+name:Emptiness
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:1:4 to 20
+pile:65:1d3
+power:5
+msg:Your stomach heaves.
+effect:NOURISH:SET_TO
+dice:5
+desc:It makes you very hungry.
+
+name:Visions
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:10
+alloc:10:4 to 20
+pile:65:1d3
+power:7
+effect:TIMED_INC:IMAGE
+dice:25+5d5
+effect:CURE:BLIND
+effect:NOURISH:INC_BY
+dice:5
+
+name:Entrancement
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:1:5 to 20
+pile:65:1d3
+power:0
+effect:TIMED_INC:PARALYZED
+dice:5+1d5
+effect:NOURISH:INC_BY
+dice:5
+
+name:Weakness
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:5:4 to 20
+pile:65:1d3
+power:5
+effect:NOURISH:INC_BY
+dice:5
+effect:DRAIN_STAT:STR
+
+name:Sickness
+type:herb
+graphics:,:d
+level:0
+weight:1
+cost:0
+alloc:5:4 to 20
+pile:65:1d3
+power:5
+effect:NOURISH:INC_BY
+dice:5
+effect:DRAIN_STAT:CON
+
 
 ##### Weapons #####
+
+### UMoria Extras ###
+
+name:& Misericorde~
+type:sword
+graphics:|:W
+level:0
+weight:12
+cost:30
+alloc:5:2 to 10
+attack:1d3:0:0
+armor:0:0
+
+name:& Stiletto~
+type:sword
+graphics:|:W
+level:0
+weight:10
+cost:30
+alloc:5:2 to 10
+attack:1d2:0:0
+armor:0:0
+
+name:& Bodkin~
+type:sword
+graphics:|:W
+level:1
+weight:14
+cost:30
+alloc:5:2 to 10
+attack:1d4:0:0
+armor:0:0
+
+name:& Broken Dagger~
+type:sword
+graphics:|:W
+level:0
+weight:15
+cost:5
+alloc:1:0 to 5
+attack:1d1:-2:-2
+armor:0:0
+
+name:& Backsword~
+type:sword
+graphics:|:W
+level:7
+weight:65
+cost:150
+alloc:5:7 to 17
+attack:1d10:0:0
+armor:0:0
+
+name:& Bilbo~
+type:sword
+graphics:|:W
+level:4
+weight:45
+cost:60
+alloc:5:4 to 14
+attack:1d7:0:0
+armor:0:0
+
+name:& Baselard~
+type:sword
+graphics:|:W
+level:5
+weight:65
+cost:80
+alloc:5:5 to 15
+attack:1d8:0:0
+armor:0:0
+
+name:& Claymore~
+type:sword
+graphics:|:W
+level:30
+weight:130
+cost:775
+alloc:5:30 to 40
+attack:3d7:0:0
+armor:0:0
+
+name:& Espadon~
+type:sword
+graphics:|:W
+level:35
+weight:110
+cost:665
+alloc:5:35 to 45
+attack:3d7:0:0
+armor:0:0
+
+name:& Flamberge~
+type:sword
+graphics:|:W
+level:45
+weight:150
+cost:1000
+alloc:5:45 to 50
+attack:4d6:0:0
+armor:0:0
+
+name:& Foil~
+type:sword
+graphics:|:W
+level:2
+weight:20
+cost:35
+alloc:5:3 to 12
+attack:1d6:0:0
+armor:0:0
+
+name:& No-Dachi~
+type:sword
+graphics:|:W
+level:45
+weight:130
+cost:675
+alloc:5:45 to 50
+attack:4d5:0:0
+armor:0:0
+
+name:& Small Sword~
+type:sword
+graphics:|:W
+level:5
+weight:40
+cost:48
+alloc:5:5 to 15
+attack:1d7:0:0
+armor:0:0
+
+name:& Broken Sword~
+type:sword
+graphics:|:W
+level:0
+weight:45
+cost:10
+alloc:1:0 to 5
+attack:1d1:-2:-2
+armor:0:0
+
+name:& Cat-o'-Nine-Tails~
+type:hafted
+graphics:\:D
+level:3
+weight:25
+cost:14
+alloc:1:3 to 8
+attack:1d5:0:0
+armor:0:0
+
+name:& Wooden Club~
+type:hafted
+graphics:\:D
+level:0
+weight:65
+cost:10
+alloc:5:0 to 10
+attack:1d4:0:0
+armor:0:0
+
+name:& Fauchard~
+type:polearm
+graphics:/:s
+level:17
+weight:100
+cost:326
+alloc:5:17 to 27
+attack:1d11:0:0
+armor:0:0
+
+name:& Javelin~
+type:polearm
+graphics:/:s
+level:4
+weight:20
+cost:18
+alloc:5:4 to 14
+attack:1d5:0:0
+armor:0:0
+flags:THROWING
+
+name:& Balestarius~
+type:polearm
+graphics:/:s
+level:30
+weight:110
+cost:500
+alloc:5:30 to 40
+attack:2d9:0:0
+armor:0:0
+
+### ZVariants Extras ###
+
+name:& Tanto~
+type:sword
+graphics:|:W
+level:3
+weight:20
+cost:30
+alloc:1:3 to 8
+attack:1d6:0:0
+armor:0:0
+
+name:& Sabre~
+type:sword
+graphics:|:W
+level:5
+weight:30
+cost:3=50
+alloc:1:5 to 10
+attack:1d7:0:0
+armor:0:0
+desc:A light, somewhat curved blade that can be used to thrust or slash; familiar
+desc: to horseman and duelists alike.
+
+name:& Wakizashi~
+type:sword
+graphics:|:W
+level:15
+weight:50
+cost:210
+alloc:1:15 to 20
+attack:2d4:0:0
+armor:0:0
+
+name:& Ninjato~
+type:sword
+graphics:|:s
+level:15
+weight:65
+cost:265
+alloc:1:15 to 20
+attack:1d9:0:0
+armor:0:0
+
+name:& Falchion~
+type:sword
+graphics:|:W
+level:40
+weight:150
+cost:500
+alloc:1:40 to 45
+attack:4d5:0:0
+armor:0:0
+
+name:& Hatchet~
+type:polearm
+graphics:/:s
+level:10
+weight:35
+cost:120
+alloc:1:10 to 15
+attack:1d7:0:0
+armor:0:0
+
+name:& Sickle~
+type:polearm
+graphics:/:s
+level:10
+weight:40
+cost:110
+alloc:1:1 to 10
+attack:2d3:0:0
+armor:0:0
+
+name:& Broad Spear~
+type:polearm
+graphics:/:s
+level:14
+weight:65
+cost:240
+alloc:1:14 to 19
+attack:1d10:0:0
+armor:0:0
+
+name:& Naginata~
+type:polearm
+graphics:/:s
+level:25
+weight:90
+cost:110
+alloc:1:25 to 30
+attack:2d7:0:0
+armor:0:0
+
+name:& Lajatang~
+type:polearm
+graphics:/:s
+level:25
+weight:100
+cost:330
+alloc:1:25 to 30
+attack:2d8:0:0
+armor:0:0
+
+name:& Guisarme~
+type:polearm
+graphics:/:s
+level:21
+weight:95
+cost:320
+alloc:1:21 to 26
+attack:2d7:0:0
+armor:0:0
+
+name:& Trifurcate Spear~
+type:polearm
+graphics:/:o
+level:35
+weight:85
+cost:400
+alloc:1:35 to 40
+attack:2d10:0:0
+armor:0:0
+
+name:& Heavy Lance~
+type:polearm
+graphics:/:s
+level:43
+weight:250
+cost:700
+alloc:1:43 to 48
+attack:4d10:0:0
+armor:0:0
+
+name:& Jo Staff~
+type:hafted
+graphics:\:U
+level:11
+weight:40
+cost:200
+alloc:1:10 to 15
+attack:1d7:0:0
+armor:0:0
+
+name:& Three Piece Rod~
+type:hafted
+graphics:\:u
+level:20
+weight:75
+cost:350
+alloc:1:20 to 25
+attack:4d2:0:0
+armor:0:0
+
+name:& Bo Staff~
+type:hafted
+graphics:\:U
+level:20
+weight:95
+cost:310
+alloc:1:20 to 25
+attack:1d11:0:0
+armor:0:0
+
+name:& Tetsubo~
+type:hafted
+graphics:\:U
+level:25
+weight:120
+cost:570
+alloc:1:25 to 30
+attack:2d8:0:0
+armor:0:0
+
+name:& Stick~
+type:hafted
+graphics:\:y
+level:1
+weight:111
+cost:200
+attack:1d11:0:0
+armor:0:0
+
+
+### Sil Extras ###
+
+name:& Greatsword~
+type:sword
+graphics:|:W
+level:30
+weight:120
+cost:700
+alloc:20:13 to 100
+attack:3d7:0:0
+armor:0:0
+desc:A sword designed for two hands.
+
+name:& Mithril Long Sword~
+type:sword
+graphics:|:B
+level:50
+weight:50
+cost:5000
+alloc:1:10 to 100
+attack:2d6:0:0
+armor:0:0
+desc:A long, straight, two-edged blade, with two hand guards projecting out
+desc: from the hilt to form a perfect cross.
+
+name:& Mithril Greatsword~
+type:sword
+graphics:|:B
+level:50
+weight:80
+cost:5000
+alloc:1:10 to 100
+attack:3d7:0:0
+armor:0:0
+desc:A sword designed for two hands.
+
+name:& Great Spear~
+type:polearm
+graphics:/:u
+level:10
+weight:100
+cost:230
+alloc:20:13 to 100
+attack:1d13:0:0
+armor:0:0
+desc:A massive, tapered spear used primarily from horseback.
+
+name:& Sceptre~
+type:hafted
+graphics:\:D
+level:6
+weight:50
+cost:130
+alloc:1:10 to 20
+attack:2d3:0:0
+armor:0:0
+
+
 
 ### Swords ###
 
@@ -629,10 +1314,10 @@ name:& Dagger~
 type:sword
 graphics:|:W
 level:0
-weight:12
+weight:15
 cost:30
-alloc:20:0 to 100
-attack:1d4:0:0
+alloc:30:0 to 100
+attack:1d5:0:0
 armor:0:0
 flags:THROWING
 desc:A short two-edged blade perfect for thrusting or throwing.
@@ -641,10 +1326,10 @@ name:& Main Gauche~
 type:sword
 graphics:|:W
 level:3
-weight:30
+weight:20
 cost:45
-alloc:20:3 to 100
-attack:1d5:0:0
+alloc:10:4 to 100
+attack:1d6:0:0
 armor:0:0
 desc:A short thrusting blade with a large guard, primarily used in duels.
 
@@ -652,10 +1337,10 @@ name:& Rapier~
 type:sword
 graphics:|:W
 level:5
-weight:40
+weight:25
 cost:70
-alloc:20:5 to 100
-attack:1d6:0:0
+alloc:10:5 to 100
+attack:1d7:0:0
 armor:0:0
 desc:A long, thin thrusting blade, mainly used in duels.
 
@@ -663,10 +1348,10 @@ name:& Short Sword~
 type:sword
 graphics:|:W
 level:5
-weight:80
+weight:45
 cost:90
-alloc:20:5 to 100
-attack:1d7:0:0
+alloc:30:5 to 100
+attack:1d8:0:0
 armor:0:0
 desc:A short thrusting sword.
 
@@ -674,10 +1359,10 @@ name:& Cutlass~
 type:sword
 graphics:|:W
 level:5
-weight:110
+weight:70
 cost:120
 alloc:20:5 to 100
-attack:1d8:0:0
+attack:1d9:0:0
 armor:0:0
 desc:A thicker and slightly longer dagger, the cutlass is a slashing sword.  It
 desc: possesses a slight curve and only one side is sharp.
@@ -686,10 +1371,10 @@ name:& Tulwar~
 type:sword
 graphics:|:W
 level:5
-weight:100
+weight:65
 cost:170
-alloc:20:5 to 100
-attack:2d4:0:0
+alloc:10:5 to 100
+attack:2d5:0:0
 armor:0:0
 desc:A wider-bladed cousin of the shamshir, with less of a curve.
 
@@ -697,10 +1382,10 @@ name:& Scimitar~
 type:sword
 graphics:|:W
 level:10
-weight:150
+weight:90
 cost:300
-alloc:20:10 to 100
-attack:4d2:0:0
+alloc:30:8 to 100
+attack:4d3:0:0
 armor:0:0
 desc:A long sabre with an extreme curve to the blade.
 
@@ -708,10 +1393,10 @@ name:& Long Sword~
 type:sword
 graphics:|:W
 level:10
-weight:130
+weight:80
 cost:300
-alloc:20:10 to 100
-attack:2d5:0:0
+alloc:30:8 to 100
+attack:2d6:0:0
 armor:0:0
 desc:A long, straight, two-edged blade, with two hand guards projecting out
 desc: from the hilt to form a perfect cross.
@@ -720,10 +1405,10 @@ name:& Broad Sword~
 type:sword
 graphics:|:W
 level:10
-weight:150
+weight:90
 cost:300
-alloc:20:10 to 100
-attack:2d5:0:0
+alloc:10:8 to 100
+attack:2d6:0:0
 armor:0:0
 desc:A heavy, single-edged sword with a strong grip.
 
@@ -731,10 +1416,10 @@ name:& Bastard Sword~
 type:sword
 graphics:|:W
 level:15
-weight:140
+weight:85
 cost:400
-alloc:20:15 to 100
-attack:3d4:0:0
+alloc:30:15 to 100
+attack:3d5:0:0
 armor:0:0
 desc:Also known as the hand-and-a-half blade.  A larger-than-normal straight-
 desc:sided sword with two cutting edges.
@@ -743,10 +1428,10 @@ name:& Katana~
 type:sword
 graphics:|:W
 level:20
-weight:120
+weight:75
 cost:600
-alloc:20:20 to 100
-attack:3d5:0:0
+alloc:10:20 to 100
+attack:3d6:0:0
 armor:0:0
 desc:A slightly curved long-handled slashing sword with a single-edged
 desc: blade and a chisel tip.
@@ -755,21 +1440,33 @@ name:& Zweihander~
 type:sword
 graphics:|:W
 level:30
-weight:200
+weight:130
 cost:700
-alloc:20:30 to 100
-attack:3d6:0:0
+alloc:1:30 to 100
+attack:3d7:0:0
 armor:0:0
 desc:A sword designed for two hands.
+
+name:& Zoohandler~
+type:sword
+graphics:|:W
+level:30
+weight:150
+cost:700
+alloc:1:30 to 100
+attack:3d8:0:0
+armor:0:0
+slay:ANIMAL_2
+desc:A sword designed for ants.
 
 name:& Executioner's Sword~
 type:sword
 graphics:|:r
 level:40
-weight:260
+weight:160
 cost:850
 alloc:20:40 to 100
-attack:4d5:0:0
+attack:4d6:0:0
 armor:0:0
 desc:A giant, curved blade designed to cleave the head cleanly from the body.
 
@@ -777,10 +1474,10 @@ name:& Blade~ of Chaos
 type:sword
 graphics:|:v
 level:70
-weight:180
+weight:110
 cost:4000
 alloc:10:70 to 100
-attack:6d5:0:0
+attack:6d6:0:0
 armor:0:0
 values:RES_CHAOS[1]
 desc:This inconstant weapon revels in disorder, hacking and slashing your foes
@@ -794,10 +1491,10 @@ name:& Whip~
 type:hafted
 graphics:\:D
 level:3
-weight:30
+weight:20
 cost:30
 alloc:20:3 to 100
-attack:1d3:0:0
+attack:1d4:0:0
 armor:0:0
 desc:A heavy whip, this thick coil is thrown from the shoulder and can
 desc: knock down a large man.
@@ -806,10 +1503,10 @@ name:& Ball-and-Chain~
 type:hafted
 graphics:\:D
 level:20
-weight:150
+weight:90
 cost:200
-alloc:20:20 to 100
-attack:2d4:0:0
+alloc:10:20 to 100
+attack:2d5:0:0
 armor:0:0
 desc:A weighty iron ball, suspended by a chain from a sturdy oaken handle.
 
@@ -817,10 +1514,10 @@ name:& Morning Star~
 type:hafted
 graphics:\:D
 level:10
-weight:150
+weight:90
 cost:396
-alloc:20:10 to 100
-attack:2d6:0:0
+alloc:10:8 to 100
+attack:2d7:0:0
 armor:0:0
 desc:A sturdy wooden pole connected by a chain to a ball of steel, which often
 desc: has projecting spikes.
@@ -829,10 +1526,10 @@ name:& Flail~
 type:hafted
 graphics:\:D
 level:10
-weight:150
+weight:90
 cost:353
-alloc:20:10 to 100
-attack:2d6:0:0
+alloc:10:8 to 100
+attack:2d7:0:0
 armor:0:0
 desc:Two heavy bars of wood connected by a short link of chain, capable of
 desc: delivering crushing blows.
@@ -841,10 +1538,10 @@ name:& Two-Handed Great Flail~
 type:hafted
 graphics:\:y
 level:45
-weight:280
+weight:170
 cost:590
 alloc:20:45 to 100
-attack:3d6:0:0
+attack:3d7:0:0
 armor:0:0
 desc:Two great bars of wood connected by a massive chain, needing two hands
 desc: to properly wield.
@@ -856,10 +1553,10 @@ name:& Mace~
 type:hafted
 graphics:\:D
 level:5
-weight:120
+weight:75
 cost:130
-alloc:20:5 to 100
-attack:2d4:0:0
+alloc:30:5 to 100
+attack:2d5:0:0
 armor:0:0
 desc:A war club with an iron head, usually flanged or spiked.
 
@@ -867,10 +1564,10 @@ name:& Lead-Filled Mace~
 type:hafted
 graphics:\:D
 level:15
-weight:180
+weight:110
 cost:502
 alloc:20:15 to 100
-attack:4d3:0:0
+attack:4d4:0:0
 armor:0:0
 desc:A heavy war club topped with a mass of lead-filled steel, capable of
 desc: landing crushing blows.
@@ -879,10 +1576,10 @@ name:& Quarterstaff~
 type:hafted
 graphics:\:U
 level:10
-weight:150
+weight:90
 cost:200
-alloc:20:10 to 100
-attack:1d9:0:0
+alloc:30:5 to 100
+attack:1d10:0:0
 armor:0:0
 desc:Six feet of oak which can be wielded in both hands to give a drubbing or
 desc: block one.
@@ -891,7 +1588,7 @@ name:& Throwing Hammer~
 type:hafted
 graphics:\:D
 level:40
-weight:55
+weight:35
 cost:250
 alloc:10:40 to 100
 attack:2d4:0:0
@@ -903,10 +1600,10 @@ name:& War Hammer~
 type:hafted
 graphics:\:D
 level:5
-weight:120
+weight:75
 cost:225
-alloc:20:5 to 100
-attack:3d3:0:0
+alloc:30:5 to 100
+attack:3d4:0:0
 armor:0:0
 desc:A mallet with a tapered head and a long handle.
 
@@ -914,10 +1611,10 @@ name:& Maul~
 type:hafted
 graphics:\:D
 level:5
-weight:200
+weight:130
 cost:130
-alloc:20:5 to 100
-attack:4d4:0:0
+alloc:20:6 to 100
+attack:4d5:0:0
 armor:0:0
 desc:A long-handled hammer with a heavy head.
 
@@ -925,10 +1622,10 @@ name:& Great Hammer~
 type:hafted
 graphics:\:D
 level:5
-weight:180
+weight:110
 cost:500
 alloc:20:20 to 100
-attack:8d1:0:0
+attack:8d2:0:0
 armor:0:0
 desc:A mighty hammer with a massive head designed to crush and stun.
 
@@ -936,10 +1633,10 @@ name:& Mace~ of Disruption
 type:hafted
 graphics:\:v
 level:80
-weight:400
+weight:250
 cost:4300
 alloc:10:80 to 100
-attack:5d8:0:0
+attack:5d9:0:0
 armor:0:0
 slay:UNDEAD_3
 desc:A giant's weapon, enchanted with shattering power that breaks bones,
@@ -953,10 +1650,10 @@ name:& Spear~
 type:polearm
 graphics:/:s
 level:5
-weight:50
+weight:30
 cost:36
-alloc:20:5 to 100
-attack:1d6:0:0
+alloc:30:4 to 100
+attack:1d7:0:0
 armor:0:0
 flags:THROWING
 desc:The basic polearm, with a double-edged knife mounted on a light shaft.
@@ -966,10 +1663,10 @@ name:& Awl-Pike~
 type:polearm
 graphics:/:s
 level:10
-weight:160
+weight:95
 cost:340
-alloc:20:10 to 100
-attack:1d8:0:0
+alloc:10:8 to 100
+attack:1d11:0:0
 armor:0:0
 desc:A more robust version of the basic polearm, with a double-edged knife
 desc: mounted on a sturdy shaft.  It cannot be thrown effectively, but offers
@@ -979,10 +1676,10 @@ name:& Trident~
 type:polearm
 graphics:/:y
 level:5
-weight:70
+weight:40
 cost:120
-alloc:20:5 to 100
-attack:1d10:0:0
+alloc:10:5 to 100
+attack:1d9:0:0
 armor:0:0
 desc:A three-pronged spear, originally for catching fish.
 
@@ -990,10 +1687,10 @@ name:& Halberd~
 type:polearm
 graphics:/:s
 level:25
-weight:190
+weight:120
 cost:430
-alloc:20:25 to 100
-attack:3d5:0:0
+alloc:30:25 to 100
+attack:3d6:0:0
 armor:0:0
 desc:The most successful of the polearms, the halberd has a long haft mounted
 desc: with a heavy axe blade and opposing spike, and topped by a thrusting
@@ -1003,10 +1700,10 @@ name:& Pike~
 type:polearm
 graphics:/:s
 level:15
-weight:160
+weight:100
 cost:358
-alloc:20:15 to 100
-attack:2d5:0:0
+alloc:30:15 to 100
+attack:2d6:0:0
 armor:0:0
 desc:A fifteen foot spear, requiring two hands to wield, principally used in
 desc: infantry formations.
@@ -1018,7 +1715,7 @@ name:& Throwing Axe~
 type:polearm
 graphics:/:s
 level:25
-weight:40
+weight:25
 cost:150
 alloc:10:25 to 100
 attack:2d3:0:0
@@ -1031,10 +1728,10 @@ name:& Beaked Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:180
+weight:110
 cost:408
-alloc:20:15 to 100
-attack:2d6:0:0
+alloc:10:15 to 100
+attack:2d7:0:0
 armor:0:0
 desc:A narrow axe head opposed by a crow's beak for penetrating armour.
 
@@ -1042,10 +1739,10 @@ name:& Broad Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:160
+weight:95
 cost:304
-alloc:20:15 to 100
-attack:2d6:0:0
+alloc:10:15 to 100
+attack:2d7:0:0
 armor:0:0
 desc:A simple, single-bladed war axe capable of chopping though limbs or armour.
 
@@ -1053,10 +1750,10 @@ name:& Battle Axe~
 type:polearm
 graphics:/:s
 level:15
-weight:170
+weight:100
 cost:334
-alloc:20:15 to 100
-attack:2d8:0:0
+alloc:40:15 to 100
+attack:2d9:0:0
 armor:0:0
 desc:A double-bladed axe.  Very popular among Dwarves.
 
@@ -1064,10 +1761,10 @@ name:& Lochaber Axe~
 type:polearm
 graphics:/:D
 level:45
-weight:250
+weight:150
 cost:750
-alloc:20:45 to 100
-attack:3d8:0:0
+alloc:10:45 to 100
+attack:3d9:0:0
 armor:0:0
 desc:A long shaft with a long narrow blade.
 
@@ -1075,10 +1772,10 @@ name:& Great Axe~
 type:polearm
 graphics:/:s
 level:40
-weight:230
+weight:140
 cost:500
-alloc:20:40 to 100
-attack:4d4:0:0
+alloc:30:40 to 100
+attack:4d5:0:0
 armor:0:0
 desc:An enormous two-handed battle axe, carried by Dwarven champions, who
 desc: compete to see who can cleave the most orc heads.
@@ -1090,10 +1787,10 @@ name:& Scythe~
 type:polearm
 graphics:/:s
 level:45
-weight:250
+weight:150
 cost:800
-alloc:20:45 to 100
-attack:5d3:0:0
+alloc:10:45 to 100
+attack:5d4:0:0
 armor:0:0
 desc:The long crescent blade stands out from the handle of this
 desc: polearm, and it is swung with two hands to harvest grain or blood.
@@ -1102,10 +1799,10 @@ name:& Glaive~
 type:polearm
 graphics:/:s
 level:20
-weight:190
+weight:120
 cost:363
-alloc:20:20 to 100
-attack:2d6:0:0
+alloc:30:20 to 100
+attack:2d7:0:0
 armor:0:0
 desc:A reinforced wooden pole eight feet long, topped by a massive knife blade
 desc: that can can be used to thrust or chop.
@@ -1114,10 +1811,10 @@ name:& Lance~
 type:polearm
 graphics:/:s
 level:10
-weight:300
+weight:190
 cost:230
-alloc:20:10 to 100
-attack:2d8:0:0
+alloc:1:8 to 100
+attack:2d9:0:0
 armor:0:0
 desc:A massive, tapered spear used primarily from horseback.
 
@@ -1125,10 +1822,10 @@ name:& Scythe~ of Slicing
 type:polearm
 graphics:/:r
 level:60
-weight:250
+weight:150
 cost:3500
 alloc:10:60 to 100
-attack:8d4:0:0
+attack:8d5:0:0
 armor:0:0
 desc:A reaper's weapon, the long blade almost hums in anticipation of
 desc: the blood it will spill.
@@ -1137,10 +1834,10 @@ name:& Lucerne Hammer~
 type:polearm
 graphics:/:B
 level:10
-weight:120
+weight:75
 cost:376
-alloc:20:10 to 100
-attack:2d5:0:0
+alloc:10:8 to 100
+attack:2d6:0:0
 armor:0:0
 desc:A long pole with a three- or four-pronged head balanced by a long spike.
 
@@ -1165,7 +1862,7 @@ graphics:}:U
 level:3
 weight:30
 cost:50
-alloc:20:3 to 100
+alloc:20:4 to 100
 flags:SHOOTS_ARROWS
 pval:2
 desc:The traditional hunter's weapon, this light bow is easily drawn.
@@ -1176,7 +1873,7 @@ graphics:}:U
 level:10
 weight:40
 cost:120
-alloc:20:10 to 100
+alloc:20:8 to 100
 flags:SHOOTS_ARROWS
 pval:3
 desc:As tall as a man, the longbow can drive an arrow through the
@@ -1216,7 +1913,7 @@ level:3
 weight:2
 cost:1
 pile:100:7d7
-alloc:30:3 to 100
+alloc:30:4 to 100
 attack:1d4:0:0
 armor:0:0
 desc:It can be shot with a bow.
@@ -1254,7 +1951,7 @@ level:3
 weight:3
 cost:2
 pile:100:5d7
-alloc:30:3 to 100
+alloc:30:5 to 100
 attack:1d5:0:0
 armor:0:0
 desc:It can be shot with a crossbow.
@@ -1305,7 +2002,7 @@ level:3
 weight:5
 cost:2
 pile:100:5d7
-alloc:25:3 to 100
+alloc:25:4 to 100
 attack:1d4:0:0
 armor:0:0
 desc:It can be shot with a sling.
@@ -1325,13 +2022,67 @@ desc:It can be shot with a sling.
 
 ##### Digging Tools #####
 
+### Umoria Extras ###
+
+name:& Orcish Pick~
+type:digger
+graphics:\:g
+level:20
+weight:110
+cost:500
+alloc:1:20 to 30
+attack:1d3:0:0
+armor:0:0
+flags:DIG_2
+desc:A heavy mining tool with a long, slightly curved head that tapers
+desc: to chisel points on both ends.
+
+name:& Dwarven Pick~
+type:digger
+graphics:\:g
+level:50
+weight:120
+cost:1200
+alloc:1:50 to 60
+attack:1d4:0:0
+armor:0:0
+flags:DIG_2
+desc:A heavy mining tool with a long, slightly curved head that tapers
+desc: to chisel points on both ends.
+
+name:& Gnomish Shovel~
+type:digger
+graphics:\:s
+level:20
+weight:30
+cost:100
+alloc:1:20 to 30
+attack:1d2:0:0
+armor:0:0
+flags:DIG_1
+desc:A compact and sturdy spade.
+
+name:& Dwarven Shovel~
+type:digger
+graphics:\:s
+level:40
+weight:60
+cost:250
+alloc:1:40 to 50
+attack:1d3:0:0
+armor:0:0
+flags:DIG_1
+desc:A compact and sturdy spade.
+
+### Core ###
+
 name:& Shovel~
 type:digger
 graphics:\:s
 level:1
-weight:60
+weight:40
 cost:10
-alloc:20:5 to 100
+alloc:20:4 to 100
 attack:1d2:0:0
 armor:0:0
 flags:DIG_1
@@ -1341,7 +2092,7 @@ name:& Pick~
 type:digger
 graphics:\:g
 level:30
-weight:180
+weight:100
 cost:300
 alloc:20:30 to 100
 attack:1d3:0:0
@@ -1354,7 +2105,7 @@ name:& Mattock~
 type:digger
 graphics:\:D
 level:50
-weight:250
+weight:150
 cost:700
 alloc:20:50 to 100
 attack:1d8:0:0
@@ -1368,13 +2119,38 @@ desc: vertical blade.  Used as a weapon of war by dwarves.
 
 ##### Boots #####
 
+### Umoria Extras ###
+
+name:& Pair~ of Soft Leather Shoes
+type:boots
+graphics:]:U
+level:0
+weight:15
+cost:4
+alloc:5:2 to 10
+attack:1d1:0:0
+armor:1:0
+
+name:& Pair~ of Hard Leather Boots
+type:boots
+graphics:]:U
+level:6
+weight:25
+cost:10
+alloc:5:6 to 16
+attack:1d1:0:0
+armor:3:0
+desc:These are calf-high boots of flexible leather, laced from heel to calf.
+
+### Core ###
+
 name:& Pair~ of Leather Sandals
 type:boots
 graphics:]:U
 level:0
 weight:15
 cost:4
-alloc:20:1 to 100
+alloc:10:2 to 100
 attack:1d1:0:0
 armor:1:0
 desc:A set of open-topped footgear with soft calfskin lacings and a sturdy 
@@ -1386,7 +2162,7 @@ graphics:]:U
 level:3
 weight:20
 cost:7
-alloc:20:3 to 100
+alloc:30:3 to 100
 attack:1d1:0:0
 armor:2:0
 desc:These are calf-high boots of flexible leather, laced from heel to calf.
@@ -1397,7 +2173,7 @@ graphics:]:U
 level:5
 weight:35
 cost:12
-alloc:20:5 to 100
+alloc:30:5 to 100
 attack:1d1:0:0
 armor:4:0
 flags:IGNORE_FIRE
@@ -1410,7 +2186,7 @@ graphics:]:s
 level:20
 weight:60
 cost:50
-alloc:20:20 to 100
+alloc:10:20 to 100
 attack:1d1:0:0
 armor:7:0
 flags:IGNORE_FIRE
@@ -1445,6 +2221,77 @@ desc:Fine quality elvish slippers, hard-wearing but apparently weightless.
 
 ### Headgear ###
 
+### Umoria Extras ###
+
+name:& Soft Leather Cap~
+type:helm
+graphics:]:u
+level:2
+weight:15
+cost:10
+alloc:5:2 to 12
+attack:0d0:0:0
+armor:1:0
+desc:A padded skullcap of boiled leather.
+
+name:& Silver Crown~
+type:crown
+graphics:]:s
+level:44
+weight:20
+cost:750
+alloc:5:44 to 49
+attack:1d1:0:0
+armor:0:0
+flags:IGNORE_ACID
+desc:An elegant silver circlet, with slender spines thrusting upward.
+desc:  It looks like it should be resting over the brow of a king.
+
+### ZVariant Extras ###
+
+name:& Knit Cap~
+type:helm
+graphics:]:b
+level:3
+weight:8
+cost:5
+alloc:1:3 to 8
+attack:0d0:0:0
+armor:0:0
+desc:A soft woolly hat.
+
+name:& Jingasa~
+type:helm
+graphics:]:s
+level:16
+weight:30
+cost:60
+alloc:1:16 to 21
+attack:1d1:0:0
+armor:5:0
+
+name:& Kabuto~
+type:helm
+graphics:]:D
+level:50
+weight:80
+cost:300
+alloc:1:50 to 55
+attack:1d1:0:0
+armor:10:0
+
+name:& Mithril Helm~
+type:helm
+graphics:]:B
+level:50
+weight:50
+cost:1000
+alloc:1:50 to 55
+attack:1d3:0:0
+armor:11:0
+
+### Core ###
+
 name:& Hard Leather Cap~
 type:helm
 graphics:]:u
@@ -1462,7 +2309,7 @@ graphics:]:s
 level:10
 weight:25
 cost:30
-alloc:20:10 to 100
+alloc:20:5 to 100
 attack:1d1:0:0
 armor:3:0
 desc:A pot-helm of steel that protects the skull.
@@ -1531,6 +2378,122 @@ desc: of gems and jewels; worthy of a High King.
 
 ### Body armours ###
 
+### Umoria Extras ###
+
+name:Hard Studded Leather Armour~
+type:soft armor
+graphics:(:U
+level:7
+weight:130
+cost:300
+alloc:5:7 to 17
+attack:1d2:0:0
+armor:17:0
+
+name:Woven Cord Armour~
+type:soft armor
+graphics:(:U
+level:7
+weight:150
+cost:135
+alloc:5:7 to 17
+attack:0d0:0:0
+armor:16:0
+
+name:Soft Leather Ring Mail~
+type:soft armor
+graphics:(:U
+level:10
+weight:130
+cost:320
+alloc:5:10 to 20
+attack:1d2:0:0
+armor:16:0
+
+name:Hard Leather Ring Mail~
+type:soft armor
+graphics:(:U
+level:12
+weight:150
+cost:460
+alloc:5:12 to 22
+attack:1d3:0:0
+armor:18:0
+
+name:Rusty Chain Mail~
+type:hard armor
+graphics:[:s
+level:26
+weight:220
+cost:0
+alloc:1:26 to 31
+attack:1d4:-5:0
+armor:32:-8
+
+name:Double Chain Mail~
+type:hard armor
+graphics:[:s
+level:28
+weight:260
+cost:850
+alloc:5:28 to 38
+attack:1d4:0:0
+armor:37:0
+
+name:Laminated Armour~
+type:hard armor
+graphics:[:s
+level:38
+weight:275
+cost:1150
+alloc:1:38 to 43
+attack:1d4:0:0
+armor:44:0
+
+### ZVariant Extras ###
+
+name:Splint Mail~
+type:hard armor
+graphics:[:D
+level:35
+weight:250
+cost:1300
+alloc:1:35 to 40
+attack:1d4:0:0
+armor:48:0
+
+name:Do-maru~
+type:hard armor
+graphics:[:s
+level:40
+weight:290
+cost:1250
+alloc:1:40 to 45
+attack:1d4:0:0
+armor:50:0
+
+name:Haramakido~
+type:hard armor
+graphics:[:D
+level:32
+weight:280
+cost:920
+alloc:1:32 to 37
+attack:1d4:0:0
+armor:43:0
+
+name:O-yoroi~
+type:hard armor
+graphics:[:D
+level:45
+weight:320
+cost:1300
+alloc:1:45 to 50
+attack:1d4:0:0
+armor:60:0
+
+### Core ###
+
 name:& Robe~
 type:soft armor
 graphics:(:b
@@ -1548,7 +2511,7 @@ graphics:(:U
 level:3
 weight:80
 cost:20
-alloc:20:3 to 100
+alloc:30:4 to 100
 attack:0d0:0:0
 armor:8:0
 desc:A cuirass of pliable leather, with a thicker leather jack.
@@ -1559,8 +2522,8 @@ graphics:(:U
 level:10
 weight:100
 cost:100
-alloc:20:5 to 100
-attack:1d1:-1:0
+alloc:10:5 to 100
+attack:1d1:0:0
 armor:12:0
 desc:A cuirass of pliable leather studded with metal rivets.
 
@@ -1570,8 +2533,8 @@ graphics:(:U
 level:5
 weight:120
 cost:150
-alloc:20:10 to 100
-attack:1d2:-1:0
+alloc:20:5 to 100
+attack:1d2:0:0
 armor:16:0
 desc:A boiled leather cuirass and shoulder plates.
 
@@ -1581,8 +2544,8 @@ graphics:(:U
 level:15
 weight:140
 cost:370
-alloc:20:15 to 100
-attack:1d1:-1:0
+alloc:20:10 to 100
+attack:1d1:0:0
 armor:20:0
 desc:A tunic and skirt sewn with thick, overlapping scales of hardened
 desc: leather.
@@ -1593,8 +2556,8 @@ graphics:[:s
 level:25
 weight:250
 cost:550
-alloc:20:25 to 100
-attack:1d4:-2:0
+alloc:10:20 to 100
+attack:1d4:0:0
 armor:38:0
 desc:A heavy shirt of overlapping steel scales backed by leather, with
 desc: matching skirt and sleeves.
@@ -1605,8 +2568,8 @@ graphics:[:s
 level:25
 weight:220
 cost:750
-alloc:20:20 to 100
-attack:1d4:-2:0
+alloc:30:20 to 100
+attack:1d4:0:0
 armor:32:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings, well padded
 desc: with leather.
@@ -1618,7 +2581,7 @@ level:30
 weight:270
 cost:900
 alloc:20:35 to 100
-attack:1d4:-2:0
+attack:1d4:0:0
 armor:42:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings,
 desc: strategically reinforced at vital locations with a second layer
@@ -1630,8 +2593,8 @@ graphics:[:s
 level:35
 weight:280
 cost:950
-alloc:20:40 to 100
-attack:1d4:-2:0
+alloc:10:40 to 100
+attack:1d4:0:0
 armor:45:0
 desc:A hauberk, leggings, and sleeves of interlocking steel rings,
 desc: reinforced around the shoulders with segmented plates of steel,
@@ -1643,8 +2606,8 @@ graphics:[:s
 level:35
 weight:290
 cost:1100
-alloc:20:45 to 100
-attack:1d4:-3:0
+alloc:30:40 to 100
+attack:1d4:0:0
 armor:48:0
 desc:A stiff suit of armour composed of small metal plates sewn to an
 desc: inner layer of heavy canvas, and covered with a second layer of
@@ -1656,8 +2619,8 @@ graphics:[:W
 level:45
 weight:260
 cost:1200
-alloc:20:30 to 100
-attack:1d6:-3:0
+alloc:10:20 to 100
+attack:1d6:0:0
 armor:40:0
 desc:A steel corselet and vambraces over a skirt and leggings of chain.
 
@@ -1667,8 +2630,8 @@ graphics:[:W
 level:45
 weight:340
 cost:1250
-alloc:20:50 to 100
-attack:1d6:-3:0
+alloc:15:50 to 100
+attack:1d6:0:0
 armor:58:0
 desc:This unusual armour is a surprisingly light suit of laced and
 desc: overlapping metal plates.
@@ -1679,8 +2642,8 @@ graphics:[:W
 level:45
 weight:360
 cost:1350
-alloc:15:55 to 100
-attack:2d4:-3:0
+alloc:30:50 to 100
+attack:2d4:0:0
 armor:62:0
 desc:A full suit of carefully fitted plates, with hinged joints backed
 desc: by chain, and light padding underneath.
@@ -1691,8 +2654,8 @@ graphics:[:W
 level:50
 weight:380
 cost:1500
-alloc:15:60 to 100
-attack:2d4:-3:0
+alloc:10:55 to 100
+attack:2d4:0:0
 armor:66:0
 desc:A full suit of finely fitted metal armour consisting of steel plates
 desc: reinforced ridging.
@@ -1703,8 +2666,8 @@ graphics:[:B
 level:55
 weight:150
 cost:7000
-alloc:10:55 to 100
-attack:1d4:-1:0
+alloc:15:55 to 100
+attack:1d4:0:0
 armor:28:0
 flags:IGNORE_ACID
 desc:This wondrous suit of fine-linked chain shimmers as though of pure silver.
@@ -1716,7 +2679,7 @@ level:60
 weight:300
 cost:15000
 alloc:10:65 to 100
-attack:2d4:-3:0
+attack:2d4:0:0
 armor:60:0
 flags:IGNORE_ACID
 desc:A shimmering suit of true-silver, forged long ago by dwarven smiths of
@@ -1729,7 +2692,7 @@ level:75
 weight:420
 cost:20000
 alloc:10:75 to 100
-attack:2d4:-4:0
+attack:2d4:0:0
 armor:80:0
 flags:IGNORE_ACID
 desc:An exquisite suit of nearly impenetrable adamantite.
@@ -1804,7 +2767,7 @@ graphics:]:s
 level:0
 weight:25
 cost:45
-alloc:20:10 to 100
+alloc:20:5 to 100
 attack:1d1:0:0
 armor:3:0
 desc:A set of gloves that completely covers the hand and wrist in steel plating.
@@ -1892,7 +2855,7 @@ graphics:):U
 level:15
 weight:90
 cost:200
-alloc:20:10 to 100
+alloc:20:5 to 100
 attack:1d3:0:0
 armor:8:0
 desc:A large oval shield made of layered wooden strips with a thick leather
@@ -1949,7 +2912,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_STR | 
-values:STR[1+M5]
+values:STR[M6]
 
 name:Intelligence
 type:ring
@@ -1959,7 +2922,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_INT | 
-values:INT[1+M5]
+values:INT[M6]
 
 name:Dexterity
 type:ring
@@ -1969,7 +2932,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_DEX | 
-values:DEX[1+M5]
+values:DEX[M6]
 
 name:Constitution
 type:ring
@@ -1979,7 +2942,7 @@ weight:2
 cost:500
 alloc:50:30 to 100
 flags:SUST_CON | 
-values:CON[1+M5]
+values:CON[M6]
 
 name:Speed
 type:ring
@@ -2023,7 +2986,7 @@ flags:SUST_STR | SUST_INT | SUST_WIS | EASY_KNOW
 
 ### Resistance rings ###
 
-name:Resist Poison
+name:Venom's End
 type:ring
 graphics:=:d
 level:40
@@ -2033,13 +2996,33 @@ alloc:50:40 to 100
 flags:EASY_KNOW
 values:RES_POIS[1]
 
+name:Warmth
+type:ring
+graphics:=:d
+level:10
+weight:2
+cost:125
+alloc:25:8 to 20
+flags:IGNORE_COLD | EASY_KNOW
+values:RES_COLD[1]
+
+name:Frost
+type:ring
+graphics:=:d
+level:10
+weight:2
+cost:250
+alloc:25:8 to 20
+flags:IGNORE_FIRE | EASY_KNOW
+values:RES_FIRE[1]
+
 name:Resist Fire and Cold
 type:ring
 graphics:=:d
 level:10
 weight:2
 cost:250
-alloc:50:10 to 50
+alloc:50:20 to 50
 flags:IGNORE_COLD | IGNORE_FIRE | EASY_KNOW
 values:RES_FIRE[1] | RES_COLD[1]
 
@@ -2167,7 +3150,7 @@ graphics:=:d
 level:10
 weight:2
 cost:500
-alloc:50:10 to 40
+alloc:50:8 to 40
 attack:0d0:0:0
 armor:0:5+d5M10
 desc:It increases your armor class.
@@ -2181,7 +3164,7 @@ graphics:=:d
 level:5
 weight:2
 cost:1000
-alloc:20:10 to 50
+alloc:20:8 to 50
 flags:EASY_KNOW
 curse:teleportation:100
 values:SPEED[2]
@@ -2192,7 +3175,7 @@ graphics:=:d
 level:0
 weight:2
 cost:200
-alloc:30:10 to 50
+alloc:30:8 to 50
 attack:0d0:2+d3:2+d3
 armor:0:-8+4d3
 
@@ -2202,7 +3185,7 @@ graphics:=:d
 level:0
 weight:2
 cost:700
-alloc:20:10 to 50
+alloc:20:8 to 50
 flags:IMPAIR_HP | EASY_KNOW
 power:6
 effect:HEAL_HP
@@ -2228,7 +3211,7 @@ graphics:=:d
 level:30
 weight:2
 cost:100
-alloc:50:10 to 50
+alloc:50:8 to 50
 attack:0d0:0:-3d5
 armor:0:0
 values:DEX[d4] | STEALTH[d4]
@@ -2239,7 +3222,7 @@ graphics:=:d
 level:0
 weight:2
 cost:100
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:PROT_FEAR | EASY_KNOW
 values:STEALTH[-2]
 
@@ -2251,7 +3234,7 @@ graphics:=:d
 level:5
 weight:2
 cost:250
-alloc:30:10 to 50
+alloc:30:8 to 50
 flags:SLOW_DIGEST | EASY_KNOW
 
 name:Feather Falling
@@ -2260,7 +3243,7 @@ graphics:=:d
 level:5
 weight:2
 cost:200
-alloc:20:10 to 50
+alloc:20:8 to 50
 flags:FEATHER | EASY_KNOW
 
 name:Free Action
@@ -2287,7 +3270,7 @@ graphics:=:d
 level:0
 weight:2
 cost:800
-alloc:20:10 to 50
+alloc:20:8 to 50
 values:TUNNEL[2+d3]
 power:6
 effect:LINE:KILL_WALL
@@ -2300,7 +3283,7 @@ time:15+2d10
 
 ### Stat boosts ###
 
-name:Wisdom
+name:Grace
 type:amulet
 graphics:":d
 level:30
@@ -2318,7 +3301,7 @@ graphics:":d
 level:10
 weight:3
 cost:300
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:IGNORE_ELEC | EASY_KNOW
 values:RES_ELEC[1]
 
@@ -2328,7 +3311,7 @@ graphics:":d
 level:10
 weight:3
 cost:300
-alloc:50:10 to 50
+alloc:50:8 to 50
 flags:IGNORE_ACID | EASY_KNOW
 values:RES_ACID[1]
 
@@ -2429,7 +3412,7 @@ graphics:":d
 level:10
 weight:3
 cost:200
-alloc:30:10 to 70
+alloc:30:8 to 70
 values:INFRA[1+M5]
 
 name:Searching
@@ -2438,7 +3421,7 @@ graphics:":d
 level:15
 weight:3
 cost:600
-alloc:20:10 to 40
+alloc:20:8 to 40
 values:SEARCH[d5M5]
 
 ### Powers ###
@@ -2449,7 +3432,7 @@ graphics:":d
 level:10
 weight:3
 cost:10
-alloc:20:10 to 40
+alloc:20:8 to 40
 flags:EASY_KNOW
 curse:teleportation:100
 
@@ -2468,7 +3451,7 @@ graphics:":d
 level:10
 weight:3
 cost:0
-alloc:20:10 to 40
+alloc:20:8 to 40
 flags:EASY_KNOW
 
 
@@ -2497,8 +3480,8 @@ graphics:?:w
 level:1
 weight:5
 cost:15
-alloc:50:1 to 100
-pile:100:2d3
+alloc:50:5 to 100
+pile:95:2d2
 power:5
 effect:TELEPORT
 dice:10
@@ -2536,7 +3519,7 @@ level:5
 weight:5
 cost:65
 alloc:50:5 to 100
-pile:70:1d3
+pile:65:1d2
 power:10
 effect:MAP_AREA
 effect-yx:22:40
@@ -2547,8 +3530,8 @@ graphics:?:w
 level:0
 weight:5
 cost:70
-alloc:50:0 to 70
-pile:40:1d5
+alloc:50:5 to 70
+pile:35:1d4
 power:6
 effect:DETECT_GOLD
 effect-yx:22:40
@@ -2561,8 +3544,8 @@ graphics:?:w
 level:1
 weight:5
 cost:15
-alloc:50:1 to 70
-pile:70:1d3
+alloc:50:5 to 70
+pile:65:1d2
 power:6
 effect:DETECT_INVISIBLE_MONSTERS
 effect-yx:22:40
@@ -2574,7 +3557,7 @@ level:1
 weight:5
 cost:200
 alloc:50:5 to 100
-pile:70:1d4
+pile:65:1d3
 power:6
 effect:IDENTIFY
 
@@ -2648,7 +3631,7 @@ graphics:?:w
 level:10
 weight:5
 cost:100
-alloc:16:10 to 100
+alloc:16:8 to 100
 pile:25:2
 power:8
 effect:REMOVE_CURSE
@@ -2675,8 +3658,8 @@ graphics:?:w
 level:1
 weight:5
 cost:0
-alloc:10:1 to 100
-pile:70:1d3
+alloc:10:4 to 100
+pile:65:1d2
 power:0
 effect:SUMMON:ANY
 dice:1d3
@@ -2687,7 +3670,7 @@ graphics:?:w
 level:15
 weight:5
 cost:0
-alloc:10:15 to 100
+alloc:10:5 to 100
 pile:70:1d3
 power:0
 effect:SUMMON:UNDEAD
@@ -2760,7 +3743,7 @@ level:5
 weight:5
 cost:10
 alloc:60:5 to 100
-pile:100:2d3
+pile:95:2d2
 power:7
 effect:NOURISH:INC_TO
 dice:50
@@ -2771,8 +3754,8 @@ graphics:?:w
 level:0
 weight:5
 cost:15
-alloc:50:0 to 60
-pile:35:2d3
+alloc:50:5 to 60
+pile:30:2d2
 power:4
 effect:LIGHT_AREA
 effect:SPOT:LIGHT_WEAK:2
@@ -2785,7 +3768,7 @@ level:5
 weight:5
 cost:125
 alloc:50:5 to 100
-pile:35:2d3
+pile:30:2d2
 power:15
 effect:RECALL
 
@@ -2807,8 +3790,8 @@ graphics:?:w
 level:10
 weight:5
 cost:50
-alloc:40:10 to 60
-pile:25:2d3
+alloc:40:8 to 60
+pile:20:2d2
 power:6
 effect:TOUCH:KILL_DOOR
 
@@ -2818,7 +3801,7 @@ graphics:?:w
 level:10
 weight:5
 cost:250
-alloc:20:1 to 100
+alloc:20:4 to 100
 pile:20:2
 power:19
 effect:DEEP_DESCENT
@@ -2832,8 +3815,8 @@ graphics:?:w
 level:1
 weight:5
 cost:15
-alloc:50:1 to 50
-pile:70:1d3
+alloc:50:4 to 50
+pile:65:1d2
 power:6
 effect:TIMED_INC:BLESSED
 dice:6+1d12
@@ -2844,7 +3827,7 @@ graphics:?:w
 level:10
 weight:5
 cost:40
-alloc:40:10 to 70
+alloc:40:8 to 70
 pile:25:2
 power:7
 effect:TIMED_INC:BLESSED
@@ -2884,7 +3867,7 @@ graphics:?:w
 level:5
 weight:5
 cost:30
-alloc:16:5 to 60
+alloc:16:4 to 60
 pile:25:2
 power:8
 effect:TIMED_INC:ATT_CONF
@@ -2918,8 +3901,8 @@ graphics:?:w
 level:5
 weight:5
 cost:0
-alloc:10:5 to 70
-pile:70:1d3
+alloc:10:4 to 70
+pile:65:1d2
 power:0
 msg:There is a high pitched humming noise.
 effect:WAKE
@@ -2954,8 +3937,8 @@ graphics:?:w
 level:1
 weight:5
 cost:0
-alloc:10:1 to 70
-pile:70:1d3
+alloc:10:4 to 70
+pile:65:1d2
 power:0
 effect:DARKEN_AREA
 effect:BALL:DARK_WEAK:3
@@ -2967,8 +3950,8 @@ graphics:?:w
 level:10
 weight:5
 cost:0
-alloc:10:10 to 70
-pile:70:1d3
+alloc:10:4 to 70
+pile:65:1d2
 power:0
 msg:You hear a low-pitched whistling sound.
 effect:TOUCH:MAKE_TRAP:3
@@ -3080,16 +4063,16 @@ graphics:!:d
 level:0
 weight:4
 cost:20
-alloc:80:1 to 15
-pile:90:2d3
+alloc:80:4 to 15
+pile:85:2d2
 power:3
 effect:HEAL_HP
-dice:20
+dice:15
 effect:CURE:BLIND
 effect:TIMED_DEC:CUT
-dice:20
+dice:15
 effect:TIMED_DEC:CONFUSED
-dice:20
+dice:15
 effect:NOURISH:INC_BY
 dice:1
 
@@ -3099,11 +4082,11 @@ graphics:!:d
 level:3
 weight:4
 cost:70
-alloc:80:5 to 40
-pile:80:2d3
+alloc:80:4 to 40
+pile:75:2d2
 power:6
 effect:HEAL_HP
-dice:40
+dice:30
 effect:CURE:BLIND
 effect:CURE:CUT
 effect:CURE:CONFUSED
@@ -3120,7 +4103,7 @@ alloc:80:12 to 100
 pile:70:2d3
 power:9
 effect:HEAL_HP
-dice:60
+dice:50
 effect:CURE:BLIND
 effect:CURE:CUT
 effect:CURE:POISONED
@@ -3204,7 +4187,7 @@ graphics:!:d
 level:5
 weight:4
 cost:75
-alloc:60:1 to 35
+alloc:60:4 to 35
 pile:25:2
 power:1
 effect:CURE:POISONED
@@ -3353,7 +4336,7 @@ graphics:!:d
 level:1
 weight:4
 cost:75
-alloc:40:1 to 100
+alloc:40:5 to 100
 pile:25:2
 power:10
 effect:TIMED_INC:FAST:0:5
@@ -3365,7 +4348,7 @@ graphics:!:d
 level:1
 weight:4
 cost:25
-alloc:40:1 to 100
+alloc:40:5 to 100
 pile:25:2
 power:7
 effect:HEAL_HP
@@ -3380,7 +4363,7 @@ graphics:!:d
 level:3
 weight:4
 cost:100
-alloc:40:3 to 100
+alloc:40:5 to 100
 pile:25:2
 power:9
 effect:HEAL_HP
@@ -3395,7 +4378,7 @@ graphics:!:d
 level:1
 weight:4
 cost:8
-alloc:40:1 to 90
+alloc:40:4 to 90
 pile:25:2
 power:2
 effect:CURE:AFRAID
@@ -3443,7 +4426,7 @@ graphics:!:d
 level:3
 weight:4
 cost:50
-alloc:40:3 to 40
+alloc:40:5 to 40
 pile:25:2
 power:7
 effect:CURE:BLIND
@@ -3456,7 +4439,7 @@ graphics:!:d
 level:3
 weight:4
 cost:20
-alloc:40:3 to 40
+alloc:40:4 to 40
 pile:25:2
 power:5
 effect:TIMED_INC:SINFRA
@@ -3472,7 +4455,7 @@ level:0
 weight:4
 cost:2
 alloc:10:1 to 10
-pile:70:2d3
+pile:65:2d2
 power:0
 effect:NOURISH:INC_BY
 dice:10
@@ -3483,8 +4466,8 @@ graphics:!:d
 level:0
 weight:4
 cost:0
-alloc:10:0 to 10
-pile:70:2d3
+alloc:10:3 to 10
+pile:65:2d2
 attack:3d4:0:0
 armor:0:0
 power:0
@@ -3499,8 +4482,8 @@ graphics:!:d
 level:0
 weight:4
 cost:0
-alloc:10:0 to 10
-pile:70:2d3
+alloc:10:3 to 10
+pile:65:2d2
 attack:3d4:0:0
 armor:0:0
 power:0
@@ -3513,8 +4496,8 @@ graphics:!:d
 level:0
 weight:4
 cost:0
-alloc:10:0 to 10
-pile:70:2d3
+alloc:10:3 to 10
+pile:65:2d2
 attack:3d4:0:0
 armor:0:0
 power:0
@@ -3529,8 +4512,8 @@ graphics:!:d
 level:3
 weight:4
 cost:0
-alloc:10:0 to 10
-pile:70:2d3
+alloc:10:3 to 10
+pile:65:2d2
 attack:3d4:0:0
 armor:0:0
 power:0
@@ -3543,8 +4526,8 @@ graphics:!:d
 level:1
 weight:4
 cost:0
-alloc:10:0 to 10
-pile:70:2d3
+alloc:10:3 to 10
+pile:65:2d2
 attack:3d4:0:0
 armor:0:0
 power:0
@@ -3559,7 +4542,7 @@ graphics:!:d
 level:10
 weight:4
 cost:0
-alloc:10:10 to 15
+alloc:10:4 to 15
 pile:25:2
 power:0
 effect:RANDOM
@@ -3578,7 +4561,7 @@ graphics:!:d
 level:0
 weight:4
 cost:0
-alloc:10:3 to 15
+alloc:10:4 to 15
 pile:100:1d2
 power:0
 msg:The potion makes you queasy.
@@ -3620,7 +4603,7 @@ graphics:-:d
 level:3
 weight:10
 cost:200
-alloc:20:3 to 60
+alloc:20:6 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -3693,7 +4676,7 @@ graphics:-:d
 level:5
 weight:10
 cost:400
-alloc:20:5 to 60
+alloc:20:6 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d8
@@ -3826,7 +4809,7 @@ graphics:-:d
 level:10
 weight:10
 cost:500
-alloc:20:10 to 100
+alloc:20:5 to 100
 attack:1d1:0:0
 armor:0:0
 charges:3+d5
@@ -3843,7 +4826,7 @@ graphics:-:d
 level:3
 weight:10
 cost:200
-alloc:20:3 to 60
+alloc:20:5 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -3858,7 +4841,7 @@ graphics:-:d
 level:10
 weight:10
 cost:300
-alloc:20:10 to 100
+alloc:20:8 to 100
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -3887,7 +4870,7 @@ graphics:-:d
 level:3
 weight:10
 cost:100
-alloc:20:3 to 60
+alloc:20:5 to 60
 attack:1d1:0:0
 armor:0:0
 charges:6+d10
@@ -3901,7 +4884,7 @@ graphics:-:d
 level:15
 weight:10
 cost:0
-alloc:20:15 to 100
+alloc:20:5 to 100
 attack:1d1:0:0
 armor:0:0
 charges:3+d5
@@ -3942,7 +4925,7 @@ graphics:-:d
 level:3
 weight:10
 cost:250
-alloc:20:3 to 60
+alloc:20:5 to 60
 attack:1d1:0:0
 armor:0:0
 charges:8+d15
@@ -4052,7 +5035,7 @@ graphics:-:d
 level:3
 weight:10
 cost:0
-alloc:10:3 to 40
+alloc:10:4 to 40
 attack:1d1:0:0
 armor:0:0
 charges:8+d20
@@ -4066,7 +5049,7 @@ graphics:-:d
 level:3
 weight:10
 cost:0
-alloc:10:3 to 40
+alloc:10:4 to 40
 attack:1d1:0:0
 armor:0:0
 charges:8+d20
@@ -4087,7 +5070,7 @@ graphics:_:d
 level:10
 weight:50
 cost:0
-alloc:10:10 to 100
+alloc:10:6 to 100
 attack:1d2:0:0
 armor:0:0
 charges:2d3
@@ -4101,7 +5084,7 @@ graphics:_:d
 level:10
 weight:50
 cost:0
-alloc:10:10 to 40
+alloc:10:6 to 40
 attack:1d2:0:0
 armor:0:0
 charges:8+d8
@@ -4160,7 +5143,7 @@ graphics:_:d
 level:10
 weight:50
 cost:800
-alloc:20:10 to 100
+alloc:20:7 to 100
 attack:1d2:0:0
 armor:0:0
 charges:3+d3
@@ -4174,7 +5157,7 @@ graphics:_:d
 level:10
 weight:50
 cost:800
-alloc:20:10 to 100
+alloc:20:7 to 100
 attack:1d2:0:0
 armor:0:0
 charges:4+d4
@@ -4188,7 +5171,7 @@ graphics:_:d
 level:10
 weight:50
 cost:700
-alloc:20:10 to 100
+alloc:20:7 to 100
 attack:1d2:0:0
 armor:0:0
 charges:6+d5
@@ -4206,7 +5189,7 @@ graphics:_:d
 level:5
 weight:50
 cost:200
-alloc:30:5 to 100 
+alloc:30:6 to 100 
 attack:1d2:0:0
 armor:0:0
 charges:8+d15
@@ -4251,7 +5234,7 @@ graphics:_:d
 level:25
 weight:50
 cost:500
-alloc:30:10 to 100
+alloc:30:6 to 100
 attack:1d2:0:0
 armor:0:0
 charges:4+d3
@@ -4268,7 +5251,7 @@ graphics:_:d
 level:5
 weight:50
 cost:350
-alloc:30:5 to 100
+alloc:30:6 to 100
 attack:1d2:0:0
 armor:0:0
 charges:6+d5
@@ -4383,7 +5366,7 @@ graphics:_:d
 level:5
 weight:50
 cost:250
-alloc:30:5 to 80
+alloc:30:6 to 80
 attack:1d2:0:0
 armor:0:0
 charges:8+d20
@@ -4689,7 +5672,7 @@ graphics:-:d
 level:65
 weight:15
 cost:1000
-alloc:20:10 to 80
+alloc:20:8 to 80
 attack:1d1:0:0
 armor:0:0
 power:9
@@ -4789,7 +5772,7 @@ graphics:-:d
 level:35
 weight:15
 cost:2100
-alloc:10:10 to 100
+alloc:10:8 to 100
 attack:1d1:0:0
 armor:0:0
 power:7

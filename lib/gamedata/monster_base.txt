@@ -59,6 +59,7 @@ glyph:a
 pain:7
 flags:ANIMAL | WEIRD_MIND
 flags:BASH_DOOR
+flags:PL_RUBBLE
 desc:Ant
 
 # Fast, not strong, annoying
@@ -81,6 +82,7 @@ name:canine
 glyph:C
 pain:3
 flags:ANIMAL | CLEAR_WEB
+flags:PL_STAIR
 desc:Canine (Dog)
 
 # Centipedes are mastly weak, sometimes quick, and their melee attacks are often
@@ -89,6 +91,7 @@ name:centipede
 glyph:c
 pain:5
 flags:ANIMAL | WEIRD_MIND
+flags:PL_RUBBLE
 desc:Centipede
 
 # Creeping coins are mimics which look like coins until they attack, hit to
@@ -155,6 +158,7 @@ pain:1
 flags:UNDEAD | EVIL | INVISIBLE | COLD_BLOOD | SPIRIT
 flags:PASS_WALL
 flags:IM_COLD | IM_POIS | NO_CONF | NO_SLEEP | NO_STUN | NO_HOLD
+flags:PL_TRAP | PL_STAIR
 desc:Ghost
 
 # Giants are big, strong humanoids which hit hard and throw boulders.  They
@@ -165,6 +169,7 @@ glyph:P
 pain:1
 flags:GIANT | EVIL | SPIRIT
 flags:BASH_DOOR | CLEAR_WEB
+flags:PL_STAIR
 desc:Giant Humanoid
 
 # Mostly slow with lots of hitpoints and armor
@@ -174,13 +179,15 @@ pain:1
 flags:EMPTY_MIND | CLEAR_WEB
 flags:IM_ELEC | NO_FEAR | NO_CONF | NO_SLEEP
 flags:NONLIVING
+flags:PL_STAIR
 desc:Golem
 
 name:humanoid
 glyph:h
 pain:1
 flags:OPEN_DOOR | BASH_DOOR | SPIRIT | CLEAR_WEB
-desc:Hobbit/Elf/Dwarf
+flags:PL_STAIR
+desc:Humanoid
 
 # Weird legendary stuff, mostly without spells, sometimes with breath
 name:hybrid
@@ -221,6 +228,7 @@ glyph:j
 pain:2
 flags:EMPTY_MIND | STUPID | CLEAR_WEB
 flags:NO_FEAR
+flags:PL_RUBBLE
 desc:Jelly
 
 # Giant beetles with high armor class and fairly powerful bites, frequently
@@ -239,6 +247,7 @@ pain:1
 flags:EVIL
 flags:OPEN_DOOR | BASH_DOOR | SPIRIT | CLEAR_WEB
 flags:IM_POIS
+flags:PL_STAIR
 desc:Kobold
 
 # Powerful undead spellcasters, tending to drain dexterity and charges in melee
@@ -300,6 +309,7 @@ glyph:m
 pain:2
 flags:NEVER_MOVE
 flags:IM_POIS | HURT_FIRE | NO_FEAR | NO_CONF | NO_SLEEP
+flags:PL_RUBBLE
 desc:Mold
 
 # Small (mostly) non-moving (mostly) spore-releasing-for-effect creatures
@@ -308,7 +318,16 @@ glyph:,
 pain:2
 flags:EMPTY_MIND | STUPID
 flags:HURT_FIRE | NO_FEAR | NO_CONF | NO_SLEEP
+flags:PL_RUBBLE
 desc:Mushroom
+
+name:light
+glyph:*
+pain:2
+flags:EMPTY_MIND | STUPID
+flags:IM_POIS | NO_FEAR | NO_CONF | NO_SLEEP
+flags:NONLIVING
+desc:Light
 
 # Female serpent-like monsters
 name:naga
@@ -325,6 +344,7 @@ glyph:O
 pain:1
 flags:GIANT | EVIL | SPIRIT
 flags:OPEN_DOOR | BASH_DOOR | CLEAR_WEB
+flags:PL_STAIR
 desc:Ogre
 
 # Orcs are the foot-soldiers of Morgoth.  They melee and use archery, but 
@@ -334,12 +354,14 @@ glyph:o
 pain:1
 flags:MALE | ORC | EVIL | SPIRIT
 flags:OPEN_DOOR | BASH_DOOR | CLEAR_WEB
+flags:PL_STAIR
 desc:Orc
 
 name:person
 glyph:p
 pain:1
 flags:BASH_DOOR | SPIRIT | CLEAR_WEB
+flags:PL_STAIR
 desc:Person/Human
 
 # A grab-bag of four-legged things with no real defining quality
@@ -364,6 +386,7 @@ name:reptile
 glyph:R
 pain:5
 flags:ANIMAL | HURT_COLD | CLEAR_WEB
+flags:PL_RUBBLE
 desc:Reptile/Amphibian
 
 # Small, weak, early breeders, with one surprise non-breeder
@@ -371,6 +394,7 @@ name:rodent
 glyph:r
 pain:4
 flags:ANIMAL | CLEAR_WEB
+flags:PL_RUBBLE
 desc:Rodent
 
 # The non-unique skeletons break into two (early and late) groups:
@@ -382,6 +406,7 @@ glyph:s
 pain:9
 flags:UNDEAD | EVIL | COLD_BLOOD | CLEAR_WEB
 flags:IM_COLD | IM_POIS | NO_FEAR | NO_CONF | NO_SLEEP | NO_STUN
+flags:PL_STAIR
 desc:Skeleton
 
 # Snakes are typically slow, but have high armor class
@@ -390,6 +415,7 @@ glyph:J
 pain:5
 flags:ANIMAL | HURT_COLD
 flags:BASH_DOOR | CLEAR_WEB
+flags:PL_RUBBLE
 desc:Snake
 
 # Spiders are frequently poisonous and weave webs, and tend to have an
@@ -399,6 +425,7 @@ name:spider
 glyph:S
 pain:7
 flags:BASH_DOOR | PASS_WEB
+flags:PL_RUBBLE
 desc:Spider/Scorpion/Tick
 
 # Weak, except the odd one to surprise the unwary newcomer.  Always native to
@@ -417,6 +444,13 @@ flags:CLEAR_WEB | COLD_BLOOD | REGENERATE
 flags:NO_FEAR | NO_CONF | HURT_FIRE | IM_WATER
 desc:Tree/Ent
 
+name:plant
+glyph:&
+pain:2
+flags:COLD_BLOOD
+flags:HURT_FIRE | NO_FEAR | NO_CONF | NO_SLEEP | EMPTY_MIND
+desc:Plant
+
 # Trolls are evil, larger than human-size humanoids. They have strong melee
 # combat, and many are hurt by light.  They fall roughly between ogres and
 # giants in Morgoth's humanoid soldiery.
@@ -425,6 +459,7 @@ glyph:T
 pain:1
 flags:TROLL | EVIL | SPIRIT
 flags:OPEN_DOOR | BASH_DOOR | CLEAR_WEB
+flags:PL_STAIR
 desc:Troll
 
 # Powerful undead which drain experience
@@ -446,6 +481,7 @@ flags:RAND_50 | BASH_DOOR | CLEAR_WEB
 flags:NO_FEAR | NO_CONF | NO_SLEEP | NO_HOLD | IM_POIS
 flags:FORCE_SLEEP
 flags:NONLIVING
+flags:WILD_HP
 desc:Vortex
 
 # Worms are mostly low level slow breeders with crawl attacks for an effect
@@ -453,6 +489,7 @@ name:worm
 glyph:w
 pain:1
 flags:ANIMAL
+flags:PL_RUBBLE
 desc:Worm/Worm Mass
 
 # Undead which range from wights to wraiths to the Ringwraiths.  Experience
@@ -497,6 +534,7 @@ name:zephyr hound
 glyph:Z
 pain:3
 flags:ANIMAL | GROUP_AI | CLEAR_WEB
+flags:PL_STAIR
 desc:Zephyr Hound
 
 # Animated corpses, frequently with no mind of their own.  Mostly fairly weak
@@ -514,7 +552,7 @@ desc:Zombie/Mummy
 name:player
 glyph:@
 pain:1
-desc:You
+desc:Jackal Food
 
 name:Morgoth
 glyph:P

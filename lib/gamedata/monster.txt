@@ -285,7 +285,7 @@ hearing:40
 armor-class:12
 sleepiness:3
 depth:0
-rarity:4
+rarity:10
 experience:0
 blow:MOAN
 blow:MOAN
@@ -407,6 +407,7 @@ depth:0
 rarity:1
 experience:0
 blow:BEG
+blow:SING
 flags:MALE
 flags:DROP_40 | ONLY_GOLD
 flags:RAND_50 | OPEN_DOOR | BASH_DOOR | TAKE_ITEM
@@ -506,72 +507,200 @@ spell-freq:4
 spells:BLINK | HEAL
 desc:It's Saint Nick, out delivering presents to the town urchins.
 
-### Dungeon level 1 ###
-
-name:grey mold
-base:mold
-color:s
+name:innkeeper
+base:townsfolk
+color:W
 speed:110
 hit-points:2
-hearing:2
+light:1
+hearing:100
 armor-class:1
 sleepiness:0
-depth:1
-rarity:1
-experience:3
-blow:SPORE:HURT:1d4
-blow:SPORE:HURT:1d4
-flags:EMPTY_MIND | STUPID
-desc:A small strange grey growth.
+depth:0
+rarity:10
+experience:0
+flags:FEMALE | RAND_25 | OPEN_DOOR | TAKE_ITEM | NEVER_BLOW
+desc:A middle-aged woman dressed in grey and silver.  She is very busy, and doesn't 
+desc:even have time to gossip.
 
-name:grey mushroom patch
-plural:grey mushroom patches
-base:mushroom
-color:s
+name:sparrow
+base:bird
+color:U
+speed:110
+hit-points:1
+hearing:30
+armor-class:1
+sleepiness:10
+depth:0
+rarity:20
+experience:0
+blow:PECK2
+flags:RAND_25
+desc:Utterly harmless, except when angry.
+
+name:chaffinch
+base:bird
+color:r
+speed:110
+hit-points:1
+hearing:30
+armor-class:1
+sleepiness:10
+depth:0
+rarity:20
+experience:0
+blow:PECK2
+flags:RAND_25
+desc:Utterly harmless, except when angry.
+
+name:wild rabbit
+base:rodent
+color:U
 speed:110
 hit-points:2
-hearing:2
+hearing:30
 armor-class:1
-sleepiness:0
-depth:1
-rarity:1
-experience:1
-blow:SPORE:CONFUSE:1d4
-flags:IM_POIS | NEVER_MOVE
-desc:Yum!  It looks quite tasty.
+sleepiness:10
+depth:0
+rarity:15
+experience:0
+blow:BITE:HURT:1d1
+flags:RAND_50
+desc:It is not a carnivore, but will defend itself if you stray too
+desc:close.
 
-name:giant yellow centipede
-base:centipede
-color:y
-speed:110
-hit-points:7
-hearing:8
-smell:20
-armor-class:14
-sleepiness:30
-depth:1
-rarity:1
-experience:2
-blow:BITE:HURT:1d3
-blow:STING:HURT:1d3
-desc:It is about four feet long and carnivorous.
-
-name:giant white centipede
-base:centipede
-color:w
+name:woodsman
+base:person
+color:g
 speed:110
 hit-points:9
-hearing:7
+hearing:10
+armor-class:1
+sleepiness:255
+depth:0
+rarity:20
+experience:0
+blow:HIT:HURT:1d4
+blow:HIT:HURT:1d4
+flags:MALE | RAND_25
+flags:ONLY_GOLD | DROP_60
+flags:TAKE_ITEM | OPEN_DOOR | BASH_DOOR
+desc:He has an axe with a sharp and strong edge.
+
+name:hobo
+base:townsfolk
+color:g
+speed:110
+hit-points:2
+hearing:6
+armor-class:1
+sleepiness:0
+depth:0
+rarity:10
+blow:DROOL
+flags:MALE | RAND_25 | TAKE_ITEM | OPEN_DOOR | BASH_DOOR
+desc:Ugly doesn't begin to describe him.
+
+name:raving lunatic
+base:townsfolk
+color:G
+speed:120
+hit-points:10
+hearing:6
+armor-class:1
+sleepiness:0
+depth:0
+rarity:20
+blow:DROOL
+flags:MALE | RAND_25 | TAKE_ITEM
+desc:Drooling and comical, but then, what do you expect?
+
+name:agent of black market
+base:townsfolk
+color:D
+speed:110
+hit-points:9
+hearing:10
+armor-class:8
+sleepiness:99
+depth:0
+rarity:15
+experience:0
+blow:HIT:HURT:1d6
+blow:TOUCH:EAT_ITEM
+flags:MALE | EVIL
+flags:DROP_60
+flags:TAKE_ITEM | OPEN_DOOR | BASH_DOOR
+desc:He 'finds' new wares for the Black Market. From unwary adventurers...
+
+name:blink ewe
+base:quadruped
+color:w
+speed:105
+hit-points:18
+hearing:10
 smell:20
-armor-class:12
-sleepiness:40
+armor-class:10
+sleepiness:99
+depth:0
+rarity:25
+experience:0
+blow:BITE:HURT:1d4
+flags:FEMALE
+flags:RAND_25 | RAND_50
+spell-freq:20
+spells:TELE_AWAY
+desc:A large ewe appears to have made its home in this town.  It is hungry, and
+desc: you are trespassing in its territory.
+
+name:chicken
+base:bird
+color:w
+speed:115
+hit-points:1
+hearing:30
+armor-class:1
+sleepiness:10
+depth:0
+rarity:5
+experience:0
+blow:PECK2
+flags:RAND_25 | RAND_50
+desc:Utterly harmless, except when angry.
+
+### Dungeon level 1 ###
+
+name:tanglethorn
+base:plant
+color:s
+speed:110
+hit-points:8
+hearing:2
+armor-class:5
+sleepiness:0
 depth:1
 rarity:1
-experience:2
-blow:CRAWL:HURT:1d2
-blow:STING:COLD:1d2
-flags:RAND_50 | BASH_DOOR
-desc:It is about four feet long and carnivorous.
+blow:THORN:HURT:3d3
+flags:NEVER_MOVE | IM_POIS | EVIL
+flags:PL_SIL
+desc:'... great writhing, tangled brambles sprawled. Some had long stabbing
+desc: thorns, some hooked barbs that rent like knives.'
+
+name:grimhawk
+base:bird
+color:u
+speed:120
+hit-points:4
+hearing:20
+armor-class:7
+sleepiness:20
+depth:1
+rarity:1
+experience:4
+blow:PECK:HURT:1d5
+flags:RAND_50 | TERRITORIAL
+flags:PL_SIL
+desc:A hunting bird, beloved of the orcs, with iron barbs on its talons.
 
 name:white icky thing
 base:icky thing
@@ -587,42 +716,8 @@ experience:1
 blow:TOUCH:HURT:1d2
 flags:EMPTY_MIND
 flags:RAND_25
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is a smallish, slimy, icky creature.
-
-name:clear icky thing
-base:icky thing
-color:w
-speed:110
-hit-points:6
-hearing:12
-armor-class:7
-sleepiness:10
-depth:1
-rarity:1
-experience:2
-blow:TOUCH:HURT:1d2
-flags:INVISIBLE | EMPTY_MIND
-flags:RAND_25
-flags:ATTR_CLEAR
-desc:It is a smallish, slimy, icky, blobby creature.
-
-name:giant white mouse
-plural:giant white mice
-base:rodent
-color:w
-speed:110
-hit-points:2
-hearing:8
-smell:20
-armor-class:4
-sleepiness:20
-depth:1
-rarity:1
-experience:1
-blow:BITE:HURT:1d2
-flags:MULTIPLY
-flags:RAND_50
-desc:It is about three feet long with large teeth.
 
 name:large white snake
 base:snake
@@ -638,7 +733,148 @@ experience:2
 blow:BITE:HURT:1d1
 blow:CRUSH:HURT:1d1
 flags:RAND_50
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is about eight feet long.
+
+name:marsh hog
+base:quadruped
+color:M
+speed:111
+hit-points:5
+hearing:5
+smell:50
+armor-class:5
+sleepiness:20
+depth:1
+rarity:1
+experience:2
+blow:CRUSH:HURT:1d2
+flags:PL_JB
+friends:100:1d7:Same
+desc:It is a large wild hog.
+
+name:scavenger
+base:humanoid
+color:m
+speed:110
+hit-points:12
+hearing:10
+smell:10
+armor-class:12
+sleepiness:70
+depth:1
+rarity:1
+experience:8
+blow:HIT:HURT:1d8
+flags:DROP_40
+flags:PL_JB
+desc:It is a squat and ugly humanoid figure scavenging on the outskirts of civilization.
+
+name:grey mold
+base:mold
+color:s
+speed:110
+hit-points:2
+hearing:2
+armor-class:1
+sleepiness:0
+depth:1
+rarity:2
+experience:3
+blow:SPORE:HURT:1d4
+blow:SPORE:HURT:1d4
+flags:EMPTY_MIND | STUPID
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:A small strange grey growth.
+
+name:grey mushroom patch
+plural:grey mushroom patches
+base:mushroom
+color:s
+speed:110
+hit-points:2
+hearing:2
+armor-class:1
+sleepiness:0
+depth:1
+rarity:3
+experience:1
+blow:SPORE:CONFUSE:1d4
+flags:IM_POIS | NEVER_MOVE
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:Yum!  It looks quite tasty.
+
+name:giant yellow centipede
+base:centipede
+color:y
+speed:110
+hit-points:7
+hearing:8
+smell:20
+armor-class:14
+sleepiness:30
+depth:1
+rarity:2
+experience:2
+blow:BITE:HURT:1d3
+blow:STING:HURT:1d3
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is about four feet long and carnivorous.
+
+name:metallic silver centipede
+base:centipede
+color:W
+speed:110
+hit-points:9
+hearing:7
+smell:20
+armor-class:12
+sleepiness:40
+depth:1
+rarity:3
+experience:2
+blow:CRAWL:HURT:1d2
+blow:STING:COLD:1d2
+flags:RAND_50 | BASH_DOOR
+flags:PL_CORE | PL_JB
+desc:It is about four feet long and carnivorous.
+
+name:clear icky thing
+base:icky thing
+color:w
+speed:110
+hit-points:6
+hearing:12
+armor-class:7
+sleepiness:10
+depth:1
+rarity:3
+experience:2
+blow:TOUCH:HURT:1d2
+flags:INVISIBLE | EMPTY_MIND
+flags:RAND_25
+flags:ATTR_CLEAR
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is a smallish, slimy, icky, blobby creature.
+
+name:giant white mouse
+plural:giant white mice
+base:rodent
+color:w
+speed:110
+hit-points:2
+hearing:8
+smell:20
+armor-class:4
+sleepiness:20
+depth:1
+rarity:3
+experience:1
+blow:BITE:HURT:1d2
+flags:MULTIPLY
+flags:RAND_50
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is about three feet long with large teeth.
 
 name:small kobold
 base:kobold
@@ -650,10 +886,12 @@ smell:20
 armor-class:24
 sleepiness:70
 depth:1
-rarity:1
+rarity:3
 experience:5
 blow:HIT:HURT:1d5
-flags:DROP_60
+flags:DROP_40
+flags:PL_TRAP
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is a squat and ugly humanoid figure with a canine face.
 
 name:white worm mass
@@ -665,12 +903,13 @@ hearing:7
 armor-class:1
 sleepiness:14
 depth:1
-rarity:1
+rarity:3
 experience:2
 blow:CRAWL:POISON:1d2
 flags:WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | IM_POIS | NO_FEAR
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is a large slimy mass of worms.
 
 name:floating eye
@@ -682,11 +921,14 @@ hearing:2
 armor-class:7
 sleepiness:10
 depth:1
-rarity:1
+rarity:3
 experience:1
 blow:GAZE:PARALYZE
 flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
+flags:PL_CORE | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+spell-freq:11
+spells:BLINK
 desc:A disembodied eye, floating a few feet above the ground.
 
 name:rock lizard
@@ -699,9 +941,10 @@ smell:20
 armor-class:4
 sleepiness:15
 depth:1
-rarity:1
+rarity:3
 experience:2
 blow:BITE:HURT:1d1
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is a small lizard with a hardened hide.
 
 name:wild dog
@@ -714,10 +957,11 @@ smell:50
 armor-class:3
 sleepiness:10
 depth:1
-rarity:1
+rarity:3
 experience:1
 blow:BITE:HURT:1d1
 flags:GROUP_AI
+flags:PL_CORE
 friends:100:2d7:Same
 desc:It is a yapping snarling dog, dangerous when in a pack.
 
@@ -731,9 +975,10 @@ smell:20
 armor-class:4
 sleepiness:40
 depth:1
-rarity:1
+rarity:3
 experience:3
 blow:BITE:HURT:1d2
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:A large ant with powerful mandibles.
 
 name:fruit bat
@@ -745,11 +990,363 @@ hearing:20
 armor-class:3
 sleepiness:10
 depth:1
-rarity:1
+rarity:3
 experience:1
 blow:BITE:HURT:1d1
 flags:RAND_25
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:A fast-moving pest.
+
+name:dancing candle flame
+base:light
+color:r
+speed:110
+hit-points:6
+hearing:6
+armor-class:8
+sleepiness:10
+depth:1
+rarity:2
+experience:3
+blow:TOUCH:FIRE:1d4
+flags:RAND_25 | RAND_50
+flags:PL_JB
+innate-freq:4
+spells:SPIT
+desc:It is an eerie looking light, dancing and spitting flames.
+
+name:mud spirit
+base:elemental
+color:m
+speed:110
+hit-points:6
+hearing:6
+armor-class:0
+sleepiness:10
+depth:1
+rarity:2
+experience:3
+blow:HIT:BLIND:1d2
+flags:RAND_25 | RAND_50 | PASS_WALL
+flags:PL_JB
+desc:A living tower of mud.
+
+name:rodent skeleton
+base:skeleton
+color:w
+speed:110
+hit-points:4
+hearing:8
+armor-class:8
+sleepiness:40
+depth:1
+rarity:2
+experience:2
+blow:BITE:HURT:1d4
+flags:PL_JB | PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is about three feet long with large teeth.
+
+name:silver serpent
+base:snake
+color:W
+speed:100
+hit-points:11
+hearing:4
+armor-class:36
+sleepiness:99
+depth:1
+rarity:2
+experience:4
+blow:BITE:SLOW:1d1
+blow:CRUSH:EAT_LIGHT:1d1
+flags:RAND_50
+flags:PL_JB
+innate-freq:4
+spells:SPIT
+desc:It is about eight feet long with silver scales.
+
+name:fowl demon
+base:minor demon
+color:u
+speed:108
+hit-points:24
+hearing:10
+smell:20
+armor-class:4
+sleepiness:80
+depth:1
+rarity:2
+experience:5
+blow:PECK:HURT:1d3
+blow:CLAW:HURT:1d4
+flags:PL_JB
+desc:This monstrosity looks like it was created by sewing
+desc: together the body parts of different species of birds.
+
+name:giant worker ant
+base:ant
+color:g
+speed:110
+hit-points:6
+hearing:5
+smell:20
+armor-class:4
+sleepiness:60
+depth:1
+rarity:2
+experience:4
+blow:BITE:ACID:1d3
+flags:RAND_50 | KILL_WALL
+flags:PL_JB
+desc:A large ant capable of boring through walls.
+
+name:small bokold
+base:reptile
+color:Y
+speed:112
+hit-points:4
+hearing:10
+smell:20
+armor-class:3
+sleepiness:15
+depth:1
+rarity:2
+experience:3
+blow:BITE:HURT:1d1
+blow:CRAWL:EAT_FOOD:1d1
+flags:PL_JB
+desc:It's a bokold.
+
+name:novice druid
+base:humanoid
+color:Y
+speed:110
+hit-points:10
+hearing:10
+armor-class:10
+sleepiness:50
+depth:1
+rarity:2
+experience:5
+blow:HIT:HURT:1d4
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_JB
+spell-freq:8
+spells:BA_POIS | SHAPECHANGE
+shape:giant white mouse
+shape:fox
+drop-base:nature book:5:1:1
+desc:A lover of nature.
+
+name:large brown snake
+base:snake
+color:U
+speed:100
+hit-points:14
+hearing:4
+armor-class:42
+sleepiness:99
+depth:1
+rarity:3
+experience:3
+blow:BITE:HURT:1d3
+blow:CRUSH:HURT:1d4
+flags:RAND_25
+flags:PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is about eight feet long.
+
+name:giant white centipede
+base:centipede
+color:w
+speed:110
+hit-points:9
+hearing:7
+smell:20
+armor-class:12
+sleepiness:40
+depth:1
+rarity:2
+experience:2
+blow:BITE:HURT:1d2
+blow:STING:HURT:1d2
+flags:RAND_50 | BASH_DOOR
+flags:PL_MORIA | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is about four feet long and carnivorous.
+
+name:blinking dot
+base:light
+glyph:,
+color:s
+speed:110
+hit-points:2
+hearing:2
+armor-class:1
+sleepiness:0
+depth:1
+rarity:4
+experience:3
+blow:SPORE:CONFUSE:1d6
+flags:NEVER_MOVE
+flags:PL_ZVARIANT
+spell-freq:2
+spells:BLINK
+desc:Is it there or is it not?
+
+name:newt
+base:reptile
+color:l
+speed:110
+hit-points:12
+hearing:8
+armor-class:12
+sleepiness:30
+depth:1
+rarity:4
+experience:4
+blow:BITE:HURT:1d4
+blow:BITE:HURT:1d4
+flags:WEIRD_MIND
+flags:PL_ZVARIANT
+desc:A small, harmless lizard.
+
+name:grid bug
+base:insect
+color:v
+speed:110
+hit-points:5
+light:1
+hearing:10
+armor-class:2
+sleepiness:10
+depth:1
+rarity:4
+experience:4
+blow:BITE:ELEC:1d7
+flags:STUPID | IM_ELEC
+flags:PL_ZVARIANT
+desc:A strange electric bug.
+
+name:insect swarm
+base:insect
+color:u
+speed:120
+hit-points:3
+hearing:20
+armor-class:4
+sleepiness:10
+depth:1
+rarity:4
+experience:3
+blow:BITE:HURT:1d3
+blow:STING:HURT:1d3
+flags-off:MULTIPLY
+flags:PL_ZVARIANT
+desc:A lone insect may be harmless, but there's a whole swarm of
+desc:them here!
+
+#name:bomb mosquito
+#base:insect
+#color:D
+#speed:120
+#hit-points:1
+#hearing:30
+#armor-class:50
+#sleepiness:0
+#depth:1
+#rarity:4
+#experience:3
+#blow:EXPLODE:DAM:1d2
+#flags-off:MULTIPLY
+#flags:PL_ZVARIANT
+#desc:bomb mosquito
+
+name:duck
+base:bird
+color:o
+speed:105
+hit-points:5
+hearing:10
+armor-class:12
+sleepiness:3
+depth:1
+rarity:4
+experience:1
+blow:PECK:HURT:1d1
+flags:NO_SLEEP
+flags:PL_ZVARIANT
+spell-freq:11
+spells:SHRIEK
+desc:A legendary waterfowl, remembered in countless stories.
+
+name:whirlwind
+base:elemental
+glyph:*
+color:s
+speed:115
+hit-points:4
+hearing:25
+armor-class:5
+sleepiness:0
+depth:1
+rarity:2
+experience:3
+blow:ENGULF:HURT:1d1
+flags:BASH_DOOR | RAND_25 | RAND_50 | TAKE_ITEM
+flags:PL_OS
+desc:A small cyclone that stirs up the musty dungeon air.
+
+name:giant stick insect
+base:mimic
+glyph:I
+color:u
+speed:105
+hit-points:8
+hearing:20
+armor-class:4
+sleepiness:0
+depth:1
+rarity:5
+experience:3
+blow:STING:SLOW:1d2
+blow:STING:POISON:1d2
+flags-off:MULTIPLY
+flags:PL_JB
+desc:It looks just like a stick!
+mimic:misc:Broken Stick
+mimic:hafted:Stick
+
+name:fox
+base:canine
+color:r
+speed:120
+hit-points:3
+hearing:10
+smell:50
+armor-class:3
+sleepiness:10
+depth:1
+rarity:5
+experience:3
+blow:BITE:HURT:1d1
+blow:CLAW:HURT:1d1
+flags:PL_JB
+desc:A fox.
+
+name:canine skeleton
+base:skeleton
+color:w
+speed:110
+hit-points:6
+hearing:8
+armor-class:6
+sleepiness:40
+depth:1
+rarity:10
+experience:2
+blow:BITE:HURT:1d5
+flags:PL_JB | PL_OLDBAND | PL_ZVARIANT | PL_FA | PL_OS
+desc:It is a small animated canine skeleton.
 
 ### Dungeon level 2 ###
 
@@ -766,7 +1363,8 @@ depth:2
 rarity:1
 experience:5
 blow:HIT:HURT:1d8
-flags:DROP_60
+flags:DROP_40
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It is a small, dog-headed humanoid.
 
 name:shrieker mushroom patch
@@ -784,6 +1382,7 @@ experience:1
 flags:NEVER_BLOW | NEVER_MOVE
 flags:IM_POIS
 flags:FORCE_SLEEP
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 innate-freq:4
 spells:SHRIEK
 desc:Yum!  It looks quite tasty.  It doesn't sound so nice, though...
@@ -804,6 +1403,7 @@ blow:CRAWL:EAT_FOOD
 flags:EMPTY_MIND
 flags:KILL_BODY | TAKE_ITEM
 flags:IM_POIS
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It is a smallish, slimy, icky, hungry creature.
 
 name:metallic green centipede
@@ -821,6 +1421,7 @@ experience:3
 blow:CRAWL:HURT:1d1
 blow:STING:ACID:1d1
 flags:RAND_50 | BASH_DOOR
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It is about four feet long and carnivorous.
 
 name:soldier
@@ -838,12 +1439,13 @@ experience:6
 blow:HIT:HURT:1d7
 blow:HIT:HURT:1d7
 flags:MALE
-flags:DROP_60
+flags:DROP_40
 flags:OPEN_DOOR
 friends-base:20:1d3:person
 friends-base:40:1d3:person
 friends-base:80:1d3:person
 friends:50:1d2:Same
+flags:PL_CORE
 desc:An inexperienced but tough warrior.
 
 name:cutpurse
@@ -860,9 +1462,11 @@ experience:6
 blow:HIT:HURT:1d6
 blow:TOUCH:EAT_GOLD
 flags:MALE | EVIL
-flags:DROP_40
+flags:DROP_20
 flags:OPEN_DOOR | TAKE_ITEM
-drop:scroll:Phase Door:35:1:3
+flags:PL_TRAP
+flags:PL_CORE
+drop:scroll:Phase Door:30:1:2
 friends-base:20:1d3:person
 friends-base:40:1d3:person
 friends-base:80:1d3:person
@@ -883,9 +1487,10 @@ rarity:1
 experience:6
 blow:HIT:HURT:1d5
 flags:MALE
-flags:DROP_40
+flags:DROP_20
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_CORE
 spell-freq:12
 spells:HEAL | SCARE
 drop-base:prayer book:5:1:1
@@ -909,9 +1514,10 @@ rarity:1
 experience:6
 blow:HIT:HURT:1d4
 flags:MALE
-flags:DROP_40
+flags:DROP_20
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_CORE
 spell-freq:12
 spells:BLIND | BLINK | CONF | MISSILE
 drop-base:magic book:5:1:1
@@ -936,6 +1542,7 @@ experience:2
 blow:SPORE:TERRIFY:1d6
 flags:NEVER_MOVE
 flags:IM_POIS
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:Yum!  It looks quite tasty.
 
 name:white jelly
@@ -953,6 +1560,7 @@ experience:10
 blow:TOUCH:POISON:1d2
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It's a large pile of white flesh.
 
 name:giant green frog
@@ -969,6 +1577,7 @@ rarity:1
 experience:6
 blow:BITE:HURT:1d3
 flags:RAND_25 | BASH_DOOR
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It is as big as a wolf.
 
 name:giant black ant
@@ -985,6 +1594,7 @@ rarity:1
 experience:8
 blow:BITE:HURT:1d4
 flags:RAND_25
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It is about three feet long.
 
 name:salamander
@@ -1002,6 +1612,7 @@ experience:10
 blow:BITE:FIRE:1d3
 flags:RAND_25
 flags:IM_FIRE
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:A small black and orange lizard.
 
 name:white harpy
@@ -1015,13 +1626,15 @@ smell:20
 armor-class:20
 sleepiness:10
 depth:2
-rarity:1
+rarity:2
 experience:5
 blow:CLAW:HURT:1d1
 blow:CLAW:HURT:1d1
 blow:BITE:HURT:1d2
 flags:FEMALE | EVIL | ANIMAL
 flags:RAND_50
+flags:PL_GREEK
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:A flying, screeching bird with a woman's face.
 
 name:blue yeek
@@ -1037,10 +1650,12 @@ depth:2
 rarity:1
 experience:4
 blow:HIT:HURT:1d5
-flags:DROP_60
+flags:DROP_40
+flags:PL_TRAP
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:A small humanoid figure.
 
-name:Grip, Farmer Maggot's Dog
+name:Grip
 base:canine
 color:y
 speed:120
@@ -1056,10 +1671,10 @@ blow:BITE:HURT:1d4
 flags:UNIQUE
 flags:RAND_25 | BASH_DOOR
 flags:NO_CONF | NO_SLEEP
-desc:A rather vicious dog belonging to Farmer Maggot.  It thinks you are
+desc:A rather vicious dog.  It thinks you are
 desc: stealing mushrooms.
 
-name:Fang, Farmer Maggot's Dog
+name:Fang
 base:canine
 color:y
 speed:120
@@ -1075,7 +1690,26 @@ blow:BITE:HURT:1d4
 flags:UNIQUE
 flags:RAND_25 | BASH_DOOR
 flags:NO_CONF | NO_SLEEP
-desc:A rather vicious dog belonging to Farmer Maggot.  It thinks you are
+desc:A rather vicious dog.  It thinks you are
+desc: stealing mushrooms.
+
+name:Wolf
+base:canine
+color:y
+speed:120
+hit-points:25
+hearing:30
+smell:50
+armor-class:36
+sleepiness:0
+depth:2
+rarity:3
+experience:30
+blow:BITE:HURT:1d4
+flags:UNIQUE
+flags:RAND_25 | BASH_DOOR
+flags:NO_CONF | NO_SLEEP
+desc:A rather vicious dog.  It thinks you are
 desc: stealing mushrooms.
 
 name:green worm mass
@@ -1093,6 +1727,7 @@ blow:CRAWL:ACID:1d3
 flags:WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | IM_ACID | NO_FEAR
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:It is a large slimy mass of worms.
 
 name:cave spider
@@ -1109,6 +1744,7 @@ experience:7
 blow:BITE:HURT:1d4
 flags:ANIMAL | WEIRD_MIND
 flags:GROUP_AI
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 friends:100:2d8:Same
 desc:It is a black spider that moves in fits and starts.
 
@@ -1127,6 +1763,7 @@ experience:8
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 flags:BASH_DOOR
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:A larger than normal feline, hissing loudly.  Its velvet paws conceal a
 desc: fistful of needles.
 
@@ -1143,7 +1780,297 @@ rarity:2
 experience:8
 blow:BITE:HURT:1d3
 blow:BITE:HURT:1d3
+flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is a hooded crow, gray except for the black wings and head.
+
+name:chaos mushroom
+base:mushroom
+color:U
+speed:110
+hit-points:10
+hearing:20
+armor-class:20
+sleepiness:20
+depth:2
+rarity:10
+experience:8
+blow:BITE:HURT:1d8
+flags:PL_ZVARIANT | PL_JB
+desc:A renegade mushroom that has been corrupted by chaos.
+desc: It is quite angry and it marches towards you.
+
+name:giant moth
+base:insect
+color:g
+speed:132
+hit-points:4
+hearing:25
+armor-class:10
+sleepiness:10
+depth:2
+rarity:3
+experience:12
+blow:TOUCH:TERRIFY:1d1
+flags:PL_ZVARIANT
+flags-off:RAND_50 | MULTIPLY
+desc:A nocturnal lepidopteran with a thick, furry body the size of a small
+desc:mouse. It flitters around the dungeon, harmless but creepy.
+
+name:large yellow snake
+base:snake
+color:y
+speed:100
+hit-points:18
+hearing:5
+armor-class:45
+sleepiness:75
+depth:2
+rarity:3
+experience:9
+blow:BITE:HURT:1d4
+blow:CRUSH:HURT:1d6
+flags:RAND_25
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
+desc:It is about ten feet long.
+
+name:novice warrior
+base:humanoid
+color:u
+speed:110
+hit-points:23
+light:2
+hearing:20
+armor-class:24
+sleepiness:80
+depth:2
+rarity:3
+experience:6
+blow:HIT:HURT:1d7
+blow:HIT:HURT:1d7
+flags:MALE
+flags:DROP_40
+flags:OPEN_DOOR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
+desc:An inexperienced but tough warrior.
+
+name:novice rogue
+base:humanoid
+color:b
+speed:110
+hit-points:20
+hearing:20
+armor-class:18
+sleepiness:10
+depth:2
+rarity:3
+experience:6
+blow:HIT:HURT:1d6
+blow:TOUCH:EAT_GOLD
+flags:MALE | EVIL
+flags:DROP_20
+flags:OPEN_DOOR | TAKE_ITEM
+flags:PL_TRAP
+flags:PL_CORE
+drop:scroll:Phase Door:30:1:2
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
+desc:A rather shifty individual.
+
+name:novice priest
+base:humanoid
+color:g
+speed:110
+hit-points:18
+light:2
+hearing:20
+armor-class:15
+sleepiness:80
+depth:2
+rarity:3
+experience:6
+blow:HIT:HURT:1d5
+flags:MALE
+flags:DROP_20
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_CORE
+spell-freq:12
+spells:HEAL | SCARE
+drop-base:prayer book:5:1:1
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB
+desc:He is tripping over his priestly robes.
+
+name:novice mage
+base:humanoid
+color:r
+speed:110
+hit-points:15
+light:2
+hearing:20
+armor-class:9
+sleepiness:15
+depth:2
+rarity:3
+experience:6
+blow:HIT:HURT:1d4
+flags:MALE
+flags:DROP_20
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_CORE
+spell-freq:12
+spells:BLIND | BLINK | CONF | MISSILE
+drop-base:magic book:5:1:1
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
+desc:He is leaving behind a trail of dropped spell components.
+
+name:maddened weasel
+base:rodent
+color:U
+speed:120
+hit-points:9
+hearing:15
+smell:30
+armor-class:25
+sleepiness:25
+depth:2
+rarity:3
+experience:9
+blow:BITE:HURT:2d3
+blow:CLAW:HURT:2d3
+flags:BASH_DOOR | TERRITORIAL
+flags:PL_OS | PL_FA 
+desc:A utterly silent whirlwind of fangs and claws aiming straight for your 
+desc:jugular.
+
+name:mewlip
+base:hybrid
+color:u
+speed:115
+hit-points:25
+hearing:10
+smell:30
+armor-class:12
+sleepiness:80
+depth:2
+rarity:3
+experience:12
+blow:CLAW:HURT:3d4
+flags:DROP_60 
+flags:OPEN_DOOR | BASH_DOOR | SMART | NO_FEAR
+flags:PL_SIL
+spell-freq:5
+spells:SCARE | FORGET
+desc:An evil swamp dwelling creature that feeds on the bones
+desc: of those who draw near.
+
+name:madthorn
+base:plant
+color:y
+speed:110
+hit-points:20
+hearing:2
+armor-class:8
+sleepiness:50
+depth:2
+rarity:3
+experience:10
+blow:THORN:CONFUSE:4d3
+flags:NEVER_MOVE | IM_POIS | EVIL
+flags:PL_SIL
+desc:Found most often in the depths of Taur-nu-Fuin,
+desc: it is more feared by travellers than wolves,
+desc: for the poison on its thorns can bring madness.
+
+name:giant centipede exoskeleton
+base:skeleton
+color:w
+speed:110
+hit-points:12
+hearing:5
+armor-class:8
+sleepiness:20
+depth:2
+rarity:10
+experience:4
+blow:CRAWL:HURT:1d4
+flags:PL_JB | PL_MORIA
+desc:It is a small animated centipede exoskeleton.
+
+name:ghost spider
+base:spider
+color:u
+speed:120
+hit-points:7
+hearing:8
+armor-class:19
+sleepiness:10
+depth:2
+rarity:2
+experience:10
+innate-freq:6
+spells:WEAVE
+flags:ANIMAL | WEIRD_MIND | INVISIBLE | COLD_BLOOD
+flags:FRIGHTENED | NEVER_BLOW | PASS_WALL
+flags:PL_JB
+friends:20:1d4:Same
+desc:It is a ghostly spider.
+
+name:silver fox
+base:canine
+color:r
+speed:120
+hit-points:8
+hearing:10
+smell:50
+armor-class:5
+sleepiness:10
+depth:2
+rarity:2
+experience:5
+blow:BITE:EAT_LIGHT:1d1
+blow:CLAW:EAT_LIGHT:1d1
+flags:PL_JB
+friends:20:1d2:Same
+desc:Your light flickers as the silver fox glides towards you.
+
+name:glow mold
+base:mold
+color:m
+speed:110
+hit-points:4
+light:2
+hearing:2
+armor-class:2
+sleepiness:0
+depth:2
+rarity:2
+experience:4
+blow:SPORE:HALLU:1d4
+blow:SPORE:HALLU:1d4
+flags:EMPTY_MIND | STUPID
+flags:PL_JB
+desc:A small strange glowing growth.
+
+name:animated torch
+base:golem
+glyph:~
+color:u
+speed:110
+hit-points:10
+light:2
+hearing:6
+armor-class:4
+sleepiness:0
+depth:2
+rarity:3
+experience:2
+blow:HIT:FIRE:1d4
+flags:COLD_BLOOD | FORCE_SLEEP
+flags:BASH_DOOR | CLEAR_WEB | RAND_50
+flags:IM_POIS
+flags:PL_OS
+drop:light:wooden torch:100:1:1
+desc:A torch that somehow seems to have come alive.
 
 ### Dungeon level 3 ###
 
@@ -1177,9 +2104,10 @@ depth:3
 rarity:2
 experience:4
 blow:CRAWL:ACID:1d3
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25 | RAND_50
 flags:IM_ACID | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It's green and it's oozing.
 
 name:poltergeist
@@ -1191,12 +2119,13 @@ hearing:8
 armor-class:18
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:8
 blow:TOUCH:TERRIFY
-flags:DROP_40 | DROP_60
+flags:DROP_20 | DROP_40
 flags:RAND_25 | RAND_50 | TAKE_ITEM
 flags:HURT_LIGHT
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:15
 spells:BLINK
 desc:It is a ghastly, ghostly form.
@@ -1211,11 +2140,12 @@ smell:20
 armor-class:7
 sleepiness:15
 depth:3
-rarity:1
+rarity:2
 experience:7
 blow:CRAWL:HURT:1d2
 blow:STING:ELEC:1d2
 flags:RAND_50 | BASH_DOOR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is about four feet long and carnivorous.
 
 name:giant white louse
@@ -1229,9 +2159,10 @@ smell:20
 armor-class:6
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:1
 blow:BITE:HURT:1d1
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is six inches long.
 
 name:black naga
@@ -1243,11 +2174,12 @@ hearing:16
 armor-class:60
 sleepiness:180
 depth:3
-rarity:1
+rarity:2
 experience:20
 blow:CRUSH:HURT:1d8
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:A large black serpent's body with a female torso.
 
 name:spotted mushroom patch
@@ -1260,11 +2192,12 @@ hearing:2
 armor-class:1
 sleepiness:0
 depth:3
-rarity:1
+rarity:2
 experience:3
 blow:SPORE:POISON:2d4
 flags:NEVER_MOVE
 flags:IM_POIS
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:Yum!  It looks quite tasty.
 
 name:silver jelly
@@ -1283,6 +2216,7 @@ blow:TOUCH:EAT_LIGHT:1d3
 blow:TOUCH:EAT_LIGHT:1d3
 flags:NEVER_MOVE
 flags:IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:15
 spells:DRAIN_MANA
 desc:It is a large pile of silver flesh that sucks all light from its
@@ -1298,11 +2232,12 @@ hearing:2
 armor-class:1
 sleepiness:99
 depth:3
-rarity:1
+rarity:2
 experience:12
 blow:TOUCH:POISON:1d3
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:15
 spells:DRAIN_MANA
 desc:It's a large pile of yellow flesh.
@@ -1316,13 +2251,14 @@ hearing:16
 armor-class:9
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:4
 blow:HIT:HURT:1d4
 blow:TOUCH:EAT_GOLD
 flags:MALE | EVIL
-flags:DROP_60
+flags:DROP_40
 flags:TAKE_ITEM
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:A short little guy, in bedraggled clothes.  He appears to be looking for a
 desc: good tavern.
 
@@ -1336,9 +2272,10 @@ smell:20
 armor-class:19
 sleepiness:80
 depth:3
-rarity:1
+rarity:2
 experience:7
 blow:BITE:HURT:1d4
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 friends:100:4d4:same
 desc:It is about two feet long and has sharp pincers.
 
@@ -1351,10 +2288,11 @@ hearing:2
 armor-class:12
 sleepiness:99
 depth:3
-rarity:1
+rarity:2
 experience:9
 blow:SPORE:HURT:1d4
 flags:EMPTY_MIND | STUPID
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is a strange yellow growth on the dungeon floor.
 
 name:metallic red centipede
@@ -1367,11 +2305,12 @@ smell:20
 armor-class:10
 sleepiness:20
 depth:3
-rarity:1
+rarity:2
 experience:12
 blow:CRAWL:HURT:1d2
 blow:STING:FIRE:1d2
 flags:RAND_25 | BASH_DOOR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is about four feet long and carnivorous.
 
 name:yellow worm mass
@@ -1389,6 +2328,7 @@ blow:CRAWL:LOSE_DEX:1d3
 flags:WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | NO_FEAR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is a large slimy mass of worms.
 
 name:clear worm mass
@@ -1407,6 +2347,7 @@ flags:WEIRD_MIND | INVISIBLE | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | IM_POIS | NO_FEAR
 flags:ATTR_CLEAR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE
 desc:It is a disgusting mass of poisonous worms.
 
 name:radiation eye
@@ -1418,13 +2359,14 @@ hearing:2
 armor-class:7
 sleepiness:10
 depth:3
-rarity:1
+rarity:2
 experience:6
 blow:GAZE:LOSE_STR:1d6
 flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 spell-freq:11
-spells:DRAIN_MANA
+spells:DRAIN_MANA | BLINK
 desc:A disembodied eye, crackling with energy.
 
 name:kobold shaman
@@ -1437,10 +2379,11 @@ smell:20
 armor-class:24
 sleepiness:50
 depth:3
-rarity:1
+rarity:2
 experience:15
 blow:HIT:HURT:1d8
-flags:DROP_40
+flags:DROP_20
+flags:PL_CORE
 spell-freq:5
 spells:WOUND | CONF | HEAL | MISSILE
 drop-base:magic book:5:1:1
@@ -1448,6 +2391,166 @@ drop-base:prayer book:5:1:1
 friends-base:30:1d2:kobold
 friends-base:70:1d2:kobold
 desc:It is a kobold dressed in skins and gesturing wildly.
+
+name:skeleton gnome
+base:skeleton
+color:w
+speed:110
+hit-points:20
+hearing:20
+armor-class:30
+sleepiness:80
+depth:3
+rarity:10
+experience:12
+blow:HIT:HURT:1d5
+flags:EMPTY_MIND
+flags:OPEN_DOOR | BASH_DOOR
+flags:PL_MORIA | PL_JB | PL_OLDBAND | PL_ZVARIANT | PL_OS
+desc:It is a small animated gnome skeleton.
+
+name:skeleton petty-dwarf
+base:skeleton
+color:w
+speed:110
+hit-points:20
+hearing:20
+armor-class:30
+sleepiness:80
+depth:3
+rarity:10
+experience:12
+blow:HIT:HURT:1d5
+flags:EMPTY_MIND
+flags:OPEN_DOOR | BASH_DOOR
+flags:PL_FA | PL_JB
+desc:It is a small animated petty-dwarf skeleton.
+
+name:huge brown bat
+base:bat
+color:u
+speed:130
+hit-points:7
+hearing:8
+armor-class:12
+sleepiness:40
+depth:3
+rarity:1
+experience:4
+blow:BITE:HURT:1d2
+flags:RAND_50 | RAND_25
+flags:PL_MORIA
+desc:It screeches as it attacks.
+
+name:drooling harpy
+plural:drooling harpies
+base:hybrid
+color:g
+speed:110
+hit-points:9
+hearing:16
+smell:20
+armor-class:22
+sleepiness:10
+depth:3
+rarity:5
+experience:7
+blow:CLAW:HURT:1d1
+blow:CLAW:HURT:1d1
+blow:BITE:HURT:1d2
+blow:DROOL
+flags:FEMALE | EVIL | ANIMAL
+flags:RAND_50
+flags:PL_GREEK
+flags:PL_MORIA
+desc:A flying, drooling bird with a woman's face.
+
+name:gorcrow
+base:bird
+color:D
+speed:120
+hit-points:6
+hearing:20
+armor-class:9
+sleepiness:20
+depth:3
+rarity:3
+experience:8
+blow:PECK:BLIND:1d5
+flags:EVIL | RAND_25
+flags:PL_SIL
+desc:A dark creature, related to the crow. It pecks at any exposed flesh,
+desc: especially the face and eyes.
+
+name:novice archaeologist
+base:humanoid
+color:W
+speed:110
+hit-points:17
+light:2
+hearing:20
+armor-class:10
+sleepiness:5
+depth:3
+rarity:10
+experience:7
+blow:HIT:HURT:1d4
+blow:HIT:HURT:1d4
+flags:DROP_60
+flags:FORCE_SLEEP | TAKE_ITEM
+flags:PL_ZVARIANT
+innate-freq:8
+spells:WHIP
+spell-freq:10
+spells:HEAL
+desc:A young student, out exploring and looking for valuable items.
+
+name:raven
+base:bird
+color:D
+speed:120
+hit-points:12
+hearing:40
+armor-class:12
+sleepiness:0
+depth:3
+rarity:3
+experience:9
+blow:BITE:HURT:1d4
+blow:BITE:HURT:1d4
+flags:PL_ZVARIANT
+desc:Larger than a crow, pitch black.
+
+name:sheep
+plural:sheep
+base:quadruped
+color:W
+speed:110
+hit-points:21
+hearing:20
+armor-class:15
+sleepiness:5
+depth:3
+rarity:10
+experience:1
+blow:BUTT:HURT:1d1
+flags:PL_ZVARIANT
+desc:This creature is gentle and submissive.
+
+name:dwarf python
+base:snake
+color:y
+speed:110
+hit-points:22
+hearing:6
+armor-class:20
+sleepiness:30
+depth:3
+rarity:1
+experience:4
+blow:CRUSH:HURT:1d8
+flags:WEIRD_MIND | RAND_25 | BASH_DOOR
+desc:One of the smaller pythons; it is about ten feet long and quite muscular.
 
 ### Dungeon level 4 ###
 
@@ -1481,7 +2584,7 @@ experience:18
 blow:HIT:HURT:1d5
 blow:HIT:HURT:1d5
 flags:MALE
-flags:DROP_60
+flags:DROP_40
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
 innate-freq:3
@@ -1510,7 +2613,7 @@ experience:18
 blow:HIT:HURT:1d7
 blow:HIT:HURT:1d7
 flags:MALE
-flags:DROP_60
+flags:DROP_40
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
 spell-freq:9
@@ -1563,6 +2666,7 @@ blow:TOUCH:COLD:1d6
 flags:COLD_BLOOD
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_COLD | NO_CONF | NO_SLEEP
+flags:PL_MORIA
 desc:It's a large pile of pulsing blue flesh.
 
 name:creeping copper coins
@@ -1579,6 +2683,7 @@ rarity:3
 experience:9
 blow:HIT:HURT:1d4
 blow:TOUCH:POISON:2d4
+flags:PL_MORIA
 desc:It appears to be a pile of copper coins.
 mimic:gold:copper
 
@@ -1597,6 +2702,7 @@ experience:1
 blow:BITE:POISON:1d3
 flags:MULTIPLY
 flags:RAND_25
+flags:PL_MORIA
 desc:It is a very vicious rodent.
 
 name:blue worm mass
@@ -1614,6 +2720,7 @@ blow:CRAWL:COLD:1d4
 flags:COLD_BLOOD | WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | IM_COLD | NO_FEAR
+flags:PL_MORIA
 desc:It is a large slimy mass of worms.
 
 name:large grey snake
@@ -1630,6 +2737,7 @@ experience:14
 blow:BITE:HURT:1d5
 blow:CRUSH:HURT:1d8
 flags:RAND_25
+flags:PL_MORIA
 desc:It is about ten feet long.
 
 name:kobold archer
@@ -1645,7 +2753,7 @@ depth:4
 rarity:1
 experience:20
 blow:HIT:HURT:1d9
-flags:DROP_40
+flags:DROP_20
 innate-freq:2
 spells:ARROW
 friends-base:30:1d2:kobold
@@ -1668,8 +2776,26 @@ experience:1
 blow:BITE:EAT_LIGHT:1d2
 flags:MULTIPLY
 flags:RAND_50
+flags:PL_MORIA
 desc:It is about three feet long with large teeth.  As the light of your lamp
 desc: falls on it, it seems to grow stronger.
+
+name:skeleton hobbit
+base:skeleton
+color:w
+speed:110
+hit-points:20
+hearing:20
+armor-class:30
+sleepiness:80
+depth:4
+rarity:10
+experience:12
+blow:HIT:HURT:1d5
+flags:EMPTY_MIND
+flags:OPEN_DOOR | BASH_DOOR
+flags:PL_JB
+desc:It is a small animated hobbit skeleton.
 
 ### Dungeon level 5 ###
 
@@ -1705,9 +2831,10 @@ rarity:1
 experience:30
 blow:CRUSH:HURT:1d8
 blow:SPIT:ACID:2d6
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25 | TAKE_ITEM
 flags:IM_ACID
+flags:PL_MORIA
 desc:A large green serpent with a female's torso.  Her green skin glistens with
 desc: acid.
 
@@ -1723,7 +2850,7 @@ depth:5
 rarity:1
 experience:7
 blow:CRAWL:COLD:1d4
-flags:DROP_40
+flags:DROP_20
 flags:RAND_25 | RAND_50
 flags:IM_COLD | NO_CONF | NO_SLEEP
 desc:It's blue and it's oozing.
@@ -1740,9 +2867,10 @@ depth:5
 rarity:1
 experience:15
 blow:TOUCH:EAT_FOOD:1d1
-flags:DROP_40 | DROP_60
+flags:DROP_20 | DROP_40
 flags:RAND_25 | RAND_50
 flags-off:IM_COLD
+flags:PL_MORIA
 desc:It is a very ugly green ghost with a voracious appetite.
 
 name:green jelly
@@ -1760,6 +2888,7 @@ experience:18
 blow:TOUCH:ACID:1d2
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_ACID | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_MORIA
 desc:It is a large pile of pulsing green flesh.
 
 name:large kobold
@@ -1775,7 +2904,7 @@ depth:5
 rarity:1
 experience:25
 blow:HIT:HURT:1d10
-flags:DROP_60
+flags:DROP_40
 friends-base:50:1d2:kobold
 friends-base:30:1d2:kobold
 desc:It is a man-sized figure with the all too recognizable face of a kobold.
@@ -1809,6 +2938,7 @@ rarity:1
 experience:10
 blow:TOUCH:HURT:1d5
 flags:EMPTY_MIND
+flags:PL_MORIA
 desc:It is a smallish, slimy, icky, nasty creature.
 
 name:disenchanter eye
@@ -1826,8 +2956,9 @@ blow:GAZE:DISENCHANT
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_DISEN | NO_FEAR
 flags:ATTR_MULTI
+flags:PL_MORIA
 spell-freq:9
-spells:DRAIN_MANA
+spells:DRAIN_MANA | BLINK
 desc:A disembodied eye, crackling with magic.
 
 name:red worm mass
@@ -1845,6 +2976,7 @@ blow:CRAWL:FIRE:1d6
 flags:WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50 | BASH_DOOR
 flags:HURT_LIGHT | IM_FIRE | NO_FEAR
+flags:PL_MORIA
 desc:It is a large slimy mass of worms.
 
 name:copperhead snake
@@ -1861,6 +2993,7 @@ experience:15
 blow:BITE:POISON:2d4
 flags:RAND_50
 flags:IM_POIS
+flags:PL_MORIA
 desc:It has a copper head and sharp venomous fangs.
 
 name:giant white dragon fly
@@ -1877,6 +3010,7 @@ rarity:2
 experience:15
 blow:BITE:COLD:1d6
 flags:IM_COLD
+flags:PL_MORIA
 innate-freq:10
 spells:BR_COLD
 desc:It is a large fly that drips frost.
@@ -1896,6 +3030,7 @@ experience:16
 blow:BITE:POISON:1d6
 flags:RAND_25
 flags:IM_POIS
+flags:PL_MORIA
 innate-freq:10
 spells:BR_POIS
 desc:A vast, foul-smelling dragonfly.
@@ -1916,6 +3051,7 @@ blow:TOUCH:EAT_FOOD:2d3
 blow:TOUCH:LOSE_WIS:2d3
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_MORIA
 desc:It is a large pile of rotting flesh, whose touch spoils your food.  The
 desc: terrible smell it exudes is also very hard to get rid of...
 
@@ -1937,6 +3073,7 @@ blow:SPORE:LOSE_CON:1d2
 blow:SPORE:LOSE_CON:1d2
 blow:SPORE:LOSE_CON:1d2
 flags:NEVER_MOVE
+flags:PL_MORIA
 desc:Yum!  It looks quite tasty.
 
 name:brown mold
@@ -1952,6 +3089,7 @@ rarity:1
 experience:20
 blow:SPORE:CONFUSE:1d4
 flags:EMPTY_MIND | STUPID
+flags:PL_MORIA
 desc:A strange brown growth on the dungeon floor.
 
 name:giant brown bat
@@ -1967,6 +3105,7 @@ rarity:1
 experience:10
 blow:BITE:HURT:1d3
 flags:RAND_50
+flags:PL_MORIA
 desc:It screeches as it attacks.
 
 name:creeping silver coins
@@ -1983,6 +3122,7 @@ rarity:3
 experience:18
 blow:HIT:HURT:1d6
 blow:TOUCH:POISON:2d6
+flags:PL_MORIA
 desc:It appears to be a pile of silver coins.
 mimic:gold:silver
 
@@ -1999,7 +3139,7 @@ depth:6
 rarity:1
 experience:15
 blow:HIT:HURT:1d8
-flags:DROP_20
+flags:DROP_10
 flags:HURT_LIGHT
 innate-freq:15
 spells:ARROW
@@ -2022,6 +3162,7 @@ experience:20
 blow:BITE:POISON:2d5
 flags:RAND_50
 flags:IM_POIS
+flags:PL_MORIA
 desc:It is recognized by the hard-scaled end of its body that is often rattled
 desc: to frighten its prey.
 
@@ -2039,6 +3180,7 @@ rarity:2
 experience:18
 flags:NEVER_BLOW | RAND_25
 flags:IM_ACID
+flags:PL_MORIA
 innate-freq:10
 spells:BR_ACID
 desc:The size of a large bird, this fly drips caustic acid.
@@ -2097,7 +3239,7 @@ depth:7
 rarity:1
 experience:20
 blow:HIT:HURT:1d8
-flags:DROP_20
+flags:DROP_10
 flags:HURT_LIGHT
 innate-freq:13
 spells:ARROW
@@ -2137,8 +3279,9 @@ experience:15
 blow:GAZE:BLIND:2d6
 flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
+flags:PL_MORIA
 spell-freq:7
-spells:DRAIN_MANA
+spells:DRAIN_MANA | BLINK
 desc:A disembodied eye, bloodshot and nasty.
 
 name:red naga
@@ -2154,8 +3297,9 @@ rarity:2
 experience:40
 blow:CRUSH:HURT:1d10
 blow:BITE:LOSE_STR:1d4
-flags:DROP_60
+flags:DROP_40
 flags:RAND_25 | TAKE_ITEM
+flags:PL_MORIA
 desc:A large red snake with a woman's torso.
 
 name:red jelly
@@ -2173,6 +3317,7 @@ experience:26
 blow:TOUCH:LOSE_STR:1d5
 flags:NEVER_MOVE
 flags:HURT_LIGHT | HURT_COLD | NO_CONF | NO_SLEEP
+flags:PL_MORIA
 desc:It is a large pulsating mound of red flesh.
 
 name:giant red frog
@@ -2189,6 +3334,7 @@ rarity:1
 experience:16
 blow:BITE:LOSE_STR:2d4
 flags:RAND_50 | BASH_DOOR
+flags:PL_MORIA
 desc:It looks poisonous.
 
 name:green icky thing
@@ -2205,6 +3351,7 @@ experience:18
 blow:TOUCH:ACID:2d5
 flags:EMPTY_MIND
 flags:IM_ACID
+flags:PL_MORIA
 desc:It is a smallish, slimy, icky, acidic creature.
 
 name:zombified kobold
@@ -2223,6 +3370,7 @@ blow:HIT:HURT:1d2
 blow:HIT:HURT:1d2
 flags:EMPTY_MIND
 flags:NO_FEAR
+flags:PL_MORIA
 desc:It is an animated kobold corpse.  Flesh falls off in large chunks as it
 desc: shambles forward.
 
@@ -2239,8 +3387,9 @@ rarity:2
 experience:18
 blow:HIT:HURT:2d2
 blow:TOUCH:LOSE_WIS
-flags:DROP_40 | DROP_60
+flags:DROP_20 | DROP_40
 flags:RAND_50 | TAKE_ITEM
+flags:PL_MORIA
 spell-freq:15
 spells:DRAIN_MANA | TPORT
 desc:It is almost insubstantial.
@@ -2260,7 +3409,7 @@ experience:25
 blow:HIT:HURT:1d6
 blow:HIT:HURT:1d6
 flags:MALE | EVIL
-flags:DROP_60
+flags:DROP_40
 flags:FORCE_SLEEP
 spell-freq:10
 spells:CONF | DARKNESS
@@ -2370,7 +3519,7 @@ sleepiness:10
 depth:8
 rarity:1
 experience:11
-flags:DROP_40 | FRIGHTENED | NEVER_BLOW
+flags:DROP_20 | FRIGHTENED | NEVER_BLOW
 innate-freq:9
 spells:SHRIEK
 desc:It is a strange small humanoid in a constant state of extreme terror.
@@ -2409,6 +3558,7 @@ experience:28
 blow:SPORE:TERRIFY:1d4
 flags:EMPTY_MIND | STUPID
 flags:IM_ACID
+flags:PL_MORIA
 desc:It is a strange growth on the dungeon floor.
 
 name:skeleton orc
@@ -2425,6 +3575,7 @@ experience:26
 blow:HIT:HURT:2d5
 flags:ORC | EMPTY_MIND
 flags:OPEN_DOOR | BASH_DOOR
+flags:PL_MORIA
 desc:It is an animated orc skeleton.
 
 name:lemure
@@ -2457,7 +3608,7 @@ depth:8
 rarity:1
 experience:25
 blow:HIT:HURT:1d8
-flags:DROP_20
+flags:DROP_10
 flags:HURT_LIGHT
 innate-freq:12
 spells:ARROW
@@ -2477,7 +3628,7 @@ experience:26
 blow:HIT:HURT:2d4
 blow:HIT:HURT:2d4
 flags:MALE | EVIL
-flags:DROP_1
+flags:DROP_60
 flags:OPEN_DOOR | TAKE_ITEM
 innate-freq:8
 spells:SHOT | WHIP
@@ -2498,6 +3649,7 @@ depth:9
 rarity:1
 experience:3
 blow:BITE:HURT:1d2
+flags:PL_MORIA
 desc:It makes you itch just to look at it.
 
 name:yeti
@@ -2516,6 +3668,7 @@ experience:30
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d4
+flags:PL_MORIA
 desc:A large white figure covered in shaggy fur.
 
 name:bloodshot icky thing
@@ -2532,6 +3685,7 @@ experience:24
 blow:TOUCH:HURT:1d4
 blow:CRAWL:ACID:2d4
 flags:EMPTY_MIND
+flags:PL_MORIA
 spell-freq:11
 spells:DRAIN_MANA
 desc:It is a strange, slimy, icky creature.
@@ -2551,6 +3705,7 @@ experience:2
 blow:BITE:POISON:1d4
 flags:MULTIPLY
 flags:RAND_25
+flags:PL_MORIA
 desc:It is a rodent of unusual size.
 
 name:black harpy
@@ -2564,13 +3719,15 @@ smell:20
 armor-class:26
 sleepiness:10
 depth:9
-rarity:1
+rarity:2
 experience:19
 blow:CLAW:HURT:1d2
 blow:CLAW:HURT:1d2
 blow:BITE:HURT:1d3
 flags:FEMALE | EVIL | ANIMAL
 flags:RAND_25
+flags:PL_GREEK
+flags:PL_MORIA
 desc:A woman's face on the body of a vicious black bird.
 
 name:orc shaman
@@ -2587,9 +3744,10 @@ rarity:1
 experience:30
 blow:HIT:HURT:1d6
 blow:HIT:HURT:1d6
-flags:DROP_60
+flags:DROP_20
 flags:HURT_LIGHT
 flags:FORCE_SLEEP
+flags:PL_MORIA
 drop-base:magic book:5:1:1
 drop-base:prayer book:5:1:1
 spell-freq:8
@@ -2610,7 +3768,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ELEC
 innate-freq:12
@@ -2632,7 +3790,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_COLD
 innate-freq:12
@@ -2654,7 +3812,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_POIS
 innate-freq:12
@@ -2676,7 +3834,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ACID
 innate-freq:12
@@ -2698,7 +3856,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_FIRE
 innate-freq:12
@@ -2720,6 +3878,7 @@ rarity:2
 experience:22
 blow:BITE:HURT:1d4
 blow:STING:LOSE_STR:1d4
+flags:PL_MORIA
 desc:It is large and has venomous mandibles.
 
 name:Brodda, the Easterling
@@ -2758,6 +3917,7 @@ blow:SPIT:BLIND:1d2
 blow:BITE:POISON:3d4
 flags:RAND_50
 flags:IM_POIS
+flags:PL_MORIA
 innate-freq:4
 spells:SPIT
 desc:It is a large snake with a hooded face.
@@ -2776,7 +3936,7 @@ experience:35
 blow:CLAW:HURT:1d3
 blow:CLAW:HURT:1d3
 blow:BITE:HURT:1d5
-flags:DROP_40 | DROP_1 | ONLY_GOLD
+flags:DROP_20 | DROP_1 | ONLY_GOLD
 flags:OPEN_DOOR | BASH_DOOR | NO_STUN
 innate-freq:12
 spells:BR_SOUN
@@ -2915,6 +4075,7 @@ rarity:2
 experience:3
 blow:SPORE:HURT:1d1
 flags:COLD_BLOOD | INVISIBLE | MULTIPLY
+flags:PL_MORIA
 flags:NEVER_MOVE
 flags:ATTR_CLEAR
 desc:Yum!  It looks quite tasty.
@@ -2957,6 +4118,7 @@ experience:27
 blow:BITE:POISON:2d6
 flags:ANIMAL | WEIRD_MIND
 flags:IM_POIS
+flags:PL_MORIA
 desc:It is moving slowly towards you.
 
 name:hairy mold
@@ -2972,6 +4134,7 @@ rarity:1
 experience:32
 blow:SPORE:POISON:1d3
 flags:EMPTY_MIND | STUPID
+flags:PL_MORIA
 desc:It is a strange hairy growth on the dungeon floor.
 
 name:disenchanter mold
@@ -2989,6 +4152,7 @@ blow:SPORE:DISENCHANT:1d6
 flags:EMPTY_MIND | STUPID
 flags:IM_DISEN
 flags:ATTR_MULTI
+flags:PL_MORIA
 spell-freq:11
 spells:DRAIN_MANA
 desc:It is a strange glowing growth on the dungeon floor.
@@ -3051,6 +4215,7 @@ experience:32
 blow:HIT:HURT:2d5
 blow:TOUCH:POISON:3d5
 flags:IM_ACID
+flags:PL_MORIA
 desc:It appears to be a pile of gold coins, until it starts crawling towards
 desc: you on tiny legs.
 mimic:gold:gold
@@ -3087,6 +4252,7 @@ depth:10
 rarity:3
 experience:4
 blow:BITE:HURT:1d2
+flags:PL_MORIA
 desc:A fast-breeding, annoying pest.
 
 name:panther
@@ -3134,6 +4300,24 @@ friends:50:1d2:warrior
 friends:50:1d2:Same
 desc:She is dressed in black and smells of decay.
 
+name:skeleton dwarf
+plural:skeleton dwarves
+base:skeleton
+color:w
+speed:110
+hit-points:45
+hearing:20
+armor-class:45
+sleepiness:70
+depth:10
+rarity:10
+experience:38
+blow:HIT:HURT:1d8
+flags:EMPTY_MIND
+flags:OPEN_DOOR | BASH_DOOR
+flags:PL_JB | PL_MORIA | PL_OLDBAND | PL_FA | PL_OS | PL_ZVARIANT
+desc:It is an animated dwarf skeleton.
+
 ### Dungeon level 11 ###
 
 name:baby multi-hued dragon
@@ -3169,12 +4353,13 @@ smell:20
 armor-class:21
 sleepiness:40
 depth:11
-rarity:1
+rarity:2
 experience:30
 blow:HIT:HURT:2d5
 blow:BITE:HURT:2d5
 flags:ANIMAL
 flags:BASH_DOOR
+flags:PL_GREEK
 desc:A strange hybrid of eagle and horse.  It looks weird.
 
 name:zombified orc
@@ -3193,6 +4378,7 @@ blow:HIT:HURT:1d4
 blow:HIT:HURT:1d4
 flags:ORC | EMPTY_MIND
 flags:NO_FEAR
+flags:PL_MORIA
 desc:It is a shambling orcish corpse leaving behind a trail of flesh.
 
 name:drúadan mage
@@ -3238,6 +4424,24 @@ spells:CONF
 friends:100:2d4:same
 desc:An ancient tree that seems to be watching you.
 
+name:skeleton elf
+plural:skeleton elves
+base:skeleton
+color:w
+speed:110
+hit-points:45
+hearing:20
+armor-class:45
+sleepiness:70
+depth:11
+rarity:10
+experience:38
+blow:HIT:HURT:1d8
+flags:EMPTY_MIND
+flags:OPEN_DOOR | BASH_DOOR
+flags:PL_JB | PL_MORIA | PL_OLDBAND | PL_FA | PL_OS | PL_ZVARIANT
+desc:It is an animated elf skeleton.
+
 ### Dungeon level 12 ###
 
 name:black mamba
@@ -3254,6 +4458,7 @@ experience:40
 blow:BITE:POISON:4d6
 flags:RAND_50
 flags:IM_POIS
+flags:PL_MORIA
 innate-freq:4
 spells:SPIT
 desc:It has glistening black skin, a sleek body and highly venomous fangs.
@@ -3295,6 +4500,7 @@ experience:60
 blow:TOUCH:EXP_10
 flags:NEVER_MOVE
 flags:HURT_LIGHT | HURT_COLD | IM_POIS | NO_CONF | NO_SLEEP
+flags:PL_MORIA
 spell-freq:11
 spells:DRAIN_MANA
 desc:Yum!  It looks quite tasty.  It is a pulsing mound of glowing flesh.
@@ -3359,6 +4565,7 @@ blow:HIT:HURT:1d8
 flags:EVIL
 flags:DROP_40
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:4
 spells:BLIND | BLINK | SLOW | TPORT
 spells:BA_POIS
@@ -3385,6 +4592,7 @@ flags:MALE | SMART
 flags:DROP_60
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:3
 spell-power:6
 spells:HEAL | SCARE | HEAL_KIN
@@ -3435,6 +4643,7 @@ blow:HIT:HURT:1d3
 flags:COLD_BLOOD | INVISIBLE
 flags:RAND_25 | RAND_50 | BASH_DOOR
 flags:IM_ELEC
+flags:PL_MORIA
 desc:A whirlwind of sentient air.
 
 name:skeleton human
@@ -3451,6 +4660,7 @@ experience:38
 blow:HIT:HURT:1d8
 flags:EMPTY_MIND
 flags:OPEN_DOOR | BASH_DOOR
+flags:PL_MORIA
 desc:It is an animated human skeleton.
 
 name:zombified human
@@ -3468,6 +4678,7 @@ blow:HIT:HURT:1d4
 blow:HIT:HURT:1d4
 flags:EMPTY_MIND
 flags:NO_FEAR
+flags:PL_MORIA
 desc:It is a shambling human corpse dropping chunks of flesh behind it.
 
 name:tiger
@@ -3505,6 +4716,7 @@ blow:TOUCH:LOSE_DEX:1d8
 flags:DROP_40 | DROP_60
 flags:RAND_25
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:15
 spells:SCARE | TPORT
 desc:A ghostly apparition that shrieks horribly.
@@ -3526,6 +4738,7 @@ blow:HIT:HURT:3d5
 flags:MALE
 flags:DROP_1
 flags:OPEN_DOOR
+flags:PL_MORIA
 innate-freq:10
 spells:BOLT
 friends:50:1d2:Brigand
@@ -3586,6 +4799,7 @@ depth:13
 rarity:1
 experience:45
 blow:BITE:HURT:4d4
+flags:PL_MORIA
 desc:It is a vicious insect with a tough carapace.
 
 name:ochre jelly
@@ -3650,6 +4864,7 @@ rarity:2
 experience:50
 blow:HIT:HURT:2d8
 flags:DROP_40
+flags:PL_MORIA
 friends-base:100:2d4:orc
 friends:100:2d4:Same
 desc:A hideous, smallish giant that is often found near or with orcs.
@@ -3764,6 +4979,7 @@ rarity:3
 experience:4
 blow:BITE:HURT:1d2
 flags:BASH_DOOR
+flags:PL_MORIA
 desc:It makes you itch just to look at it.
 
 name:Ufthak of Cirith Ungol
@@ -3810,6 +5026,7 @@ flags:EVIL | MULTIPLY
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_POIS
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:8
 spells:BLIND | CONF | SCARE
 desc:It is a strange, slimy, icky creature, with rudimentary intelligence, but
@@ -3829,6 +5046,7 @@ experience:50
 blow:HIT:HURT:1d6
 blow:HIT:HURT:1d6
 flags:BASH_DOOR
+flags:PL_MORIA
 desc:A shambling humanoid monster with long scars.
 
 name:warg
@@ -3952,6 +5170,7 @@ blow:BITE:HURT:1d8
 blow:BITE:HURT:1d8
 flags:DROP_40 | DROP_1
 flags:RAND_25 | OPEN_DOOR
+flags:PL_MORIA
 desc:A giant snake-like figure with a woman's torso.
 
 name:light hound
@@ -4060,6 +5279,7 @@ blow:STING:HURT:2d4
 flags:INVISIBLE
 flags:BASH_DOOR
 flags:ATTR_CLEAR
+flags:PL_MORIA
 desc:It is about four feet long and carnivorous.
 
 name:griffon
@@ -4135,6 +5355,7 @@ blow:HIT:HURT:1d8
 flags:COLD_BLOOD
 flags:BASH_DOOR
 flags:HURT_ROCK | IM_COLD | IM_FIRE | IM_POIS
+flags:PL_MORIA
 desc:It is a massive animated statue made out of hardened clay.
 
 name:giant tan bat
@@ -4153,6 +5374,7 @@ blow:CLAW:HURT:1d2
 blow:CLAW:HURT:1d2
 flags:RAND_25
 flags:FORCE_SLEEP
+flags:PL_MORIA
 friends:100:2d6:Same
 desc:A giant bat, the beating of whose wings produces a strangely unnerving
 desc: noise.
@@ -4176,6 +5398,7 @@ blow:HIT:HURT:1d6
 blow:BITE:HURT:2d6
 flags:EVIL | ANIMAL
 flags:BASH_DOOR | KILL_WALL
+flags:PL_MORIA
 desc:This bizarre creature has glaring eyes and large mandibles capable of
 desc: slicing through rock.
 
@@ -4198,6 +5421,7 @@ flags:DROP_4
 flags:OPEN_DOOR | BASH_DOOR | TAKE_ITEM
 flags:IM_ACID | IM_COLD | IM_ELEC | IM_FIRE | IM_POIS
 flags:NO_CONF | NO_SLEEP
+flags:PL_MORIA
 flags-off:HURT_COLD
 desc:It is a strange, vast gelatinous structure that assumes cubic proportions
 desc: as it lines all four walls of the corridors it patrols.  Through its
@@ -4271,6 +5495,7 @@ flags:INVISIBLE | SMART
 flags:DROP_1 | ONLY_ITEM
 flags:RAND_25 | BASH_DOOR
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:10
 spells:BLIND | BLINK | CONF | SCARE | TELE_LEVEL | TELE_TO
 spells:TPORT
@@ -4291,6 +5516,7 @@ experience:60
 blow:HIT:HURT:3d5
 blow:HIT:HURT:3d5
 flags:DROP_20
+flags:PL_MORIA
 innate-freq:9
 spells:ARROW | WHIP
 friends:40:1d4:Half-orc
@@ -4421,12 +5647,13 @@ hearing:20
 armor-class:90
 sleepiness:80
 depth:17
-rarity:2
+rarity:3
 experience:80
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
 flags:DROP_2
 flags:OPEN_DOOR | MOVE_BODY
+flags:PL_GREEK
 spell-freq:11
 spells:SCARE
 desc:A strange reptilian hybrid with two heads, guarding its hoard.
@@ -4447,6 +5674,7 @@ blow:HIT:HURT:2d4
 flags:COLD_BLOOD
 flags:RAND_25 | BASH_DOOR
 flags:IM_ACID | IM_WATER
+flags:PL_MORIA
 desc:A whirlpool of sentient liquid.
 
 name:giant red scorpion
@@ -4465,6 +5693,7 @@ blow:CLAW:HURT:2d4
 blow:STING:LOSE_STR:1d7
 flags:ANIMAL | WEIRD_MIND
 flags:IM_POIS
+flags:PL_MORIA
 desc:It is fast and poisonous.
 
 name:earth spirit
@@ -4483,6 +5712,7 @@ blow:HIT:HURT:1d8
 flags:COLD_BLOOD
 flags:RAND_25 | PASS_WALL
 flags:HURT_ROCK | IM_COLD | IM_ELEC | IM_FIRE
+flags:PL_MORIA
 desc:A whirling form of sentient rock.
 
 ### Dungeon level 18 ###
@@ -4575,6 +5805,7 @@ blow:HIT:FIRE:2d6
 blow:HIT:FIRE:2d6
 flags:RAND_25 | BASH_DOOR
 flags:IM_FIRE | HURT_COLD
+flags:PL_MORIA
 desc:A whirlwind of sentient flame.
 
 name:fire hound
@@ -4738,7 +5969,7 @@ flags:EVIL
 flags:NEVER_MOVE
 flags:HURT_LIGHT | NO_FEAR
 spell-freq:5
-spells:HOLD | TELE_TO
+spells:HOLD | TELE_TO | BLINK
 desc:A huge disembodied eye.  As you stare into the black nothingness of its
 desc: pupil, you feel your will and vitality draining away, and are unable to
 desc: do anything except approach it in horrified fascination.
@@ -4813,6 +6044,7 @@ blow:HIT:HURT:1d10
 flags:COLD_BLOOD
 flags:BASH_DOOR
 flags:HURT_ROCK | IM_COLD | IM_FIRE | IM_POIS
+flags:PL_MORIA
 desc:It is a massive animated statue.
 
 name:red mold
@@ -4830,6 +6062,7 @@ experience:64
 blow:SPORE:FIRE:4d4
 flags:EMPTY_MIND | STUPID
 flags:IM_FIRE
+flags:PL_MORIA
 flags-off:HURT_FIRE
 desc:It is a strange red growth on the dungeon floor; it seems to burn with
 desc: flame.
@@ -4942,7 +6175,7 @@ hearing:20
 armor-class:97
 sleepiness:70
 depth:20
-rarity:2
+rarity:3
 experience:350
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -4950,6 +6183,7 @@ blow:BITE:POISON:2d6
 flags:DROP_3
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_POIS
+flags:PL_GREEK
 spell-freq:9
 spells:SCARE
 desc:A 2-headed hydra with an extra head, its mouth dripping venom.
@@ -5058,7 +6292,7 @@ smell:20
 armor-class:22
 sleepiness:30
 depth:20
-rarity:2
+rarity:3
 experience:200
 blow:BUTT:HURT:2d8
 blow:BITE:HURT:2d10
@@ -5066,6 +6300,7 @@ blow:BITE:FIRE:2d6
 flags:BASH_DOOR
 flags:IM_FIRE
 flags:FORCE_SLEEP
+flags:PL_GREEK
 innate-freq:10
 spells:BR_FIRE
 desc:It is a strange concoction of goat, lion and dragon, with the heads of all
@@ -5082,6 +6317,7 @@ sleepiness:2
 depth:20
 rarity:1
 experience:250
+flags:PL_MORIA
 spell-freq:4
 spells:BLINK
 spells:S_MONSTER
@@ -5256,6 +6492,7 @@ blow:BITE:ELEC:1d3
 flags:RAND_50 | BASH_DOOR
 flags:IM_ELEC
 flags:FORCE_SLEEP
+flags:PL_MORIA
 innate-freq:4
 spells:BR_ELEC
 desc:It is a glowing blue bat with a sharp tail.
@@ -5361,6 +6598,7 @@ blow:HIT:HURT:2d4
 flags:ORC | EMPTY_MIND
 flags:DROP_20
 flags:NO_FEAR
+flags:PL_MORIA
 desc:It is an orcish figure covered in wrappings.
 
 ### Dungeon level 22 ###
@@ -5425,6 +6663,7 @@ experience:80
 blow:CLAW:HURT:3d6
 blow:CLAW:HURT:3d6
 flags:RAND_25
+flags:PL_MORIA
 desc:It is a giant beetle with vicious claws.
 
 name:iron golem
@@ -5443,6 +6682,7 @@ flags:COLD_BLOOD
 flags:BASH_DOOR
 flags:IM_COLD | IM_FIRE | IM_POIS
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:7
 spells:SLOW
 desc:It is a massive metal statue that moves steadily towards you.
@@ -5463,6 +6703,7 @@ blow:CLAW:HURT:1d8
 blow:STING:POISON:2d5
 flags:ANIMAL | WEIRD_MIND
 flags:IM_POIS
+flags:PL_MORIA
 desc:It is a giant scorpion with a sharp stinger.
 
 name:wyvern
@@ -5527,6 +6768,7 @@ flags:MULTIPLY
 flags:DROP_40
 flags:RAND_50 | OPEN_DOOR | BASH_DOOR | KILL_BODY | TAKE_ITEM
 flags:IM_POIS | HURT_COLD
+flags:PL_MORIA
 spell-freq:11
 spells:DRAIN_MANA
 desc:It is a strangely moving puddle.
@@ -5602,6 +6844,7 @@ blow:HIT:EAT_ITEM:4d4
 flags:MALE | EVIL
 flags:DROP_2
 flags:OPEN_DOOR | TAKE_ITEM
+flags:PL_MORIA
 innate-freq:4
 spells:SHOT
 friends:50:1d1:Easterling champion
@@ -5626,6 +6869,7 @@ blow:BITE:FIRE:1d3
 flags:RAND_50 | BASH_DOOR
 flags:IM_FIRE
 flags:FORCE_SLEEP
+flags:PL_MORIA
 innate-freq:4
 spells:BR_FIRE
 desc:It is a sharp-tailed bat, wreathed in fire.
@@ -5645,6 +6889,7 @@ experience:80
 blow:BITE:ACID:4d4
 blow:BITE:ACID:4d4
 flags:RAND_25
+flags:PL_MORIA
 innate-freq:6
 spells:SPIT
 desc:A giant silver ant with a caustic bite and hard scales.
@@ -5668,6 +6913,7 @@ blow:TOUCH:EXP_20
 flags:DROP_40 | DROP_60
 flags:RAND_25 | OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:10
 spells:DRAIN_MANA | SCARE
 desc:It is a ghostly apparition with a humanoid form.
@@ -5731,7 +6977,7 @@ hearing:20
 armor-class:105
 sleepiness:60
 depth:24
-rarity:2
+rarity:3
 experience:450
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -5740,6 +6986,7 @@ blow:BITE:FIRE:2d6
 flags:DROP_3
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_POIS | IM_FIRE
+flags:PL_GREEK
 spell-freq:7
 spells:SCARE
 desc:A 3-headed hydra with an extra, smouldering, head.
@@ -5760,6 +7007,7 @@ blow:HIT:HURT:2d4
 flags:EMPTY_MIND
 flags:DROP_60 | ONLY_ITEM
 flags:NO_FEAR
+flags:PL_MORIA
 desc:It is a human form encased in mouldy wrappings.
 
 name:vampire bat
@@ -5848,6 +7096,7 @@ blow:TOUCH:EXP_20
 flags:FEMALE
 flags:DROP_1
 flags:RAND_50 | TAKE_ITEM
+flags:PL_MORIA
 spell-freq:15
 spells:DRAIN_MANA | TPORT
 desc:It is a ghostly woman's form that wails mournfully.
@@ -5919,6 +7168,7 @@ flags:MALE | EVIL | SMART
 flags:DROP_60 | ONLY_ITEM
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_MORIA
 spell-freq:5
 spells:BLIND | WOUND | DARKNESS | SCARE
 spells:BO_NETH
@@ -5943,6 +7193,7 @@ blow:HIT:HURT:4d8
 blow:HIT:HURT:4d8
 flags:DROP_40
 flags:OPEN_DOOR
+flags:PL_MORIA
 innate-freq:10
 spells:BOULDER
 friends:60:1d7:Wolf
@@ -6029,6 +7280,7 @@ experience:90
 blow:BITE:LOSE_STR:4d4
 blow:BITE:HURT:4d4
 flags:RAND_25
+flags:PL_MORIA
 desc:It is a giant beetle with poisonous mandibles.
 
 ### Dungeon level 26 ###
@@ -6528,7 +7780,7 @@ hearing:20
 armor-class:120
 sleepiness:50
 depth:28
-rarity:2
+rarity:3
 experience:650
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -6538,6 +7790,7 @@ blow:BITE:ACID:2d6
 flags:DROP_4
 flags:MOVE_BODY
 flags:IM_POIS | IM_FIRE | IM_ACID
+flags:PL_GREEK
 spell-freq:5
 spells:SCARE
 desc:A 4-headed hydra with an extra head, steaming with acidic vapor.
@@ -6938,9 +8191,13 @@ desc: unsuspecting adventurers within reach of its venomous claws.
 mimic:ring:Speed
 mimic:ring:Slaying
 mimic:ring:Constitution
-mimic:ring:Resist Poison
+mimic:ring:Venom's End
 mimic:ring:Free Action
 mimic:ring:See Invisible
+mimic:ring:Ring of Power
+mimic:ring:Ring of Firmament
+mimic:ring:Ring of Adamant
+mimic:ring:Ring of Fire
 
 name:young blue dragon
 base:dragon
@@ -9371,7 +10628,7 @@ hearing:20
 armor-class:135
 sleepiness:35
 depth:39
-rarity:2
+rarity:3
 experience:2000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -9382,6 +10639,7 @@ blow:BITE:BLIND:1d2
 flags:DROP_4
 flags:MOVE_BODY
 flags:IM_POIS | IM_FIRE | IM_ACID
+flags:PL_GREEK
 innate-freq:10
 spell-freq:8
 spells:SCARE
@@ -9515,7 +10773,7 @@ hearing:20
 armor-class:114
 sleepiness:20
 depth:40
-rarity:2
+rarity:3
 experience:3000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -9527,6 +10785,7 @@ blow:BITE:CONFUSE:2d6
 flags:DROP_4
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_POIS | IM_FIRE | IM_ACID | NO_CONF
+flags:PL_GREEK
 innate-freq:8
 spell-freq:6
 spells:SCARE
@@ -9648,7 +10907,7 @@ smell:20
 armor-class:30
 sleepiness:10
 depth:40
-rarity:2
+rarity:3
 experience:2100
 blow:BUTT:HURT:4d6
 blow:BUTT:HURT:4d6
@@ -9656,6 +10915,7 @@ blow:BUTT:HURT:2d6
 blow:BUTT:HURT:2d6
 flags:EVIL
 flags:BASH_DOOR
+flags:PL_GREEK
 desc:It is a cross between a human and a bull.
 
 name:vrock
@@ -10340,7 +11600,7 @@ hearing:20
 armor-class:120
 sleepiness:20
 depth:44
-rarity:2
+rarity:3
 experience:6000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -10353,6 +11613,7 @@ blow:BITE:EXP_10:2d6
 flags:DROP_4
 flags:OPEN_DOOR | MOVE_BODY
 flags:IM_FIRE
+flags:PL_GREEK
 innate-freq:7
 spell-freq:5
 spells:SCARE
@@ -11877,7 +13138,7 @@ hearing:20
 armor-class:168
 sleepiness:20
 depth:57
-rarity:2
+rarity:3
 experience:7000
 blow:BITE:HURT:2d6
 blow:BITE:HURT:2d6
@@ -11892,6 +13153,7 @@ flags:SMART | POWERFUL | REGENERATE
 flags:DROP_3
 flags:OPEN_DOOR | KILL_BODY
 flags:IM_FIRE | IM_POIS | IM_ACID | NO_CONF | NO_SLEEP | NO_HOLD
+flags:PL_GREEK
 innate-freq:4
 spell-freq:9
 spells:SCARE
@@ -13797,6 +15059,7 @@ blow:ENGULF:HALLU:4d10
 flags:FEMALE
 flags:DROP_4 | PASS_WALL
 flags:IM_FIRE | IM_POIS | IM_COLD
+flags:PL_GREEK
 spell-freq:4
 spells:WOUND | SCARE | BRAIN_SMASH
 spells:BLINK | TELE_SELF_TO
