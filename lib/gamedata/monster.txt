@@ -1000,7 +1000,7 @@ desc:A fast-moving pest.
 name:dancing candle flame
 base:light
 color:r
-speed:110
+speed:120
 hit-points:6
 hearing:6
 armor-class:8
@@ -1833,96 +1833,6 @@ flags:RAND_25
 flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA
 desc:It is about ten feet long.
 
-name:novice warrior
-base:humanoid
-color:u
-speed:110
-hit-points:23
-light:2
-hearing:20
-armor-class:24
-sleepiness:80
-depth:2
-rarity:3
-experience:6
-blow:HIT:HURT:1d7
-blow:HIT:HURT:1d7
-flags:MALE
-flags:DROP_40
-flags:OPEN_DOOR
-flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
-desc:An inexperienced but tough warrior.
-
-name:novice rogue
-base:humanoid
-color:b
-speed:110
-hit-points:20
-hearing:20
-armor-class:18
-sleepiness:10
-depth:2
-rarity:3
-experience:6
-blow:HIT:HURT:1d6
-blow:TOUCH:EAT_GOLD
-flags:MALE | EVIL
-flags:DROP_20
-flags:OPEN_DOOR | TAKE_ITEM
-flags:PL_TRAP
-flags:PL_CORE
-drop:scroll:Phase Door:30:1:2
-flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
-desc:A rather shifty individual.
-
-name:novice priest
-base:humanoid
-color:g
-speed:110
-hit-points:18
-light:2
-hearing:20
-armor-class:15
-sleepiness:80
-depth:2
-rarity:3
-experience:6
-blow:HIT:HURT:1d5
-flags:MALE
-flags:DROP_20
-flags:OPEN_DOOR
-flags:FORCE_SLEEP
-flags:PL_CORE
-spell-freq:12
-spells:HEAL | SCARE
-drop-base:prayer book:5:1:1
-flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB
-desc:He is tripping over his priestly robes.
-
-name:novice mage
-base:humanoid
-color:r
-speed:110
-hit-points:15
-light:2
-hearing:20
-armor-class:9
-sleepiness:15
-depth:2
-rarity:3
-experience:6
-blow:HIT:HURT:1d4
-flags:MALE
-flags:DROP_20
-flags:OPEN_DOOR
-flags:FORCE_SLEEP
-flags:PL_CORE
-spell-freq:12
-spells:BLIND | BLINK | CONF | MISSILE
-drop-base:magic book:5:1:1
-flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
-desc:He is leaving behind a trail of dropped spell components.
-
 name:maddened weasel
 base:rodent
 color:U
@@ -2071,6 +1981,23 @@ flags:IM_POIS
 flags:PL_OS
 drop:light:wooden torch:100:1:1
 desc:A torch that somehow seems to have come alive.
+
+name:large black snake
+base:snake
+color:D
+speed:100
+hit-points:18
+hearing:5
+armor-class:38
+sleepiness:75
+depth:2
+rarity:5
+experience:9
+blow:BITE:HURT:1d4
+blow:CRUSH:HURT:1d6
+flags:RAND_25
+flags:PL_MORIA
+desc:It is about ten feet long.
 
 ### Dungeon level 3 ###
 
@@ -2550,7 +2477,188 @@ rarity:1
 experience:4
 blow:CRUSH:HURT:1d8
 flags:WEIRD_MIND | RAND_25 | BASH_DOOR
+flags:PL_OS
 desc:One of the smaller pythons; it is about ten feet long and quite muscular.
+
+name:large green snake
+base:snake
+color:G
+speed:100
+hit-points:27
+hearing:5
+armor-class:40
+sleepiness:70
+depth:3
+rarity:5
+experience:10
+blow:BITE:HURT:1d4
+blow:CRUSH:HURT:1d6
+flags:RAND_25
+flags:PL_MORIA
+desc:It is about ten feet long.
+
+name:novice warrior
+base:humanoid
+color:u
+speed:110
+hit-points:23
+light:2
+hearing:20
+armor-class:24
+sleepiness:80
+depth:3
+rarity:3
+experience:6
+blow:HIT:HURT:1d7
+blow:HIT:HURT:1d7
+flags:MALE
+flags:DROP_40
+flags:OPEN_DOOR
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
+desc:An inexperienced but tough warrior.
+
+name:novice rogue
+base:humanoid
+color:b
+speed:110
+hit-points:20
+hearing:20
+armor-class:18
+sleepiness:10
+depth:3
+rarity:3
+experience:6
+blow:HIT:HURT:1d6
+blow:TOUCH:EAT_GOLD
+flags:MALE | EVIL
+flags:DROP_20
+flags:OPEN_DOOR | TAKE_ITEM
+flags:PL_TRAP
+flags:PL_CORE
+drop:scroll:Phase Door:30:1:2
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
+desc:A rather shifty individual.
+
+name:novice priest
+base:humanoid
+color:g
+speed:110
+hit-points:18
+light:2
+hearing:20
+armor-class:15
+sleepiness:80
+depth:3
+rarity:3
+experience:6
+blow:HIT:HURT:1d5
+flags:MALE
+flags:DROP_20
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_CORE
+spell-freq:12
+spells:HEAL | SCARE
+drop-base:prayer book:5:1:1
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB
+desc:He is tripping over his priestly robes.
+
+name:novice mage
+base:humanoid
+color:r
+speed:110
+hit-points:15
+light:2
+hearing:20
+armor-class:9
+sleepiness:15
+depth:3
+rarity:3
+experience:6
+blow:HIT:HURT:1d4
+flags:MALE
+flags:DROP_20
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_CORE
+spell-freq:12
+spells:BLIND | BLINK | CONF | MISSILE
+drop-base:magic book:5:1:1
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB | PL_MORIA
+desc:He is leaving behind a trail of dropped spell components.
+
+name:novice ranger
+base:person
+color:W
+speed:110
+hit-points:27
+light:2
+hearing:20
+armor-class:12
+sleepiness:50
+depth:3
+rarity:3
+experience:18
+blow:HIT:HURT:1d5
+blow:HIT:HURT:1d5
+flags:MALE
+flags:DROP_40
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB
+innate-freq:9
+spell-freq:9
+spells:MISSILE
+spells:ARROW
+drop-base:nature book:3:1:1
+desc:An agile hunter, ready and relaxed.
+
+name:novice paladin
+base:person
+color:w
+speed:110
+hit-points:27
+light:2
+hearing:20
+armor-class:24
+sleepiness:100
+depth:3
+rarity:3
+experience:18
+blow:HIT:HURT:1d7
+blow:HIT:HURT:1d7
+flags:MALE
+flags:DROP_40
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB
+spell-freq:9
+spells:SCARE | WOUND
+drop-base:prayer book:3:1:1
+desc:An adventurer both devoutly religious and skillful in combat.
+
+name:novice archer
+base:person
+color:W
+speed:110
+hit-points:27
+light:2
+hearing:20
+armor-class:20
+sleepiness:50
+depth:3
+rarity:3
+experience:18
+blow:HIT:HURT:1d4
+blow:HIT:HURT:1d4
+flags:MALE
+flags:DROP_40
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_JB
+innate-freq:3
+spells:ARROW
+desc:A nasty little fellow with a bow and arrow.
 
 ### Dungeon level 4 ###
 
@@ -2567,6 +2675,7 @@ depth:4
 rarity:1
 experience:8
 blow:BITE:HURT:1d5
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE
 desc:It is an armoured lizard with a powerful bite.
 
 name:scout
@@ -2587,6 +2696,7 @@ flags:MALE
 flags:DROP_40
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_CORE
 innate-freq:3
 spell-freq:10
 spells:HASTE
@@ -2616,6 +2726,7 @@ flags:MALE
 flags:DROP_40
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_CORE
 spell-freq:9
 spells:HEAL
 drop-base:prayer book:3:1:1
@@ -2641,6 +2752,7 @@ blow:HIT:HURT:1d2
 blow:HIT:HURT:1d2
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
+flags:PL_CORE
 spell-freq:8
 spells:HASTE | SLOW | CONF
 drop-base:nature book:5:1:1
@@ -2666,7 +2778,7 @@ blow:TOUCH:COLD:1d6
 flags:COLD_BLOOD
 flags:NEVER_MOVE
 flags:HURT_LIGHT | IM_COLD | NO_CONF | NO_SLEEP
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It's a large pile of pulsing blue flesh.
 
 name:creeping copper coins
@@ -2683,7 +2795,7 @@ rarity:3
 experience:9
 blow:HIT:HURT:1d4
 blow:TOUCH:POISON:2d4
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It appears to be a pile of copper coins.
 mimic:gold:copper
 
@@ -2702,7 +2814,7 @@ experience:1
 blow:BITE:POISON:1d3
 flags:MULTIPLY
 flags:RAND_25
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is a very vicious rodent.
 
 name:blue worm mass
@@ -2720,7 +2832,7 @@ blow:CRAWL:COLD:1d4
 flags:COLD_BLOOD | WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_25 | RAND_50
 flags:HURT_LIGHT | IM_COLD | NO_FEAR
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is a large slimy mass of worms.
 
 name:large grey snake
@@ -2737,7 +2849,7 @@ experience:14
 blow:BITE:HURT:1d5
 blow:CRUSH:HURT:1d8
 flags:RAND_25
-flags:PL_MORIA
+flags:PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_CORE | PL_MORIA
 desc:It is about ten feet long.
 
 name:kobold archer
@@ -2758,6 +2870,7 @@ innate-freq:2
 spells:ARROW
 friends-base:30:1d2:kobold
 friends-base:70:1d2:kobold
+flags:PL_CORE
 desc:It is an ugly dog-headed humanoid wielding a bow.
 
 name:silver mouse
@@ -2776,7 +2889,7 @@ experience:1
 blow:BITE:EAT_LIGHT:1d2
 flags:MULTIPLY
 flags:RAND_50
-flags:PL_MORIA
+flags:PL_CORE | PL_MORIA
 desc:It is about three feet long with large teeth.  As the light of your lamp
 desc: falls on it, it seems to grow stronger.
 
@@ -2796,6 +2909,152 @@ flags:EMPTY_MIND
 flags:OPEN_DOOR | BASH_DOOR
 flags:PL_JB
 desc:It is a small animated hobbit skeleton.
+
+name:black mushroom patch
+plural:black mushroom patches
+base:mushroom
+color:D
+speed:110
+hit-points:37
+hearing:2
+armor-class:1
+sleepiness:0
+depth:4
+rarity:5
+experience:8
+blow:SPORE:HURT:1d3
+flags:NEVER_MOVE
+flags:IM_POIS
+flags:PL_MORIA
+desc:Yum!  It looks quite tasty.
+
+name:giant black centipede
+base:centipede
+color:D
+speed:110
+hit-points:23
+hearing:8
+smell:20
+armor-class:20
+sleepiness:30
+depth:4
+rarity:5
+experience:11
+blow:BITE:HURT:1d2
+blow:STING:HURT:1d2
+flags:RAND_25 | BASH_DOOR
+flags:PL_MORIA
+desc:It is about four feet long and carnivorous.
+
+name:giant blue centipede
+base:centipede
+color:b
+speed:110
+hit-points:23
+hearing:8
+smell:20
+armor-class:20
+sleepiness:50
+depth:4
+rarity:5
+experience:10
+blow:BITE:HURT:1d3
+blow:STING:HURT:1d4
+flags:PL_MORIA
+desc:It is about four feet long and carnivorous.
+
+name:jackal
+base:canine
+color:U
+speed:110
+hit-points:14
+hearing:12
+smell:50
+armor-class:16
+sleepiness:30
+depth:4
+rarity:5
+experience:8
+blow:BITE:HURT:1d6
+flags:PL_MORIA | PL_OLDBAND | PL_JB | PL_FA | PL_ZVARIANT | PL_OS
+desc:It is a yapping snarling dog.
+
+name:giant anaconda
+base:snake
+color:u
+speed:110
+hit-points:21
+hearing:6
+armor-class:20
+sleepiness:99
+depth:4
+rarity:5
+experience:13
+blow:BITE:HURT:1d3
+blow:CRUSH:HURT:2d4
+blow:CRUSH:HURT:2d4
+flags:RAND_25 | FORCE_SLEEP | KILL_BODY | TERRITORIAL
+flags:PL_FA | PL_OS
+desc:More than twenty feet long, possessing coil after coil of rippling 
+desc:muscle able to squeeze the life out of you.
+
+name:Feldisham, the Guard
+base:person
+color:U
+speed:110
+hit-points:60
+light:2
+hearing:20
+armor-class:28
+sleepiness:40
+depth:4
+rarity:4
+experience:20
+blow:HIT:HURT:2d4
+blow:HIT:HURT:2d4
+flags:UNIQUE | MALE | FORCE_DEPTH | ATTR_MULTI | SMART
+flags:ONLY_ITEM | DROP_2 | DROP_GOOD 
+flags:OPEN_DOOR | TAKE_ITEM 
+desc:He wears glistening metal armor, a large sword, and a mean expression.
+
+#N:81:Yellow light
+#G:*:y
+#I:120:2d6:8:12:30:10
+#W:4:1:30:5:0:0
+#B:EXPLODE:LITE(1d2)
+#F:RES_LITE | EMPTY_MIND | CAN_FLY | NONLIVING | SELF_LITE_1 | SELF_LITE_2
+#F:POS_GAIN_AC
+#P:Copy:Snotling:Warrior
+#P:Body:Wisp
+#D:A fast-moving bright light.
+
+#N:953:Broken death sword
+#G:|:D
+#I:120:6d3:20:20:0:2
+#W:4:5:40:15:130:107
+#B:HIT:HURT(1d2)
+#B:HIT:HURT(1d2)
+#B:HIT:HURT(1d1):TERRIFY
+#B:HIT:POISON(1d1)
+#F:NONLIVING | NO_FEAR | NASTY_GLYPH |
+#F:STUPID | COLD_BLOOD | NO_CONF | NO_SLEEP |
+#F:EVIL | RES_COLD | RES_FIRE | RES_ELEC | RES_POIS
+#P:Body:Death-Sword
+
+#N:1053:Novice mindcrafter
+#G:p:y
+#I:110:6d8:20:10:5:160
+#W:4:1:30:18:600:1055
+#B:HIT:HURT(1d9)
+#F:DROP_60 | WILD_ALL | HUMAN | MALE | DEPRECATED
+#F:OPEN_DOOR |
+#F:HAS_LITE_1 | NO_CONF | NO_SLEEP
+#F:DROP_SKELETON | DROP_CORPSE
+#S:1_IN_12 |
+#S:BLIND | SLOW | CONFUSE | SCARE | DETECT_MONSTERS | MAPPING
+#D:A novice in the arts of mind over matter.
+#P:Copy:Human:Mindcrafter
+#P:Life:85
 
 ### Dungeon level 5 ###
 
