@@ -353,7 +353,7 @@ void set_terrain(void)
 	FEAT_GRANITE = lookup_feat("granite wall");
 	FEAT_PERM = lookup_feat("permanent wall");
 	FEAT_PERM_TOWN = lookup_feat("town wall");
-	FEAT_PERM_TREE = lookup_feat("impenetrable brambles");
+	FEAT_PERM_TREE = lookup_feat("wall of impenetrable brambles");
 	FEAT_LESS_NORTH = lookup_feat("easy path north");
 	FEAT_MORE_NORTH = lookup_feat("hard path north");
 	FEAT_LESS_EAST = lookup_feat("easy path east");

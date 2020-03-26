@@ -264,6 +264,7 @@ struct chunk *basic_small_gen(struct player *p, int min_height, int min_width);
 struct chunk *tiny_gen(struct player *p, int min_height, int min_width);
 struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width);
 struct chunk *owd_gen(struct player *p, int min_height, int min_width);
+struct chunk *dnm_gen(struct player *p, int min_height, int min_width);
 
 /* gen-chunk.c */
 struct chunk *chunk_write(struct chunk *c);
@@ -293,6 +294,8 @@ struct vault *random_vault(int depth, const char *typ1, const char *typ2);
 bool build_vault(struct chunk *c, struct loc centre, struct vault *v);
 
 bool build_staircase(struct chunk *c, struct loc centre, int rating);
+bool build_dnm_clearing(struct chunk *c, struct loc centre, int rating);
+bool build_dnm_building(struct chunk *c, struct loc centre, int rating);
 bool build_simple(struct chunk *c, struct loc centre, int rating);
 bool build_square_garden(struct chunk *c, struct loc centre, int rating);
 bool build_simple_lit(struct chunk *c, struct loc centre, int rating);

@@ -1927,7 +1927,7 @@ desc:It is a ghostly spider.
 
 name:silver fox
 base:canine
-color:r
+color:W
 speed:120
 hit-points:8
 hearing:10

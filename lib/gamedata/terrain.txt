@@ -261,10 +261,10 @@ flags:WALL | ROCK | PERMANENT | NO_SCENT | NO_FLOW
 desc:You can dig through most walls but these are impenetrable.  The dungeon is 
 desc:surrounded by these kinds of walls and some special rooms are made of them.
 
-name:impenetrable brambles
-graphics:#:g
+name:wall of impenetrable brambles
+graphics:#:t
 priority:10
-flags:WALL | ROCK | PERMANENT | NO_SCENT | NO_FLOW
+flags:WALL | PERMANENT | NO_SCENT | NO_FLOW
 desc:You can dig through most walls but these are impenetrable.  The dungeon is 
 desc:surrounded by these kinds of walls and some special rooms are made of them.
 

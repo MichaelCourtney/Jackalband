@@ -421,3 +421,17 @@ name:Moria monsters
 room:3
 alloc:8:30
 flags-req:PL_MORIA
+
+name:Dogs and Mushrooms
+room:3
+alloc:8:30
+mon-base:mushroom
+mon-base:centipede
+mon-base:bat
+mon-base:rodent
+mon-base:canine
+mon-base:feline
+mon-base:icky thing
+mon-base:snake
+mon-base:ant
+mon-base:reptile

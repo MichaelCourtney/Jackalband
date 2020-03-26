@@ -1953,6 +1953,128 @@ bool build_circular_terrain(struct chunk *c, struct loc centre, int rating)
 
 
 /**
+ * Build a lit clearing for dnm (interior radius 2-6).
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_dnm_clearing(struct chunk *c, struct loc centre, int rating)
+{
+	/* Pick a room size */
+	int radius = 0 + randint1(3) + randint1(3);
+
+	/* Always lit */
+	bool light = true;
+
+	/* Find and reserve lots of space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, 2 * radius + 10, 2 * radius + 10))
+			return (false);
+	}
+
+	/* Generate outer walls and inner grass */
+	fill_circle(c, centre.y, centre.x, radius + 1, 1, FEAT_PERM_TREE,
+				SQUARE_WALL_OUTER, light);
+	fill_circle(c, centre.y, centre.x, radius, 0, FEAT_GRASS,
+				SQUARE_NONE, light);
+
+	return true;
+}
+
+
+/**
+ * Builds an abandoned building for dnm gen.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x, y1, x1, y2, x2;
+	int i;
+	int light = false;
+
+	/* Pick a room size */
+	int height = 3 + randint1(5) + randint1(5);
+	int width = 3 + randint1(5) + randint1(5);
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Pick a room size */
+	y1 = centre.y - height / 2;
+	x1 = centre.x - width / 2;
+	y2 = y1 + height - 1;
+	x2 = x1 + width - 1;
+
+	/* Never lit */
+	light = false;
+	
+	/* Generate new room */
+	generate_room(c, y1-1, x1-1, y2+1, x2+1, light);
+
+	/* Generate outer walls and inner floors */
+	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Let light through cracks in the ceiling */
+	for (y = y1 + 2; y <= y2 - 2; y += 1)
+		for (x = x1 + 2; x <= x2 - 2; x += 1)
+			if (one_in_(10)) {
+				i = randint1(2);
+				fill_circle(c, y, x, i, 0, FEAT_FLOOR, SQUARE_NONE, true);
+			}
+			
+	/* Places some supports */
+	for (y = y1; y <= y2; y += 2)
+		for (x = x1; x <= x2; x += 2)
+			if (one_in_(15)) {
+				set_marked_granite(c, loc(x, y), SQUARE_WALL_INNER);
+			}
+				
+	/* Scatter some rubble */
+	for (y = y1; y <= y2; y += 1)
+		for (x = x1; x <= x2; x += 1)
+			if (one_in_(12)) {
+				square_set_feat(c, loc(x, y), FEAT_PASS_RUBBLE);
+			}
+	
+	/* Break some walls */
+	for (y = y1; y <= y2; y += 1) {
+		if (one_in_(3)) {
+			square_set_feat(c, loc(x1-1, y), FEAT_PERM_TREE);
+			sqinfo_off(square(c, loc(x1-1, y)).info, SQUARE_WALL_OUTER);
+			set_marked_granite(c, loc(x1, y), SQUARE_WALL_OUTER);
+		}
+		
+		if (one_in_(3)) {
+			square_set_feat(c, loc(x2+1, y), FEAT_PERM_TREE);
+			sqinfo_off(square(c, loc(x2+1, y)).info, SQUARE_WALL_OUTER);
+			set_marked_granite(c, loc(x2, y), SQUARE_WALL_OUTER);
+		}
+	}
+	
+	for (x = x1; x <= x2; x += 1) {
+		if (one_in_(3)) {
+			square_set_feat(c, loc(x, y1-1), FEAT_PERM_TREE);
+			sqinfo_off(square(c, loc(x, y1-1)).info, SQUARE_WALL_OUTER);
+			set_marked_granite(c, loc(x, y1), SQUARE_WALL_OUTER);
+		}
+		
+		if (one_in_(3)) {
+			square_set_feat(c, loc(x, y2+1), FEAT_PERM_TREE);
+			sqinfo_off(square(c, loc(x, y2+1)).info, SQUARE_WALL_OUTER);
+			set_marked_granite(c, loc(x, y2), SQUARE_WALL_OUTER);
+		}
+	}
+	
+	return true;
+}
+
+/**
  * Builds a normal rectangular room.
  * \param c the chunk the room is being built in
  *\ param centre the room centre; out of chunk centre invokes find_space()

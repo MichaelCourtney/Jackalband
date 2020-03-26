@@ -471,26 +471,23 @@ room:simple room:0:11:33:1:0:0:100
 ## Dogs and Mushrooms
 # For actual number of rooms to try for add depth
 name:dogs and mushrooms
-params:1:10:500:1
-tunnel:15:20:18:20:30
+params:1:15:750:1
+tunnel:30:12:18:10:0
 streamer:5:2:1:90:1:60
 cutoff:-1
 
 # Unusual rooms (rarity = 1)
-room:Least vault:0:22:44:0:0:1:40
-room:Interesting room:0:44:55:0:0:1:50
-room:Sil crossed room:0:11:33:1:0:1:80
-room:square garden:0:33:33:1:0:1:91
-room:All crossed room:0:11:33:3:0:1:92
-room:crossed room:0:11:33:3:0:1:93
-room:terrain room:0:22:22:1:0:1:94
-room:circular room:0:22:22:1:0:1:95
-room:bridge room:0:11:33:1:0:1:96
+room:Least vault:0:22:44:0:0:1:21
+room:square garden:0:33:33:1:0:1:42
+room:terrain room:0:22:22:1:0:1:64
+room:bridge room:0:11:33:1:0:1:86
+room:Interesting room:0:44:55:0:0:1:96
 room:overlap room:0:11:33:1:0:1:97
 room:room template:1:11:33:1:0:1:98
 room:room template:2:11:33:10:0:1:99
 room:room template:3:11:33:30:0:1:100
 
 # Normal rooms (rarity = 0)
-room:small room:0:11:22:1:0:0:80
+room:lit clearing:0:11:33:1:0:0:33
+room:abandoned building:0:11:33:1:0:0:99
 room:simple room:0:11:33:1:0:0:100
