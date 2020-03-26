@@ -2023,8 +2023,8 @@ bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
 	/* Let light through cracks in the ceiling */
 	for (y = y1 + 2; y <= y2 - 2; y += 1)
 		for (x = x1 + 2; x <= x2 - 2; x += 1)
-			if (one_in_(10)) {
-				i = randint1(2);
+			if (one_in_(6)) {
+				i = MAX(1, randint1(2) - randint0(1));
 				fill_circle(c, y, x, i, 0, FEAT_FLOOR, SQUARE_NONE, true);
 			}
 			
@@ -2038,19 +2038,19 @@ bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
 	/* Scatter some rubble */
 	for (y = y1; y <= y2; y += 1)
 		for (x = x1; x <= x2; x += 1)
-			if (one_in_(12)) {
+			if (one_in_(15)) {
 				square_set_feat(c, loc(x, y), FEAT_PASS_RUBBLE);
 			}
 	
 	/* Break some walls */
 	for (y = y1; y <= y2; y += 1) {
-		if (one_in_(3)) {
+		if (one_in_(4)) {
 			square_set_feat(c, loc(x1-1, y), FEAT_PERM_TREE);
 			sqinfo_off(square(c, loc(x1-1, y)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x1, y), SQUARE_WALL_OUTER);
 		}
 		
-		if (one_in_(3)) {
+		if (one_in_(4)) {
 			square_set_feat(c, loc(x2+1, y), FEAT_PERM_TREE);
 			sqinfo_off(square(c, loc(x2+1, y)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x2, y), SQUARE_WALL_OUTER);
@@ -2058,13 +2058,13 @@ bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
 	}
 	
 	for (x = x1; x <= x2; x += 1) {
-		if (one_in_(3)) {
+		if (one_in_(4)) {
 			square_set_feat(c, loc(x, y1-1), FEAT_PERM_TREE);
 			sqinfo_off(square(c, loc(x, y1-1)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x, y1), SQUARE_WALL_OUTER);
 		}
 		
-		if (one_in_(3)) {
+		if (one_in_(4)) {
 			square_set_feat(c, loc(x, y2+1), FEAT_PERM_TREE);
 			sqinfo_off(square(c, loc(x, y2+1)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x, y2), SQUARE_WALL_OUTER);
