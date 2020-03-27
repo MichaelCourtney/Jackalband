@@ -250,8 +250,10 @@ static void build_tunnel(struct chunk *c, struct loc grid1, struct loc grid2)
 			/* Forbid re-entry near this piercing */
 			for (grid.y = grid1.y - 1; grid.y <= grid1.y + 1; grid.y++) {
 				for (grid.x = grid1.x - 1; grid.x <= grid1.x + 1; grid.x++) {
-					if (square_is_granite_with_flag(c, grid, SQUARE_WALL_OUTER))
-						set_marked_granite(c, grid, SQUARE_WALL_SOLID);
+					if (square_is_granite_with_flag(c, grid, SQUARE_WALL_OUTER)) {
+						sqinfo_off(square(c, grid).info, SQUARE_WALL_OUTER);
+						sqinfo_on(square(c, grid).info, SQUARE_WALL_SOLID);
+					}
 				}
 			}
 
@@ -3578,7 +3580,7 @@ struct chunk *dnm_chunk(int depth, int height, int width)
 
     /* Fill cave area with permanent trees */
     fill_rectangle(c, 0, 0, c->height - 1, c->width - 1, 
-				   FEAT_PERM_TREE, SQUARE_NONE);
+				   FEAT_GRANITE_TREE, SQUARE_NONE);
 
     /* Generate permanent walls around the generated area (temporarily!) */
     draw_rectangle(c, 0, 0, c->height - 1, c->width - 1, 
@@ -3683,7 +3685,7 @@ struct chunk *dnm_gen(struct player *p, int min_height, int min_width) {
 	struct chunk *c;
 
     /* Scale the level */
-    size_percent = 60;
+    size_percent = 65;
 	y_size = z_info->dungeon_hgt * (size_percent - 5 + randint0(10)) / 100;
 	x_size = z_info->dungeon_wid * (size_percent - 5 + randint0(10)) / 100;
 
@@ -3701,7 +3703,7 @@ struct chunk *dnm_gen(struct player *p, int min_height, int min_width) {
 
     /* Generate permanent walls around the edge of the generated area */
     draw_rectangle(c, 0, 0, c->height - 1, c->width - 1,
-				   FEAT_PERM, SQUARE_NONE);
+				   FEAT_PERM_TREE, SQUARE_NONE);
 
     /* Place 2 or 3 down stairs near some walls */
 	if (!OPT(p, birth_levels_persist) || !chunk_find_adjacent(p, false)) {
@@ -3746,13 +3748,13 @@ struct chunk *dnm_gen(struct player *p, int min_height, int min_width) {
 		pick_and_place_distant_monster(c, p, 0, true, c->depth);
 
      /* Put some objects in rooms */
-    alloc_objects(c, SET_ROOM, TYP_OBJECT, Rand_normal((c->depth / 2), 3),
+    alloc_objects(c, SET_ROOM, TYP_OBJECT, Rand_normal(4, 2),
 				  c->depth, ORIGIN_FLOOR);
 
     /* Put some objects/gold in the dungeon */
-    alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal((c->depth / 5), 3),
+    alloc_objects(c, SET_BOTH, TYP_OBJECT, Rand_normal(2, 1),
 				  c->depth, ORIGIN_FLOOR);
-    alloc_objects(c, SET_BOTH, TYP_GOLD, Rand_normal((c->depth / 5), 3),
+    alloc_objects(c, SET_BOTH, TYP_GOLD, Rand_normal(2, 1),
 				  c->depth, ORIGIN_FLOOR);
 
     return c;

@@ -51,6 +51,7 @@ int FEAT_QUARTZ;
 int FEAT_MAGMA_K;
 int FEAT_QUARTZ_K;
 int FEAT_GRANITE;
+int FEAT_GRANITE_TREE;
 int FEAT_PERM;
 int FEAT_PERM_TOWN;
 int FEAT_PERM_TREE;
@@ -351,6 +352,7 @@ void set_terrain(void)
 	FEAT_MAGMA_K = lookup_feat("magma vein with treasure");
 	FEAT_QUARTZ_K = lookup_feat("quartz vein with treasure");
 	FEAT_GRANITE = lookup_feat("granite wall");
+	FEAT_GRANITE_TREE = lookup_feat("wall of brambles");
 	FEAT_PERM = lookup_feat("permanent wall");
 	FEAT_PERM_TOWN = lookup_feat("town wall");
 	FEAT_PERM_TREE = lookup_feat("wall of impenetrable brambles");

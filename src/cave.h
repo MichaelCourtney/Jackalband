@@ -238,6 +238,7 @@ extern int FEAT_QUARTZ_K;
 
 /* Walls */
 extern int FEAT_GRANITE;
+extern int FEAT_GRANITE_TREE;
 extern int FEAT_PERM;
 extern int FEAT_PERM_TOWN;
 extern int FEAT_PERM_TREE;

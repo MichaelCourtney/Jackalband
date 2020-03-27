@@ -247,6 +247,15 @@ desc:A seam of hard rock.  It can be removed by digging or magic, and passed
 desc:through by immaterial monsters.  It stops any spells, missiles or line of 
 desc:sight. 
 
+name:wall of brambles
+graphics:#:g
+priority:10
+flags:WALL | ROCK | GRANITE | NO_SCENT | NO_FLOW
+info:0:4
+desc:A wall of brambles.  It can be removed by digging or magic, and passed 
+desc:through by immaterial monsters.  It stops any spells, missiles or line of 
+desc:sight. 
+
 name:permanent wall
 graphics:#:z
 priority:10
@@ -264,7 +273,7 @@ desc:surrounded by these kinds of walls and some special rooms are made of them.
 name:wall of impenetrable brambles
 graphics:#:t
 priority:10
-flags:WALL | PERMANENT | NO_SCENT | NO_FLOW
+flags:WALL | ROCK | PERMANENT | NO_SCENT | NO_FLOW
 desc:You can dig through most walls but these are impenetrable.  The dungeon is 
 desc:surrounded by these kinds of walls and some special rooms are made of them.
 

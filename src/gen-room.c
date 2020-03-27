@@ -1973,7 +1973,7 @@ bool build_dnm_clearing(struct chunk *c, struct loc centre, int rating)
 	}
 
 	/* Generate outer walls and inner grass */
-	fill_circle(c, centre.y, centre.x, radius + 1, 1, FEAT_PERM_TREE,
+	fill_circle(c, centre.y, centre.x, radius + 1, 1, FEAT_GRANITE_TREE,
 				SQUARE_WALL_OUTER, light);
 	fill_circle(c, centre.y, centre.x, radius, 0, FEAT_GRASS,
 				SQUARE_NONE, light);
@@ -2045,13 +2045,13 @@ bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
 	/* Break some walls */
 	for (y = y1; y <= y2; y += 1) {
 		if (one_in_(4)) {
-			square_set_feat(c, loc(x1-1, y), FEAT_PERM_TREE);
+			square_set_feat(c, loc(x1-1, y), FEAT_GRANITE_TREE);
 			sqinfo_off(square(c, loc(x1-1, y)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x1, y), SQUARE_WALL_OUTER);
 		}
 		
 		if (one_in_(4)) {
-			square_set_feat(c, loc(x2+1, y), FEAT_PERM_TREE);
+			square_set_feat(c, loc(x2+1, y), FEAT_GRANITE_TREE);
 			sqinfo_off(square(c, loc(x2+1, y)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x2, y), SQUARE_WALL_OUTER);
 		}
@@ -2059,13 +2059,13 @@ bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
 	
 	for (x = x1; x <= x2; x += 1) {
 		if (one_in_(4)) {
-			square_set_feat(c, loc(x, y1-1), FEAT_PERM_TREE);
+			square_set_feat(c, loc(x, y1-1), FEAT_GRANITE_TREE);
 			sqinfo_off(square(c, loc(x, y1-1)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x, y1), SQUARE_WALL_OUTER);
 		}
 		
 		if (one_in_(4)) {
-			square_set_feat(c, loc(x, y2+1), FEAT_PERM_TREE);
+			square_set_feat(c, loc(x, y2+1), FEAT_GRANITE_TREE);
 			sqinfo_off(square(c, loc(x, y2+1)).info, SQUARE_WALL_OUTER);
 			set_marked_granite(c, loc(x, y2), SQUARE_WALL_OUTER);
 		}
