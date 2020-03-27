@@ -435,3 +435,16 @@ mon-base:icky thing
 mon-base:snake
 mon-base:ant
 mon-base:reptile
+
+name:Guards
+room:3
+alloc:8:30
+mon-base:canine
+mon-base:giant
+mon-base:golem
+mon-base:humanoid
+mon-base:kobold
+mon-base:ogre
+mon-base:orc
+mon-base:person
+mon-base:troll

@@ -3831,6 +3831,7 @@ bool build_pit(struct chunk *c, struct loc centre, int rating)
 	return true;
 }
 
+
 /**
  * Build a smaller monster pit
  * \param c the chunk the room is being built in
@@ -4102,6 +4103,272 @@ bool build_pit_mini(struct chunk *c, struct loc centre, int rating)
 	return true;
 }
 
+
+/**
+ * Builds a storeroom shaped like a minipit.
+ * \param c the chunk the room is being built in
+ *\ param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+bool build_storeroom(struct chunk *c, struct loc centre, int rating)
+{
+	int y, x, y1, x1, y2, x2;
+	int light = true;
+	int height = 9;
+	int width = 15;
+	int k; 
+	int df, count;
+
+	/* Miniturize the dimensions */
+	/* Halve if below full pit size cutoff (dlvl 5) */
+	if (c->depth < 5) {
+		height = 7;
+		width  = 10;
+	}
+	
+	/* Randomly reduce by depth factor */
+	k = MIN(6, 1 + (c->depth / 4));
+	height -= randint0(2);
+	width -= randint1(8 - k);
+	
+	/* Enforce minimum dimensions */
+	if (height < 7) height = 7;
+	if (width < 7) width = 7;
+	
+	/* Enforce odd dimensions */
+	if (height == 8) height = 9;
+	if ((width / 2) * 2 == width) width += 1;
+
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Large room */
+	y1 = centre.y - height / 2;
+	y2 = centre.y + height / 2;
+	x1 = centre.x - width / 2;
+	x2 = centre.x + width / 2;
+
+	/* Generate new room, outer walls and inner floor */
+	generate_room(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, light);
+	draw_rectangle(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, FEAT_GRANITE,
+				   SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+
+	/* Place guards at the 4 corners */
+	mon_restrict("Guards", c->depth, true);
+	pick_and_place_monster(c, loc(x1, y1), c->depth, 
+							true, false, ORIGIN_DROP_SPECIAL);
+	pick_and_place_monster(c, loc(x1, y2), c->depth, 
+							true, false, ORIGIN_DROP_SPECIAL);
+	pick_and_place_monster(c, loc(x2, y1), c->depth, 
+							true, false, ORIGIN_DROP_SPECIAL);
+	pick_and_place_monster(c, loc(x2, y2), c->depth, 
+							true, false, ORIGIN_DROP_SPECIAL);
+	(void) mon_restrict(NULL, c->depth, false);
+	
+	/* Advance to the center room */
+	y1 = y1 + 2;
+	y2 = y2 - 2;
+	x1 = x1 + 2;
+	x2 = x2 - 2;
+
+	/* Generate inner walls, and open with a secret door */
+	draw_rectangle(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, FEAT_GRANITE,
+				   SQUARE_WALL_INNER);
+	generate_hole(c, y1 - 1, x1 - 1, y2 + 1, x2 + 1, FEAT_CLOSED);
+
+	/* Get storeroom type and place objects */
+	df = MAX(2, ((75 - c->depth) / 15));
+	count = 0;
+	
+	if (one_in_(df + 5)) {
+		/* bank - gold, chests & jewellery */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(3)) {
+					if (one_in_(df + 3)) {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+									   ORIGIN_SPECIAL, TV_CHEST);
+						count += 3;
+						
+					} else if (one_in_(df + 2)) {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+										ORIGIN_SPECIAL, TV_AMULET);
+						count += 2;
+						
+					} else if (one_in_(df + 1)) {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+										ORIGIN_SPECIAL, TV_RING);
+						count += 2;
+						
+					} else {
+						place_gold(c, loc(x, y), c->depth, ORIGIN_SPECIAL);
+						count += 1;
+					}
+				}
+			}
+		}
+				
+	} else if one_in_(df + 4) {
+		/* library */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(df + 4)) {
+					if (one_in_(5)) {
+						int	tval = 0, temp = randint1(4);
+						switch (temp) {
+						case 1: tval = TV_MAGIC_BOOK; break;
+						case 2: tval = TV_PRAYER_BOOK; break;
+						case 3: tval = TV_NATURE_BOOK; break;
+						case 4: tval = TV_SHADOW_BOOK; break;
+						}
+						
+						place_object(c, loc(x, y), c->depth + df, false, false,
+									   ORIGIN_SPECIAL, tval);
+						count += 2;
+						
+					} else {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+										ORIGIN_SPECIAL, TV_SCROLL);
+						count += 2;
+					}
+				}
+			}
+		}
+				
+	} else if one_in_(df + 3) {
+		/* devices */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(df + 5)) {
+					if (one_in_(4)) {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+									   ORIGIN_SPECIAL, TV_ROD);
+						count += 2;
+						
+					} else if (one_in_(3)) {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+										ORIGIN_SPECIAL, TV_STAFF);
+						count += 2;
+						
+					} else {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+										ORIGIN_SPECIAL, TV_WAND);
+						count += 2;
+					}
+				}
+			}
+		}
+				
+	} else if one_in_(df + 2) {
+		/* alchemist */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(df + 4)) {
+						place_object(c, loc(x, y), c->depth + df, false, false,
+									   ORIGIN_SPECIAL, TV_POTION);					
+				}
+			}
+		}
+				
+	} else if one_in_(df + 1) {
+		/* archery - ammo & shooters */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(5)) {
+					int	tval = 0, temp = randint1(4);
+					switch (temp) {
+					case 1: tval = TV_ARROW; break;
+					case 2: tval = TV_BOLT; break;
+					case 3: tval = TV_SHOT; break;
+					case 4: tval = TV_BOW; break;
+					}
+						
+					place_object(c, loc(x, y), c->depth + df, false, false,
+												ORIGIN_SPECIAL, tval);
+					count += 1;
+				}
+			}
+		}
+				
+	} else if one_in_(df) {
+		/* armoury - weapons & armour */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(6)) {
+					if (one_in_(3)) {
+						int	tval = 0, temp = randint1(4);
+						switch (temp) {
+						case 1: tval = TV_SWORD; break;
+						case 2: tval = TV_POLEARM; break;
+						case 3: tval = TV_HAFTED; break;
+						case 4: tval = TV_BOW; break;
+						}
+						
+						place_object(c, loc(x, y), c->depth + df, false, false,
+									   ORIGIN_SPECIAL, tval);
+						count += 2;
+						
+					} else {
+						int	tval = 0, temp = one_in_(3) ? randint1(9) : randint1(8);
+						switch (temp) {
+						case 1: tval = TV_BOOTS; break;
+						case 2: tval = TV_GLOVES; break;
+						case 3: tval = TV_HELM; break;
+						case 4: tval = TV_CROWN; break;
+						case 5: tval = TV_SHIELD; break;
+						case 6: tval = TV_CLOAK; break;
+						case 7: tval = TV_SOFT_ARMOR; break;
+						case 8: tval = TV_HARD_ARMOR; break;
+						case 9: tval = TV_DRAG_ARMOR; break;
+						}
+						
+						place_object(c, loc(x, y), c->depth + df, false, false,
+										ORIGIN_SPECIAL, tval);
+						count += 2;
+					}
+				}
+			}
+		}
+				
+	} else {
+		/* general supplies - food, lights, diggers */
+		for (y=y1; y<=y2; y++) {
+			for (x=x1; x<=x2; x++) {
+				if (one_in_(df)) {
+					int	tval = 0, temp = randint1(5);
+					switch (temp) {
+					case 1: tval = TV_LIGHT; break;
+					case 2: tval = TV_FOOD; break;
+					case 3: tval = TV_MUSHROOM; break;
+					case 4: tval = TV_HERB; break;
+					case 5: tval = TV_DIGGING; break;
+					}
+						
+					place_object(c, loc(x, y), c->depth + df, false, false,
+												ORIGIN_SPECIAL, tval);
+					count += 1;
+				}
+			}
+		}
+	}
+	
+	/* Sometimes generate more guards */
+	if (count <= df) count = df + 1;
+	while (count > df) {
+		if one_in_(count * 2) {
+			vault_monsters(c, loc(centre.x, centre.y), (c->depth + (count / 2)), 1);
+		}
+		count -= 1;
+	}
+	
+	return true;
+}
+
+
 /**
  * Build a template room
  * \param c the chunk the room is being built in
@@ -4113,8 +4380,6 @@ bool build_template(struct chunk *c, struct loc centre, int rating)
 	/* All room templates currently have type 1 */
 	return build_room_template_type(c, centre, 1, rating);
 }
-
-
 
 
 /**
