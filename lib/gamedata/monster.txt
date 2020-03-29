@@ -7790,7 +7790,7 @@ blow:BITE:FIRE:3d6
 flags:ANIMAL | WEIRD_MIND
 flags:RAND_25
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:20
 spells:SPIT
 desc:It is smoking and burning with great heat.
@@ -7831,7 +7831,7 @@ blow:HIT:DISENCHANT
 flags:RAND_50
 flags:IM_DISEN
 flags:ATTR_MULTI | FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:A giant bat which feeds on raw magical energy.
 
 name:wolf chieftain
@@ -7933,7 +7933,7 @@ experience:95
 blow:BITE:FIRE:3d4
 blow:SPIT:FIRE:4d5
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:5
 spells:SPIT
 desc:It is a giant beetle wreathed in flames.
@@ -8052,7 +8052,7 @@ blow:HIT:HURT:1d6
 blow:BITE:EXP_20:2d6
 blow:BITE:EXP_20:2d6
 flags:DROP_40 | DROP_1
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:9
 spells:WOUND | DARKNESS | MIND_BLAST | TELE_TO
 spells:HOLD | SCARE
@@ -8126,7 +8126,7 @@ blow:SPORE:ELEC:5d4
 blow:SPORE:ELEC:5d4
 flags:EMPTY_MIND | STUPID | ATTR_FLICKER
 flags:IM_ELEC
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a strange growth on the dungeon floor, glowing and crackling with
 desc: sparks.
 
@@ -8148,7 +8148,7 @@ blow:HIT:COLD:5d8
 flags:DROP_40
 flags:OPEN_DOOR
 flags:IM_COLD
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:10
 spells:BOULDER
 friends:60:1d7:Cold Hound
@@ -8225,7 +8225,7 @@ flags:MALE | EVIL
 flags:DROP_1
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:8
 spells:BLIND | WOUND | DARKNESS | SCARE
 drop-base:shadow book:8:1:1
@@ -8282,7 +8282,7 @@ flags:MALE | SMART
 flags:DROP_1 | ONLY_ITEM
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:3
 spells:BLIND | CONF | TPORT | TELE_AWAY
 spells:BO_COLD | BO_ELEC | BO_FIRE
@@ -8545,7 +8545,7 @@ blow:STING:POISON:3d4
 blow:STING:BLIND:3d4
 flags:ANIMAL | WEIRD_MIND
 flags:IM_POIS
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:A gleaming black scorpion as large as a lion, with a pulsating stinger
 desc: and two great deadly claws.
 
@@ -8565,7 +8565,7 @@ blow:BITE:ACID:2d8
 blow:STING:POISON:1d8
 flags:BASH_DOOR
 flags:IM_ACID | IM_POIS
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a massive worm form, many feet in length.  Its vast maw drips acid
 desc: and poison.
 
@@ -8644,7 +8644,7 @@ blow:BITE:HURT:2d6
 flags:DROP_2
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ELEC
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:15
 spell-freq:20
 spells:SCARE
@@ -8669,7 +8669,7 @@ blow:BITE:HURT:2d6
 flags:DROP_2
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_COLD
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:15
 spell-freq:20
 spells:SCARE
@@ -8694,7 +8694,7 @@ blow:BITE:HURT:2d6
 flags:DROP_2
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_POIS
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:15
 spell-freq:20
 spells:SCARE
@@ -8747,7 +8747,7 @@ blow:HIT:FIRE:6d8
 flags:DROP_40
 flags:OPEN_DOOR
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:8
 spells:BOULDER
 friends:60:1d7:Fire Hound
@@ -8792,7 +8792,7 @@ blow:HIT:HURT:1d6
 blow:BITE:HURT:3d4
 flags:TROLL | EMPTY_MIND | REGENERATE
 flags:OPEN_DOOR | BASH_DOOR
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a troll skeleton animated by dark dweomers.
 
 name:manticore
@@ -8878,7 +8878,7 @@ blow:TOUCH:EXP_20
 flags:DROP_1 | ONLY_ITEM
 flags:RAND_25 | OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:8
 spells:WOUND | DARKNESS | SCARE
 desc:It is a ghostly form with eyes that haunt you.
@@ -8896,7 +8896,7 @@ rarity:2
 experience:250
 blow:BITE:HURT:7d8
 blow:BITE:HURT:7d8
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a beetle with deadly sharp cutting mandibles and a rock-hard
 desc: carapace.
 
@@ -9059,7 +9059,7 @@ blow:CLAW:LOSE_WIS:1d6
 flags:DROP_40 | DROP_1
 flags:RAND_25 | TAKE_ITEM
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:15
 spells:BLIND | DRAIN_MANA | HOLD
 desc:You don't believe in it.  But it believes in you...
@@ -9078,7 +9078,7 @@ experience:300
 blow:BITE:HURT:5d6
 blow:BITE:HURT:5d6
 blow:WAIL:TERRIFY:5d6
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a giant beetle that produces a chilling sound.
 
 name:young black dragon
@@ -9098,7 +9098,7 @@ blow:BITE:HURT:2d8
 flags:DROP_3
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ACID
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:15
 spell-freq:20
 spells:SCARE
@@ -9148,7 +9148,7 @@ blow:BITE:HURT:2d8
 flags:DROP_3
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:15
 spell-freq:20
 spells:SCARE
@@ -9224,7 +9224,7 @@ blow:HIT:HURT:3d8
 blow:HIT:HURT:3d8
 flags:DROP_1
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:4
 spells:HEAL | HOLD | TRAPS
 spells:BA_COLD
@@ -9313,7 +9313,7 @@ flags:DROP_3
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ACID | IM_COLD | IM_ELEC | IM_FIRE | IM_POIS
 flags:ATTR_MULTI
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:8
 spell-freq:50
 spells:SCARE
@@ -9339,7 +9339,7 @@ blow:BITE:FIRE:5d4
 flags:WEIRD_MIND
 flags:BASH_DOOR
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a fast moving creature of chaos, a gigantic black bat surrounded by
 desc: flickering bright red flames.
 
@@ -9388,7 +9388,7 @@ blow:HIT:HURT:7d8
 blow:HIT:HURT:7d8
 flags:DROP_40
 flags:OPEN_DOOR | TAKE_ITEM
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:5
 spells:BOULDER
 friends:60:1d7:Earth hound
@@ -9495,7 +9495,7 @@ blow:TOUCH:EXP_40
 flags:DROP_40
 flags:OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:8
 spells:WOUND | DARKNESS | HOLD | SCARE
 friends:100:4d4:Same
@@ -9518,7 +9518,7 @@ blow:BITE:HURT:1d5
 blow:BITE:HURT:1d5
 flags:TROLL | EMPTY_MIND | REGENERATE
 flags:OPEN_DOOR | BASH_DOOR
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is the animated form of a massive two-headed troll.
 
 name:chaos drake
@@ -9640,7 +9640,7 @@ blow:HIT:FIRE:4d6
 flags:RAND_25 | BASH_DOOR | KILL_BODY | KILL_ITEM
 flags:IM_ACID | IM_ELEC | IM_FIRE | HURT_COLD
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:6
 spells:BO_FIRE
 desc:It is a towering inferno of flames.
@@ -9663,7 +9663,7 @@ flags:COLD_BLOOD
 flags:RAND_25 | BASH_DOOR | KILL_BODY | KILL_ITEM
 flags:IM_ACID | IM_COLD | IM_FIRE | IM_WATER
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:6
 spells:BO_COLD
 desc:It is a towering tempest of water.
@@ -9875,7 +9875,7 @@ blow:TOUCH:LOSE_DEX:2d8
 blow:TOUCH:LOSE_DEX:2d8
 flags:DROP_1
 flags:HURT_LIGHT
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:4
 spells:BLIND | BLINK | WOUND | DRAIN_MANA | HOLD | BRAIN_SMASH
 spells:SCARE | SLOW | TELE_AWAY | TELE_TO
@@ -9900,7 +9900,7 @@ flags:COLD_BLOOD
 flags:PASS_WALL | KILL_BODY | KILL_ITEM
 flags:HURT_ROCK | IM_COLD | IM_ELEC | IM_FIRE
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:8
 spells:BO_ACID
 desc:It is a towering form composed of rock with fists of awesome power.
@@ -10043,7 +10043,7 @@ blow:HIT:HURT:1d6
 flags:EVIL | COLD_BLOOD | INVISIBLE
 flags:RAND_50 | OPEN_DOOR | BASH_DOOR
 flags:IM_ELEC
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is impossible to define its form but its violence is legendary.
 
 name:gravity hound
@@ -10295,7 +10295,7 @@ blow:HIT:ELEC:8d8
 flags:DROP_60
 flags:OPEN_DOOR | TAKE_ITEM
 flags:IM_ELEC
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:8
 spells:BOULDER
 friends:60:1d7:Energy hound
@@ -10319,7 +10319,7 @@ blow:HIT:HURT:2d6
 blow:BITE:EXP_40:3d6
 blow:BITE:EXP_40:3d6
 flags:DROP_4
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:6
 spells:WOUND | CONF | DARKNESS | MIND_BLAST
 spells:TELE_TO
@@ -10391,7 +10391,7 @@ blow:HIT:HURT:1d6
 blow:HIT:HURT:1d6
 flags:PASS_WALL | KILL_ITEM
 flags:IM_COLD | IM_ELEC | IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:A huge creature of the element Earth.  Able to merge with its element, it
 desc: has four huge arms protruding from its enormous torso.
 
@@ -10622,7 +10622,7 @@ blow:HIT:HURT:2d6
 flags:TROLL | EMPTY_MIND
 flags:DROP_20
 flags:NO_FEAR
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a massive figure clothed in wrappings.  You are wary of its massive
 desc: fists.
 
@@ -10690,7 +10690,7 @@ blow:CLAW:ELEC:2d12
 blow:GAZE:PARALYZE
 flags:IM_ELEC
 flags:ATTR_FLICKER
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:6
 spells:SPIT
 desc:It is a giant beetle, whose carapace shimmers with vibrant energies.
@@ -10796,7 +10796,7 @@ blow:TOUCH:EXP_80
 flags:DROP_3 | ONLY_ITEM
 flags:OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:6
 spells:WOUND | HOLD | SCARE
 spells:BO_NETH
@@ -10988,7 +10988,7 @@ blow:TOUCH:EXP_20
 flags:DROP_1
 flags:OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:8
 spells:WOUND | DARKNESS | SCARE
 desc:It is a tangible but ghostly form made of white fog.
@@ -11011,7 +11011,7 @@ blow:HIT:HURT:4d6
 blow:HIT:HURT:4d6
 flags:DROP_1 | ONLY_ITEM
 flags:NO_CONF | NO_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:A massive two-headed troll of huge strength, ettens are stupid but violent.
 desc:  They are also living proof that two heads are not more intelligent than
 desc: one...
@@ -11087,7 +11087,7 @@ blow:BITE:HURT:4d8
 flags:DROP_4
 flags:OPEN_DOOR | BASH_DOOR
 flags:IM_COLD | NO_CONF | NO_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:20
 spells:SCARE
@@ -11113,7 +11113,7 @@ blow:BITE:HURT:4d8
 flags:DROP_4
 flags:BASH_DOOR
 flags:IM_ELEC | NO_CONF | NO_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:20
 spells:SCARE
@@ -11139,7 +11139,7 @@ blow:BITE:HURT:4d8
 flags:DROP_4
 flags:BASH_DOOR
 flags:IM_POIS | NO_CONF | NO_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:20
 spells:SCARE
@@ -11252,7 +11252,7 @@ flags:WEIRD_MIND | MULTIPLY | STUPID
 flags:RAND_50 | BASH_DOOR
 flags:HURT_LIGHT | IM_DISEN | NO_FEAR
 flags:ATTR_MULTI
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is a strange mass of squirming worms.  Magical energy crackles around
 desc: its disgusting form.
 
@@ -11273,7 +11273,7 @@ blow:HIT:HURT:3d6
 flags:TROLL | REGENERATE
 flags:DROP_60
 flags:IM_ELEC
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:A weird ghostly troll-like being.
 
 name:phantom
@@ -11381,7 +11381,7 @@ flags:DROP_3 | ONLY_ITEM
 flags:OPEN_DOOR
 flags:NO_CONF | NO_SLEEP | NO_HOLD
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:2
 spells:BLIND | BLINK | WOUND | CONF | TELE_TO | TRAPS
 spells:BA_COLD | BA_FIRE
@@ -11501,7 +11501,7 @@ flags:DROP_3 | ONLY_ITEM
 flags:PASS_WALL
 flags:IM_POIS | NO_FEAR | NO_CONF | NO_SLEEP | NO_HOLD
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:10
 spells:BLIND | WOUND | CONF | SCARE
 spells:S_DEMON
@@ -11592,7 +11592,7 @@ blow:BITE:HURT:4d10
 flags:DROP_4
 flags:BASH_DOOR
 flags:IM_FIRE | NO_CONF | NO_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:20
 spells:CONF | SCARE
@@ -11644,7 +11644,7 @@ blow:BITE:HURT:4d10
 flags:DROP_4
 flags:BASH_DOOR
 flags:IM_ACID | NO_CONF | NO_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:20
 spells:SCARE
@@ -11995,7 +11995,7 @@ flags:OPEN_DOOR | BASH_DOOR
 flags:IM_ACID | IM_COLD | IM_ELEC | IM_FIRE | IM_POIS | NO_CONF
 flags:NO_SLEEP
 flags:ATTR_MULTI
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:10
 spell-freq:15
 spells:BLIND | CONF | SCARE
@@ -12248,7 +12248,7 @@ sleepiness:0
 depth:45
 rarity:1
 experience:3000
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:2
 spells:BLINK | TPORT
 spells:S_UNDEAD
@@ -12446,7 +12446,7 @@ blow:TOUCH:EXP_40
 flags:DROP_40 | DROP_60
 flags:OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:7
 spells:WOUND | DARKNESS | HOLD | SCARE
 spells:BO_COLD
@@ -12725,7 +12725,7 @@ blow:TOUCH:EXP_40
 flags:DROP_2 | ONLY_ITEM
 flags:OPEN_DOOR | BASH_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:7
 spells:BLIND | WOUND | HOLD | SCARE
 spells:BO_NETH
@@ -12785,7 +12785,7 @@ blow:CLAW:HURT:6d8
 blow:BITE:ELEC:7d8
 flags:BASH_DOOR
 flags:IM_ELEC
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:8
 spells:BLIND | CONF | SCARE
@@ -12808,7 +12808,7 @@ blow:CLAW:HURT:6d8
 blow:BITE:COLD:7d8
 flags:BASH_DOOR
 flags:IM_COLD
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:8
 spells:BLIND | CONF | SCARE
@@ -12831,7 +12831,7 @@ blow:CLAW:HURT:6d8
 blow:BITE:POISON:7d8
 flags:BASH_DOOR
 flags:IM_POIS
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:8
 spells:BLIND | CONF | SCARE
@@ -12998,7 +12998,7 @@ flags:UNIQUE | MALE | POWERFUL
 flags:DROP_4 | DROP_GOOD
 flags:MOVE_BODY
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:15
 spell-freq:5
 spells:CONF | SCARE
@@ -13028,7 +13028,7 @@ blow:CLAW:HURT:6d9
 blow:BITE:ACID:7d9
 flags:BASH_DOOR
 flags:IM_ACID
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:8
 spells:BLIND | CONF | SCARE
@@ -13052,7 +13052,7 @@ blow:CLAW:HURT:6d9
 blow:BITE:FIRE:7d9
 flags:BASH_DOOR
 flags:IM_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:12
 spell-freq:8
 spells:BLIND | CONF | SCARE
@@ -13322,7 +13322,7 @@ flags:ONLY_ITEM
 flags:BASH_DOOR
 flags:IM_ACID | IM_COLD | IM_ELEC | IM_FIRE | IM_POIS
 flags:ATTR_MULTI
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:6
 spell-freq:13
 spells:BLIND | CONF | SCARE
@@ -13515,7 +13515,7 @@ flags:INVISIBLE
 flags:DROP_3 | ONLY_ITEM
 flags:PASS_WALL
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:6
 spells:BLIND | WOUND | DARKNESS | MIND_BLAST | SCARE
 spells:BO_NETH | BE_NETH
