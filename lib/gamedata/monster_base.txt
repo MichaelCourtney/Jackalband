@@ -212,6 +212,7 @@ name:icky thing
 glyph:i
 pain:2
 flags:RAND_50
+flags:HURT_FIRE
 desc:Icky Thing
 
 # Insects are small, a bit fast, weak breeders which bite for various effects

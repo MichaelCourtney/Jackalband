@@ -1651,7 +1651,6 @@ rarity:1
 experience:4
 blow:HIT:HURT:1d5
 flags:DROP_40
-flags:PL_TRAP
 flags:PL_CORE | PL_ZVARIANT | PL_OS | PL_OLDBAND | PL_FA | PL_MORIA
 desc:A small humanoid figure.
 
@@ -3323,6 +3322,75 @@ flags:PL_MORIA | PL_CORE
 desc:It is a large pile of rotting flesh, whose touch spoils your food.  The
 desc: terrible smell it exudes is also very hard to get rid of...
 
+name:white mushroom patch
+plural:white mushroom patches
+base:mushroom
+color:w
+speed:110
+hit-points:1
+hearing:2
+armor-class:1
+sleepiness:0
+depth:5
+rarity:5
+experience:5
+blow:SPORE:PARALYZE:2d4
+flags:NEVER_MOVE
+flags:IM_POIS
+flags:PL_MORIA
+desc:Yum!  It looks quite tasty.
+
+name:giant black frog
+base:reptile
+color:D
+speed:110
+hit-points:18
+hearing:12
+smell:20
+armor-class:18
+sleepiness:40
+depth:5
+rarity:5
+experience:12
+blow:BITE:HURT:1d6
+flags:RAND_25 | BASH_DOOR
+flags:PL_MORIA
+desc:It is as big as a wolf.
+
+name:black yeek
+base:yeek
+color:D
+speed:110
+hit-points:9
+hearing:18
+smell:20
+armor-class:16
+sleepiness:10
+depth:5
+rarity:5
+experience:8
+blow:HIT:HURT:1d5
+flags:DROP_40
+flags:PL_MORIA
+desc:A small humanoid figure.
+
+name:giant house fly
+plural:giant house flies
+base:insect
+color:m
+speed:130
+hit-points:14
+hearing:12
+armor-class:16
+sleepiness:20
+depth:5
+rarity:5
+experience:10
+blow:BITE:HURT:1d2
+flags-off:MULTIPLY
+flags:PL_MORIA
+desc:A fast annoying pest.
+
 ### Dungeon level 6 ###
 
 name:purple mushroom patch
@@ -3474,6 +3542,48 @@ innate-freq:10
 spells:BR_SOUN
 desc:Large beating wings support this dazzling insect.  A loud buzzing noise
 desc: pervades the air.
+
+name:orc
+base:orc
+color:u
+speed:110
+hit-points:41
+hearing:20
+smell:20
+armor-class:32
+sleepiness:30
+depth:6
+rarity:5
+experience:16
+blow:HIT:HURT:1d8
+flags:DROP_10
+flags:HURT_LIGHT
+flags:PL_SIL | PL_MORIA
+friends:100:2d9:Same
+desc:He is one of Morgoth's grim mockeries of the firstborn.
+desc: He has little armour but carries a cruel blade.
+
+name:grey harpy
+plural:grey harpies
+base:hybrid
+color:s
+speed:120
+hit-points:14
+hearing:16
+smell:20
+armor-class:20
+sleepiness:10
+depth:6
+rarity:5
+experience:14
+blow:CLAW:HURT:1d2
+blow:CLAW:HURT:1d2
+blow:BITE:HURT:1d2
+flags:FEMALE | EVIL | ANIMAL
+flags:RAND_50
+flags:PL_GREEK
+flags:PL_MORIA
+desc:A woman's face on the body of a vicious grey bird.
 
 ### Dungeon level 7 ###
 
@@ -3732,6 +3842,45 @@ friends:100:1d5:Kobold archer:servant
 friends:100:1d5:Large kobold:bodyguard
 desc:Strong and powerful, for a kobold.
 
+name:greedy little gnome
+base:humanoid
+color:b
+speed:120
+hit-points:14
+hearing:18
+armor-class:14
+sleepiness:10
+depth:7
+rarity:5
+experience:13
+blow:HIT:EAT_GOLD:1d7
+blow:HIT:EAT_ITEM
+flags:ONLY_GOLD | DROP_40 | DROP_1 | MOVE_BODY
+flags:EVIL | MALE | TAKE_ITEM
+flags:PL_MORIA | PL_OS | PL_JB
+spell-freq:4
+spell-power:2 
+spells:TELE_SELF_TO | BLINK
+desc:His eyes light up around gold, and he's always looking for a more 
+desc:hilarious way to kill things.
+
+name:giant green fly
+plural:giant green flies
+base:insect
+color:g
+speed:120
+hit-points:14
+hearing:12
+armor-class:14
+sleepiness:20
+depth:7
+rarity:5
+experience:15
+blow:BITE:HURT:1d4
+flags-off:MULTIPLY
+flags:PL_MORIA
+desc:A fast annoying pest.
+
 ### Dungeon level 8 ###
 
 name:Wormtongue, Agent of Saruman
@@ -3787,7 +3936,7 @@ desc: with displays of excessive violence.
 
 name:terrified yeek
 base:yeek
-color:u
+color:m
 speed:110
 hit-points:18
 hearing:18
@@ -3917,6 +4066,83 @@ innate-freq:8
 spells:SHOT | WHIP
 desc:An uncultured brute with a club, a sling and a whip.
 
+name:brown yeek
+base:yeek
+color:u
+speed:110
+hit-points:18
+hearing:18
+smell:20
+armor-class:21
+sleepiness:10
+depth:8
+rarity:5
+experience:11
+blow:HIT:HURT:1d6
+flags:DROP_40
+flags:PL_FA | PL_JB | PL_MORIA | PL_OLDBAND | PL_OS | PL_ZVARIANT
+spell-freq:7
+spell-power:1
+spells:BLINK | SLOW | SCARE
+desc:A small, brown-colored humanoid with hedge magic spells.
+
+name:seedy looking human
+base:person
+color:M
+speed:110
+hit-points:36
+hearing:20
+armor-class:26
+sleepiness:20
+depth:8
+rarity:5
+experience:22
+blow:HIT:HURT:3d4
+flags:MALE | SMART
+flags:DROP_60
+flags:OPEN_DOOR
+flags:FORCE_SLEEP
+flags:PL_MORIA
+desc:A seedy looking guy, in bedraggled clothes.  He appears to be looking for a
+desc: fight.
+
+name:red icky thing
+base:icky thing
+color:R
+speed:120
+hit-points:18
+hearing:14
+armor-class:18
+sleepiness:20
+depth:8
+rarity:5
+experience:22
+blow:TOUCH:HURT:1d3
+blow:CRAWL:ACID:1d5
+flags:EMPTY_MIND | IM_ACID
+flags:PL_MORIA
+desc:It is a strange, slimy, icky creature.
+
+name:bandit
+base:person
+color:b
+speed:110
+hit-points:36
+hearing:20
+armor-class:28
+sleepiness:10
+depth:8
+rarity:5
+experience:26
+blow:HIT:HURT:2d4
+blow:TOUCH:EAT_GOLD
+drop:scroll:Phase Door:45:1:3
+flags:MALE | EVIL
+flags:DROP_1
+flags:OPEN_DOOR | TAKE_ITEM
+flags:PL_MORIA | PL_FA | PL_OLDBAND | PL_OS | PL_ZVARIANT
+desc:He is after your cash!
+
 ### Dungeon level 9 ###
 
 name:giant black louse
@@ -4030,7 +4256,7 @@ blow:HIT:HURT:1d6
 flags:DROP_20
 flags:HURT_LIGHT
 flags:FORCE_SLEEP
-flags:PL_MORIA | PL_CORE
+flags:PL_MORIA | PL_CORE | PL_FA | PL_OS | PL_OLDBAND | PL_ZVARIANT
 drop-base:magic book:5:1:1
 drop-base:prayer book:5:1:1
 spell-freq:8
@@ -4253,6 +4479,41 @@ flags:RAND_25
 flags:PL_CORE
 desc:A large bear appears to have made its home in this cave.  It is hungry, and
 desc: you are trespassing in its territory.
+
+name:giant black bat
+base:bat
+color:D
+speed:130
+hit-points:9
+hearing:12
+armor-class:18
+sleepiness:25
+depth:6
+rarity:1
+experience:16
+blow:BITE:HURT:1d6
+flags:RAND_50
+flags:PL_MORIA
+desc:It screeches as it attacks.
+
+name:clear yeek
+base:yeek
+color:w
+speed:110
+hit-points:11
+hearing:18
+smell:20
+armor-class:24
+sleepiness:10
+depth:2
+rarity:1
+experience:14
+blow:HIT:HURT:1d5
+flags:DROP_40
+flags:INVISIBLE | ATTR_CLEAR
+flags:PL_TRAP
+flags:PL_MORIA
+desc:A small translucent humanoid figure.
 
 
 
@@ -4619,6 +4880,23 @@ flags:EMPTY_MIND
 flags:OPEN_DOOR | BASH_DOOR
 flags:PL_JB | PL_MORIA | PL_OLDBAND | PL_FA | PL_OS | PL_ZVARIANT
 desc:It is an animated dwarf skeleton.
+
+name:giant red centipede
+base:centipede
+color:R
+speed:120
+hit-points:14
+hearing:12
+smell:20
+armor-class:16
+sleepiness:50
+depth:10
+rarity:5
+experience:24
+blow:BITE:HURT:1d2
+blow:STING:POISON:1d2
+flags:PL_MORIA
+desc:It is about four feet long and carnivorous.
 
 ### Dungeon level 11 ###
 
