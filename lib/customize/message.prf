@@ -181,6 +181,21 @@ message:MON_INSULT:w
 # MSG_MON_MOAN
 message:MON_MOAN:w
 
+# MSG_MON_CHALLENGE
+message:MON_CHALLENGE:w
+
+# MSG_MON_PECK
+message:MON_CHALLENGE:w
+
+# MSG_MON_PECK2
+message:MON_CHALLENGE:w
+
+# MSG_MON_SING
+message:MON_CHALLENGE:w
+
+# MSG_MON_THORN
+message:MON_CHALLENGE:w
+
 # MSG_RECOVER
 message:RECOVER:w
 

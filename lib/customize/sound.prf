@@ -325,6 +325,18 @@ sound:KILL_KING:amb_guitar_chord
 # Attack - hit
 sound:MON_HIT:mco_hit_whip
 
+# Attack - peck
+sound:MON_PECK:mco_hit_whip
+
+# Attack - peck2
+sound:MON_PECK2:mco_hit_whip
+
+# Attack - sing
+sound:MON_SING:mco_hit_whip
+
+# Attack - thorn
+sound:MON_THORN:mco_hit_whip
+
 # Attack - touch
 sound:MON_TOUCH:mco_click_vibra
 
@@ -378,6 +390,9 @@ sound:MON_INSULT:mco_strange_thwoink
 
 # Attack - moan
 sound:MON_MOAN:mco_strange_music
+
+# Attack - challenge
+sound:MON_CHALLENGE:mco_strange_music
 
 # Attack - shriek
 sound:SHRIEK:mco_mouse_squeaks
