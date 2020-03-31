@@ -5080,6 +5080,96 @@ flags:OPEN_DOOR | BASH_DOOR
 flags:PL_JB | PL_MORIA | PL_OLDBAND | PL_FA | PL_OS | PL_ZVARIANT
 desc:It is an animated elf skeleton.
 
+name:vorpal bunny
+base:rodent
+color:w
+speed:120
+hit-points:55
+hearing:40
+armor-class:40
+sleepiness:0
+depth:11
+rarity:100
+experience:40
+blow:BITE:HURT:6d1
+blow:BITE:HURT:7d1
+flags:BASH_DOOR
+flags:PL_MORIA | PL_FA | PL_OS | PL_ZVARIANT
+spell-freq:8
+spells:BLINK
+desc:It looks very cute, except for the razor sharp teeth. It moans
+desc:ominously as it jumps at your throat!
+
+name:gnome mage
+base:humanoid
+color:r
+speed:110
+hit-points:32
+hearing:18
+armor-class:30
+sleepiness:20
+depth:11
+rarity:10
+experience:38
+blow:HIT:HURT:1d5
+flags:MALE | EVIL
+flags:DROP_60
+flags:FORCE_SLEEP
+flags:PL_MORIA | PL_OS | PL_OLDBAND | PL_ZVARIANT
+spell-freq:4
+spell-power:11
+spells:BLINK | DARKNESS
+spells:BO_COLD
+spells:S_MONSTER
+drop-base:magic book:5:1:1
+drop-base:magic book:5:1:1
+friends:100:4d4:Same
+desc:A mage of short stature.
+
+name:petty-dwarven mage
+base:humanoid
+color:r
+speed:110
+hit-points:32
+hearing:18
+armor-class:30
+sleepiness:10
+depth:11
+rarity:20
+experience:38
+blow:HIT:HURT:1d5
+flags:MALE | EVIL
+flags:DROP_60
+flags:FORCE_SLEEP
+flags:PL_FA
+spell-freq:2
+spell-power:4
+spells:BLINK | DARKNESS
+spells:BO_COLD | BA_POIS | BO_FIRE
+spells:S_MONSTER
+drop-base:magic book:5:1:1
+drop-base:magic book:5:1:1
+desc:A mage of short stature.
+
+name:hobgoblin
+base:humanoid
+color:U
+speed:110
+hit-points:54
+hearing:20
+armor-class:38
+sleepiness:30
+depth:11
+rarity:10
+experience:38
+blow:HIT:HURT:1d10
+flags:DROP_40
+flags:MOVE_BODY
+flags:PL_MORIA | PL_FA | PL_OS
+friends:100:2d4:Same
+desc:Hilarious-looking monstrosities with deformed, multicolored limbs and 
+desc:bodies.  They riot gleefully down the corridor towards you.
+
 ### Dungeon level 12 ###
 
 name:black mamba
@@ -5430,6 +5520,24 @@ flags:HURT_LIGHT | IM_ACID | IM_POIS | HURT_COLD | NO_CONF | NO_SLEEP
 flags:PL_CORE
 desc:A strange jelly thing, covered in discoloured blotches.
 
+name:giant clear ant
+base:ant
+color:w
+speed:110
+hit-points:12
+hearing:12
+smell:20
+armor-class:18
+sleepiness:60
+depth:12
+rarity:5
+experience:24
+blow:BITE:HURT:1d4
+flags:INVISIBLE
+flags:ATTR_CLEAR
+flags:PL_MORIA
+desc:It is a large translucent ant.
+
 ### Dungeon level 13 ###
 
 name:killer brown beetle
@@ -5553,7 +5661,7 @@ flags:MALE | EVIL | SMART
 flags:DROP_1
 flags:OPEN_DOOR
 flags:FORCE_SLEEP
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 spell-freq:3
 spells:BLIND | BLINK | CONF | DARKNESS | HASTE | HOLD
 spells:SLOW | TPORT
@@ -5614,6 +5722,81 @@ spell-power:16
 spells:ARROW
 friends:100:1d3:Same
 desc:He has a bow of horn and a quiver full of black-feathered arrows.
+
+name:giant red speckled frog
+base:reptile
+color:R
+speed:110
+hit-points:27
+hearing:12
+smell:20
+armor-class:20
+sleepiness:30
+depth:13
+rarity:5
+experience:32
+blow:BITE:HURT:3d4
+flags:RAND_50 | BASH_DOOR
+flags:PL_MORIA
+desc:It is as big as a wolf.
+
+name:black orc
+base:orc
+color:D
+speed:110
+hit-points:66
+hearing:20
+smell:20
+armor-class:54
+sleepiness:60
+depth:13
+rarity:5
+experience:45
+blow:HIT:HURT:3d4
+blow:HIT:HURT:3d4
+flags:DROP_20
+flags:HURT_LIGHT
+flags:PL_FA | PL_MORIA | PL_OLDBAND | PL_OS | PL_ZVARIANT
+innate-freq:9
+spells:ARROW
+friends:20:1d2:Cave troll
+friends:70:2d4:Snaga
+friends:100:3d4:Same
+desc:He is a large orc with powerful arms and deep black skin.
+
+name:giant long-eared bat
+base:bat
+color:u
+speed:130
+hit-points:23
+hearing:12
+armor-class:20
+sleepiness:20
+depth:13
+rarity:5
+experience:20
+blow:BITE:HURT:1d4
+blow:CLAW:HURT:1d2
+blow:CLAW:HURT:1d2
+flags:RAND_50
+flags:PL_MORIA
+desc:It screeches as it attacks.
+
+name:giant gnat
+base:insect
+color:m
+speed:130
+hit-points:2
+hearing:8
+armor-class:4
+sleepiness:10
+depth:13
+rarity:5
+experience:1
+blow:BITE:HURT:1d1
+flags:BASH_DOOR
+flags:PL_MORIA
+desc:It makes you itch just to look at it.
 
 ### Dungeon level 14 ###
 
@@ -5736,6 +5919,58 @@ blow:HIT:HURT:1d8
 flags:PL_CORE
 desc:A strange creature that merges with the dungeon floor, trapping its
 desc: victims by enveloping them within its perfectly disguised form.
+
+name:killer green beetle
+base:killer beetle
+color:g
+speed:110
+hit-points:72
+hearing:12
+armor-class:45
+sleepiness:30
+depth:14
+rarity:5
+experience:46
+blow:BITE:HURT:4d4
+flags:PL_MORIA
+desc:It is a vicious insect with a tough carapace.
+
+name:skeleton hobgoblin
+base:skeleton
+color:w
+speed:110
+hit-points:59
+hearing:20
+armor-class:34
+sleepiness:30
+depth:14
+rarity:10
+experience:46
+blow:HIT:HURT:2d5
+flags:EMPTY_MIND
+flags:OPEN_DOOR | BASH_DOOR
+flags:PL_MORIA
+desc:It is an animated hobgoblin skeleton.
+
+name:white dragon bat
+base:bat
+color:w
+speed:130
+hit-points:7
+hearing:12
+armor-class:20
+sleepiness:50
+depth:14
+rarity:5
+experience:40
+blow:BITE:COLD:1d3
+flags:RAND_50 | BASH_DOOR
+flags:IM_COLD
+flags:FORCE_SLEEP
+flags:PL_MORIA
+innate-freq:4
+spells:BR_COLD
+desc:Frost drips from this bat with a sharp tail.
 
 ### Dungeon level 15 ###
 
@@ -6042,6 +6277,76 @@ flags:PL_MORIA | PL_CORE
 friends:100:2d6:Same
 desc:A giant bat, the beating of whose wings produces a strangely unnerving
 desc: noise.
+
+name:giant grey bat
+base:bat
+color:s
+speed:130
+hit-points:18
+hearing:12
+armor-class:22
+sleepiness:15
+depth:15
+rarity:5
+experience:22
+blow:BITE:HURT:1d6
+blow:CLAW:HURT:1d2
+blow:CLAW:HURT:1d2
+flags:RAND_50
+flags:PL_MORIA
+desc:It screeches as it attacks.
+
+name:giant yellow tick
+base:spider
+color:y
+speed:100
+hit-points:90
+hearing:12
+smell:20
+armor-class:150
+sleepiness:20
+depth:15
+rarity:5
+experience:48
+blow:BITE:POISON:3d9
+flags:ANIMAL | WEIRD_MIND
+flags:IM_POIS
+flags:PL_MORIA
+desc:It is moving slowly towards you.
+
+name:giant ebony ant
+base:insect
+glyph:a
+color:D
+speed:110
+hit-points:8
+hearing:12
+armor-class:24
+sleepiness:60
+depth:15
+rarity:10
+experience:3
+blow:BITE:HURT:2d3
+flags:BASH_DOOR
+flags:PL_MORIA
+desc:It makes you itch just to look at it.
+
+name:huge white bat
+base:insect
+glyph:b
+color:w
+speed:120
+hit-points:14
+hearing:7
+armor-class:12
+sleepiness:40
+depth:15
+rarity:20
+experience:3
+blow:BITE:HURT:1d6
+flags:BASH_DOOR
+flags:PL_MORIA
+desc:It makes you itch just to look at it.
 
 ### Dungeon level 16 ###
 
@@ -7498,7 +7803,7 @@ blow:HIT:HURT:6d5
 flags:MALE | EVIL
 flags:DROP_1
 flags:OPEN_DOOR | TAKE_ITEM
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 innate-freq:6
 spells:BOLT
 friends:50:1d1:rogue
