@@ -532,7 +532,7 @@ hearing:30
 armor-class:1
 sleepiness:10
 depth:0
-rarity:20
+rarity:30
 experience:0
 blow:PECK2
 flags:RAND_25
@@ -547,11 +547,27 @@ hearing:30
 armor-class:1
 sleepiness:10
 depth:0
-rarity:20
+rarity:30
 experience:0
 blow:PECK2
 flags:RAND_25
 desc:Utterly harmless, except when angry.
+
+name:kibitzer
+base:bird
+color:g
+speed:110
+hit-points:1
+hearing:30
+armor-class:1
+sleepiness:10
+depth:0
+rarity:30
+experience:0
+blow:PECK2
+flags:RAND_25
+desc:A crested plover, with a shrill wailing cry.
+desc: It seems to be watching you.
 
 name:wild rabbit
 base:rodent
@@ -667,6 +683,22 @@ experience:0
 blow:PECK2
 flags:RAND_25 | RAND_50
 desc:Utterly harmless, except when angry.
+
+name:water dragon
+base:reptile
+glyph:D
+color:g
+speed:110
+hit-points:8
+hearing:20
+smell:20
+armor-class:4
+sleepiness:15
+depth:0
+rarity:50
+experience:0
+blow:BITE:HURT:1d1
+desc:A semi-aquatic lizard.
 
 name:Nivim, the Poltergeist
 base:ghost
