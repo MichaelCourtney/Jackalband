@@ -448,3 +448,13 @@ mon-base:ogre
 mon-base:orc
 mon-base:person
 mon-base:troll
+
+name:dbt
+room:3
+alloc:8:30
+mon-base:mold
+mon-base:mushroom
+mon-base:feline
+mon-base:bird
+mon-base:zephyr hound
+mon-base:vortex

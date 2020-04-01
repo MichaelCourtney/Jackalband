@@ -139,6 +139,9 @@ message:MON_KICK:w
 # MSG_MON_CLAW
 message:MON_CLAW:w
 
+# MSG_MON_BORE
+message:MON_BORE:w
+
 # MSG_MON_BITE
 message:MON_BITE:w
 

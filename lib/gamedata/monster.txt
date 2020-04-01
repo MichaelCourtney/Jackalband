@@ -687,7 +687,7 @@ desc:Utterly harmless, except when angry.
 name:water dragon
 base:reptile
 glyph:D
-color:g
+color:t
 speed:110
 hit-points:8
 hearing:20
@@ -5926,13 +5926,13 @@ color:g
 speed:110
 hit-points:72
 hearing:12
-armor-class:45
+armor-class:81
 sleepiness:30
 depth:14
 rarity:5
 experience:46
 blow:BITE:HURT:4d4
-flags:PL_MORIA
+flags:PL_MORIA | PL_JB
 desc:It is a vicious insect with a tough carapace.
 
 name:skeleton hobgoblin
@@ -6348,6 +6348,22 @@ flags:BASH_DOOR
 flags:PL_MORIA
 desc:It makes you itch just to look at it.
 
+name:violet mold
+base:mold
+color:v
+speed:110
+hit-points:77
+hearing:2
+armor-class:15
+sleepiness:70
+depth:15
+rarity:5
+experience:50
+blow:SPORE:LOSE_CON:1d4
+flags:EMPTY_MIND | STUPID
+flags:PL_MORIA | PL_SIL | PL_JB
+desc:It is a strange growth on the dungeon floor.
+
 ### Dungeon level 16 ###
 
 name:umber hulk
@@ -6540,6 +6556,44 @@ desc:A type of crow, specially bred by the forces of evil as spies; their
 desc: rudimentary intelligence guided by an evil mind has tracked you down, and
 desc: now they seek to alert other evil creatures to your presence.
 
+name:giant black rat
+base:rodent
+color:D
+speed:110
+hit-points:8
+hearing:8
+smell:20
+armor-class:16
+sleepiness:20
+depth:16
+rarity:5
+experience:3
+blow:BITE:POISON:1d5
+flags:MULTIPLY
+flags:RAND_25
+flags:PL_MORIA
+desc:It is a very vicious rodent.
+
+name:green dragon bat
+base:bat
+color:g
+speed:130
+hit-points:8
+hearing:12
+armor-class:22
+sleepiness:50
+depth:16
+rarity:5
+experience:44
+blow:BITE:POISON:1d3
+flags:RAND_50 | BASH_DOOR
+flags:IM_POIS
+flags:FORCE_SLEEP
+flags:PL_MORIA
+innate-freq:4
+spells:BR_POIS
+desc:Poison drips from this bat with a sharp tail.
+
 ### Dungeon level 17 ###
 
 name:imp
@@ -6583,7 +6637,7 @@ blow:BITE:HURT:1d6
 flags:MALE
 flags:DROP_20
 flags:HURT_LIGHT
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 friends:100:4d4:Same
 desc:He is green skinned, ugly and stupid.
 
@@ -6691,6 +6745,25 @@ flags:RAND_25 | PASS_WALL
 flags:HURT_ROCK | IM_COLD | IM_ELEC | IM_FIRE
 flags:PL_MORIA | PL_CORE
 desc:A whirling form of sentient rock.
+
+name:giant brown scorpion
+base:spider
+color:u
+speed:115
+hit-points:50
+hearing:12
+armor-class:44
+sleepiness:20
+depth:17
+rarity:5
+experience:62
+blow:CLAW:HURT:2d4
+blow:CLAW:HURT:2d4
+blow:STING:LOSE_STR:1d7
+flags:ANIMAL | WEIRD_MIND
+flags:IM_POIS
+flags:PL_MORIA | PL_JB
+desc:It is fast and poisonous.
 
 ### Dungeon level 18 ###
 
@@ -7083,6 +7156,94 @@ desc:  Enormous it looked, its sprawling branches going up like racing arms
 desc: with many long-fingered hands, its knotted and twisted trunk gaping in
 desc: wide fissures that creaked faintly as the boughs moved."
 
+name:grey ooze
+base:jelly
+color:s
+speed:110
+hit-points:27
+hearing:15
+armor-class:10
+sleepiness:1
+depth:19
+rarity:5
+experience:40
+blow:TOUCH:COLD:2d6
+flags:DROP_40
+flags:RAND_50 | OPEN_DOOR | BASH_DOOR | KILL_BODY | TAKE_ITEM
+flags:IM_POIS | IM_COLD | HURT_FIRE
+flags:PL_MORIA
+desc:It is a strangely moving puddle.
+
+name:disenchanter ooze
+base:jelly
+color:v
+speed:110
+hit-points:27
+hearing:15
+armor-class:15
+sleepiness:1
+depth:19
+rarity:5
+experience:50
+blow:TOUCH:DISENCHANT
+flags:DROP_40
+flags:RAND_50 | OPEN_DOOR | BASH_DOOR | KILL_BODY | TAKE_ITEM
+flags:IM_POIS | HURT_COLD | HURT_FIRE
+flags:PL_MORIA
+desc:It is a strangely moving puddle.
+
+name:giant spotted rat
+base:rodent
+color:M
+speed:110
+hit-points:8
+hearing:8
+smell:20
+armor-class:20
+sleepiness:20
+depth:19
+rarity:5
+experience:3
+blow:BITE:POISON:1d5
+flags:MULTIPLY
+flags:RAND_25
+flags:PL_MORIA
+desc:It is a very vicious rodent.
+
+name:mummified kobold
+base:zombie
+color:w
+speed:110
+hit-points:59
+hearing:20
+armor-class:24
+sleepiness:75
+depth:19
+rarity:10
+experience:46
+blow:HIT:HURT:1d6
+blow:HIT:HURT:1d6
+flags:EMPTY_MIND
+flags:DROP_20
+flags:NO_FEAR
+flags:PL_MORIA
+desc:It is an kobold covered in wrappings.
+
+name:killer black beetle
+base:killer beetle
+color:s
+speed:110
+hit-points:80
+hearing:12
+armor-class:82
+sleepiness:30
+depth:19
+rarity:10
+experience:75
+blow:BITE:HURT:4d4
+flags:PL_MORIA | PL_JB
+desc:It is a vicious insect with a tough carapace.
+
 ########## DUNGEON LEVELS 20-29 ##########
 
 
@@ -7455,6 +7616,24 @@ desc:A warrior for a holy cause.  Unfortunately, his god is not yours, and
 desc: there is rivalry even between the various gods of Good, so he is your
 desc: enemy.
 
+name:giant red bat
+base:bat
+color:o
+speed:120
+hit-points:23
+hearing:12
+armor-class:24
+sleepiness:20
+depth:20
+rarity:5
+experience:40
+blow:BITE:HURT:1d7
+blow:CLAW:HURT:1d3
+blow:CLAW:HURT:1d3
+flags:RAND_50
+flags:PL_MORIA
+desc:It screeches as it attacks.
+
 ### Dungeon level 21 ###
 
 name:Lugdush, the Uruk
@@ -7609,6 +7788,43 @@ flags:DROP_20
 flags:NO_FEAR
 flags:PL_MORIA | PL_CORE
 desc:It is an orcish figure covered in wrappings.
+
+name:black dragon bat
+base:bat
+color:D
+speed:130
+hit-points:9
+hearing:12
+armor-class:24
+sleepiness:50
+depth:21
+rarity:5
+experience:50
+blow:BITE:ACID:1d3
+flags:RAND_50 | BASH_DOOR
+flags:IM_ACID
+flags:FORCE_SLEEP
+flags:PL_MORIA
+innate-freq:4
+spells:BR_ACID
+desc:Acid drips from this bat with a sharp tail.
+
+name:killer boring beetle
+base:killer beetle
+color:g
+speed:110
+hit-points:55
+hearing:12
+armor-class:80
+sleepiness:30
+depth:21
+rarity:5
+experience:70
+blow:CLAW:HURT:3d6
+blow:CLAW:HURT:3d6
+flags:RAND_25 | KILL_WALL
+flags:PL_MORIA | PL_JB
+desc:It is a giant beetle with vicious claws.
 
 ### Dungeon level 22 ###
 
@@ -9260,9 +9476,6 @@ mimic:ring:Venom's End
 mimic:ring:Free Action
 mimic:ring:See Invisible
 mimic:ring:Ring of Power
-mimic:ring:Ring of Firmament
-mimic:ring:Ring of Adamant
-mimic:ring:Ring of Fire
 
 name:young blue dragon
 base:dragon
@@ -13196,7 +13409,7 @@ flags:EVIL
 flags:IM_ACID | IM_COLD | IM_ELEC | IM_FIRE
 flags:FORCE_SLEEP | ATTR_FLICKER
 flags-off: HURT_FIRE
-flags:PL_CORE
+flags:PL_CORE | PL_MORIA
 desc:It is the epitome of all that is evil, in a mold.  Its lifeless form draws
 desc: power from sucking the souls of those that approach it, a nimbus of pure
 desc: evil surrounds it.  Luckily for you, it can't move.
