@@ -13276,6 +13276,7 @@ flags:OPEN_DOOR
 flags:IM_ACID | IM_FIRE | IM_POIS | NO_CONF | NO_SLEEP | NO_HOLD
 flags:FORCE_SLEEP
 flags-off:HURT_COLD
+flags:PL_GREEK
 flags:PL_CORE
 spell-freq:4
 spells:WOUND | HOLD | SCARE

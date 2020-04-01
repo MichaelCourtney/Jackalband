@@ -788,6 +788,7 @@ struct chunk *labyrinth_chunk(int depth, int h, int w, bool lit, bool soft)
 }
 
 /**
+ * Edited to occasionally do greek themed labyrinth - MC
  * Build a labyrinth level.
  * \param p is the player
  * Note that if the function returns false, a level wasn't generated.
@@ -796,7 +797,7 @@ struct chunk *labyrinth_chunk(int depth, int h, int w, bool lit, bool soft)
  * labyrinths than others).
  */
 struct chunk *labyrinth_gen(struct player *p, int min_height, int min_width) {
-    int i, k;
+    int i, j, k;
 	struct chunk *c;
 	struct loc grid;
     /* Size of the actual labyrinth part must be odd. */
@@ -850,8 +851,24 @@ struct chunk *labyrinth_gen(struct player *p, int min_height, int min_width) {
     /* Place some traps in the dungeon */
     alloc_objects(c, SET_CORR, TYP_TRAP, randint1(k), c->depth, 0);
 
+	/* Occassional greek theme. */
+	i = z_info->level_monster_min + randint1(8) + k;
+	j = MAX(1, i / 4);
+	i -= j;
+	
+	if (one_in_(3) && c->depth < 50) {
+		mon_restrict("Trojan Horse", c->depth, true);
+	}
+	
     /* Put some monsters in the dungeon */
-    for (i = z_info->level_monster_min + randint1(8) + k; i > 0; i--)
+    for (; j > 0; j--)
+		pick_and_place_distant_monster(c, p, 0, true, c->depth);
+
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+	
+    /* Put the rest of the monsters in the dungeon */
+    for (; i > 0; i--)
 		pick_and_place_distant_monster(c, p, 0, true, c->depth);
 
     /* Put some objects/gold in the dungeon */
