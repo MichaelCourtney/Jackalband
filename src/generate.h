@@ -317,6 +317,7 @@ bool build_nest_terrain(struct chunk *c, struct loc centre, int rating);
 bool build_pit(struct chunk *c, struct loc centre, int rating);
 bool build_pit_mini(struct chunk *c, struct loc centre, int rating);
 bool build_pit_moat(struct chunk *c, struct loc centre, int rating);
+bool build_kennel(struct chunk *c, struct loc centre, int rating);
 bool build_storeroom(struct chunk *c, struct loc centre, int rating);
 bool build_template(struct chunk *c, struct loc centre, int rating);
 bool build_interesting(struct chunk *c, struct loc centre, int rating);

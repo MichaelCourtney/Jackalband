@@ -451,6 +451,130 @@ static void fill_circle_wallsafe(struct chunk *c, int y0, int x0, int radius, in
 }
 
 /**
+ * Build cells on the north wall.
+ * \param c the current chunk
+ * \param x1 inclusive room boundaries
+ * \param x2 inclusive room boundaries
+ * \param y1 inclusive room boundaries
+ * \param y2 inclusive room boundaries
+ * \param flag the SQUARE_* flag we are marking with
+ */
+static void cells_n(struct chunk *c, int x1, int x2, int y1, int y2, int flag)
+{
+	int x, y;
+	
+	fill_xrange(c, y2, x1, x2, FEAT_GRANITE, flag, false);
+	fill_yrange(c, x1, y1, y2, FEAT_GRANITE, flag, false);
+	fill_yrange(c, x2, y1, y2, FEAT_GRANITE, flag, false);
+	
+	for (y = y1; y <= y2 - 1; y++) {
+		for (x = x1 + 2; x <= x2 - 2; x += 2) {
+			struct loc grid = loc(x, y);
+			square_set_feat(c, grid, FEAT_GRANITE);
+			sqinfo_on(square(c, grid).info, SQUARE_WALL_INNER);
+		}
+	}
+	
+	for (x = x1 + 1; x <= x2 - 1; x += 2) {
+		struct loc grid = loc(x, y1);
+		square_set_feat(c, grid, FEAT_CLOSED);
+	}
+}
+				
+/**
+ * Build cells on the south wall.
+ * \param c the current chunk
+ * \param x1 inclusive room boundaries
+ * \param x2 inclusive room boundaries
+ * \param y1 inclusive room boundaries
+ * \param y2 inclusive room boundaries
+ * \param flag the SQUARE_* flag we are marking with
+ */
+static void cells_s(struct chunk *c, int x1, int x2, int y1, int y2, int flag)
+{
+	int x, y;
+	
+	fill_xrange(c, y1, x1, x2, FEAT_GRANITE, flag, false);
+	fill_yrange(c, x1, y1, y2, FEAT_GRANITE, flag, false);
+	fill_yrange(c, x2, y1, y2, FEAT_GRANITE, flag, false);
+
+	for (y = y1 + 1; y <= y2; y++) {
+		for (x = x1 + 2; x <= x2 - 2; x += 2) {
+			struct loc grid = loc(x, y);
+			square_set_feat(c, grid, FEAT_GRANITE);
+			sqinfo_on(square(c, grid).info, SQUARE_WALL_INNER);
+		}
+	}
+	
+	for (x = x1 + 1; x <= x2 - 1; x += 2) {
+		struct loc grid = loc(x, y2);
+		square_set_feat(c, grid, FEAT_CLOSED);
+	}
+}
+
+/**
+ * Build cells on the east wall.
+ * \param c the current chunk
+ * \param x1 inclusive room boundaries
+ * \param x2 inclusive room boundaries
+ * \param y1 inclusive room boundaries
+ * \param y2 inclusive room boundaries
+ * \param flag the SQUARE_* flag we are marking with
+ */
+static void cells_e(struct chunk *c, int x1, int x2, int y1, int y2, int flag)
+{
+	int x, y;
+	
+	fill_yrange(c, x2, y1, y2, FEAT_GRANITE, flag, false);
+	fill_xrange(c, y1, x1, x2, FEAT_GRANITE, flag, false);
+	fill_xrange(c, y2, x1, x2, FEAT_GRANITE, flag, false);
+
+	for (x = x1; x <= x2 - 1; x++) {
+		for (y = y1 + 2; y <= y2 - 2; y += 2) {
+			struct loc grid = loc(x, y);
+			square_set_feat(c, grid, FEAT_GRANITE);
+			sqinfo_on(square(c, grid).info, SQUARE_WALL_INNER);
+		}
+	}
+	
+	for (y = y1 + 1; y <= y2 - 1; y += 2) {
+		struct loc grid = loc(x1, y);
+		square_set_feat(c, grid, FEAT_CLOSED);
+	}
+}
+
+/**
+ * Build cells on the west wall.
+ * \param c the current chunk
+ * \param x1 inclusive room boundaries
+ * \param x2 inclusive room boundaries
+ * \param y1 inclusive room boundaries
+ * \param y2 inclusive room boundaries
+ * \param flag the SQUARE_* flag we are marking with
+ */
+static void cells_w(struct chunk *c, int x1, int x2, int y1, int y2, int flag)
+{
+	int x, y;
+	
+	fill_yrange(c, x1, y1, y2, FEAT_GRANITE, flag, false);
+	fill_xrange(c, y1, x1, x2, FEAT_GRANITE, flag, false);
+	fill_xrange(c, y2, x1, x2, FEAT_GRANITE, flag, false);
+
+	for (x = x1 + 1; x <= x2; x++) {
+		for (y = y1 + 2; y <= y2 - 2; y += 2) {
+			struct loc grid = loc(x, y);
+			square_set_feat(c, grid, FEAT_GRANITE);
+			sqinfo_on(square(c, grid).info, SQUARE_WALL_INNER);
+		}
+	}
+	
+	for (y = y1 + 1; y <= y2 - 1; y += 2) {
+		struct loc grid = loc(x2, y);
+		square_set_feat(c, grid, FEAT_CLOSED);
+	}
+}
+
+/**
  * Fill the lines of a cross/plus with a feature.
  *
  * \param c the current chunk
@@ -2068,7 +2192,7 @@ bool build_dnm_building(struct chunk *c, struct loc centre, int rating)
 	for (y = y1 + 2; y <= y2 - 2; y += 1)
 		for (x = x1 + 2; x <= x2 - 2; x += 1)
 			if (one_in_(6)) {
-				i = MAX(1, randint1(2) - randint0(1));
+				i = MAX(1, randint1(2) - randint0(2));
 				fill_circle(c, y, x, i, 0, FEAT_FLOOR, SQUARE_NONE, true);
 			}
 			
@@ -2432,7 +2556,7 @@ bool build_small(struct chunk *c, struct loc centre, int rating)
 
 	/* Pick a room size */
 	int height = 1 + randint1(4) + randint1(3);
-	int width = 1 + randint1(4) + randint1(4) + MIN(6, randint0(1 + c->depth / 10));
+	int width = 1 + randint1(4) + randint1(4) + MIN(6, randint0(2 + c->depth / 10));
 
 	/* Find and reserve some space in the dungeon.  Get center of room. */
 	if ((centre.y >= c->height) || (centre.x >= c->width)) {
@@ -3561,7 +3685,7 @@ bool build_nest_terrain(struct chunk *c, struct loc centre, int rating)
 	struct monster_race *what[64];
 	bool empty = false;
 	int light = false;
-	int size_vary = randint0(2);
+	int size_vary = randint0(3);
 	int radius = 7 + 2 * size_vary;
 	struct monster_group_info info = {0, 0};
 	
@@ -3933,7 +4057,7 @@ bool build_pit_mini(struct chunk *c, struct loc centre, int rating)
 	
 	/* Randomly reduce by depth factor, also effects loot & monster depth */
 	int k = MIN(6, 1 + (c->depth / 4));
-	height -= randint0(2);
+	height -= randint0(3);
 	width -= randint1(8 - k);
 	
 	/* Enforce minimum dimensions */
@@ -4138,7 +4262,7 @@ bool build_pit_mini(struct chunk *c, struct loc centre, int rating)
 	for (y = centre.y - 2 + h; y <= centre.y + 2 - h; y++) {
 		for (x = centre.x - 9 + w; x <= centre.x + 9 - w; x++) {
 			/* Occasionally place an item, making it good 1/3 of the time */
-			if ((randint0(100) < alloc_obj) && (randint0(5) < k))
+			if ((randint0(100) < alloc_obj) && (randint0(6) < k))
 				place_object(c, loc(x, y), c->depth + 10, one_in_(3), false,
 							 ORIGIN_PIT, 0);
 		}
@@ -4205,7 +4329,7 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 	
 	/* Randomly reduce by depth factor, also effects loot & monster depth */
 	int k = MIN(6, 1 + (c->depth / 4));
-	height -= randint0(2);
+	height -= randint0(3);
 	width -= randint1(8 - k);
 	
 	/* Enforce minimum dimensions */
@@ -4419,7 +4543,7 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 	for (y = centre.y - 2 + h; y <= centre.y + 2 - h; y++) {
 		for (x = centre.x - 9 + w; x <= centre.x + 9 - w; x++) {
 			/* Occasionally place an item, making it good 1/3 of the time */
-			if ((randint0(100) < alloc_obj) && (randint0(5) < k))
+			if ((randint0(100) < alloc_obj) && (randint0(6) < k))
 				place_object(c, loc(x, y), c->depth + 10, one_in_(3), false,
 							 ORIGIN_PIT, 0);
 		}
@@ -4428,6 +4552,185 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 	return true;
 }
 
+
+/**
+ * Builds a kennel
+ * \param c the chunk the room is being built in
+ * \param centre the room centre; out of chunk centre invokes find_space()
+ * \return success
+ */
+ bool build_kennel(struct chunk *c, struct loc centre, int rating)
+{
+	int t, q;
+	int o, p;
+	int w, width, height;
+	int y1, y2, x1, x2;
+	
+	/* pick a quantity of cells */
+	q = randint1(16);
+	
+	/* reject odd numbers 2 times in 3 */
+	if (2 * (q / 2) < q && !one_in_(3)) q += 1;
+	
+	/* choose layout 
+	 * t = 1, a single row of cells
+	 * t = 2, a row of cells to either side
+	 * t = 3, a square layout with outer cells & centre cells
+	 * t = 4, 4 rows with 2 corridors
+	 */
+	if (q < 6 || q == 7 || q == 9 || q == 11 || q == 13 || q == 15) {
+		t = 1;
+	} else if (q < 10) {
+		t = randint1(2);
+		if (t != 2) t = randint1(2);
+	} else if (q == 12 || q == 16) {
+		t = randint1(4);
+		if (t != 2) t = randint1(4);
+	} else {
+		t = randint1(3);
+		if (t != 2) t = randint1(3);
+	}
+	
+	/* choose an orientation. o = 0 runs west-east, o = 1 runs north-south*/
+	o = 0;
+	if (one_in_(q + 1)) o = 1;
+	
+	if (t == 1) {
+		/* choose a wall for cells */
+		p = randint0(2);
+		
+		/* choose non cell width */
+		w = randint1(2 + (q / 5));
+		
+		/* calculate dimensions */
+		if (o == 0) {
+			width = 1 + (2 * (q - 1));
+			height = w + 2;
+		} else {
+			width = w + 2;
+			height = 1 + (2 * (q - 1));
+		}
+		
+	} else if (t == 2) {
+		/* choose non cell width */
+		w = 1;
+		if (one_in_(3)) w = randint1(3);
+
+		/* calculate dimensions */
+		if (o == 0) {
+			width = q - 1;
+			height = w + 4;
+		} else {
+			width = w + 4;
+			height = q - 1;
+		}
+		
+	} else if (t == 3) {
+		/* choose non cell width */
+		w = 1;
+
+		/* calculate dimensions */
+		if (o == 0) {
+			width = 7;
+			height = q - 1;
+		} else {
+			width = q - 1;
+			height = 7;
+		}
+		
+	} else {
+		/* choose non cell width */
+		w = 1;
+		if (one_in_(3)) w = randint1(2);
+
+		/* calculate dimensions */
+		if (o == 0) {
+			width = (q / 2) + 1;
+			height = (2 * w) + 9;
+		} else {
+			width = w + 9;
+			height = (q / 2) + 1;
+		}
+	}
+		
+	/* Find and reserve some space in the dungeon.  Get center of room. */
+	if ((centre.y >= c->height) || (centre.x >= c->width)) {
+		if (!find_space(&centre, height + 2, width + 2))
+			return (false);
+	}
+
+	/* Pick a room size */
+	y1 = centre.y - height / 2;
+	x1 = centre.x - width / 2;
+	y2 = y1 + height - 1;
+	x2 = x1 + width - 1;
+
+	/* Generate new room */
+	generate_room(c, y1-1, x1-1, y2+1, x2+1, false);
+
+	/* Generate outer walls and inner floors */
+	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
+	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
+	
+	/* add the kennel cells */
+	if (t == 1) {
+		if (o == 0) {
+			if (p == 0) {
+				cells_n(c, x1 - 1, x2 + 1, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			} else {
+				cells_s(c, x1 - 1, x2 + 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+			}
+
+		} else {
+			if (o == 0) {
+				cells_w(c, x1 - 1, x1 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			} else {
+				cells_e(c, x2 - 1, x2 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			}
+		}
+
+	} else if (t == 2) {
+		if (o == 0 ) {
+			cells_n(c, x1 - 1, x2 + 1, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_s(c, x1 - 1, x2 + 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+		
+		} else {
+			cells_w(c, x1 - 1, x1 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_e(c, x2 - 1, x2 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+		}
+		
+	} else if (t == 3) {
+		if (o == 0 ) {
+			cells_n(c, x1 - 1, x2 + 1, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_s(c, x1 - 1, x2 + 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+			cells_e(c, x1 + 1, x1 + 3, y1 + 3, y2 - 3, SQUARE_WALL_INNER);
+			cells_w(c, x2 - 3, x2 - 1, y1 + 3, y2 - 3, SQUARE_WALL_INNER);
+		
+		} else {
+			cells_w(c, x1 - 1, x1 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_e(c, x2 - 1, x2 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_n(c, x1 + 3, x2 - 3, y1 + 1, y1 + 3, SQUARE_WALL_INNER);
+			cells_s(c, x1 + 3, x2 - 3, y2 - 3, y2 - 1, SQUARE_WALL_INNER);
+		}
+		
+	} else {
+		if (o == 0 ) {
+			cells_n(c, x1, x2, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_s(c, x1, x2, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+			cells_n(c, x1, x2, y1 + 3, y1 + 5, SQUARE_WALL_INNER);
+			cells_s(c, x1, x2, y2 - 5, y2 - 3, SQUARE_WALL_INNER);
+		
+		} else {
+			cells_w(c, x1 - 1, x1 + 1, y1, y2, SQUARE_WALL_SOLID);
+			cells_e(c, x2 - 1, x2 + 1, y1, y2, SQUARE_WALL_SOLID);
+			cells_w(c, x2 + 3, x2 + 5, y1, y2, SQUARE_WALL_INNER);
+			cells_e(c, x1 - 5, x1 - 3, y1, y2, SQUARE_WALL_INNER);
+		}
+		
+	}
+
+	return true;
+}
 
 /**
  * Builds a storeroom shaped like a minipit.
@@ -4453,7 +4756,7 @@ bool build_storeroom(struct chunk *c, struct loc centre, int rating)
 	
 	/* Randomly reduce by depth factor */
 	k = MIN(6, 1 + (c->depth / 4));
-	height -= randint0(2);
+	height -= randint0(3);
 	width -= randint1(8 - k);
 	
 	/* Enforce minimum dimensions */

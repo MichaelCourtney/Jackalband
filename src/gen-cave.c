@@ -3106,7 +3106,7 @@ struct chunk *jelly_pit_gen(struct player *p, int min_height, int min_width) {
 	mon_restrict("random", c->depth, true);
 	}
 	
-	j = MAX(1, (randint0(55) / ((c->depth / 15) + 1)));
+	j = MAX(1, (randint0(56) / ((c->depth / 15) + 1)));
     
 	for (i = j; i > 0; i--)
 		pick_and_place_distant_monster(c, p, 0, true, c->depth);
