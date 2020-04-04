@@ -2325,7 +2325,7 @@ bool build_square_garden(struct chunk *c, struct loc centre, int rating)
 
 	/* Find and reserve some space in the dungeon.  Get center of room. */
 	if ((centre.y >= c->height) || (centre.x >= c->width)) {
-		if (!find_space(&centre, height + 2, width + 2))
+		if (!find_space(&centre, height + 4, width + 4))
 			return (false);
 	}
 
@@ -2713,7 +2713,7 @@ bool build_bridge(struct chunk *c, struct loc centre, int rating)
 
 	/* Find and reserve some space in the dungeon.  Get center of room. */
 	if ((centre.y >= c->height) || (centre.x >= c->width)) {
-		if (!find_space(&centre, height + 2, width + 2))
+		if (!find_space(&centre, height + 4, width + 4))
 			return (false);
 	}
 
@@ -4346,7 +4346,7 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 	
 	/* Find and reserve some space in the dungeon.  Get center of room. */
 	if ((centre.y >= c->height) || (centre.x >= c->width)) {
-		if (!find_space(&centre, height + 2, width + 2))
+		if (!find_space(&centre, height + 4, width + 4))
 			return (false);
 	}
 
@@ -4655,7 +4655,7 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 		
 	/* Find and reserve some space in the dungeon.  Get center of room. */
 	if ((centre.y >= c->height) || (centre.x >= c->width)) {
-		if (!find_space(&centre, height + 2, width + 2))
+		if (!find_space(&centre, height + 4, width + 4))
 			return (false);
 	}
 
@@ -4715,16 +4715,16 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 		
 	} else {
 		if (o == 0 ) {
-			cells_n(c, x1, x2, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
-			cells_s(c, x1, x2, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
-			cells_n(c, x1, x2, y1 + 3, y1 + 5, SQUARE_WALL_INNER);
-			cells_s(c, x1, x2, y2 - 5, y2 - 3, SQUARE_WALL_INNER);
+			cells_n(c, x1 + 1, x2 - 1, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			cells_s(c, x1 + 1, x2 - 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+			cells_n(c, x1 + 1, x2 - 1, y1 + 3, y1 + 5, SQUARE_WALL_INNER);
+			cells_s(c, x1 + 1, x2 - 1, y2 - 5, y2 - 3, SQUARE_WALL_INNER);
 		
 		} else {
-			cells_w(c, x1 - 1, x1 + 1, y1, y2, SQUARE_WALL_SOLID);
-			cells_e(c, x2 - 1, x2 + 1, y1, y2, SQUARE_WALL_SOLID);
-			cells_w(c, x2 + 3, x2 + 5, y1, y2, SQUARE_WALL_INNER);
-			cells_e(c, x1 - 5, x1 - 3, y1, y2, SQUARE_WALL_INNER);
+			cells_w(c, x1 - 1, x1 + 1, y1 + 1, y2 - 1, SQUARE_WALL_SOLID);
+			cells_e(c, x2 - 1, x2 + 1, y1 + 1, y2 - 1, SQUARE_WALL_SOLID);
+			cells_w(c, x2 - 5, x2 - 3, y1 + 1, y2 - 1, SQUARE_WALL_INNER);
+			cells_e(c, x1 + 3, x1 + 5, y1 + 1, y2 - 1, SQUARE_WALL_INNER);
 		}
 		
 	}
