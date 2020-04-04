@@ -4648,7 +4648,7 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 			width = (q / 2) + 1;
 			height = (2 * w) + 9;
 		} else {
-			width = w + 9;
+			width = (2 * w) + 9;
 			height = (q / 2) + 1;
 		}
 	}
