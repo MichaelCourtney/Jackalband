@@ -114,6 +114,7 @@ room:room template:3:11:33:30:0:1:100
 
 # Normal rooms (rarity = 0)
 room:small room:0:11:22:1:0:0:80
+room:tall room:0:33:11:1:0:0:82
 room:simple room:0:11:33:1:0:0:100
 
 ## One way door
@@ -222,8 +223,9 @@ room:dark room:0:11:33:1:0:1:2
 room:Sil room:0:11:33:1:0:1:3
 room:square garden:0:33:33:1:0:1:4
 room:simple room:0:11:33:1:0:1:5
-room:Least vault:0:22:44:1:0:1:9
-room:Interesting room:0:44:55:0:0:1:14
+room:tall room:0:33:11:1:0:1:6
+room:Least vault:0:22:44:1:0:1:10
+room:Interesting room:0:44:55:0:0:1:15
 room:large room:0:11:33:3:0:1:28
 room:Sil crossed room:0:11:33:1:0:1:32
 room:All crossed room:0:11:33:3:0:1:37

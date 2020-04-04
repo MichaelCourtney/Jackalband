@@ -297,6 +297,7 @@ bool build_staircase(struct chunk *c, struct loc centre, int rating);
 bool build_dnm_clearing(struct chunk *c, struct loc centre, int rating);
 bool build_dnm_building(struct chunk *c, struct loc centre, int rating);
 bool build_simple(struct chunk *c, struct loc centre, int rating);
+bool build_tall(struct chunk *c, struct loc centre, int rating);
 bool build_square_garden(struct chunk *c, struct loc centre, int rating);
 bool build_simple_lit(struct chunk *c, struct loc centre, int rating);
 bool build_simple_dark(struct chunk *c, struct loc centre, int rating);
