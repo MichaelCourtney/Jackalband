@@ -575,6 +575,88 @@ static void cells_w(struct chunk *c, int x1, int x2, int y1, int y2, int flag)
 }
 
 /**
+ * Fills cells with a specified monster.
+ * \param c the current chunk
+ * \param x1 inclusive cell boundaries
+ * \param x2 inclusive cell boundaries
+ * \param y inclusive cell boundaries
+ * \param depth the depth of monster to place
+ * \param race the monster to place if choosen
+ * \param zoo true if mixed monster types
+ */
+static void cells_monsters_xrange(struct chunk *c,  int y, int x1, int x2, int depth, 
+								struct monster_race *race, bool zoo)
+{
+	int x;
+	int group_index = 0;
+	struct monster_group_info info = {0, 0};
+	
+	if (!zoo) {
+		/* Get a group ID */
+		group_index = monster_group_index_new(c);
+
+		/* Place leader */
+		info.index = group_index;
+		info.role = MON_GROUP_LEADER;
+		place_new_monster(c, loc(x1, y), race, true, false, info, ORIGIN_DROP_SPECIAL);
+
+		/* Place servants */
+		info.role = MON_GROUP_SERVANT;
+		for (x = x1 + 2; x <= x2; x += 2) {
+			struct loc grid = loc(x, y);
+			place_new_monster(c, grid, race, true, false, info, ORIGIN_DROP_SPECIAL);
+		}
+		
+	} else {
+		for (x = x1; x <= x2; x += 2) {
+			struct loc grid = loc(x, y);
+			pick_and_place_monster(c, grid, depth, true, false, ORIGIN_DROP_SPECIAL);
+		}
+	}
+}
+
+/**
+ * Fills cells with a specified monster.
+ * \param c the current chunk
+ * \param y1 inclusive cell boundaries
+ * \param y2 inclusive cell boundaries
+ * \param x inclusive cell boundaries
+ * \param depth the depth of monster to place
+ * \param race the monster to place if choosen
+ * \param zoo true if mixed monster types
+ */
+static void cells_monsters_yrange(struct chunk *c, int x, int y1, int y2, int depth, 
+								struct monster_race *race, bool zoo)
+{
+	int y;
+	int group_index = 0;
+	struct monster_group_info info = {0, 0};
+	
+	if (!zoo) {
+		/* Get a group ID */
+		group_index = monster_group_index_new(c);
+
+		/* Place leader */
+		info.index = group_index;
+		info.role = MON_GROUP_LEADER;
+		place_new_monster(c, loc(x, y1), race, true, false, info, ORIGIN_DROP_SPECIAL);
+
+		/* Place servants */
+		info.role = MON_GROUP_SERVANT;
+		for (y = y1 + 2; y <= y2; y += 2) {
+			struct loc grid = loc(x, y);
+			place_new_monster(c, grid, race, true, false, info, ORIGIN_DROP_SPECIAL);
+		}
+		
+	} else {
+		for (y = y1; y <= y2; y += 2) {
+			struct loc grid = loc(x, y);
+			pick_and_place_monster(c, grid, depth, true, false, ORIGIN_DROP_SPECIAL);
+		}
+	}
+}
+
+/**
  * Fill the lines of a cross/plus with a feature.
  *
  * \param c the current chunk
@@ -4620,12 +4702,18 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
  bool build_kennel(struct chunk *c, struct loc centre, int rating)
 {
 	int t, q;
-	int o, p;
+	int o; 
+	int p = 0;
 	int w, width, height;
 	int y1, y2, x1, x2;
 	
+	struct monster_race *race;
+	int depth = c->depth;
+	bool zoo = false;
+	
 	/* pick a quantity of cells */
 	q = randint1(16);
+	if (q == 1) q = 2;
 	
 	/* reject odd numbers 2 times in 3 */
 	if (2 * (q / 2) < q && !one_in_(3)) q += 1;
@@ -4730,20 +4818,48 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 	draw_rectangle(c, y1-1, x1-1, y2+1, x2+1, FEAT_GRANITE, SQUARE_WALL_OUTER);
 	fill_rectangle(c, y1, x1, y2, x2, FEAT_FLOOR, SQUARE_NONE);
 	
-	/* add the kennel cells */
+	/* Animals only, favour dogs */
+	if (one_in_(3)) {
+		mon_restrict("Kennels", c->depth, false);
+	} else if (one_in_(2) && c->depth > 12) {
+		mon_restrict("Zephyr hounds", c->depth, false);
+	} else {
+		mon_restrict("Canines", c->depth, false);
+	}
+
+	/* Up to +10 current depth */
+	depth += MIN(10, c->depth / 3);
+	
+	/* Monster type is usually fixed, occassional menageries */
+	race = get_mon_num(depth);
+	if (!race) zoo = true;
+	if one_in_(5) zoo = true;
+	
+	/* Increase the level rating */
+	c->mon_rating += (3 * q) / 16;
+
+	/* add the kennel cells & occupants */
 	if (t == 1) {
 		if (o == 0) {
 			if (p == 0) {
 				cells_n(c, x1 - 1, x2 + 1, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
+				
+				cells_monsters_xrange(c, y2, x1, x2, depth, race, zoo);
 			} else {
 				cells_s(c, x1 - 1, x2 + 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+				
+				cells_monsters_xrange(c, y1, x1, x2, depth, race, zoo);
 			}
 
 		} else {
 			if (o == 0) {
 				cells_w(c, x1 - 1, x1 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+				
+				cells_monsters_yrange(c, x1, y1, y2, depth, race, zoo);
 			} else {
 				cells_e(c, x2 - 1, x2 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+				
+				cells_monsters_yrange(c, x2, y1, y2, depth, race, zoo);
 			}
 		}
 
@@ -4751,10 +4867,16 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 		if (o == 0 ) {
 			cells_n(c, x1 - 1, x2 + 1, y2 - 1, y2 + 1, SQUARE_WALL_SOLID);
 			cells_s(c, x1 - 1, x2 + 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
+			
+			cells_monsters_xrange(c, y2, x1, x2, depth, race, zoo);
+			cells_monsters_xrange(c, y1, x1, x2, depth, race, zoo);
 		
 		} else {
 			cells_w(c, x1 - 1, x1 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
 			cells_e(c, x2 - 1, x2 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
+			
+			cells_monsters_yrange(c, x1, y1, y2, depth, race, zoo);
+			cells_monsters_yrange(c, x2, y1, y2, depth, race, zoo);
 		}
 		
 	} else if (t == 3) {
@@ -4763,12 +4885,22 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 			cells_s(c, x1 - 1, x2 + 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
 			cells_e(c, x1 + 1, x1 + 3, y1 + 3, y2 - 3, SQUARE_WALL_INNER);
 			cells_w(c, x2 - 3, x2 - 1, y1 + 3, y2 - 3, SQUARE_WALL_INNER);
-		
+			
+			cells_monsters_xrange(c, y2, x1, x2, depth, race, zoo);
+			cells_monsters_xrange(c, y1, x1, x2, depth, race, zoo);
+			cells_monsters_yrange(c, x1 + 2, y1 + 4, y2 - 4, depth, race, zoo);
+			cells_monsters_yrange(c, x2 - 2, y1 + 4, y2 - 4, depth, race, zoo);
+			
 		} else {
 			cells_w(c, x1 - 1, x1 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
 			cells_e(c, x2 - 1, x2 + 1, y1 - 1, y2 + 1, SQUARE_WALL_SOLID);
 			cells_n(c, x1 + 3, x2 - 3, y1 + 1, y1 + 3, SQUARE_WALL_INNER);
 			cells_s(c, x1 + 3, x2 - 3, y2 - 3, y2 - 1, SQUARE_WALL_INNER);
+			
+			cells_monsters_yrange(c, x1, y1, y2, depth, race, zoo);
+			cells_monsters_yrange(c, x2, y1, y2, depth, race, zoo);
+			cells_monsters_xrange(c, y1 + 2, x1 + 4, x2 - 4, depth, race, zoo);
+			cells_monsters_xrange(c, y2 - 2, x1 + 4, x2 - 4, depth, race, zoo);			
 		}
 		
 	} else {
@@ -4777,16 +4909,29 @@ bool build_pit_moat(struct chunk *c, struct loc centre, int rating)
 			cells_s(c, x1 + 1, x2 - 1, y1 - 1, y1 + 1, SQUARE_WALL_SOLID);
 			cells_n(c, x1 + 1, x2 - 1, y1 + 3, y1 + 5, SQUARE_WALL_INNER);
 			cells_s(c, x1 + 1, x2 - 1, y2 - 5, y2 - 3, SQUARE_WALL_INNER);
+			
+			cells_monsters_xrange(c, y2, x1 + 2, x2 - 2, depth, race, zoo);
+			cells_monsters_xrange(c, y1, x1 + 2, x2 - 2, depth, race, zoo);
+			cells_monsters_xrange(c, y1 + 4, x1 + 2, x2 - 2, depth, race, zoo);
+			cells_monsters_xrange(c, y2 - 4, x1 + 2, x2 - 2, depth, race, zoo);
 		
 		} else {
 			cells_w(c, x1 - 1, x1 + 1, y1 + 1, y2 - 1, SQUARE_WALL_SOLID);
 			cells_e(c, x2 - 1, x2 + 1, y1 + 1, y2 - 1, SQUARE_WALL_SOLID);
 			cells_w(c, x2 - 5, x2 - 3, y1 + 1, y2 - 1, SQUARE_WALL_INNER);
 			cells_e(c, x1 + 3, x1 + 5, y1 + 1, y2 - 1, SQUARE_WALL_INNER);
+			
+			cells_monsters_yrange(c, x1, y1 + 2, y2 - 2, depth, race, zoo);
+			cells_monsters_yrange(c, x2, y1 + 2, y2 - 2, depth, race, zoo);
+			cells_monsters_yrange(c, x2 - 4, y1 + 2, y2 - 2, depth, race, zoo);
+			cells_monsters_yrange(c, x1 + 4, y1 + 2, y2 - 2, depth, race, zoo);
 		}
 		
 	}
 
+	/* Remove our restrictions. */
+	(void) mon_restrict(NULL, c->depth, false);
+	
 	return true;
 }
 

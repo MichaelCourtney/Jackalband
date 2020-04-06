@@ -458,3 +458,20 @@ mon-base:feline
 mon-base:bird
 mon-base:zephyr hound
 mon-base:vortex
+
+name:Zephyr hounds
+room:3
+alloc:8:30
+mon-base:zephyr hound
+
+name:Canines
+room:3
+alloc:8:30
+mon-base:canine
+
+name:Kennels
+room:3
+alloc:1:50
+obj-rarity:10
+flags-req:ANIMAL
+flags-ban:KILL_WALL | PASS_WALL
