@@ -47,7 +47,6 @@ name:Miner
 desc:You can sense ore in the walls.
 
 ## Class player flags
-
 type:player
 code:KNOW_HERB
 name:Herb Lore
@@ -114,9 +113,18 @@ name:Evil
 desc:You resist nether, but are hurt by holy attacks.
 
 type:player
-code:CROWD_FIGHT
-name:Crowd Fighter
-desc:You gains advantage from fighting many monsters at once.
+code:COMBAT_REGEN
+name:Combat Regeneration
+desc:You draw power from the thrill of combat. This power is represented by
+desc: Spell Points (SP). You gain SP in combat when damaged by a monster or
+desc: when you attack in melee. When not in combat you *lose* SP at half the
+desc: rate others gain it, and you gain hitpoints (HP) at only half the normal
+desc: rate. When you spend SP by casting a spell you regain some HP, and
+desc: unspent SP replenish your health even more efficiently. The more damaged
+desc: the character is, the bigger these HP gains will be.
+
+
+# Object flags
 
 type:player
 code:EXTRA_BLOW
@@ -247,6 +255,8 @@ type:object
 code:TRAP_IMMUNE
 name:Trap Immune
 desc:You are immune to traps.
+
+## Element flags
 
 type:element
 name:Resistance
